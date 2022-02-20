@@ -12,7 +12,7 @@
 entry:
     # Set up kernel stack
     leaq bootstacktop(%rip),%rsp
-    xor %ebp, %ebp
+    xor %rbp, %rbp
 
     # Save LoadParams in uefi_lp.
     movq %rcx, uefi_lp(%rip)
