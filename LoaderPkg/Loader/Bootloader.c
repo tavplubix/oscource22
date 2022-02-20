@@ -111,9 +111,49 @@ InitGraphics (
   // Refer to Graphics Output Protocol description in UEFI spec for
   // more details.
   //
-  // Hint: Use GetMode/SetMode functions.
+  // Hint: Use QueryMode/SetMode functions.
   //
 
+
+  UINT32 HorizontalResolutionToSet = 640;
+  UINT32 VerticalResolutionToSet = 480;
+  EFI_GRAPHICS_PIXEL_FORMAT PixelFormatToSet = PixelBlueGreenRedReserved8BitPerColor;
+
+  BOOLEAN Found = FALSE;
+  UINT32 FoundModeIdx;
+
+  for (UINT32 i = 0; i < GraphicsOutput->Mode->MaxMode; i++) {
+    UINTN SizeOfInfo;
+    EFI_GRAPHICS_OUTPUT_MODE_INFORMATION *Info;
+
+    Status = GraphicsOutput->QueryMode(GraphicsOutput, i, &SizeOfInfo, &Info);
+    if (EFI_ERROR (Status)) {
+        DEBUG ((DEBUG_ERROR, "JOS: Failed to get graphics mode info: %r\n", Status));
+        return Status;
+    }
+
+    // DEBUG ((DEBUG_INFO, "JOS: Got graphics mode info: %dx%d, pixel format %d\n",
+    //        Info->HorizontalResolution, Info->VerticalResolution, Info->PixelFormat));
+
+    if (Info->HorizontalResolution == HorizontalResolutionToSet &&
+        Info->VerticalResolution == VerticalResolutionToSet &&
+        Info->PixelFormat == PixelFormatToSet) {
+        FoundModeIdx = i;
+        Found = TRUE;
+    }
+  }
+
+  if (Found == FALSE) {
+      DEBUG ((DEBUG_ERROR, "JOS: Requested graphics mode not found (%dx%d, pixel format %d)\n",
+             HorizontalResolutionToSet, VerticalResolutionToSet, PixelFormatToSet));
+      return Status;
+  }
+
+  Status = GraphicsOutput->SetMode(GraphicsOutput, FoundModeIdx);
+  if (EFI_ERROR (Status)) {
+      DEBUG ((DEBUG_WARN, "JOS: Failed to set graphics mode: %r\n", Status));
+      return Status;
+  }
 
   //
   // Fill screen with black.
@@ -981,7 +1021,7 @@ UefiMain (
   volatile BOOLEAN   Connected;
   DEBUG ((DEBUG_INFO, "JOS: Awaiting debugger connection\n"));
 
-  Connected = FALSE;
+  Connected = TRUE;
   while (!Connected) {
     ;
   }
