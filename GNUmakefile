@@ -139,6 +139,8 @@ CFLAGS += $(shell $(CC) -fno-stack-protector -E -x c /dev/null >/dev/null 2>&1 &
 CFLAGS += $(EXTRA_CFLAGS)
 CFLAGS += -mno-sse -mno-sse2 -mno-mmx
 
+# Set DWARF compilation unit version to 4 
+CFLAGS += -gdwarf-4
 
 ifdef KUBSAN
 

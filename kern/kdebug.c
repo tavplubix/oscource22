@@ -105,11 +105,11 @@ find_function(const char *const fname) {
     uintptr_t offset = 0;
 
     int res = address_by_fname(&addrs, fname, &offset);
-    if (res == 0)
+    if (res == 0 && offset)
         return offset;
 
     res = naive_address_by_fname(&addrs, fname, &offset);
-    if (res == 0)
+    if (res == 0 && offset)
         return offset;
 
     struct Elf64_Sym * symtab = (struct Elf64_Sym *)uefi_lp->SymbolTableStart;
