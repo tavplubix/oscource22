@@ -193,6 +193,20 @@ print_timer_error(void) {
 
 // LAB 5: Your code here:
 
+int find_timer_by_name(const char * name) {
+    int id = -1;
+    for (size_t i = 0; i < MAX_TIMERS; ++i)
+    {
+        if (!timertab[i].timer_name)
+            continue;
+        if (strcmp(timertab[i].timer_name, name) != 0)
+            continue;
+
+        id = i;
+    }
+    return id;
+}
+
 static bool timer_started = 0;
 static int timer_id = -1;
 static uint64_t timer = 0;
@@ -204,12 +218,40 @@ timer_start(const char *name) {
     (void)timer_id;
     (void)timer;
     (void)freq;
+
+    timer_id = find_timer_by_name(name);
+
+    timer_started = 0 <= timer_id;
+
+    if (timer_started) {
+        timer = read_tsc();
+        freq = timertab[timer_id].get_cpu_freq();
+    }
+    else {
+        print_timer_error();
+    }
+
 }
 
 void
 timer_stop(void) {
+    if (timer_started) {
+        uint64_t ticks = read_tsc() - timer;
+        print_time(ticks / freq);
+        timer_id = -1;
+        timer_started = 0;
+    }
+    else {
+        print_timer_error();
+    }
+
 }
 
 void
 timer_cpu_frequency(const char *name) {
+    int id = find_timer_by_name(name);
+    if (0 <= id)
+        cprintf("%lu\n", timertab[id].get_cpu_freq());
+    else
+        print_timer_error();
 }

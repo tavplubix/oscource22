@@ -54,7 +54,7 @@ rtc_timer_pic_interrupt(void) {
     pic_irq_unmask(IRQ_CLOCK);
 }
 
-static void
+void
 rtc_timer_pic_handle(void) {
     rtc_check_status();
     pic_send_eoi(IRQ_CLOCK);

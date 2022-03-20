@@ -37,6 +37,7 @@
 
 void rtc_timer_init(void);
 uint8_t rtc_check_status(void);
+void rtc_timer_pic_handle(void);
 
 #define CMOS_START 0xE /* start of CMOS: offset 14 */
 #define CMOS_SIZE  50 /* 50 bytes of CMOS */

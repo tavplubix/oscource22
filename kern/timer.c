@@ -72,6 +72,77 @@ acpi_enable(void) {
         ;
 }
 
+RSDP *
+get_rsdp() {
+    static RSDP * rsdp = NULL;
+
+    if (rsdp)
+        return rsdp;
+
+    RSDP * maybe_rsdp = (RSDP *)uefi_lp->ACPIRoot;
+    mmio_map_region((physaddr_t)maybe_rsdp, sizeof(RSDP));
+    const char * RSDP_SIGNATURE = "RSD PTR ";
+    const size_t RSDP_SIGNATURE_SIZE = 8;
+    if (memcmp(maybe_rsdp->Signature, RSDP_SIGNATURE, RSDP_SIGNATURE_SIZE) != 0)
+        panic("Incorrect RSDP signature");
+
+    uint8_t checksum = 0;
+    uint8_t * rsdp_bytes = (uint8_t *)maybe_rsdp;
+    for (size_t i = 0; i < sizeof(RSDP); ++i)
+        checksum += rsdp_bytes[i];
+    if (checksum != 0)
+        panic("RSDP checksum is not 0");
+
+    if (maybe_rsdp->Revision != 2)
+        panic("Unsupported RSDP revision");
+
+    rsdp = maybe_rsdp;
+    return rsdp;
+}
+
+static XSDT *
+get_xsdt() {
+    static XSDT * xsdt = NULL;
+
+    if (xsdt)
+        return xsdt;
+
+    RSDP * rsdp = get_rsdp();
+
+    XSDT * maybe_xsdt = (XSDT *)rsdp->XsdtAddress;
+    mmio_map_region((physaddr_t)maybe_xsdt, sizeof(RSDT));
+    size_t total_size = maybe_xsdt->h.Length;
+    mmio_map_region((physaddr_t)maybe_xsdt, total_size);
+
+    uint8_t checksum = 0;
+    for (size_t i = 0; i < total_size; ++i)
+        checksum += ((uint8_t *)maybe_xsdt)[i];
+    if (checksum != 0)
+        panic("XSDT checksum is not 0");
+
+    size_t array_size = total_size - sizeof(ACPISDTHeader);
+    const size_t pointer_to_sdt_size = 8;
+    if (array_size % pointer_to_sdt_size != 0)
+        panic("Unexpected XSDT size");
+
+    size_t num_tables = array_size / pointer_to_sdt_size;
+    for (size_t i = 0; i < num_tables; ++i) {
+        ACPISDTHeader * table = (ACPISDTHeader *)maybe_xsdt->PointerToOtherSDT[i];
+        mmio_map_region((physaddr_t)table, sizeof(ACPISDTHeader));
+        total_size = table->Length;
+        mmio_map_region((physaddr_t)table, total_size);
+
+        checksum = 0;
+        for (size_t i = 0; i < total_size; ++i)
+            checksum += ((uint8_t *)table)[i];
+        if (checksum != 0)
+            panic("*SDT checksum is not 0");
+    }
+
+    xsdt = maybe_xsdt;
+    return xsdt;
+}
+
 static void *
 acpi_find_table(const char *sign) {
     /*
@@ -89,6 +160,20 @@ acpi_find_table(const char *sign) {
 
     // LAB 5: Your code here
 
+    XSDT * xsdt = get_xsdt();
+
+    size_t total_size = xsdt->h.Length;
+    size_t array_size = total_size - sizeof(ACPISDTHeader);
+    const size_t pointer_to_sdt_size = 8;
+    size_t num_tables = array_size / pointer_to_sdt_size;
+
+    for (size_t i = 0; i < num_tables; ++i) {
+        ACPISDTHeader * table = (ACPISDTHeader *)xsdt->PointerToOtherSDT[i];
+        const size_t signature_size = 4;
+        if (strncmp(sign, table->Signature, signature_size) == 0)
+            return table;
+    }
+
     return NULL;
 }
 
@@ -100,7 +185,10 @@ get_fadt(void) {
     // HINT: ACPI table signatures are
     //       not always as their names
 
-    static FADT *kfadt;
+    static FADT *kfadt = NULL;
+
+    if (!kfadt)
+        kfadt = acpi_find_table("FACP");
 
     return kfadt;
 }
@@ -111,7 +199,10 @@ get_hpet(void) {
     // LAB 5: Your code here
     // (use acpi_find_table)
 
-    static HPET *khpet;
+    static HPET *khpet = NULL;
+
+    if (!khpet)
+        khpet = acpi_find_table("HPET");
 
     return khpet;
 }
@@ -204,6 +295,15 @@ hpet_get_main_cnt(void) {
     return hpetReg->MAIN_CNT;
 }
 
+const uint64_t HPET_GEN_CONF_LEG_RT_CNF_FLAG = 1 << 1;
+
+
+const uint64_t HPET_TIMN_CONF_INT_ENB_CNF_FLAG = 1 << 2;
+const uint64_t HPET_TIMN_CONF_TYPE_CNF_FLAG = 1 << 3;
+const uint64_t HPET_TIMN_CONF_VAL_SET_CNF_FLAG = 1 << 6;
+
+const uint64_t HPET_TIMN_CONF_INT_ROUTE_CNF_SHIFT = 9;
+
 /* - Configure HPET timer 0 to trigger every 0.5 seconds on IRQ_TIMER line
  * - Configure HPET timer 1 to trigger every 1.5 seconds on IRQ_CLOCK line
  *
@@ -213,12 +313,29 @@ hpet_get_main_cnt(void) {
 void
 hpet_enable_interrupts_tim0(void) {
     // LAB 5: Your code here
+    uint64_t HPET_TIMN_CONF_FLAGS = HPET_TIMN_CONF_INT_ENB_CNF_FLAG
+                                  | HPET_TIMN_CONF_TYPE_CNF_FLAG
+                                  | HPET_TIMN_CONF_VAL_SET_CNF_FLAG;
 
+    hpetReg->GEN_CONF |= HPET_GEN_CONF_LEG_RT_CNF_FLAG;
+    hpetReg->TIM0_CONF = (IRQ_TIMER << HPET_TIMN_CONF_INT_ROUTE_CNF_SHIFT) | HPET_TIMN_CONF_FLAGS;
+    hpetReg->TIM0_COMP = hpet_get_main_cnt() + hpetFreq / 2;
+    hpetReg->TIM0_COMP = hpetFreq / 2;
+    pic_irq_unmask(IRQ_TIMER);
 }
 
 void
 hpet_enable_interrupts_tim1(void) {
     // LAB 5: Your code here
+    uint64_t HPET_TIMN_CONF_FLAGS = HPET_TIMN_CONF_INT_ENB_CNF_FLAG
+                                  | HPET_TIMN_CONF_TYPE_CNF_FLAG
+                                  | HPET_TIMN_CONF_VAL_SET_CNF_FLAG;
+
+    hpetReg->GEN_CONF |= HPET_GEN_CONF_LEG_RT_CNF_FLAG;
+    hpetReg->TIM0_CONF = (IRQ_CLOCK << HPET_TIMN_CONF_INT_ROUTE_CNF_SHIFT) | HPET_TIMN_CONF_FLAGS;
+    hpetReg->TIM0_COMP = hpet_get_main_cnt() + 3 * hpetFreq / 2;
+    hpetReg->TIM0_COMP = 3 * hpetFreq / 2;
+    pic_irq_unmask(IRQ_CLOCK);
 }
 
 void
@@ -236,9 +353,24 @@ hpet_handle_interrupts_tim1(void) {
  * about pause instruction. */
 uint64_t
 hpet_cpu_frequency(void) {
-    static uint64_t cpu_freq;
+    static uint64_t cpu_freq = 0;
+
+    if (cpu_freq)
+        return cpu_freq;
 
     // LAB 5: Your code here
+
+    uint64_t start_timer_ticks = hpet_get_main_cnt();
+    uint64_t start_cpu_ticks = read_tsc();
+
+    const size_t pause_n = 1000;
+    for (size_t i = 0; i < pause_n; ++i)
+        asm("pause");
+
+    uint64_t timer_ticks = hpet_get_main_cnt() - start_timer_ticks;
+    uint64_t cpu_ticks = read_tsc() - start_cpu_ticks;
+
+    cpu_freq = (hpetFreq * cpu_ticks) / timer_ticks;
 
     return cpu_freq;
 }
@@ -254,9 +386,34 @@ pmtimer_get_timeval(void) {
  *      can be 24-bit or 32-bit. */
 uint64_t
 pmtimer_cpu_frequency(void) {
-    static uint64_t cpu_freq;
+    static uint64_t cpu_freq = 0;
+
+    if (cpu_freq)
+        return cpu_freq;
 
     // LAB 5: Your code here
+
+    uint64_t start_timer_ticks = pmtimer_get_timeval();
+    uint64_t start_cpu_ticks = read_tsc();
+    uint64_t prev_timer_ticks = start_timer_ticks;
+    uint64_t timer_ticks = 0;
+
+    const size_t pause_n = 1000;
+    for (size_t i = 0; i < pause_n; ++i) {
+        asm("pause");
+        uint64_t end_timer_ticks = pmtimer_get_timeval();
+        if (prev_timer_ticks <= end_timer_ticks)
+            timer_ticks += end_timer_ticks - prev_timer_ticks;
+        else if (prev_timer_ticks - end_timer_ticks <= 0x00FFFFFF)
+            timer_ticks += 0x00FFFFFF + end_timer_ticks - prev_timer_ticks;
+        else
+            timer_ticks += 0xFFFFFFFF + end_timer_ticks - prev_timer_ticks;
+        prev_timer_ticks = end_timer_ticks;
+    }
+
+    uint64_t cpu_ticks = read_tsc() - start_cpu_ticks;
+
+    cpu_freq = (PM_FREQ * cpu_ticks) / timer_ticks;
 
     return cpu_freq;
 }

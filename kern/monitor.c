@@ -43,6 +43,9 @@ static struct Command commands[] = {
         {"backtrace", "Print stack backtrace", mon_backtrace},
         {"echo", "Print arguments", mon_echo},
         {"dumpcmos", "Print CMOS contents", mon_dumpcmos},
+        {"timer_start", "Start timer. Supported timer names: hpet0, hpet1, pit, pm", mon_start},
+        {"timer_stop", "Stop timer", mon_stop},
+        {"timer_freq", "Print frequency using provided timer", mon_frequency},
 };
 #define NCOMMANDS (sizeof(commands) / sizeof(commands[0]))
 
@@ -120,6 +123,32 @@ mon_dumpcmos(int argc, char **argv, struct Trapframe *tf) {
 
 /* Implement timer_start (mon_start), timer_stop (mon_stop), timer_freq (mon_frequency) commands. */
 // LAB 5: Your code here:
+
+int
+mon_start(int argc, char **argv, struct Trapframe *tf) {
+    if (argc != 2) {
+        cprintf("Expected one argument: timer name\n");
+        return 0;
+    }
+    timer_start(argv[1]);
+    return 0;
+}
+
+int
+mon_stop(int argc, char **argv, struct Trapframe *tf) {
+    timer_stop();
+    return 0;
+}
+
+int
+mon_frequency(int argc, char **argv, struct Trapframe *tf) {
+    if (argc != 2) {
+        cprintf("Expected one argument: timer name\n");
+        return 0;
+    }
+    timer_cpu_frequency(argv[1]);
+    return 0;
+}
 
 /* Kernel monitor command interpreter */
 
