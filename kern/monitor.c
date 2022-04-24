@@ -48,6 +48,7 @@ static struct Command commands[] = {
         {"timer_start", "Start timer. Supported timer names: hpet0, hpet1, pit, pm", mon_start},
         {"timer_stop", "Stop timer", mon_stop},
         {"timer_freq", "Print frequency using provided timer", mon_frequency},
+        {"memory", "Dump memory pages", mon_memory},
 };
 #define NCOMMANDS (sizeof(commands) / sizeof(commands[0]))
 
@@ -78,21 +79,7 @@ int
 mon_backtrace(int argc, char **argv, struct Trapframe *tf) {
 
     // LAB 2: Your code here
-    cprintf("Stack backtrace:\n");
-
-    uint64_t *rbp = (uint64_t *)read_rbp();
-    while (rbp)
-    {
-        uint64_t rip = rbp[1];
-        cprintf("  rbp %016lx  rip %016lx\n", (uint64_t)rbp, rip);
-
-        struct Ripdebuginfo info;
-        debuginfo_rip(rip, &info);
-        cprintf("    %s:%d: %s+%lu\n", info.rip_file, info.rip_line, info.rip_fn_name, rip - info.rip_fn_addr);
-
-        rbp = (uint64_t *)rbp[0];
-    }
-
+    print_backtrace();
     return 0;
 }
 
@@ -155,6 +142,10 @@ mon_frequency(int argc, char **argv, struct Trapframe *tf) {
  * This command should call dump_memory_lists()
  */
 // LAB 6: Your code here
+int mon_memory(int argc, char **argv, struct Trapframe *tf) {
+    dump_memory_lists();
+    return 0;
+}
 
 /* Kernel monitor command interpreter */
 

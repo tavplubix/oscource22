@@ -207,6 +207,7 @@ _panic(const char *file, int line, const char *fmt, ...) {
     va_end(ap);
 
 dead:
+    print_backtrace();
     /* Break into the kernel monitor */
     for (;;) monitor(NULL);
 }

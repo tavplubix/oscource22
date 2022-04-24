@@ -83,6 +83,10 @@ list_init(struct List *list) {
 inline static void __attribute__((always_inline))
 list_append(struct List *list, struct List *new) {
     // LAB 6: Your code here
+    new->prev = list;
+    new->next = list->next;
+    new->next->prev = new;
+    list->next = new;
 }
 
 /*
@@ -92,7 +96,9 @@ list_append(struct List *list, struct List *new) {
 inline static struct List *__attribute__((always_inline))
 list_del(struct List *list) {
     // LAB 6: Your code here.
-
+    list->prev->next = list->next;
+    list->next->prev = list->prev;
+    list_init(list);
     return list;
 }
 
@@ -173,8 +179,20 @@ alloc_child(struct Page *parent, bool right) {
     assert(parent);
 
     // LAB 6: Your code here
+    assert(0 < parent->class);
+    struct Page *new = alloc_descriptor(parent->state);
+    new->left = new->right = NULL;
+    new->parent = parent;
+    new->refc = parent->refc ? 1 : 0;
+    new->class = parent->class - 1;
 
-    struct Page *new = NULL;
+    if (right) {
+        parent->right = new;
+        new->addr = parent->addr + (CLASS_SIZE(new->class) >> CLASS_BASE);
+    } else {
+        parent->left = new;
+        new->addr = parent->addr;
+    }
 
     return new;
 }
@@ -306,7 +324,7 @@ page_unref(struct Page *page) {
  * each page of this memory region. Try
  * using as huge memory pages as possible.
  *
- * Roughly speaking, this this function
+ * Roughly speaking, this function
  * should first iterate from smallest
  * page size class (0) to MAX_CLASS trying to get
  * aligned address. And then iterate from maximal
@@ -327,6 +345,13 @@ attach_region(uintptr_t start, uintptr_t end, enum PageState type) {
     end = ROUNDUP(end, CLASS_SIZE(0));
 
     // LAB 6: Your code here
+    while (start < end) {
+        class = 0;
+        while (class <= MAX_CLASS && (start & CLASS_MASK(class + 1)) == 0) ++class;
+        while (end < start + CLASS_SIZE(class)) --class;
+        page_lookup(NULL, start, class, type, /* alloc */ 1);
+        start += CLASS_SIZE(class);
+    }
 }
 
 /*
@@ -435,9 +460,26 @@ dump_virtual_tree(struct Page *node, int class) {
 }
 
 void
+dump_memory_lists_impl(struct Page *node) {
+    // LAB 6: Your code here
+    if (!node)
+        return;
+
+    if (node->state == ALLOCATABLE_NODE) {
+        uint64_t start = node->addr << CLASS_BASE;
+        uint64_t size = CLASS_SIZE(node->class);
+        cprintf("%016lx - %016lx (class %d)\n", start, start + size, node->class);
+        return;
+    }
+
+    dump_memory_lists_impl(node->left);
+    dump_memory_lists_impl(node->right);
+}
+
+void
 dump_memory_lists(void) {
     // LAB 6: Your code here
-
+    dump_memory_lists_impl(&root);
 }
 
 /*
@@ -533,11 +575,13 @@ detect_memory(void) {
 
     /* Attach first page as reserved memory */
     // LAB 6: Your code here
+    attach_region(0, PAGE_SIZE, RESERVED_NODE);
 
     /* Attach kernel and old IO memory
      * (from IOPHYSMEM to the physical address of end label. end points the the
      *  end of kernel executable image.)*/
     // LAB 6: Your code here
+    attach_region(IOPHYSMEM, PADDR(end), RESERVED_NODE);
 
     /* Detech memory via ether UEFI or CMOS */
     if (uefi_lp && uefi_lp->MemoryMap) {
@@ -563,7 +607,9 @@ detect_memory(void) {
              * of type type*/
             // LAB 6: Your code here
 
-
+            uint64_t region_start = start->PhysicalStart;
+            uint64_t region_size = EFI_PAGE_SIZE * start->NumberOfPages;
+            attach_region(region_start, region_start + region_size, type);
 
             start = (void *)((uint8_t *)start + uefi_lp->MemoryMapDescriptorSize);
         }

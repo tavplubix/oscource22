@@ -135,3 +135,22 @@ find_function(const char *const fname) {
 
     return 0;
 }
+
+void
+print_backtrace() {
+
+    cprintf("Stack backtrace:\n");
+
+    uint64_t *rbp = (uint64_t *)read_rbp();
+    while (rbp)
+    {
+        uint64_t rip = rbp[1];
+        cprintf("  rbp %016lx  rip %016lx\n", (uint64_t)rbp, rip);
+
+        struct Ripdebuginfo info;
+        debuginfo_rip(rip, &info);
+        cprintf("    %s:%d: %s+%lu\n", info.rip_file, info.rip_line, info.rip_fn_name, rip - info.rip_fn_addr);
+
+        rbp = (uint64_t *)rbp[0];
+    }
+}
