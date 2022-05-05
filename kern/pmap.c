@@ -605,26 +605,16 @@ dump_virtual_tree(struct Page *node, int class) {
 }
 
 void
-dump_memory_lists_impl(struct Page *node) {
-    // LAB 6: Your code here
-    if (!node)
-        return;
-
-    if (node->state == ALLOCATABLE_NODE) {
-        uint64_t start = node->addr << CLASS_BASE;
-        uint64_t size = CLASS_SIZE(node->class);
-        cprintf("%016lx - %016lx (class %d)\n", start, start + size, node->class);
-        return;
-    }
-
-    dump_memory_lists_impl(node->left);
-    dump_memory_lists_impl(node->right);
-}
-
-void
 dump_memory_lists(void) {
     // LAB 6: Your code here
-    dump_memory_lists_impl(&root);
+    struct List *li = NULL;
+    for (int pclass = 0; pclass < MAX_CLASS; pclass++)
+    {
+        for (li = free_classes[pclass].next; li != &free_classes[pclass]; li = li->next) {
+            struct Page *page = (struct Page *)li;
+            cprintf("%016lx - %016llx (class %d)\n", page2pa(page), page2pa(page) + CLASS_MASK(pclass), pclass);
+        }
+    }
 }
 
 /*
