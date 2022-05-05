@@ -31,6 +31,8 @@ int mon_start(int argc, char **argv, struct Trapframe *tf);
 int mon_stop(int argc, char **argv, struct Trapframe *tf);
 int mon_frequency(int argc, char **argv, struct Trapframe *tf);
 int mon_memory(int argc, char **argv, struct Trapframe *tf);
+int mon_alloc_all(int argc, char **argv, struct Trapframe *tf);
+int mon_free_last(int argc, char **argv, struct Trapframe *tf);
 
 struct Command {
     const char *name;
@@ -49,6 +51,8 @@ static struct Command commands[] = {
         {"timer_stop", "Stop timer", mon_stop},
         {"timer_freq", "Print frequency using provided timer", mon_frequency},
         {"memory", "Dump memory pages", mon_memory},
+        {"alloc_all", "test", mon_alloc_all},
+        {"free_last", "test", mon_free_last},
 };
 #define NCOMMANDS (sizeof(commands) / sizeof(commands[0]))
 
@@ -144,6 +148,25 @@ mon_frequency(int argc, char **argv, struct Trapframe *tf) {
 // LAB 6: Your code here
 int mon_memory(int argc, char **argv, struct Trapframe *tf) {
     dump_memory_lists();
+    return 0;
+}
+
+static struct Page * last_allocated = NULL;
+int mon_alloc_all(int argc, char **argv, struct Trapframe *tf) {
+
+    struct Page * p = NULL;
+    while ((p = alloc_page(0, 0))) last_allocated = p;
+    return 0;
+}
+int mon_free_last(int argc, char **argv, struct Trapframe *tf) {
+    if (last_allocated)
+    {
+        page_ref(last_allocated);
+        page_unref(last_allocated);
+        cprintf("freed %016lx\n", page2pa(last_allocated));
+        last_allocated = NULL;
+    }
+
     return 0;
 }
 
