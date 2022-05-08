@@ -81,9 +81,10 @@ get_rsdp() {
         return rsdp;
 
     RSDP * maybe_rsdp = (RSDP *)uefi_lp->ACPIRoot;
-    mmio_map_region((physaddr_t)maybe_rsdp, sizeof(RSDP));
+    maybe_rsdp = mmio_map_region((physaddr_t)maybe_rsdp, sizeof(RSDP));
     const char * RSDP_SIGNATURE = "RSD PTR ";
     const size_t RSDP_SIGNATURE_SIZE = 8;
+    cprintf("WTF rsdp %p %p: %s\n", (void*)(uefi_lp->ACPIRoot), maybe_rsdp, maybe_rsdp->Signature);
     if (memcmp(maybe_rsdp->Signature, RSDP_SIGNATURE, RSDP_SIGNATURE_SIZE) != 0)
         panic("Incorrect RSDP signature");
 
@@ -111,9 +112,9 @@ get_xsdt() {
     RSDP * rsdp = get_rsdp();
 
     XSDT * maybe_xsdt = (XSDT *)rsdp->XsdtAddress;
-    mmio_map_region((physaddr_t)maybe_xsdt, sizeof(RSDT));
+    maybe_xsdt = mmio_map_region((physaddr_t)maybe_xsdt, sizeof(RSDT));
     size_t total_size = maybe_xsdt->h.Length;
-    mmio_map_region((physaddr_t)maybe_xsdt, total_size);
+    maybe_xsdt = mmio_map_region((physaddr_t)maybe_xsdt, total_size);
 
     uint8_t checksum = 0;
     for (size_t i = 0; i < total_size; ++i)
@@ -129,9 +130,9 @@ get_xsdt() {
     size_t num_tables = array_size / pointer_to_sdt_size;
     for (size_t i = 0; i < num_tables; ++i) {
         ACPISDTHeader * table = (ACPISDTHeader *)maybe_xsdt->PointerToOtherSDT[i];
-        mmio_map_region((physaddr_t)table, sizeof(ACPISDTHeader));
+        table = mmio_map_region((physaddr_t)table, sizeof(ACPISDTHeader));
         total_size = table->Length;
-        mmio_map_region((physaddr_t)table, total_size);
+        table = mmio_map_region((physaddr_t)table, total_size);
 
         checksum = 0;
         for (size_t i = 0; i < total_size; ++i)

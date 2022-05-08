@@ -1871,11 +1871,11 @@ init_memory(void) {
     cprintf("WTF 5 4\n");
     KMAPPR(X86ADDR((uintptr_t)__text_start), ROUNDUP(X86ADDR((uintptr_t)__text_end), CLASS_SIZE(0)), PADDR(__text_start), PROT_R | PROT_X);
 
-    cprintf("WTF 5 5\n");
-    KMAPPR(X86ADDR(KERN_STACK_TOP - KERN_STACK_SIZE), KERN_STACK_TOP, PADDR(bootstack), PROT_R | PROT_W);
+    cprintf("WTF 5 5 %p, %p, %p\n", (void *)X86ADDR(KERN_STACK_TOP - KERN_STACK_SIZE), (void *)KERN_STACK_TOP, (void *)PADDR(bootstack));
+    KMAPPR(X86ADDR(KERN_STACK_TOP - KERN_STACK_SIZE), X86ADDR(KERN_STACK_TOP - KERN_STACK_SIZE) + KERN_STACK_SIZE, PADDR(bootstack), PROT_R | PROT_W);
 
     cprintf("WTF 5 6\n");
-    KMAPPR(X86ADDR(KERN_PF_STACK_TOP - KERN_PF_STACK_SIZE), KERN_PF_STACK_TOP, PADDR(pfstack), PROT_R | PROT_W);
+    KMAPPR(X86ADDR(KERN_PF_STACK_TOP - KERN_PF_STACK_SIZE), X86ADDR(KERN_PF_STACK_TOP - KERN_PF_STACK_SIZE) + KERN_PF_STACK_SIZE, PADDR(pfstack), PROT_R | PROT_W);
 
 
     cprintf("WTF6\n");
