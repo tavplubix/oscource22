@@ -12,6 +12,7 @@
 #include <kern/pmap.h>
 #include <kern/traceopt.h>
 #include <kern/trap.h>
+#include <kern/timer.h>
 
 /*
  * Term "page" used here does not
@@ -573,6 +574,8 @@ check_physical_tree(struct Page *page) {
 
 static void
 check_virtual_tree(struct Page *page, int class) {
+
+    //cprintf("WTF vx %p %p\n", (void*)(uefi_lp), (void*)(uefi_lp->ACPIRoot));
     assert(class >= 0);
     assert_virtual(page);
     if ((page->state & NODE_TYPE_MASK) == MAPPING_NODE) {
@@ -594,6 +597,7 @@ check_virtual_tree(struct Page *page, int class) {
         assert(page->right->parent == page);
         check_virtual_tree(page->right, class - 1);
     }
+    //cprintf("WTF vxe %p %p\n", (void*)(uefi_lp), (void*)(uefi_lp->ACPIRoot));
 }
 
 /*
@@ -678,6 +682,9 @@ alloc_pt(pte_t *dst) {
 #ifdef SANITIZE_SHADOW_BASE
         if (current_space) platform_asan_unpoison(KADDR(page2pa(page)), CLASS_SIZE(0));
 #endif
+
+        assert(!(KADDR(page2pa(page)) <= 0x1f942000 && 0x1f942000 <= KADDR(page2pa(page)) + CLASS_MASK(0)));
+        assert(!(KADDR(page2pa(page)) <= 0x99f898 && 0x99f898 <= KADDR(page2pa(page)) + CLASS_SIZE(0)));
         memset(KADDR(page2pa(page)), 0, CLASS_SIZE(0));
     }
     return 0;
@@ -756,6 +763,9 @@ static void
 memcpy_page(struct AddressSpace *dst, uintptr_t va, struct Page *page) {
     assert(current_space);
     assert(dst);
+
+    assert(!(KADDR(page2pa(page)) <= 0x1f942000 && 0x1f942000 <= KADDR(page2pa(page))+ CLASS_MASK(page->class)));
+    assert(!(va <= 0x99f898 && 0x99f898 <= va + CLASS_SIZE(page->class)));
 
     // LAB 7: Your code here
     struct AddressSpace * saved_as = switch_address_space(dst);
@@ -1098,6 +1108,9 @@ found:
 
     assert(page2pa(new) >= PADDR(end) || page2pa(new) + CLASS_MASK(new->class) < IOPHYSMEM);
 
+    assert(page2pa(new) != 0x1f942000);
+    assert(!(page2pa(new) <= 0x1f942000 && 0x1f942000 <= page2pa(new) + CLASS_MASK(new->class)));
+    assert(!(page2pa(new) <= 0x99f898 && 0x99f898 <= page2pa(new) + CLASS_MASK(new->class)));
     return new;
 }
 
@@ -1357,6 +1370,9 @@ do_map_region_one_page(struct AddressSpace *dspace, uintptr_t dst, struct Addres
                 assert(dspace);
                 struct AddressSpace *old = switch_address_space(dspace);
                 set_wp(0);
+
+        assert(!(dst <= 0x1f942000 && 0x1f942000 <= dst+ CLASS_MASK(class)));
+        assert(!(dst <= 0x99f898 && 0x99f898 <= dst + CLASS_SIZE(class)));
                 nosan_memset((void *)dst, flags & ALLOC_ONE ? 0xFF : 0x00, CLASS_SIZE(class));
                 set_wp(1);
                 switch_address_space(old);
@@ -1521,9 +1537,9 @@ detect_memory(void) {
             enum PageState type;
             switch (start->Type) {
             case EFI_LOADER_CODE:
-            case EFI_LOADER_DATA:
+            //case EFI_LOADER_DATA:
             case EFI_BOOT_SERVICES_CODE:
-            case EFI_BOOT_SERVICES_DATA:
+            //case EFI_BOOT_SERVICES_DATA:
             case EFI_CONVENTIONAL_MEMORY:
                 type = start->Attribute & EFI_MEMORY_WB ? ALLOCATABLE_NODE : RESERVED_NODE;
                 break;
@@ -1539,6 +1555,7 @@ detect_memory(void) {
 
             uint64_t region_start = start->PhysicalStart;
             uint64_t region_size = EFI_PAGE_SIZE * start->NumberOfPages;
+            cprintf("ATTACH %p - %p %p %d", (void*) region_start, (void*)region_start+region_size, (void*)type, (start->Type));
             attach_region(region_start, region_start + region_size, type);
 
             start = (void *)((uint8_t *)start + uefi_lp->MemoryMapDescriptorSize);
@@ -1793,7 +1810,8 @@ init_memory(void) {
         cprintf("uefi_lp= %p %p\n", (void *)uefi_lp, (void *)uefi_lp->SelfVirtual);
     }
 
-    cprintf("WTF4\n");
+    LOADER_PARAMS * old_uefi_lp = uefi_lp;
+    cprintf("WTF 4 %p %p %s\n", (void*)(uefi_lp), (void*)(uefi_lp->ACPIRoot), ((RSDP *)(uefi_lp->ACPIRoot))->Signature);
 
     /* Fixup loader params address after mapping it */
     uefi_lp = (LOADER_PARAMS *)uefi_lp->SelfVirtual;
@@ -1810,8 +1828,11 @@ init_memory(void) {
     for (size_t i = 0; i < CLASS_SIZE(MAX_ALLOCATION_CLASS); i++) assert(!zero_page_raw[i]);
 
     cprintf("WTF 4\n");
+
+    cprintf("WTF4lp %p %p %s\n", (void*)(old_uefi_lp), (void*)(old_uefi_lp->ACPIRoot), ((RSDP *)(old_uefi_lp->ACPIRoot))->Signature);
     //dump_page_table(kspace.pml4);
     switch_address_space(&kspace);
+    cprintf("WTF4lp2 %p %p\n", (void*)(uefi_lp), (void*)(uefi_lp->ACPIRoot));
 
     cprintf("WTF 5 0\n");
 
@@ -1837,6 +1858,8 @@ init_memory(void) {
 
     cprintf("WTF 5 2\n");
 
+    cprintf("WTF 5 2 %p %p\n", (void*)(uefi_lp), (void*)(uefi_lp->ACPIRoot));
+
     /* Check uefi memory mappings */
     mstart = (void *)uefi_lp->MemoryMapVirt;
     mend = (void *)((uint8_t *)mstart + uefi_lp->MemoryMapSize);
@@ -1847,6 +1870,8 @@ init_memory(void) {
             assert(*(volatile int *)mstart->VirtualStart == expected);
         }
     }
+
+    cprintf("WTF 5 3 %p %p\n", (void*)(uefi_lp), (void*)(uefi_lp->ACPIRoot));
     /* Map the rest of memory regions after initiallizing shadow memory */
 
     // LAB 7: Your code here
@@ -1862,29 +1887,44 @@ init_memory(void) {
     //     [PADDR(pfstack), PADDR(pfstacktop)] as RW-
 
     cprintf("WTF 5 3\n");
+    cprintf("WTF x %p %p\n", (void*)(uefi_lp), (void*)(uefi_lp->ACPIRoot));
     
     KMAPPR(FRAMEBUFFER, FRAMEBUFFER + uefi_lp->FrameBufferSize, uefi_lp->FrameBufferBase, PROT_R | PROT_W | PROT_WC);
 
     cprintf("WTF 5 3 1\n");
+    cprintf("WTF x %p %p\n", (void*)(uefi_lp), (void*)(uefi_lp->ACPIRoot));
     KMAPPR(X86ADDR(KERN_BASE_ADDR), X86ADDR(KERN_BASE_ADDR) + MIN(MAX_LOW_ADDR_KERN_SIZE, max_memory_map_addr), 0, PROT_R | PROT_W | ALLOC_WEAK);
 
     cprintf("WTF 5 4\n");
+
+    cprintf("WTF x %p %p\n", (void*)(uefi_lp), (void*)(uefi_lp->ACPIRoot));
     KMAPPR(X86ADDR((uintptr_t)__text_start), ROUNDUP(X86ADDR((uintptr_t)__text_end), CLASS_SIZE(0)), PADDR(__text_start), PROT_R | PROT_X);
 
     cprintf("WTF 5 5 %p, %p, %p\n", (void *)X86ADDR(KERN_STACK_TOP - KERN_STACK_SIZE), (void *)KERN_STACK_TOP, (void *)PADDR(bootstack));
+    cprintf("WTF x %p %p\n", (void*)(uefi_lp), (void*)(uefi_lp->ACPIRoot));
     KMAPPR(X86ADDR(KERN_STACK_TOP - KERN_STACK_SIZE), X86ADDR(KERN_STACK_TOP - KERN_STACK_SIZE) + KERN_STACK_SIZE, PADDR(bootstack), PROT_R | PROT_W);
 
     cprintf("WTF 5 6\n");
+    cprintf("WTF x %p %p\n", (void*)(uefi_lp), (void*)(uefi_lp->ACPIRoot));
     KMAPPR(X86ADDR(KERN_PF_STACK_TOP - KERN_PF_STACK_SIZE), X86ADDR(KERN_PF_STACK_TOP - KERN_PF_STACK_SIZE) + KERN_PF_STACK_SIZE, PADDR(pfstack), PROT_R | PROT_W);
 
 
     cprintf("WTF6\n");
+    cprintf("WTF x %p %p\n", (void*)(uefi_lp), (void*)(uefi_lp->ACPIRoot));
 
-    if (trace_memory_more) dump_page_table(kspace.pml4);
+    //if (trace_memory_more) dump_page_table(kspace.pml4);
 
-    check_physical_tree(&root);
+    cprintf("WTF dpt %p %p\n", (void*)(uefi_lp), (void*)(uefi_lp->ACPIRoot));
+    //check_physical_tree(&root);
+    cprintf("WTF pxee %p %p\n", (void*)(uefi_lp), (void*)(uefi_lp->ACPIRoot));
     if (trace_init) cprintf("Physical memory tree is stil correct\n");
 
-    check_virtual_tree(kspace.root, MAX_CLASS);
+    cprintf("WTF pxp %p %p\n", (void*)(uefi_lp), (void*)(uefi_lp->ACPIRoot));
+
+    //check_virtual_tree(kspace.root, MAX_CLASS);
+    cprintf("WTF vxee %p %p\n", (void*)(uefi_lp), (void*)(uefi_lp->ACPIRoot));
     if (trace_init) cprintf("Kernel virutal memory tree is correct\n");
+
+
+    cprintf("WTF x %p %p\n", (void*)(uefi_lp), (void*)(uefi_lp->ACPIRoot));
 }
