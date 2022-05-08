@@ -1844,24 +1844,23 @@ init_memory(void) {
     // LAB 7: Your code here
     // Map [FRAMEBUFFER, FRAMEBUFFER + uefi_lp->FrameBufferSize] to
     //     [uefi_lp->FrameBufferBase, uefi_lp->FrameBufferBase + uefi_lp->FrameBufferSize] RW- + PROT_WC
+    KMAPPR(uefi_lp->FrameBufferBase, uefi_lp->FrameBufferBase + uefi_lp->FrameBufferSize, FRAMEBUFFER, PROT_R | PROT_W | PROT_WC);
+
     // Map [X86ADDR(KERN_BASE_ADDR),MIN(MAX_LOW_ADDR_KERN_SIZE, max_memory_map_addr)] to
     //     [0, MIN(MAX_LOW_ADDR_KERN_SIZE, max_memory_map_addr)] as RW + ALLOC_WEAK
+    KMAPPR(0, X86ADDR(KERN_BASE_ADDR) + MIN(MAX_LOW_ADDR_KERN_SIZE, max_memory_map_addr), X86ADDR(KERN_BASE_ADDR), PROT_R | PROT_W | ALLOC_WEAK);
+
     // Map [X86ADDR((uintptr_t)__text_start),ROUNDUP(X86ADDR((uintptr_t)__text_end), CLASS_SIZE(0))] to
     //     [PADDR(__text_start), ROUNDUP(__text_end, CLASS_SIZE(0))] as R-X
+    KMAPPR(PADDR(__text_start), ROUNDUP(PADDR(__text_end), CLASS_SIZE(0)), X86ADDR((uintptr_t)__text_start), PROT_R | PROT_X);
+
     // Map [X86ADDR(KERN_STACK_TOP - KERN_STACK_SIZE), KERN_STACK_TOP] to
     //     [PADDR(bootstack), PADDR(boottop)] as RW-
+    KMAPPR(PADDR(bootstack), PADDR(bootstacktop), X86ADDR(KERN_STACK_TOP - KERN_STACK_SIZE), PROT_R | PROT_W);
+
     // Map [X86ADDR(KERN_PF_STACK_TOP - KERN_PF_STACK_SIZE), KERN_PF_STACK_TOP] to
     //     [PADDR(pfstack), PADDR(pfstacktop)] as RW-
-    
-    KMAPPR(FRAMEBUFFER, FRAMEBUFFER + uefi_lp->FrameBufferSize, uefi_lp->FrameBufferBase, PROT_R | PROT_W | PROT_WC);
-
-    KMAPPR(X86ADDR(KERN_BASE_ADDR), X86ADDR(KERN_BASE_ADDR) + MIN(MAX_LOW_ADDR_KERN_SIZE, max_memory_map_addr), 0, PROT_R | PROT_W | ALLOC_WEAK);
-
-    KMAPPR(X86ADDR((uintptr_t)__text_start), ROUNDUP(X86ADDR((uintptr_t)__text_end), CLASS_SIZE(0)), PADDR(__text_start), PROT_R | PROT_X);
-    
-    KMAPPR(X86ADDR(KERN_STACK_TOP - KERN_STACK_SIZE), X86ADDR(KERN_STACK_TOP - KERN_STACK_SIZE) + KERN_STACK_SIZE, PADDR(bootstack), PROT_R | PROT_W);
-
-    KMAPPR(X86ADDR(KERN_PF_STACK_TOP - KERN_PF_STACK_SIZE), X86ADDR(KERN_PF_STACK_TOP - KERN_PF_STACK_SIZE) + KERN_PF_STACK_SIZE, PADDR(pfstack), PROT_R | PROT_W);
+    KMAPPR(PADDR(pfstack), PADDR(pfstacktop), X86ADDR(KERN_PF_STACK_TOP - KERN_PF_STACK_SIZE), PROT_R | PROT_W);
 
     if (trace_memory_more) dump_page_table(kspace.pml4);
 
