@@ -12,6 +12,7 @@
 #include <kern/pmap.h>
 #include <kern/traceopt.h>
 #include <kern/trap.h>
+#include <stdint.h>
 
 /*
  * Term "page" used here does not
@@ -1921,7 +1922,22 @@ static uintptr_t user_mem_check_addr;
 int
 user_mem_check(struct Env *env, const void *va, size_t len, int perm) {
     // LAB 8: Your code here
-    return -E_FAULT;
+    if ((void *)MAX_USER_READABLE <= va + len) {
+        user_mem_check_addr = (uintptr_t)va;
+        return -E_FAULT;
+    }
+
+    void * va_page = (void *)ROUNDDOWN(va, PAGE_SIZE);
+    while (va_page < va + len) {
+        struct Page * page = page_lookup_virtual(env->address_space.root, (uintptr_t)va_page, 0, 0);
+        if (!page || !page->phy || ((page->state & perm) != perm)) {
+            user_mem_check_addr = (uintptr_t)va;
+            return -E_FAULT;
+        }
+        va_page += PAGE_SIZE;
+    }
+
+    return 0;
 }
 
 void

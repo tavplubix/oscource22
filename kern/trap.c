@@ -26,9 +26,7 @@ static struct Trapframe *last_tf;
 /* Interrupt descriptor table  (Must be built at run time because
  * shifted function addresses can't be represented in relocation records) */
 struct Gatedesc idt[256] = {{0}};
-struct Pseudodesc idt_pd = {sizeof(idt) - 1, (uint64_t)idt};
-
-extern void (*clock_thdlr)(void);
+struct Pseudodesc idt_pd = {sizeof(idt) - 1, (uint64_t)idt};    
 
 /* Global descriptor table.
  *
@@ -123,6 +121,8 @@ trap_init(void) {
     extern void (*pgflt_thdlr)(void);
     extern void (*fperr_thdlr)(void);
 
+    extern void (*syscall_thdlr)(void);
+
     extern void (*timer_thdlr)(void);
     extern void (*clock_thdlr)(void);
 
@@ -140,6 +140,8 @@ trap_init(void) {
     idt[T_GPFLT]  = GATE(0, GD_KT, (uintptr_t)(&gpflt_thdlr), 0);
     idt[T_PGFLT]  = GATE(0, GD_KT, (uintptr_t)(&pgflt_thdlr), 0);
     idt[T_FPERR]  = GATE(0, GD_KT, (uintptr_t)(&fperr_thdlr), 0);
+
+    idt[T_SYSCALL]  = GATE(0, GD_KT, (uintptr_t)(&syscall_thdlr), 0);
 
     idt[IRQ_OFFSET + IRQ_TIMER]  = GATE(0, GD_KT, (uintptr_t)(&timer_thdlr), 0);
     idt[IRQ_OFFSET + IRQ_CLOCK]  = GATE(0, GD_KT, (uintptr_t)(&clock_thdlr), 0);
@@ -270,6 +272,7 @@ trap_dispatch(struct Trapframe *tf) {
         return;
     case T_BRKPT:
         // LAB 8: Your code here
+        monitor(tf);
         return;
     case IRQ_OFFSET + IRQ_SPURIOUS:
         /* Handle spurious interrupts
