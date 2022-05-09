@@ -93,16 +93,21 @@ env_init(void) {
     /* Allocate envs array with kzalloc_region
      * (don't forget about rounding) */
     // LAB 8: Your code here
+    size_t envs_size = NENV * sizeof(struct Env);
+    envs = kzalloc_region(envs_size);
+    memset(envs, 0, envs_size);
 
     /* Map envs to UENVS read-only,
      * but user-accessible (with PROT_USER_ set) */
     // LAB 8: Your code here
 
+    assert(envs_size <= UENVS_SIZE);
+    if (map_region(current_space, (uintptr_t)UENVS, &kspace, (uintptr_t)envs, (size_t)UENVS_SIZE, PROT_R | PROT_USER_))
+        panic("Failed to map region %p to %p", (void *)envs, (void *)UENVS);
+
     /* Set up envs array */
 
     // LAB 3: Your code here
-
-    memset(envs, 0, sizeof(struct Env) * NENV);
 
     env_free_list = envs;
     for (size_t i = 0; i < NENV; ++i)
@@ -337,6 +342,8 @@ load_icode(struct Env *env, uint8_t *binary, size_t size) {
 
     struct Proghdr * ph = (struct Proghdr *)(binary + elf->e_phoff);
 
+    switch_address_space(&env->address_space);
+
     for (size_t i = 0; i < elf->e_phnum; i++) {
         if (ph[i].p_type != ELF_PROG_LOAD)
             continue;
@@ -346,17 +353,39 @@ load_icode(struct Env *env, uint8_t *binary, size_t size) {
         void * data_to_copy = binary + ph[i].p_offset;
         size_t bytes_to_copy = ph[i].p_filesz;
 
-        memcpy(segm_addr, data_to_copy, bytes_to_copy);
-
-        void * remaining = segm_addr + bytes_to_copy;
-        if (ph->p_memsz < ph->p_filesz) {
-            cprintf("load_icode: invalid binary: p_memsz < p_filesz (%lu < %lu) for ph number %lu\n", ph->p_memsz, ph->p_filesz, i);
+        if (segm_size < bytes_to_copy) {
+            cprintf("load_icode: invalid binary: p_memsz < p_filesz (%lu < %lu) for ph number %lu\n", segm_size, bytes_to_copy, i);
+            switch_address_space(&kspace);
             return -E_INVALID_EXE;
         }
-        size_t remaining_bytes = segm_size - bytes_to_copy;
-        memset(remaining, 0, remaining_bytes);
+
+        void * segm_page_addr = ROUNDDOWN(segm_addr, PAGE_SIZE);
+        size_t segm_page_size = ROUNDUP(segm_size, PAGE_SIZE);
+        cprintf("will mmap %lu bytes at %p for ph number %lu\n", segm_page_size, segm_page_addr, i);
+        if (map_region(&env->address_space, (uintptr_t)segm_page_addr, NULL, 0, segm_page_size, PROT_RWX | PROT_USER_ | ALLOC_ZERO)) {
+            cprintf("load_icode: failed to mmap %lu bytes at %p for ph number %lu\n", segm_page_size, segm_page_addr, i);
+            switch_address_space(&kspace);
+            return -E_INVALID_EXE;
+        }
+
+        memcpy(segm_addr, data_to_copy, bytes_to_copy);
+
+        //void * remaining = segm_addr + bytes_to_copy;
+        //size_t remaining_bytes = segm_size - bytes_to_copy;
+        //memset(remaining, 0, remaining_bytes);
 
     }
+
+    void * stack_beg = (void *)(USER_STACK_TOP - USER_STACK_SIZE);
+        cprintf("will mmap %llu bytes at %p for stack\n", USER_STACK_SIZE, stack_beg);
+    if (map_region(&env->address_space, (uintptr_t)stack_beg, NULL, 0, USER_STACK_SIZE + PAGE_SIZE, PROT_RWX | PROT_USER_ | ALLOC_ZERO)) {
+        cprintf("load_icode: failed to mmap %llu bytes at %p for stack\n", USER_STACK_SIZE, stack_beg);
+        switch_address_space(&kspace);
+        return -E_INVALID_EXE;
+    }
+
+    //memset(stack_beg, 0, USER_STACK_SIZE + PAGE_SIZE);
+    switch_address_space(&kspace);
 
     env->env_tf.tf_rip = elf->e_entry;
 
@@ -383,6 +412,7 @@ env_create(uint8_t *binary, size_t size, enum EnvType type) {
     if (status)
         panic("env_create: cannot allocate env: %i", status);
 
+    new_env->binary = binary;
     status = load_icode(new_env, binary, size);
     if (status)
         panic("env_create: cannot load binary: %i", status);
@@ -432,7 +462,7 @@ env_destroy(struct Env *env) {
     sched_yield();
 
     // LAB 8: Your code here (set in_page_fault = 0)
-
+    in_page_fault = 0;
 }
 
 #ifdef CONFIG_KSPACE
@@ -526,10 +556,9 @@ env_run(struct Env *env) {
     curenv->env_status = ENV_RUNNING;
     ++curenv->env_runs;
 
-    env_pop_tf(&curenv->env_tf);
-
     // LAB 8: Your code here
-
+    switch_address_space(&env->address_space);
+    env_pop_tf(&curenv->env_tf);
 
     while(1) {}
 }

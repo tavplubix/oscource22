@@ -1,3 +1,4 @@
+#include "kdebug.h"
 #include <inc/mmu.h>
 #include <inc/x86.h>
 #include <inc/assert.h>
@@ -101,12 +102,48 @@ void
 trap_init(void) {
     // LAB 4: Your code here
 
-    idt[IRQ_OFFSET + IRQ_CLOCK] = GATE(0, GD_KT, (uintptr_t)(&clock_thdlr), 0);
+    //idt[IRQ_OFFSET + IRQ_CLOCK] = GATE(0, GD_KT, (uintptr_t)(&clock_thdlr), 0);
 
     // LAB 5: Your code here
 
     /* Insert trap handlers into IDT */
     // LAB 8: Your code here
+    extern void (*divide_thdlr)(void);
+    extern void (*debug_thdlr)(void);
+    extern void (*nmi_thdlr)(void);
+    extern void (*brkpt_thdlr)(void);
+    extern void (*oflow_thdlr)(void);
+    extern void (*bound_thdlr)(void);
+    extern void (*illop_thdlr)(void);
+    extern void (*device_thdlr)(void);
+    extern void (*tss_thdlr)(void);
+    extern void (*segnp_thdlr)(void);
+    extern void (*stack_thdlr)(void);
+    extern void (*gpflt_thdlr)(void);
+    extern void (*pgflt_thdlr)(void);
+    extern void (*fperr_thdlr)(void);
+
+    extern void (*timer_thdlr)(void);
+    extern void (*clock_thdlr)(void);
+
+    idt[T_DIVIDE] = GATE(0, GD_KT, (uintptr_t)(&divide_thdlr), 0);
+    idt[T_DEBUG]  = GATE(0, GD_KT, (uintptr_t)(&debug_thdlr), 0);
+    idt[T_NMI]    = GATE(0, GD_KT, (uintptr_t)(&nmi_thdlr), 0);
+    idt[T_BRKPT]  = GATE(0, GD_KT, (uintptr_t)(&brkpt_thdlr), 3);
+    idt[T_OFLOW]  = GATE(0, GD_KT, (uintptr_t)(&oflow_thdlr), 0);
+    idt[T_BOUND]  = GATE(0, GD_KT, (uintptr_t)(&bound_thdlr), 0);
+    idt[T_ILLOP]  = GATE(0, GD_KT, (uintptr_t)(&illop_thdlr), 0);
+    idt[T_DEVICE] = GATE(0, GD_KT, (uintptr_t)(&device_thdlr), 0);
+    idt[T_TSS]    = GATE(0, GD_KT, (uintptr_t)(&tss_thdlr), 0);
+    idt[T_SEGNP]  = GATE(0, GD_KT, (uintptr_t)(&segnp_thdlr), 0);
+    idt[T_STACK]  = GATE(0, GD_KT, (uintptr_t)(&stack_thdlr), 0);
+    idt[T_GPFLT]  = GATE(0, GD_KT, (uintptr_t)(&gpflt_thdlr), 0);
+    idt[T_PGFLT]  = GATE(0, GD_KT, (uintptr_t)(&pgflt_thdlr), 0);
+    idt[T_FPERR]  = GATE(0, GD_KT, (uintptr_t)(&fperr_thdlr), 0);
+
+    idt[IRQ_OFFSET + IRQ_TIMER]  = GATE(0, GD_KT, (uintptr_t)(&timer_thdlr), 0);
+    idt[IRQ_OFFSET + IRQ_CLOCK]  = GATE(0, GD_KT, (uintptr_t)(&clock_thdlr), 0);
+
 
     /* Setup #PF handler dedicated stack
      * It should be switched on #PF because
@@ -165,6 +202,7 @@ trap_init_percpu(void) {
 
 void
 print_trapframe(struct Trapframe *tf) {
+    //print_backtrace();
     cprintf("TRAP frame at %p\n", tf);
     print_regs(&tf->tf_regs);
     cprintf("  es   0x----%04x\n", tf->tf_es);

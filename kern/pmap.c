@@ -1205,6 +1205,7 @@ alloc_composite_page(struct AddressSpace *spc, uintptr_t addr, int class, int fl
 
 int
 force_alloc_page(struct AddressSpace *spc, uintptr_t va, int maxclass) {
+
     int res = -E_FAULT;
     /* FIXME We need to propagate kernel PML4E
      * changes to every AddressSpace or just use KPTI
@@ -1498,16 +1499,25 @@ init_address_space(struct AddressSpace *space) {
     /* Allocte page table with alloc_pt into space->cr3
      * (remember to clean flag bits of result with PTE_ADDR) */
     // LAB 8: Your code here
+    pte_t pte = 0;
+    if (alloc_pt(&pte))
+        return -1;
+
+    pte = PTE_ADDR(pte);
+    space->cr3 = pte;
 
     /* put its kernel virtual address to space->pml4 */
     // LAB 8: Your code here
+    space->pml4 = KADDR(pte);
 
     // Allocate virtual tree root node
     // of type INTERMEDIATE_NODE with alloc_rescriptor() of type
     // LAB 8: Your code here
+    space->root = alloc_descriptor(INTERMEDIATE_NODE);
 
     /* Initialize UVPT */
     // LAB 8: Your code here
+    space->pml4[PML4_INDEX(UVPT)] = space->cr3 | PTE_P | PTE_U;
 
     /* Why this call is required here and what does it do? */
     propagate_one_pml4(space, &kspace);
