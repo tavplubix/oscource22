@@ -44,7 +44,6 @@ sys_cgetc(void) {
 static envid_t
 sys_getenvid(void) {
     // LAB 8: Your code here
-
     return curenv->env_id;
 }
 

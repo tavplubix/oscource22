@@ -9,6 +9,7 @@
 #include <kern/pmap.h>
 #include <kern/env.h>
 #include <inc/uefi.h>
+#include <stdint.h>
 
 void
 load_kernel_dwarf_info(struct Dwarf_Addrs *addrs) {
@@ -50,11 +51,26 @@ load_user_dwarf_info(struct Dwarf_Addrs *addrs) {
             {&addrs->pubtypes_end, &addrs->pubtypes_begin, ".debug_pubtypes"},
     };
     (void)sections;
+    size_t NUM_SECTIONS = 7;
 
     memset(addrs, 0, sizeof(*addrs));
 
     /* Load debug sections from curenv->binary elf image */
     // LAB 8: Your code here
+    struct Elf * elf = (struct Elf *)binary;
+    struct Secthdr * secthdr = (void *)binary + elf->e_shoff;
+    char * shstr = (void *)binary + secthdr[elf->e_shstrndx].sh_offset;
+
+    for (size_t i = 0; i < elf->e_shnum; ++i) {
+        for (size_t j = 0; j < NUM_SECTIONS; ++j) {
+            if (strcmp(shstr + secthdr[i].sh_name, sections[j].name))
+                continue;
+
+            uint8_t * start = binary + secthdr[i].sh_offset;
+            *(sections[j].start) = start;
+            *(sections[j].end) = start + secthdr[i].sh_size;
+        }
+    }
 }
 
 #define UNKNOWN       "<unknown>"
@@ -82,6 +98,7 @@ debuginfo_rip(uintptr_t addr, struct Ripdebuginfo *info) {
     /* Temporarily load kernel cr3 and return back once done.
     * Make sure that you fully understand why it is necessary. */
     // LAB 8: Your code here
+    struct AddressSpace * old_space = switch_address_space(&kspace);
 
     /* Load dwarf section pointers from either
      * currently running program binary or use
@@ -89,9 +106,11 @@ debuginfo_rip(uintptr_t addr, struct Ripdebuginfo *info) {
      * depending on whether addr is pointing to userspace
      * or kernel space */
     // LAB 8: Your code here:
-
     struct Dwarf_Addrs addrs;
-    load_kernel_dwarf_info(&addrs);
+    if (addr < MAX_USER_READABLE)
+        load_user_dwarf_info(&addrs);
+    else
+        load_kernel_dwarf_info(&addrs);
 
     Dwarf_Off offset = 0, line_offset = 0;
     int res = info_by_address(&addrs, addr, &offset);
@@ -127,6 +146,7 @@ debuginfo_rip(uintptr_t addr, struct Ripdebuginfo *info) {
     info->rip_fn_name[info->rip_fn_namelen] = 0;
 
 error:
+    switch_address_space(old_space);
     return res;
 }
 

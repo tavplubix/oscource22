@@ -141,7 +141,7 @@ trap_init(void) {
     idt[T_PGFLT]  = GATE(0, GD_KT, (uintptr_t)(&pgflt_thdlr), 0);
     idt[T_FPERR]  = GATE(0, GD_KT, (uintptr_t)(&fperr_thdlr), 0);
 
-    idt[T_SYSCALL]  = GATE(0, GD_KT, (uintptr_t)(&syscall_thdlr), 0);
+    idt[T_SYSCALL]  = GATE(0, GD_KT, (uintptr_t)(&syscall_thdlr), 3);
 
     idt[IRQ_OFFSET + IRQ_TIMER]  = GATE(0, GD_KT, (uintptr_t)(&timer_thdlr), 0);
     idt[IRQ_OFFSET + IRQ_CLOCK]  = GATE(0, GD_KT, (uintptr_t)(&clock_thdlr), 0);
