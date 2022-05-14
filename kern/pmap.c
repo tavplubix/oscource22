@@ -12,6 +12,7 @@
 #include <kern/pmap.h>
 #include <kern/traceopt.h>
 #include <kern/trap.h>
+#include <stdint.h>
 
 /*
  * Term "page" used here does not
@@ -1205,6 +1206,7 @@ alloc_composite_page(struct AddressSpace *spc, uintptr_t addr, int class, int fl
 
 int
 force_alloc_page(struct AddressSpace *spc, uintptr_t va, int maxclass) {
+
     int res = -E_FAULT;
     /* FIXME We need to propagate kernel PML4E
      * changes to every AddressSpace or just use KPTI
@@ -1498,16 +1500,25 @@ init_address_space(struct AddressSpace *space) {
     /* Allocte page table with alloc_pt into space->cr3
      * (remember to clean flag bits of result with PTE_ADDR) */
     // LAB 8: Your code here
+    pte_t pte = 0;
+    if (alloc_pt(&pte))
+        return -1;
+
+    pte = PTE_ADDR(pte);
+    space->cr3 = pte;
 
     /* put its kernel virtual address to space->pml4 */
     // LAB 8: Your code here
+    space->pml4 = KADDR(pte);
 
     // Allocate virtual tree root node
     // of type INTERMEDIATE_NODE with alloc_rescriptor() of type
     // LAB 8: Your code here
+    space->root = alloc_descriptor(INTERMEDIATE_NODE);
 
     /* Initialize UVPT */
     // LAB 8: Your code here
+    space->pml4[PML4_INDEX(UVPT)] = space->cr3 | PTE_P | PTE_U;
 
     /* Why this call is required here and what does it do? */
     propagate_one_pml4(space, &kspace);
@@ -1911,7 +1922,22 @@ static uintptr_t user_mem_check_addr;
 int
 user_mem_check(struct Env *env, const void *va, size_t len, int perm) {
     // LAB 8: Your code here
-    return -E_FAULT;
+    if ((void *)MAX_USER_READABLE <= va + len) {
+        user_mem_check_addr = (uintptr_t)va;
+        return -E_FAULT;
+    }
+
+    void * va_page = (void *)ROUNDDOWN(va, PAGE_SIZE);
+    while (va_page < va + len) {
+        struct Page * page = page_lookup_virtual(env->address_space.root, (uintptr_t)va_page, 0, 0);
+        if (!page || !page->phy || ((page->state & perm) != perm)) {
+            user_mem_check_addr = (uintptr_t)va;
+            return -E_FAULT;
+        }
+        va_page += PAGE_SIZE;
+    }
+
+    return 0;
 }
 
 void

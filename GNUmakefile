@@ -139,8 +139,9 @@ CFLAGS += $(shell $(CC) -fno-stack-protector -E -x c /dev/null >/dev/null 2>&1 &
 CFLAGS += $(EXTRA_CFLAGS)
 CFLAGS += -mno-sse -mno-sse2 -mno-mmx
 
-# Set DWARF compilation unit version to 4 
-CFLAGS += -gdwarf-4
+# Set DWARF compilation unit version to 4 (5 is not supported in JOS)
+# Disable PIE, because LLD 13 generated wierd offsets for function calls in user programs
+CFLAGS += -gdwarf-4 -fno-pie
 
 KERN_SAN_CFLAGS :=
 KERN_SAN_LDFLAGS :=
