@@ -23,7 +23,7 @@ sys_cputs(const char *s, size_t len) {
 
     /* Check that the user has permission to read memory [s, s+len).
     * Destroy the environment if not. */
-    user_mem_assert(curenv, s, len, PTE_U);
+    user_mem_assert(curenv, s, len, PROT_R | PROT_USER_);
 
     for (size_t i = 0; i < len; ++i)
         cputchar(s[i]);

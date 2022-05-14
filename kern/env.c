@@ -558,7 +558,7 @@ env_run(struct Env *env) {
 
     // LAB 8: Your code here
     switch_address_space(&env->address_space);
-    env_pop_tf(&curenv->env_tf);
+   env_pop_tf(&curenv->env_tf);
 
     while(1) {}
 }
