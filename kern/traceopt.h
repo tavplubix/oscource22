@@ -14,7 +14,7 @@
 #ifndef trace_memory
 /* TIP: set this to (!!curenv)
  *      to enable logging after initiallization */
-#define trace_memory 1
+#define trace_memory 0
 #endif
 
 #ifndef trace_memory_more

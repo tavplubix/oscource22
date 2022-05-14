@@ -252,8 +252,8 @@ sys_map_region(envid_t srcenvid, uintptr_t srcva,
     //if (perm & ~PROT_ALL)
     //    return -E_INVAL;
 
-    if (!((perm & ALLOC_ONE) || (perm & ALLOC_ZERO)))
-        perm &= ALLOC_ONE;
+    if ((perm & ALLOC_ONE) || (perm & ALLOC_ZERO))
+        return -E_INVAL;
 
     if (map_region(&dstenv->address_space, dstva, &srcenv->address_space, srcva, size, perm | PROT_USER_))
         return -E_NO_MEM;
