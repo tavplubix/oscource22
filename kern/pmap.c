@@ -507,6 +507,7 @@ prot2pte(int flags) {
  */
 inline static void
 dump_entry(pte_t base, size_t step, bool isz) {
+    return;
     cprintf("%s[%08llX, %08llX] %c%c%c%c%c -- step=%zx\n",
             step == 4 * KB ? " >    >    >    >" :
             step == 2 * MB ? " >    >    >" :

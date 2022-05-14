@@ -30,10 +30,13 @@ dumbfork(void) {
      * so that the child will appear to have called sys_exofork() too -
      * except that in the child, this "fake" call to sys_exofork()
      * will return 0 instead of the envid of the child. */
+     cprintf("WTF1\n");
     envid = sys_exofork();
     if (envid < 0)
         panic("sys_exofork: %i", envid);
+     cprintf("WTF2\n");
     if (envid == 0) {
+     cprintf("WTF3\n");
         /* We're the child.
          * The copied value of the global variable 'thisenv'
          * is no longer valid (it refers to the parent!).
@@ -42,13 +45,20 @@ dumbfork(void) {
         return 0;
     }
 
+     cprintf("WTF4\n");
+
     /* We're the parent.
      * Eagerly lazily copy our entire address space into the child. */
     sys_map_region(0, NULL, envid, NULL, MAX_USER_ADDRESS, PROT_ALL | PROT_LAZY | PROT_COMBINE);
 
+     cprintf("WTF5\n");
+
     /* Start the child environment running */
     if ((r = sys_env_set_status(envid, ENV_RUNNABLE)) < 0)
         panic("sys_env_set_status: %i", r);
+
+
+     cprintf("WTF6\n");
 
     return envid;
 }
