@@ -226,15 +226,15 @@ sys_alloc_region(envid_t envid, uintptr_t addr, size_t size, int perm) {
  *  -E_NO_MEM if there's no memory to allocate any necessary page tables. */
 
 static int
-sys_map_region(envid_t srcenvid, uintptr_t srcva,
-               envid_t dstenvid, uintptr_t dstva, size_t size, int perm) {
+sys_map_region_impl(envid_t srcenvid, uintptr_t srcva,
+               envid_t dstenvid, uintptr_t dstva, size_t size, int perm, bool check) {
     // LAB 9: Your code here
     struct Env * srcenv = NULL;
-    if (envid2env(srcenvid, &srcenv, true))
+    if (envid2env(srcenvid, &srcenv, check))
         return -E_BAD_ENV;
 
     struct Env * dstenv = NULL;
-    if (envid2env(dstenvid, &dstenv, true))
+    if (envid2env(dstenvid, &dstenv, check))
         return -E_BAD_ENV;
 
     if (srcva >= MAX_USER_ADDRESS)
@@ -261,6 +261,12 @@ sys_map_region(envid_t srcenvid, uintptr_t srcva,
     return 0;
 }
 
+static int
+sys_map_region(envid_t srcenvid, uintptr_t srcva,
+               envid_t dstenvid, uintptr_t dstva, size_t size, int perm) {
+    return sys_map_region_impl(srcenvid, srcva, dstenvid, dstva, size, perm, true);
+}
+
 /* Unmap the region of memory at 'va' in the address space of 'envid'.
  * If no page is mapped, the function silently succeeds.
  *
@@ -273,7 +279,7 @@ sys_unmap_region(envid_t envid, uintptr_t va, size_t size) {
     /* Hint: This function is a wrapper around unmap_region(). */
 
     // LAB 9: Your code here
-        struct Env * env = NULL;
+    struct Env * env = NULL;
     if (envid2env(envid, &env, true))
         return -E_BAD_ENV;
 
@@ -332,6 +338,29 @@ sys_unmap_region(envid_t envid, uintptr_t va, size_t size) {
 static int
 sys_ipc_try_send(envid_t envid, uint32_t value, uintptr_t srcva, size_t size, int perm) {
     // LAB 9: Your code here
+    struct Env * env = NULL;
+    if (envid2env(envid, &env, false))
+        return -E_BAD_ENV;
+
+    if (!env->env_ipc_recving)
+        return -E_IPC_NOT_RECV;
+
+    if (srcva < MAX_USER_ADDRESS) {
+        int res = sys_map_region_impl(0, srcva, envid, env->env_ipc_dstva, size, perm, false);
+        if (res < 0)
+            return res;
+        
+        env->env_ipc_perm = perm;
+        env->env_ipc_maxsz = MIN(size, env->env_ipc_maxsz);
+    } else {
+        env->env_ipc_perm = 0;
+    }
+
+    env->env_ipc_recving = 0;
+    env->env_ipc_from = sys_getenvid();
+    env->env_ipc_value = value;
+    env->env_status = ENV_RUNNABLE;
+    
     return 0;
 }
 
@@ -352,6 +381,25 @@ sys_ipc_try_send(envid_t envid, uint32_t value, uintptr_t srcva, size_t size, in
 static int
 sys_ipc_recv(uintptr_t dstva, uintptr_t maxsize) {
     // LAB 9: Your code here
+    if (maxsize & CLASS_MASK(0))
+        return -E_INVAL;
+
+    if (dstva < MAX_USER_ADDRESS)
+    {
+        if (dstva & CLASS_MASK(0))
+            return -E_INVAL;
+ 
+        if (maxsize == 0)
+            return -E_INVAL;
+        
+        curenv->env_ipc_dstva = dstva;
+        curenv->env_ipc_maxsz = maxsize;
+    }
+
+    curenv->env_ipc_recving = 1;
+    curenv->env_status = ENV_NOT_RUNNABLE;
+    curenv->env_tf.tf_regs.reg_rax = 0;
+    sched_yield();
     return 0;
 }
 

@@ -38,7 +38,7 @@ fork(void) {
     if (sys_env_set_status(child_id, ENV_RUNNABLE))
         return -1;
 
-    return 0;
+    return child_id;
 }
 
 envid_t

@@ -444,12 +444,6 @@ page_fault_handler(struct Trapframe *tf) {
 
     cprintf("page_fault_handler: user fault va=%p ip=%p\n", (void *)cr2, (void *)tf->tf_rip);
 
-    if (!curenv->env_pgfault_upcall) {
-        cprintf("WTF 10\n");
-        env_destroy(curenv);
-        panic("page_fault_handler: env_pgfault_upcall is not set");
-    }
-
     cprintf("WTF 15\n");
 
     /* Force allocation of exception stack page to prevent memcpy from
@@ -470,6 +464,12 @@ page_fault_handler(struct Trapframe *tf) {
         ue_rsp = USER_EXCEPTION_STACK_TOP - sizeof(struct UTrapframe);
 
     user_mem_assert(curenv, (void *)ue_rsp, sizeof(struct UTrapframe), PROT_W);
+
+    if (!curenv->env_pgfault_upcall) {
+        cprintf("WTF 10\n");
+        env_destroy(curenv);
+        panic("page_fault_handler: env_pgfault_upcall is not set");
+    }
 
     /* Build local copy of UTrapframe */
     // LAB 9: Your code here:

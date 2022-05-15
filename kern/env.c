@@ -459,11 +459,9 @@ env_destroy(struct Env *env) {
      * it traps to the kernel. */
 
     // LAB 3: Your code here
-    if (curenv != env)
-        panic("env_destroy: got unexpected entry %lu, current is %lu", env - envs, curenv - envs);
-
     env_free(env);
-    sched_yield();
+    if (curenv == env)
+        sched_yield();
 
     // LAB 8: Your code here (set in_page_fault = 0)
     in_page_fault = 0;
