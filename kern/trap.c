@@ -1,3 +1,4 @@
+#include "env.h"
 #include "kdebug.h"
 #include <inc/mmu.h>
 #include <inc/x86.h>
@@ -15,6 +16,7 @@
 #include <kern/picirq.h>
 #include <kern/timer.h>
 #include <kern/traceopt.h>
+#include <stdint.h>
 
 static struct Taskstate ts;
 
@@ -272,6 +274,7 @@ trap_dispatch(struct Trapframe *tf) {
     case T_PGFLT:
         /* Handle processor exceptions. */
         // LAB 9: Your code here.
+        page_fault_handler(tf);
         return;
     case T_BRKPT:
         // LAB 8: Your code here
@@ -439,23 +442,53 @@ page_fault_handler(struct Trapframe *tf) {
     static_assert(UTRAP_RIP == offsetof(struct UTrapframe, utf_rip), "UTRAP_RIP should be equal to RIP offset");
     static_assert(UTRAP_RSP == offsetof(struct UTrapframe, utf_rsp), "UTRAP_RSP should be equal to RSP offset");
 
+    cprintf("page_fault_handler: user fault va=%p ip=%p\n", (void *)cr2, (void *)tf->tf_rip);
 
     /* Force allocation of exception stack page to prevent memcpy from
      * causing pagefault during another pagefault */
     // LAB 9: Your code here:
+    uintptr_t ues_beg = USER_EXCEPTION_STACK_TOP - PAGE_SIZE;
+    uintptr_t ues_end = USER_EXCEPTION_STACK_TOP;
+    force_alloc_page(&curenv->address_space, ues_beg, 1);
 
     /* Assert existance of exception stack using user mem assert */
     // LAB 9: Your code here:
+    uintptr_t ue_rsp;
+    if (ues_beg < tf->tf_rsp && tf->tf_rsp < ues_end)
+        ue_rsp = tf->tf_rsp - sizeof(uintptr_t) - sizeof(struct UTrapframe);
+    else
+        ue_rsp = USER_EXCEPTION_STACK_TOP - sizeof(struct UTrapframe);
+
+    user_mem_assert(curenv, (void *)ue_rsp, sizeof(struct UTrapframe), PROT_W);
+
+    if (!curenv->env_pgfault_upcall) {
+        env_destroy(curenv);
+        panic("page_fault_handler: env_pgfault_upcall is not set");
+    }
 
     /* Build local copy of UTrapframe */
     // LAB 9: Your code here:
+    struct UTrapframe utf;
+    utf.utf_fault_va = cr2;
+    utf.utf_err = tf->tf_err;
+    utf.utf_regs = tf->tf_regs;
+    utf.utf_rflags = tf->tf_rflags;
+    utf.utf_rsp = tf->tf_rsp;
+    utf.utf_rip = tf->tf_rip;
+
+    tf->tf_rsp = ue_rsp;
+    tf->tf_rip = (uintptr_t)curenv->env_pgfault_upcall;
 
     /* And then copy it userspace (nosan_memcpy) */
     // LAB 9: Your code here:
+    as_memcpy(&curenv->address_space, ue_rsp, (uintptr_t)&utf, sizeof(struct UTrapframe));
 
     /* Reset in_page_fault flag */
     // LAB 9: Your code here:
+    if (envs->env_tf.tf_trapno == T_PGFLT)
+        in_page_fault = 0;
 
     /* Rerun current environment */
     // LAB 9: Your code here:
+    env_run(curenv);
 }

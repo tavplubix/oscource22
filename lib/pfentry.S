@@ -70,13 +70,39 @@ _pgfault_upcall:
     # can no longer modify any general-purpose registers (POPA).
     # LAB 9: Your code here
 
+    # ignore utf_fault_va, utf_err
+    addq $16, %rsp
+    # restore utf_regs, save rax again
+    POPA
+    pushq %rax
+
+    # 24 utf_rsp
+    # 16 utf_rflags
+    #  8 utf_rip
+    #  0 rax
+
+    # load utf_rip
+    movq 8(%rsp), %rax
+    # save rbx to utf_rip
+    movq %rbx, 8(%rsp)
+    # load utf_rsp
+    movq 24(%rsp), %rbx
+    # store return address to *utf_stack
+    subq $8, 24(%rsp)
+    movq %rax, -8(%rbx)
+    # restore rax and rbx
+    popq %rax
+    popq %rbx
+
     # Restore rflags from the stack.  After you do this, you can
     # no longer use arithmetic operations or anything else that
     # modifies rflags.
     # LAB 9: Your code here
+    popfq
 
     # Switch back to the adjusted trap-time stack.
     # LAB 9: Your code here
+    popq %rsp
 
     # Return to re-execute the instruction that faulted.
     ret

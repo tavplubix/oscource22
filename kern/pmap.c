@@ -770,10 +770,17 @@ memcpy_page(struct AddressSpace *dst, uintptr_t va, struct Page *page) {
     assert(dst);
 
     // LAB 7: Your code here
+    as_memcpy(dst, va, (uintptr_t)KADDR(page2pa(page)), CLASS_SIZE(page->class));
+}
+
+void
+as_memcpy(struct AddressSpace *dst, uintptr_t dst_va, uintptr_t src_va, size_t size) {
+    assert(dst);
+
     struct AddressSpace * saved_as = switch_address_space(dst);
     
     set_wp(0);
-    nosan_memcpy((void *)va, KADDR(page2pa(page)), CLASS_SIZE(page->class));
+    nosan_memcpy((void *)dst_va, (void *)src_va, size);
     set_wp(1);
 
     switch_address_space(saved_as);

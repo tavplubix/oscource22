@@ -42,8 +42,14 @@ add_pgfault_handler(pf_handler_t handler) {
     if (!_pfhandler_inititiallized) {
         /* First time through! */
         // LAB 9: Your code here:
-        goto end;
+        void * ues_beg = (void*)(USER_EXCEPTION_STACK_TOP - PAGE_SIZE);
+        if (sys_alloc_region(CURENVID, ues_beg, PAGE_SIZE, PROT_RW))
+            panic("add_pgfault_handler: sys_alloc_region failed");
+        _pfhandler_vec[_pfhandler_off++] = handler;
+        if (sys_env_set_pgfault_upcall(CURENVID, _pgfault_upcall))
+            panic("add_pgfault_handler: sys_env_set_pgfault_upcall failed");
         _pfhandler_inititiallized = 1;
+        goto end;
     }
 
     for (size_t i = 0; i < _pfhandler_off; i++)
