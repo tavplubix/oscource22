@@ -25,8 +25,16 @@ sys_cputs(const char *s, size_t len) {
     * Destroy the environment if not. */
     user_mem_assert(curenv, s, len, PROT_R | PROT_USER_);
 
+#ifdef SANITIZE_SHADOW_BASE
+    for (size_t i = 0; i < len; ++i) {
+        char c;
+        nosan_memcpy(&c, (void *)s + i, 1);
+        cputchar(c);
+    }
+#else
     for (size_t i = 0; i < len; ++i)
         cputchar(s[i]);
+#endif
 
     return 0;
 }
