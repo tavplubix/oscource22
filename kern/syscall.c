@@ -197,7 +197,7 @@ sys_alloc_region(envid_t envid, uintptr_t addr, size_t size, int perm) {
         return -E_INVAL;
 
     if (!((perm & ALLOC_ONE) || (perm & ALLOC_ZERO)))
-        perm &= ALLOC_ONE;
+        perm |= ALLOC_ONE;
 
     if (map_region(&env->address_space, addr, NULL, 0, size, perm | PROT_USER_ | PROT_LAZY))
         return -E_NO_MEM;

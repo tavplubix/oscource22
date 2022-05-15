@@ -172,5 +172,7 @@ set_wp(bool wp) {
     lcr0(wp ? old | CR0_WP : old & ~CR0_WP);
 }
 
+void
+as_memcpy(struct AddressSpace *dst, uintptr_t dst_va, uintptr_t src_va, size_t size);
 
 #endif /* !JOS_KERN_PMAP_H */
