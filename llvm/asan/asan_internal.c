@@ -75,6 +75,9 @@ asan_internal_range_poisoned(uptr base, size_t size, uptr *first_invalid, bool a
 
 void
 asan_internal_fill_range(uptr base, size_t size, uint8_t value) {
+    //uptr x = 0x803ffe7f00;
+    //if (base <= x && x <= base + size)
+    //    platform_abort();
     /* By design we cannot poison last X bytes. */
     size_t preceding = SHADOW_ALIGN - (base & SHADOW_MASK);
     if (preceding != SHADOW_ALIGN) {
