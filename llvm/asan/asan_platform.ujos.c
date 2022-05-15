@@ -65,7 +65,16 @@ platform_abort() {
 static bool
 asan_shadow_allocator(struct UTrapframe *utf) {
     // LAB 9: Your code here
-    return 0;
+    uint8_t * va = (uint8_t *)utf->utf_fault_va;
+    uint8_t * sva = SHADOW_FOR_ADDRESS((uintptr_t)va);
+    if (asan_internal_shadow_start <= va && va < asan_internal_shadow_end)
+        return 0;
+    if (sva < asan_internal_shadow_start || asan_internal_shadow_end <= sva)
+        return 0;
+
+    if (sys_alloc_region(CURENVID, sva, PAGE_SIZE, PROT_RW | ALLOC_ONE))
+        platform_abort();
+    return 1;
 }
 #endif
 
@@ -113,7 +122,7 @@ platform_asan_init() {
 
     /* 3. Kernel exposed info (UENVS, UVSYS (only for lab 12)) */
     // LAB 8: Your code here
-    platform_asan_unpoison(UENVS, UENVS_SIZE);
+    platform_asan_unpoison((void *)UENVS, UENVS_SIZE);
 
 #if LAB >= 12
     platform_asan_unpoison((uptr)UVSYS, NVSYSCALLS * sizeof(int));
