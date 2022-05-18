@@ -421,7 +421,12 @@ sys_ipc_recv(uintptr_t dstva, uintptr_t maxsize) {
 static int
 sys_region_refs(uintptr_t addr, size_t size, uintptr_t addr2, uintptr_t size2) {
     // LAB 10: Your code here
-    return 0;
+    if (MAX_USER_ADDRESS <= addr2)
+        return region_maxref(current_space, addr, size);
+
+    int n1 = region_maxref(current_space, addr, size);
+    int n2 = region_maxref(current_space, addr2, size2);
+    return n1 - n2;
 }
 
 /* Dispatches to the correct kernel function, passing the arguments. */
