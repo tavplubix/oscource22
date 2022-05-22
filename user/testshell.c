@@ -58,6 +58,7 @@ umain(int argc, char **argv) {
         if (c1 == '\n')
             nloff = off + 1;
     }
+    (void)nloff;
     cprintf("shell ran correctly\n");
 
     breakpoint();

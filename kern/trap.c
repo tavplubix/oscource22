@@ -108,6 +108,7 @@ trap_init(void) {
 
     /* Insert trap handlers into IDT */
     // LAB 8: Your code here
+    // LAB 11: Your code here
     extern void (*divide_thdlr)(void);
     extern void (*debug_thdlr)(void);
     extern void (*nmi_thdlr)(void);
@@ -127,6 +128,9 @@ trap_init(void) {
 
     extern void (*timer_thdlr)(void);
     extern void (*clock_thdlr)(void);
+
+    extern void (*kbd_thdlr)(void);
+    extern void (*serial_thdlr)(void);
 
     idt[T_DIVIDE] = GATE(0, GD_KT, (uintptr_t)(&divide_thdlr), 0);
     idt[T_DEBUG]  = GATE(0, GD_KT, (uintptr_t)(&debug_thdlr), 0);
@@ -148,6 +152,8 @@ trap_init(void) {
     idt[IRQ_OFFSET + IRQ_TIMER]  = GATE(0, GD_KT, (uintptr_t)(&timer_thdlr), 0);
     idt[IRQ_OFFSET + IRQ_CLOCK]  = GATE(0, GD_KT, (uintptr_t)(&clock_thdlr), 0);
 
+    idt[IRQ_OFFSET + IRQ_KBD]  = GATE(0, GD_KT, (uintptr_t)(&kbd_thdlr), 0);
+    idt[IRQ_OFFSET + IRQ_SERIAL]  = GATE(0, GD_KT, (uintptr_t)(&serial_thdlr), 0);
 
     /* Setup #PF handler dedicated stack
      * It should be switched on #PF because
@@ -155,8 +161,6 @@ trap_init(void) {
      * can legally happen during normal kernel
      * code execution */
     idt[T_PGFLT].gd_ist = 1;
-
-    // LAB 11: Your code here
 
     /* Per-CPU setup */
     trap_init_percpu();
@@ -300,6 +304,14 @@ trap_dispatch(struct Trapframe *tf) {
         return;
         /* Handle keyboard and serial interrupts. */
         // LAB 11: Your code here
+    case IRQ_OFFSET + IRQ_KBD:
+        kbd_intr();
+        sched_yield();
+        return;
+    case IRQ_OFFSET + IRQ_SERIAL:
+        serial_intr();
+        sched_yield();
+        return;
     default:
         print_trapframe(tf);
         if (!(tf->tf_cs & 3))

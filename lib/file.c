@@ -113,6 +113,10 @@ devfile_read(struct Fd *fd, void *buf, size_t n) {
    * system server. */
 
     // LAB 10: Your code here:
+    size_t max_size = sizeof(fsipcbuf.readRet.ret_buf);
+    if (max_size < n)
+        n = max_size;
+
     fsipcbuf.read.req_fileid = fd->fd_file.id;
     fsipcbuf.read.req_n = n;
 
