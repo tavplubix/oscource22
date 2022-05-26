@@ -302,6 +302,7 @@ trap_dispatch(struct Trapframe *tf) {
         // LAB 12: Your code here
         // LAB 5: Your code here
         // LAB 4: Your code here
+        vsys[VSYS_gettime] = gettime();
         timer_for_schedule->handle_interrupts();
         sched_yield();
         return;
@@ -504,8 +505,8 @@ page_fault_handler(struct Trapframe *tf) {
 
     /* Reset in_page_fault flag */
     // LAB 9: Your code here:
-    if (envs->env_tf.tf_trapno == T_PGFLT)
-        in_page_fault = 0;
+    assert(curenv->env_tf.tf_trapno == T_PGFLT);
+    in_page_fault = 0;
 
     /* Rerun current environment */
     // LAB 9: Your code here:

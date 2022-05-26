@@ -87,6 +87,7 @@ static int
 asan_unpoison_shared_region(void *start, void *end, void *arg) {
     (void)start, (void)end, (void)arg;
     // LAB 8: Your code here
+    platform_asan_unpoison(start, end - start);
     return 0;
 }
 
@@ -119,14 +120,15 @@ platform_asan_init() {
     /* 3. Kernel exposed info (UENVS, UVSYS (only for lab 12)) */
     // LAB 8: Your code here
     platform_asan_unpoison((void *)UENVS, UENVS_SIZE);
+    platform_asan_unpoison((void *)UVSYS, UVSYS_SIZE);
 
 #if LAB >= 12
-    platform_asan_unpoison((uptr)UVSYS, NVSYSCALLS * sizeof(int));
+    platform_asan_unpoison((void *)UVSYS, NVSYSCALLS * sizeof(int));
 #endif
 
     /* 4. Shared pages
      * HINT: Use foreach_shared_region() with asan_unpoison_shared_region() */
-    // LAB 8: Your code here
+    foreach_shared_region(asan_unpoison_shared_region, NULL);
 }
 
 

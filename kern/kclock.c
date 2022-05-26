@@ -1,6 +1,7 @@
 /* See COPYRIGHT for copyright information. */
 
 #include <inc/x86.h>
+#include <inc/time.h>
 #include <kern/kclock.h>
 #include <kern/timer.h>
 #include <kern/trap.h>
@@ -112,6 +113,14 @@ gettime(void) {
     // LAB 12: your code here
     int res = 0;
 
+    while (true) {
+        while (cmos_read8(RTC_AREG) & RTC_UPDATE_IN_PROGRESS);
+
+        res = get_time();
+        int res2 = get_time();
+        if (res == res2)
+            break;
+    }
 
     return res;
 }

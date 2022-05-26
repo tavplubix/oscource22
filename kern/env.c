@@ -94,6 +94,10 @@ envid2env(envid_t envid, struct Env **env_store, bool need_check_perm) {
 void
 env_init(void) {
     // LAB 12: Your code here
+    vsys = kzalloc_region(UVSYS_SIZE);
+    if (map_region(current_space, (uintptr_t)UVSYS, &kspace, (uintptr_t)vsys, (size_t)UVSYS_SIZE, PROT_R | PROT_USER_))
+        panic("Failed to map region %p to %p", (void *)vsys, (void *)UVSYS);
+
 
     /* kzalloc_region only works with current_space != NULL */
 
