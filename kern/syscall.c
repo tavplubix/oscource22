@@ -5,6 +5,7 @@
 #include <inc/error.h>
 #include <inc/string.h>
 #include <inc/assert.h>
+#include <inc/signal.h>
 
 #include <kern/console.h>
 #include <kern/env.h>
@@ -468,6 +469,23 @@ sys_region_refs(uintptr_t addr, size_t size, uintptr_t addr2, uintptr_t size2) {
     return n1 - n2;
 }
 
+
+static int
+sys_sigqueue(pid_t pid, int signo, const union sigval value) {
+    return 0;
+}
+
+static int
+sys_sigwait(const sigset_t * set, int * sig) {
+    return 0;
+}
+
+static int
+sys_sigaction(int sig, const struct sigaction * act, struct sigaction * oact) {
+    return 0;
+}
+
+
 /* Dispatches to the correct kernel function, passing the arguments. */
 uintptr_t
 syscall(uintptr_t syscallno, uintptr_t a1, uintptr_t a2, uintptr_t a3, uintptr_t a4, uintptr_t a5, uintptr_t a6) {
@@ -511,6 +529,12 @@ syscall(uintptr_t syscallno, uintptr_t a1, uintptr_t a2, uintptr_t a3, uintptr_t
         return sys_ipc_recv(a1, a2);
     case SYS_gettime:
         return sys_gettime();
+    case SYS_sigqueue:
+        return sys_sigqueue((pid_t)a1, (int)a2, (union sigval)(void *)a3);
+    case SYS_sigwait:
+        return sys_sigwait((sigset_t *)a1, (int *)a2);
+    case SYS_sigaction:
+        return sys_sigaction((int)a1, (struct sigaction *)a2, (struct sigaction *)a3);
     default:
         return -E_NO_SYS;
     }
