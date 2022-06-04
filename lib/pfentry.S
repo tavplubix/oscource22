@@ -32,11 +32,38 @@
 
 .text
 .globl _pgfault_upcall
+.globl _signal_handler_trampoline
 _pgfault_upcall:
+_signal_handler_trampoline:
+    movq  %rsp,%rdi # passing the function argument (UTrapframe *) in rdi
+    # sizeof(struct EnqueuedSignal) == 56
+    # sizeof(curenv->env_sig_mask) == 4
+    add $60, %rdi
+
+    # load signo
+    mov (%rsp), %eax
+    test %eax, %eax
+    jnz _call_generic_signal_handler
+
     # Call the C page fault handler.
-    movq  %rsp,%rdi # passing the function argument in rdi
     movabs $_handle_vectored_pagefault, %rax
     call *%rax
+    jmp _return_from_handler
+
+_call_generic_signal_handler:
+    movq %rsp, %rsi # passing the function argument (EnqueuedSignal *) in rsi
+    movabs $_generic_signal_handler, %rax
+    call *%rax
+
+_return_from_handler:
+    # ignore EnqueuedSignal and env_sig_mask
+    add $60, %rsp
+    # load env_sig_mask (as the first func arg)
+    mov -4(%rsp), %rdi
+    # restore blocked signals mask
+    movabs $sys_sigsetmask, %rax
+    call *%rax
+    # now we may receive another signal
 
     # Now the C page fault handler has returned and you must return
     # to the trap time state.

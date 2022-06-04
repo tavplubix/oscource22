@@ -17,6 +17,7 @@
 #include <kern/macro.h>
 #include <kern/pmap.h>
 #include <kern/traceopt.h>
+#include <kern/syscall.h>
 #include <kern/vsyscall.h>
 
 /* Currently active environment */
@@ -127,6 +128,8 @@ env_init(void) {
         envs[i].env_link = envs + i + 1;
     }
     envs[NENV - 1].env_link = NULL;
+    //cprintf("SIZE %lu\n", sizeof(struct EnqueuedSignal));
+    assert(sizeof(struct EnqueuedSignal) == 56);
 
     // There is no such function
     // env_init_percpu()
@@ -205,15 +208,39 @@ env_alloc(struct Env **newenv_store, envid_t parent_id, enum EnvType type) {
     /* For now init trapframe with IF set */
     env->env_tf.tf_rflags = FL_IF | (type == ENV_TYPE_FS ? FL_IOPL_3 : FL_IOPL_0);
 
-    /* Clear the page fault handler until user installs one. */
-    env->env_pgfault_upcall = 0;
-
     /* Also clear the IPC receiving flag. */
     env->env_ipc_recving = 0;
 
     /* Commit the allocation */
     env_free_list = env->env_link;
     *newenv_store = env;
+
+    struct Env * penv = NULL;
+    envid2env(parent_id, &penv, false);
+
+    if (penv) {
+        // Signal handlers are inherited
+        memcpy(env->env_sigaction, penv->env_sigaction, sizeof(struct sigaction) * SIGMAX);
+        env->env_pgfault_upcall = penv->env_pgfault_upcall;
+    }
+    else {
+        // Zeros are default values for most signals
+        memset(env->env_sigaction, 0, sizeof(struct sigaction) * SIGMAX);
+        // Block other signals while handling pagefault
+        env->env_sigaction[SIGRESERVED].sa_mask = ~SIGNAL_FLAG(SIGRESERVED);
+        env->env_sigaction[SIGRESERVED].sa_flags = SA_NODEFER;
+        env->env_sigaction[SIGCHLD].sa_handler = SIG_IGN;
+        env->env_pgfault_upcall = 0;
+    }
+
+    env->env_sig_queue_beg = 0;
+    env->env_sig_queue_end = 0;
+
+    env->env_sig_mask = 0;
+    env->env_is_stopped = false;
+
+    env->env_sig_waiting = 0;
+    env->env_sig_waiting_num_out = 0;
 
     if (trace_envs) cprintf("[%08x] new env %08x\n", curenv ? curenv->env_id : 0, env->env_id);
     return 0;
@@ -458,6 +485,23 @@ env_free(struct Env *env) {
     env_free_list = env;
 }
 
+void
+maybe_send_sigchld(envid_t penvid, bool on_destroy) {
+    if (!penvid)
+        return;
+
+    struct Env * penv = NULL;
+    if (envid2env(penvid, &penv, false))
+        return;
+
+    if (!on_destroy) {
+        if (penv->env_sigaction[SIGCHLD].sa_flags & SA_NOCLDSTOP)
+            return;
+    }
+
+    syscall(SYS_sigqueue, penvid, SIGCHLD, 0, 0, 0, 0);
+}
+
 /* Frees environment env
  *
  * If env was the current one, then runs a new environment
@@ -470,6 +514,8 @@ env_destroy(struct Env *env) {
      * it traps to the kernel. */
 
     // LAB 3: Your code here
+    maybe_send_sigchld(env->env_parent_id, true);
+
     env_free(env);
     if (curenv == env)
         sched_yield();
@@ -527,6 +573,24 @@ env_pop_tf(struct Trapframe *tf) {
     panic("Reached unrecheble\n");
 }
 
+
+void
+env_maybe_run_signal_handler() {
+    /// Circular queue is empty
+    if (curenv->env_sig_queue_beg == curenv->env_sig_queue_end)
+        return;
+    
+    /// Signal is blocked
+    struct EnqueuedSignal * es = curenv->env_sig_queue + curenv->env_sig_queue_beg;
+    if (curenv->env_sig_mask & SIGNAL_FLAG(es->signo))
+        return;
+
+    /// Run handler for the first enqueued signal
+    curenv->env_sig_queue_beg = (curenv->env_sig_queue_beg + 1) % SIGNALS_QUEUE_SIZE;
+    call_signal_handler(curenv->env_tf.tf_rsp - sizeof(uintptr_t), &curenv->env_tf, es);
+    assert(false);
+}
+
 /* Context switch from curenv to env.
  * This function does not return.
  *
@@ -569,9 +633,13 @@ env_run(struct Env *env) {
     curenv->env_status = ENV_RUNNING;
     ++curenv->env_runs;
 
+    // Run handlers for enqueued signals first (if any)
+    assert(!curenv->env_sig_waiting);
+    env_maybe_run_signal_handler();
+
     // LAB 8: Your code here
     switch_address_space(&env->address_space);
     env_pop_tf(&curenv->env_tf);
 
-    while(1) {}
+    assert(false);
 }

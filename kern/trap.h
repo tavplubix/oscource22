@@ -8,6 +8,7 @@
 
 #include <inc/trap.h>
 #include <inc/mmu.h>
+#include <inc/env.h>
 
 /* The kernel's interrupt descriptor table */
 extern struct Gatedesc idt[];
@@ -20,5 +21,8 @@ void trap_init(void);
 void trap_init_percpu(void);
 void print_regs(struct PushRegs *regs);
 void print_trapframe(struct Trapframe *tf);
+
+
+void call_signal_handler(uintptr_t rsp, struct Trapframe *tf, struct EnqueuedSignal * es);
 
 #endif /* JOS_KERN_TRAP_H */

@@ -19,6 +19,10 @@ enum {
     SYS_ipc_try_send,
     SYS_ipc_recv,
     SYS_gettime,
+    SYS_sigqueue,
+    SYS_sigwait,
+    SYS_sigaction,
+    SYS_sigsetmask,
     NSYSCALLS
 };
 

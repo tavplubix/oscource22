@@ -21,6 +21,7 @@
 #include <inc/fs.h>
 #include <inc/fd.h>
 #include <inc/args.h>
+#include <inc/signal.h>
 
 #ifdef SANITIZE_USER_SHADOW_BASE
 /* asan unpoison routine used for whitelisting regions. */
@@ -94,6 +95,11 @@ int sys_unmap_region(envid_t env, void *pg, size_t size);
 int sys_ipc_try_send(envid_t to_env, uint64_t value, void *pg, size_t size, int perm);
 int sys_ipc_recv(void *rcv_pg, size_t size);
 int sys_gettime(void);
+int sys_sigqueue(pid_t pid, int signo, const union sigval value);
+int sys_sigwait(const sigset_t * set, int * sig);
+int sys_sigaction(int sig, const struct sigaction * act, struct sigaction * oact);
+int sys_sigsetmask(uint32_t new_mask);
+
 
 int vsys_gettime(void);
 
@@ -156,6 +162,12 @@ int pipeisclosed(int pipefd);
 
 /* wait.c */
 void wait(envid_t env);
+
+/* signal.c */
+int sigqueue(pid_t pid, int signo, const union sigval value);
+int sigwait(const sigset_t * set, int * sig);
+int sigaction(int sig, const struct sigaction * act, struct sigaction * oact);
+int sigsetmask(uint32_t new_mask);
 
 /* File open modes */
 #define O_RDONLY  0x0000 /* open for reading only */
