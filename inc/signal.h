@@ -1,19 +1,25 @@
 #pragma once
 #include <stdint.h>
-#include <inc/env.h>
 
-typedef envid_t pid_t;
+typedef int32_t pid_t;  // envid_t
 
+#define SIGRESERVED 0
 
-#define SIGINT 2        # term
-#define SIGKILL 9       # kill
-#define SIGUSR1 10      # term
-#define SIGCHLD 17      # ign
+#define SIGINT 2        // term
+#define SIGKILL 9       // kill
+#define SIGUSR1 10      // term
+#define SIGUSR2 12      // term
+#define SIGTERM 15      // term
+#define SIGCHLD 17      // ign
+#define SIGSTOP 18      // stop
+#define SIGCONT 19      // continue
 
 #define SIGMAX 32
 
-#define SIG_IGN (void (*)(int)0)
-#define SIG_DFL (void (*)(int)1)
+#define SIGNAL_FLAG(signo) (uint32_t)(1 << signo)
+
+#define SIG_DFL ((void (*)(int))0)
+#define SIG_IGN ((void (*)(int))1)
 
 typedef uint32_t sigset_t;
 
@@ -29,6 +35,8 @@ union sigval {
 //#define SA_RESTART  0x10000000
 #define SA_NODEFER  0x40000000
 #define SA_RESETHAND  0x80000000
+
+#define SA_ALL_FLAGS  0xc0000004
 
 typedef struct {
     int si_signo;

@@ -32,7 +32,7 @@
 #undef trace_envs
 #define trace_envs 1
 #elif !defined(trace_envs)
-#define trace_envs 0
+#define trace_envs 1
 #endif
 
 #if LAB == 4 || LAB == 3
@@ -48,6 +48,16 @@
 
 #ifndef trace_init
 #define trace_init 1
+#endif
+
+#ifndef TEST_ITASK
+#define TEST_ITASK
+#endif
+
+#if defined(TEST_ITASK)
+#define trace_signals 1
+#else
+#define trace_signals 0
 #endif
 
 #endif

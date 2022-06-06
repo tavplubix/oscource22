@@ -22,6 +22,7 @@ enum {
     SYS_sigqueue,
     SYS_sigwait,
     SYS_sigaction,
+    SYS_sigsetmask,
     NSYSCALLS
 };
 

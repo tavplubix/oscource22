@@ -32,11 +32,17 @@ sched_yield(void) {
     for (size_t i = 0; i < NENV; ++i)
     {
         size_t next_idx = (next_env_idx + i) % NENV;
-        if (envs[next_idx].env_status == ENV_RUNNABLE)
-            env_run(envs + next_idx);
+        
+        if (envs[next_idx].env_status != ENV_RUNNABLE)
+            continue;
+        
+        if (envs[next_idx].env_is_stopped)
+            continue;
+
+        env_run(envs + next_idx);
     }
  
-    if (curenv && curenv->env_status == ENV_RUNNING)
+    if (curenv && curenv->env_status == ENV_RUNNING && !curenv->env_is_stopped)
         env_run(curenv);
 
     cprintf("Halt\n");

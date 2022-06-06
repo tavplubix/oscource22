@@ -5,6 +5,7 @@
 #include <inc/assert.h>
 #include <inc/string.h>
 #include <inc/vsyscall.h>
+#include <inc/signal.h>
 
 #include <kern/pmap.h>
 #include <kern/trap.h>
@@ -414,6 +415,55 @@ trap(struct Trapframe *tf) {
         sched_yield();
 }
 
+
+_Noreturn void
+call_signal_handler(uintptr_t rsp, struct Trapframe *tf, struct EnqueuedSignal * es)
+{
+    if (trace_signals)
+        cprintf("signals: env %x: calling handler for signal %d\n", curenv->env_id, es->signo);
+
+    if (!curenv->env_pgfault_upcall)
+        env_destroy(curenv);
+
+    size_t frame_size = sizeof(struct UTrapframe) +
+                        sizeof(curenv->env_sig_mask) +
+                        sizeof(struct EnqueuedSignal);
+    uintptr_t handler_rsp = rsp - frame_size;
+    user_mem_assert(curenv, (void *)handler_rsp, frame_size, PROT_W);
+
+    // Put signal info on stack
+    uintptr_t dst = handler_rsp;
+    as_memcpy(&curenv->address_space, dst, (uintptr_t)es, sizeof(struct EnqueuedSignal));
+    dst += sizeof(struct EnqueuedSignal);
+
+    // Put prev blocked signals mask on stack
+    as_memcpy(&curenv->address_space, dst, (uintptr_t)&(curenv->env_sig_mask), sizeof(curenv->env_sig_mask));
+    dst += sizeof(curenv->env_sig_mask);
+
+    // Prepare trapframe for returning from handler
+    struct UTrapframe utf;
+    utf.utf_fault_va = (uintptr_t)es->info.si_addr;
+    utf.utf_err = tf->tf_err;
+    utf.utf_regs = tf->tf_regs;
+    utf.utf_rflags = tf->tf_rflags;
+    utf.utf_rsp = tf->tf_rsp;
+    utf.utf_rip = tf->tf_rip;
+    as_memcpy(&curenv->address_space, dst, (uintptr_t)&utf, sizeof(struct UTrapframe));
+    dst += sizeof(struct UTrapframe);
+
+    // Update blocked signals mask
+    curenv->env_sig_mask |= es->sa.sa_mask;
+
+    // Modify trapframe to run handler
+    tf->tf_rsp = handler_rsp;
+    tf->tf_rip = (uintptr_t)curenv->env_pgfault_upcall;
+
+    switch_address_space(&curenv->address_space);
+    env_pop_tf(&curenv->env_tf);
+
+    assert(false);
+}
+
 static _Noreturn void
 page_fault_handler(struct Trapframe *tf) {
     // LAB 9: Your code here:
@@ -462,7 +512,7 @@ page_fault_handler(struct Trapframe *tf) {
     static_assert(UTRAP_RIP == offsetof(struct UTrapframe, utf_rip), "UTRAP_RIP should be equal to RIP offset");
     static_assert(UTRAP_RSP == offsetof(struct UTrapframe, utf_rsp), "UTRAP_RSP should be equal to RSP offset");
 
-    cprintf("page_fault_handler: user fault va=%p ip=%p\n", (void *)cr2, (void *)tf->tf_rip);
+    //cprintf("page_fault_handler: user fault va=%p ip=%p\n", (void *)cr2, (void *)tf->tf_rip);
 
     /* Force allocation of exception stack page to prevent memcpy from
      * causing pagefault during another pagefault */
@@ -475,40 +525,20 @@ page_fault_handler(struct Trapframe *tf) {
     // LAB 9: Your code here:
     uintptr_t ue_rsp;
     if (ues_beg < tf->tf_rsp && tf->tf_rsp < ues_end)
-        ue_rsp = tf->tf_rsp - sizeof(uintptr_t) - sizeof(struct UTrapframe);
+        ue_rsp = tf->tf_rsp - sizeof(uintptr_t);
     else
-        ue_rsp = USER_EXCEPTION_STACK_TOP - sizeof(struct UTrapframe);
+        ue_rsp = USER_EXCEPTION_STACK_TOP;
 
-    user_mem_assert(curenv, (void *)ue_rsp, sizeof(struct UTrapframe), PROT_W);
+    struct EnqueuedSignal es;
+    memset(&es, 0, sizeof(es));
+    es.signo = SIGRESERVED;
+    es.info.si_addr = (void *)cr2;
+    // Block other signals while handling pagefault
+    es.sa.sa_mask = ~SIGNAL_FLAG(SIGRESERVED);
 
-    if (!curenv->env_pgfault_upcall) {
-        env_destroy(curenv);
-        panic("page_fault_handler: env_pgfault_upcall is not set");
-    }
-
-    /* Build local copy of UTrapframe */
-    // LAB 9: Your code here:
-    struct UTrapframe utf;
-    utf.utf_fault_va = cr2;
-    utf.utf_err = tf->tf_err;
-    utf.utf_regs = tf->tf_regs;
-    utf.utf_rflags = tf->tf_rflags;
-    utf.utf_rsp = tf->tf_rsp;
-    utf.utf_rip = tf->tf_rip;
-
-    tf->tf_rsp = ue_rsp;
-    tf->tf_rip = (uintptr_t)curenv->env_pgfault_upcall;
-
-    /* And then copy it userspace (nosan_memcpy) */
-    // LAB 9: Your code here:
-    as_memcpy(&curenv->address_space, ue_rsp, (uintptr_t)&utf, sizeof(struct UTrapframe));
-
-    /* Reset in_page_fault flag */
-    // LAB 9: Your code here:
-    assert(curenv->env_tf.tf_trapno == T_PGFLT);
     in_page_fault = 0;
 
-    /* Rerun current environment */
-    // LAB 9: Your code here:
-    env_run(curenv);
+    call_signal_handler(ue_rsp, tf, &es);
+
+    assert(false);
 }

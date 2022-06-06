@@ -6,6 +6,7 @@
 #include <inc/types.h>
 #include <inc/trap.h>
 #include <inc/memlayout.h>
+#include <inc/signal.h>
 
 typedef int32_t envid_t;
 
@@ -26,7 +27,7 @@ typedef int32_t envid_t;
  * stands for the current environment.
  */
 
-#define LOG2NENV    10
+#define LOG2NENV    8
 #define NENV        (1 << LOG2NENV)
 #define ENVX(envid) ((envid) & (NENV - 1))
 
@@ -57,6 +58,13 @@ struct AddressSpace {
     struct Page *root; /* root node of address space tree */
 };
 
+struct EnqueuedSignal {
+    int signo;
+    struct sigaction sa;
+    siginfo_t info;
+};
+
+#define SIGNALS_QUEUE_SIZE 8
 
 struct Env {
     struct Trapframe env_tf; /* Saved registers */
@@ -82,6 +90,17 @@ struct Env {
     uint32_t env_ipc_value;  /* Data value sent to us */
     envid_t env_ipc_from;    /* envid of the sender */
     int env_ipc_perm;        /* Perm of page mapping received */
+
+    /* Signals*/
+    struct sigaction env_sigaction[SIGMAX];     /* Handlers info */
+    
+    struct EnqueuedSignal env_sig_queue[SIGNALS_QUEUE_SIZE];    /* Circular queue for pending signals */
+    size_t env_sig_queue_beg;       /* Index of the first pending signal in the queue */
+    size_t env_sig_queue_end;       /* Index of the first free slot in the queue */
+
+    uint32_t env_sig_mask;          /* Mask of blocked signals */
+
+    bool env_is_stopped;    /* Special flag for SIGSTOP/SIGCONT (simpler than an extra state) */
 };
 
 #endif /* !JOS_INC_ENV_H */

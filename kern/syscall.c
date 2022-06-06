@@ -58,6 +58,28 @@ sys_getenvid(void) {
     return curenv->env_id;
 }
 
+static int
+sys_env_destroy_impl(struct Env * env, int signo) {
+#if 1 /* TIP: Use this snippet to log required for passing grade tests info */
+    if (trace_envs) {
+        if (signo) {
+            cprintf("[%08x] exiting due to signal %d\n",
+                env->env_id, signo);
+        }
+        else {
+            cprintf(env == curenv ?
+                        "[%08x] exiting gracefully\n" :
+                        "[%08x] destroying %08x\n",
+                curenv->env_id, env->env_id);
+
+        }
+    }
+#endif
+
+    env_destroy(env);
+    return 0;
+}
+
 /* Destroy a given environment (possibly the currently running environment).
  *
  *  Returns 0 on success, < 0 on error.  Errors are:
@@ -72,17 +94,7 @@ sys_env_destroy(envid_t envid) {
     if (envid2env(envid, &env, 1))
         return -E_BAD_ENV;
 
-#if 1 /* TIP: Use this snippet to log required for passing grade tests info */
-    if (trace_envs) {
-        cprintf(env == curenv ?
-                        "[%08x] exiting gracefully\n" :
-                        "[%08x] destroying %08x\n",
-                curenv->env_id, env->env_id);
-    }
-#endif
-
-    env_destroy(env);
-    return 0;
+    return sys_env_destroy_impl(env, 0);
 }
 
 /* Deschedule current environment and pick a different one to run. */
@@ -472,6 +484,74 @@ sys_region_refs(uintptr_t addr, size_t size, uintptr_t addr2, uintptr_t size2) {
 
 static int
 sys_sigqueue(pid_t pid, int signo, const union sigval value) {
+    
+    if (signo <= 0 || SIGMAX <= signo)
+        return -E_INVAL;
+
+    struct Env * env = NULL;
+    // It's more convinient to test without checking permissions
+    // (but in general we shuld not allow to send sinals to arbitrary processes)
+#if defined(TEST_ITASK)
+    if (envid2env(pid, &env, false))
+        return -E_BAD_ENV;
+#else
+    if (envid2env(pid, &env, true))
+        return -E_BAD_ENV;
+#endif
+
+    // Handle special signals first
+    if (signo == SIGKILL) {
+        int err = sys_env_destroy_impl(env, signo);
+        assert(!err);
+        goto signal_sent;
+    }
+
+    if (signo == SIGSTOP) {
+        env->env_is_stopped = true;
+        goto signal_sent;
+    }
+
+    if (signo == SIGCONT) {
+        env->env_is_stopped = false;
+        goto signal_sent;
+    }
+
+    // Don't need to enqueue a signal with default handler
+    struct sigaction * sa = env->env_sigaction + signo;
+    if (sa->sa_handler == SIG_DFL) {
+        int err = sys_env_destroy_impl(env, signo);
+        assert(!err);
+        return 0;
+    }
+    else if (sa->sa_handler == SIG_IGN) {
+        if (trace_signals)
+            cprintf("signals: ignored signal %d from %x to %x\n", signo, curenv->env_id, pid);
+        return 0;
+    }
+
+    // Find slot in circular queue
+    size_t new_end = (env->env_sig_queue_end + 1) % SIGNALS_QUEUE_SIZE;
+    if (new_end == env->env_sig_queue_beg)
+        return -E_AGAIN;
+
+    // Fill signal info (inplace)
+    struct EnqueuedSignal * es = env->env_sig_queue + env->env_sig_queue_end;
+    es->signo = signo;
+    es->info.si_signo = signo;
+    es->info.si_code = 0;
+    es->info.si_pid = sys_getenvid();
+    es->info.si_addr = 0;
+    es->info.si_value = value;
+
+    // Copy sigaction structure as well to avoid any possible races with sys_sigaction
+    // (and don't even think about consiquences of such races)
+    nosan_memcpy(&(es->sa), sa, sizeof(struct sigaction));
+
+    env->env_sig_queue_end = new_end;
+    
+signal_sent:
+    if (trace_signals)
+        cprintf("signals: sent signal %d from %x to %x\n", signo, curenv->env_id, pid);
     return 0;
 }
 
@@ -481,7 +561,37 @@ sys_sigwait(const sigset_t * set, int * sig) {
 }
 
 static int
-sys_sigaction(int sig, const struct sigaction * act, struct sigaction * oact) {
+sys_sigaction(int sig, const struct sigaction * act, struct sigaction * oact) {\
+
+    if (sig <= 0 || SIGMAX <= sig)
+        return -E_INVAL;
+
+    /// It's not allowed to handle special signals
+    if (sig == SIGKILL || sig == SIGSTOP || sig == SIGCONT)
+        return -E_INVAL;
+
+    /// Ensure that pointers are valid
+    size_t act_size = sizeof(struct sigaction);
+    user_mem_assert(curenv, act, act_size, PROT_R | PROT_USER_);
+
+    if (act->sa_flags & ~SA_ALL_FLAGS)
+        return -E_INVAL;
+
+    struct sigaction * env_act = curenv->env_sigaction + sig;
+    if (oact) {
+        user_mem_assert(curenv, oact, act_size, PROT_R | PROT_W | PROT_USER_);
+        nosan_memcpy(oact, env_act, act_size);
+    }
+
+    nosan_memcpy(env_act, act, act_size);
+    return 0;
+}
+
+static int
+sys_sigsetmask(uint32_t new_mask) {
+    if (trace_signals)
+        cprintf("signals: env %x: change mask from %x to %x\n", curenv->env_id, curenv->env_sig_mask, new_mask);
+    curenv->env_sig_mask = new_mask;
     return 0;
 }
 
@@ -535,6 +645,8 @@ syscall(uintptr_t syscallno, uintptr_t a1, uintptr_t a2, uintptr_t a3, uintptr_t
         return sys_sigwait((sigset_t *)a1, (int *)a2);
     case SYS_sigaction:
         return sys_sigaction((int)a1, (struct sigaction *)a2, (struct sigaction *)a3);
+    case SYS_sigsetmask:
+        return sys_sigsetmask((uint32_t)a1);
     default:
         return -E_NO_SYS;
     }

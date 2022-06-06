@@ -127,6 +127,8 @@ env_init(void) {
         envs[i].env_link = envs + i + 1;
     }
     envs[NENV - 1].env_link = NULL;
+    //cprintf("SIZE %lu\n", sizeof(struct EnqueuedSignal));
+    assert(sizeof(struct EnqueuedSignal) == 56);
 
     // There is no such function
     // env_init_percpu()
@@ -214,6 +216,14 @@ env_alloc(struct Env **newenv_store, envid_t parent_id, enum EnvType type) {
     /* Commit the allocation */
     env_free_list = env->env_link;
     *newenv_store = env;
+
+    memset(env->env_sigaction, 0, sizeof(struct sigaction) * SIGMAX);
+    env->env_sigaction[SIGCHLD].sa_handler = SIG_IGN;
+
+    env->env_sig_queue_beg = 0;
+    env->env_sig_queue_end = 0;
+
+    env->env_is_stopped = false;
 
     if (trace_envs) cprintf("[%08x] new env %08x\n", curenv ? curenv->env_id : 0, env->env_id);
     return 0;
@@ -527,6 +537,24 @@ env_pop_tf(struct Trapframe *tf) {
     panic("Reached unrecheble\n");
 }
 
+
+void
+env_maybe_run_signal_handler() {
+    /// Circular queue is empty
+    if (curenv->env_sig_queue_beg == curenv->env_sig_queue_end)
+        return;
+    
+    /// Signal is blocked
+    struct EnqueuedSignal * es = curenv->env_sig_queue + curenv->env_sig_queue_beg;
+    if (curenv->env_sig_mask & SIGNAL_FLAG(es->signo))
+        return;
+
+    /// Run handler for the first enqueued signal
+    curenv->env_sig_queue_beg = (curenv->env_sig_queue_beg + 1) % SIGNALS_QUEUE_SIZE;
+    call_signal_handler(curenv->env_tf.tf_rsp - sizeof(uintptr_t), &curenv->env_tf, es);
+    assert(false);
+}
+
 /* Context switch from curenv to env.
  * This function does not return.
  *
@@ -569,9 +597,12 @@ env_run(struct Env *env) {
     curenv->env_status = ENV_RUNNING;
     ++curenv->env_runs;
 
+    // Run handlers for enqueued signals first (if any)
+    env_maybe_run_signal_handler();
+
     // LAB 8: Your code here
     switch_address_space(&env->address_space);
     env_pop_tf(&curenv->env_tf);
 
-    while(1) {}
+    assert(false);
 }
