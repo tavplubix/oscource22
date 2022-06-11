@@ -28,7 +28,7 @@ union sigval {
     void * sival_ptr;
 };
 
-//#define SA_NOCLDSTOP  0x00000001
+#define SA_NOCLDSTOP  0x00000001
 //#define SA_NOCLDWAIT  0x00000002
 #define SA_SIGINFO  0x00000004
 //#define SA_ONSTACK  0x08000000
@@ -36,7 +36,7 @@ union sigval {
 #define SA_NODEFER  0x40000000
 #define SA_RESETHAND  0x80000000
 
-#define SA_ALL_FLAGS  0xc0000004
+#define SA_ALL_FLAGS  0xc0000005
 
 typedef struct {
     int si_signo;

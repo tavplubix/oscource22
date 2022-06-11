@@ -508,25 +508,29 @@ sys_sigqueue(pid_t pid, int signo, const union sigval value) {
 
     if (signo == SIGSTOP) {
         env->env_is_stopped = true;
+        maybe_send_sigchld(env->env_parent_id, false);
         goto signal_sent;
     }
 
     if (signo == SIGCONT) {
         env->env_is_stopped = false;
+        maybe_send_sigchld(env->env_parent_id, false);
         goto signal_sent;
     }
 
-    // Don't need to enqueue a signal with default handler
     struct sigaction * sa = env->env_sigaction + signo;
-    if (sa->sa_handler == SIG_DFL) {
-        int err = sys_env_destroy_impl(env, signo);
-        assert(!err);
-        return 0;
-    }
-    else if (sa->sa_handler == SIG_IGN) {
-        if (trace_signals)
-            cprintf("signals: ignored signal %d from %x to %x\n", signo, curenv->env_id, pid);
-        return 0;
+
+    if (!env->env_pgfault_upcall) {
+        // Don't need to enqueue a signal with default handler
+        // But will call it if generic handler is set
+        if (sa->sa_handler == SIG_DFL) {
+            int err = sys_env_destroy_impl(env, signo);
+            assert(!err);
+            return 0;
+        }
+        else if (sa->sa_handler == SIG_IGN) {
+            return 0;
+        }
     }
 
     // Find slot in circular queue
@@ -548,6 +552,11 @@ sys_sigqueue(pid_t pid, int signo, const union sigval value) {
     nosan_memcpy(&(es->sa), sa, sizeof(struct sigaction));
 
     env->env_sig_queue_end = new_end;
+
+    if (sa->sa_flags & SA_RESETHAND) {
+        sa->sa_handler = SIG_DFL;
+        sa->sa_flags &= ~SA_SIGINFO;
+    }
     
 signal_sent:
     if (trace_signals)
@@ -557,6 +566,26 @@ signal_sent:
 
 static int
 sys_sigwait(const sigset_t * set, int * sig) {
+    user_mem_assert(curenv, set, sizeof(set), PROT_R | PROT_USER_);
+    if (sig)
+        user_mem_assert(curenv, sig, sizeof(sig), PROT_R | PROT_W | PROT_USER_);
+
+    sigset_t all = -1;
+    all &= ~SIGNAL_FLAG(SIGRESERVED);
+    all &= ~SIGNAL_FLAG(SIGSTOP);
+    all &= ~SIGNAL_FLAG(SIGCONT);
+    all &= ~SIGNAL_FLAG(SIGKILL);
+    if (*set & ~all)
+        return -E_INVAL;
+    if (!(*set & all))
+        return -E_INVAL;
+
+    curenv->env_sig_waiting = *set;
+    curenv->env_sig_waiting_num_out = sig;
+    curenv->env_tf.tf_regs.reg_rax = 0;
+    if (trace_signals)
+        cprintf("signals: env %x: will wait for signals 0x%x\n", curenv->env_id, *set);
+    sched_yield();
     return 0;
 }
 
@@ -590,7 +619,7 @@ sys_sigaction(int sig, const struct sigaction * act, struct sigaction * oact) {\
 static int
 sys_sigsetmask(uint32_t new_mask) {
     if (trace_signals)
-        cprintf("signals: env %x: change mask from %x to %x\n", curenv->env_id, curenv->env_sig_mask, new_mask);
+        cprintf("signals: env %x: change mask from 0x%x to 0x%x\n", curenv->env_id, curenv->env_sig_mask, new_mask);
     curenv->env_sig_mask = new_mask;
     return 0;
 }

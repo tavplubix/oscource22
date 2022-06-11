@@ -3,6 +3,7 @@
 #ifndef JOS_INC_ENV_H
 #define JOS_INC_ENV_H
 
+#include "signal.h"
 #include <inc/types.h>
 #include <inc/trap.h>
 #include <inc/memlayout.h>
@@ -101,6 +102,9 @@ struct Env {
     uint32_t env_sig_mask;          /* Mask of blocked signals */
 
     bool env_is_stopped;    /* Special flag for SIGSTOP/SIGCONT (simpler than an extra state) */
+
+    sigset_t env_sig_waiting;       /* Signals to wait (for sys_sigwait) */
+    int * env_sig_waiting_num_out;  /* Pointer to write number of signal (for sys_sigwait) */
 };
 
 #endif /* !JOS_INC_ENV_H */

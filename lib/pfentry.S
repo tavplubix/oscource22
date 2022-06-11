@@ -63,6 +63,7 @@ _return_from_handler:
     # restore blocked signals mask
     movabs $sys_sigsetmask, %rax
     call *%rax
+    # now we may receive another signal
 
     # Now the C page fault handler has returned and you must return
     # to the trap time state.

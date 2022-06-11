@@ -453,6 +453,9 @@ call_signal_handler(uintptr_t rsp, struct Trapframe *tf, struct EnqueuedSignal *
 
     // Update blocked signals mask
     curenv->env_sig_mask |= es->sa.sa_mask;
+    if (!(es->sa.sa_flags & SA_NODEFER)) {
+        curenv->env_sig_mask |= SIGNAL_FLAG(es->signo);
+    }
 
     // Modify trapframe to run handler
     tf->tf_rsp = handler_rsp;
@@ -533,8 +536,7 @@ page_fault_handler(struct Trapframe *tf) {
     memset(&es, 0, sizeof(es));
     es.signo = SIGRESERVED;
     es.info.si_addr = (void *)cr2;
-    // Block other signals while handling pagefault
-    es.sa.sa_mask = ~SIGNAL_FLAG(SIGRESERVED);
+    es.sa = curenv->env_sigaction[SIGRESERVED];
 
     in_page_fault = 0;
 

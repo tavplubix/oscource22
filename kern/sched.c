@@ -1,11 +1,58 @@
 #include <inc/assert.h>
 #include <inc/x86.h>
+#include <inc/string.h>
 #include <kern/env.h>
 #include <kern/monitor.h>
+#include <kern/traceopt.h>
+#include <kern/pmap.h>
 
 
 struct Taskstate cpu_ts;
 _Noreturn void sched_halt(void);
+
+bool check_wait_for_signal(struct Env * env) {
+    // Check if process is waiting for some signal (sys_sigwait)
+    if (!env->env_sig_waiting)
+        return false;
+
+    // Try to find a signal in the queue
+    size_t i = env->env_sig_queue_beg;
+    while (i != env->env_sig_queue_end) {
+        struct EnqueuedSignal * es = env->env_sig_queue + i;
+        if (env->env_sig_waiting & SIGNAL_FLAG(es->signo))
+            break;
+        i = (i + 1) % SIGNALS_QUEUE_SIZE;
+    }
+
+    if (i == env->env_sig_queue_end)
+        return true;
+
+    // Remove signal from the queue and return from sys_sigwait
+    struct EnqueuedSignal * es = env->env_sig_queue + i;
+
+    if (trace_signals)
+        cprintf("signals: env %x: wake up with %d\n", env->env_id, es->signo);
+
+    //*env->env_sig_waiting_num_out = es->signo;
+    if (env->env_sig_waiting_num_out)
+        as_memcpy(&env->address_space, (uintptr_t)env->env_sig_waiting_num_out, (uintptr_t)&es->signo, sizeof(es->signo));
+    env->env_sig_waiting_num_out = NULL;
+    env->env_sig_waiting = 0;
+
+    struct EnqueuedSignal * es_end = env->env_sig_queue + env->env_sig_queue_end;
+    if (es < es_end) {
+        memmove(es, es + 1, sizeof(struct EnqueuedSignal) * (env->env_sig_queue_end - i - 1));
+    }
+    else {
+        memmove(es, es + 1, sizeof(struct EnqueuedSignal) * (SIGNALS_QUEUE_SIZE - i - 1));
+        memcpy(env->env_sig_queue + SIGNALS_QUEUE_SIZE - 1, env->env_sig_queue, sizeof(struct EnqueuedSignal));
+        memmove(env->env_sig_queue, env->env_sig_queue + 1, sizeof(struct EnqueuedSignal) * (env->env_sig_queue_end - 1));
+    }
+
+    env->env_sig_queue_end = (env->env_sig_queue_end - 1) % SIGNALS_QUEUE_SIZE;
+    
+    return false;
+}
 
 /* Choose a user environment to run and run it */
 _Noreturn void
@@ -39,10 +86,16 @@ sched_yield(void) {
         if (envs[next_idx].env_is_stopped)
             continue;
 
+        if (check_wait_for_signal(envs + next_idx))
+            continue;
+
         env_run(envs + next_idx);
     }
  
-    if (curenv && curenv->env_status == ENV_RUNNING && !curenv->env_is_stopped)
+    if (curenv && 
+        curenv->env_status == ENV_RUNNING && 
+        !curenv->env_is_stopped &&
+        !check_wait_for_signal(curenv))
         env_run(curenv);
 
     cprintf("Halt\n");
