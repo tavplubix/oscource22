@@ -46,7 +46,8 @@ bool check_wait_for_signal(struct Env * env) {
     else {
         memmove(es, es + 1, sizeof(struct EnqueuedSignal) * (SIGNALS_QUEUE_SIZE - i - 1));
         memcpy(env->env_sig_queue + SIGNALS_QUEUE_SIZE - 1, env->env_sig_queue, sizeof(struct EnqueuedSignal));
-        memmove(env->env_sig_queue, env->env_sig_queue + 1, sizeof(struct EnqueuedSignal) * (env->env_sig_queue_end - 1));
+        if (env->env_sig_queue_end)
+            memmove(env->env_sig_queue, env->env_sig_queue + 1, sizeof(struct EnqueuedSignal) * (env->env_sig_queue_end - 1));
     }
 
     env->env_sig_queue_end = (env->env_sig_queue_end - 1) % SIGNALS_QUEUE_SIZE;

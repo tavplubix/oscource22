@@ -554,7 +554,7 @@ sys_sigqueue(pid_t pid, int signo, const union sigval value) {
     env->env_sig_queue_end = new_end;
 
     if (sa->sa_flags & SA_RESETHAND) {
-        sa->sa_handler = SIG_DFL;
+        sa->sa_handler = signo == SIGCHLD ? SIG_IGN : SIG_DFL;
         sa->sa_flags &= ~SA_SIGINFO;
     }
     

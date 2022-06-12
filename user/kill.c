@@ -1,6 +1,5 @@
 #include <inc/lib.h>
 #include <inc/string.h>
-#include <string.h>
 
 void
 usage(void) {
@@ -8,21 +7,8 @@ usage(void) {
     exit();
 }
 
-void kek(int) {
-    cprintf("kek\n");
-    union sigval sv;
-    sigqueue(0, 2, sv);
-    sys_yield();
-}
-
 void
 umain(int argc, char **argv) {
-    struct sigaction sa;
-    sa.sa_handler = kek;
-    sa.sa_mask = SIGNAL_FLAG(2);
-    sa.sa_flags = SA_RESETHAND;
-    sigaction(2, &sa, NULL);
-
     if (argc < 3 || 4 < argc)
         usage();
 
@@ -37,22 +23,9 @@ umain(int argc, char **argv) {
     if (pid < 0 || signum <= 0)
         usage();
     
-    union sigval val;
-    memset(&val, 0, sizeof(val));
-    val.sival_int = sigarg;
-
-    sigset_t set = -1;
-    set <<= 1;
-    sigsetmask(set);
-    int err = sigqueue(pid, signum, val);
-    if (!pid) {
-        set = SIGNAL_FLAG(2);
-        sigwait(&set, NULL);
-        sigsetmask(0);
-        sigqueue(pid, signum, val);
-        sys_yield();
-    }
-
+    union sigval sv;
+    sv.sival_int = sigarg;
+    int err = sigqueue(pid, signum, sv);
     if (err)
         printf("kill: failed to send signal: %d\n", err);
 

@@ -208,9 +208,6 @@ env_alloc(struct Env **newenv_store, envid_t parent_id, enum EnvType type) {
     /* For now init trapframe with IF set */
     env->env_tf.tf_rflags = FL_IF | (type == ENV_TYPE_FS ? FL_IOPL_3 : FL_IOPL_0);
 
-    /* Clear the page fault handler until user installs one. */
-    env->env_pgfault_upcall = 0;
-
     /* Also clear the IPC receiving flag. */
     env->env_ipc_recving = 0;
 
@@ -218,16 +215,28 @@ env_alloc(struct Env **newenv_store, envid_t parent_id, enum EnvType type) {
     env_free_list = env->env_link;
     *newenv_store = env;
 
-    // Zeros are default values for most signals
-    memset(env->env_sigaction, 0, sizeof(struct sigaction) * SIGMAX);
-    // Block other signals while handling pagefault
-    env->env_sigaction[SIGRESERVED].sa_mask = ~SIGNAL_FLAG(SIGRESERVED);
-    env->env_sigaction[SIGRESERVED].sa_flags = SA_NODEFER;
-    env->env_sigaction[SIGCHLD].sa_handler = SIG_IGN;
+    struct Env * penv = NULL;
+    envid2env(parent_id, &penv, false);
+
+    if (penv) {
+        // Signal handlers are inherited
+        memcpy(env->env_sigaction, penv->env_sigaction, sizeof(struct sigaction) * SIGMAX);
+        env->env_pgfault_upcall = penv->env_pgfault_upcall;
+    }
+    else {
+        // Zeros are default values for most signals
+        memset(env->env_sigaction, 0, sizeof(struct sigaction) * SIGMAX);
+        // Block other signals while handling pagefault
+        env->env_sigaction[SIGRESERVED].sa_mask = ~SIGNAL_FLAG(SIGRESERVED);
+        env->env_sigaction[SIGRESERVED].sa_flags = SA_NODEFER;
+        env->env_sigaction[SIGCHLD].sa_handler = SIG_IGN;
+        env->env_pgfault_upcall = 0;
+    }
 
     env->env_sig_queue_beg = 0;
     env->env_sig_queue_end = 0;
 
+    env->env_sig_mask = 0;
     env->env_is_stopped = false;
 
     env->env_sig_waiting = 0;
