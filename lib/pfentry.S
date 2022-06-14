@@ -38,7 +38,8 @@ _signal_handler_trampoline:
     movq  %rsp,%rdi # passing the function argument (UTrapframe *) in rdi
     # sizeof(struct EnqueuedSignal) == 56
     # sizeof(curenv->env_sig_mask) == 4
-    add $60, %rdi
+    # + 4 bytes of alignment
+    add $64, %rdi
 
     # load signo
     mov (%rsp), %eax
@@ -57,11 +58,15 @@ _call_generic_signal_handler:
 
 _return_from_handler:
     # ignore EnqueuedSignal and env_sig_mask
-    add $60, %rsp
-    # load env_sig_mask (as the first func arg)
-    mov -4(%rsp), %rdi
+    add $64, %rsp
+    # put SIG_SETMASK as the first func arg
+    movq $3, %rdi
+    # load &env_sig_mask (as the second func arg)
+    lea -4(%rsp), %rsi
+    # NULL as the third arg
+    xor %rdx, %rdx
     # restore blocked signals mask
-    movabs $sys_sigsetmask, %rax
+    movabs $sys_sigprocmask, %rax
     call *%rax
     # now we may receive another signal
 

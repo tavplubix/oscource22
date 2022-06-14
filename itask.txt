@@ -7,9 +7,7 @@ int sigaction(int sig, const struct sigaction * act, struct sigaction * oact);
 
 по поведению похожие на аналогичные функции в POSIX, а также вспомогательная функция
 
-int sigsetmask(uint32_t new_mask);
-
-заменяющая функцию sigprocmask.
+int sigprocmask(int how, const sigset_t * set, sigset_t * oldset);
 
 Всего поддержан 31 сигнал от SIGRESERVED (0) до SIGMAX (32), не включительно.
 Поддержаны сигналы SIGKILL, SIGSTOP, SIGCONT и SIGCHLD (поведение похоже на POSIX).
@@ -58,7 +56,7 @@ _pgfault_upcall/_signal_handler_trampoline в sys_env_set_pgfault_upcall
 В зависимости от номера сигнала (0 или не 0) _pgfault_upcall вызывает библиотечную
 _handle_vectored_pagefault либо _generic_signal_handler. Последняя вызывает 
 пользовательский обработчик сигнала. При выходе _pgfault_upcall вызывает 
-sys_sigsetmask, чтобы восстановить маску заблокированных сигналов.
+sys_sigprocmask, чтобы восстановить маску заблокированных сигналов.
 
 Для удобства тестирования и отладки в traceopt.h добавлены макросы TEST_ITASK 
 и trace_signals, которые включают отладочный вывод.

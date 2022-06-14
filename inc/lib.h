@@ -98,7 +98,7 @@ int sys_gettime(void);
 int sys_sigqueue(pid_t pid, int signo, const union sigval value);
 int sys_sigwait(const sigset_t * set, int * sig);
 int sys_sigaction(int sig, const struct sigaction * act, struct sigaction * oact);
-int sys_sigsetmask(uint32_t new_mask);
+int sys_sigprocmask(int how, const sigset_t * set, sigset_t * oldset);
 
 
 int vsys_gettime(void);
@@ -167,7 +167,7 @@ void wait(envid_t env);
 int sigqueue(pid_t pid, int signo, const union sigval value);
 int sigwait(const sigset_t * set, int * sig);
 int sigaction(int sig, const struct sigaction * act, struct sigaction * oact);
-int sigsetmask(uint32_t new_mask);
+int sigprocmask(int how, const sigset_t * set, sigset_t * oldset);
 
 /* File open modes */
 #define O_RDONLY  0x0000 /* open for reading only */

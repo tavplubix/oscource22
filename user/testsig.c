@@ -7,7 +7,7 @@ union sigval sv;
 volatile sig_atomic_t chldcntr = 0;
 
 static void
-handler_chld(int signo, siginfo_t *, void *) {
+handler_chld(int signo, siginfo_t * info, void * ctx) {
     assert(signo == SIGCHLD);
     ++chldcntr;
 }
@@ -18,7 +18,7 @@ volatile sig_atomic_t reached_max_depth = 0;
 static void
 handler_nodefer(int signo) {
     if (10 < depth) {
-        reached_max_depth = 0;
+        reached_max_depth = 1;
         return;
     }
     ++depth;
@@ -107,13 +107,13 @@ umain(int argc, char **argv) {
     err = sigaction(SIGTERM, &sa, NULL);
     assert(err == 0);
     sigset_t set = SIGNAL_FLAG(SIGTERM);
-    sigsetmask(set);
+    sigprocmask(SIG_BLOCK, &set, NULL);
     sigqueue(CURENVID, SIGTERM, sv);
     sigqueue(CURENVID, SIGTERM, sv);
     sigqueue(CURENVID, SIGTERM, sv);
     sigwait(&set, NULL);
     sigqueue(CURENVID, SIGTERM, sv);
-    sigsetmask(0);
+    sigprocmask(SIG_UNBLOCK, &set, NULL);
     sigqueue(CURENVID, SIGTERM, sv);
     sys_yield();
     assert(termcount == 4);

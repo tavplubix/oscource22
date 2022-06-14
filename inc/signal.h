@@ -42,6 +42,12 @@ union sigval {
 
 #define SA_ALL_FLAGS  0xc0000005
 
+
+#define SIG_BLOCK 1
+#define SIG_UNBLOCK 2
+#define SIG_SETMASK 3
+
+
 typedef struct {
     int si_signo;
     int si_code;

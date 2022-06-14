@@ -549,7 +549,7 @@ sys_sigqueue(pid_t pid, int signo, const union sigval value) {
 
     // Copy sigaction structure as well to avoid any possible races with sys_sigaction
     // (and don't even think about consiquences of such races)
-    nosan_memcpy(&(es->sa), sa, sizeof(struct sigaction));
+    memcpy(&(es->sa), sa, sizeof(struct sigaction));
 
     env->env_sig_queue_end = new_end;
 
@@ -566,7 +566,9 @@ signal_sent:
 
 static int
 sys_sigwait(const sigset_t * set, int * sig) {
+    sigset_t tmp_set;
     user_mem_assert(curenv, set, sizeof(set), PROT_R | PROT_USER_);
+    nosan_memcpy(&tmp_set, (void *)set, sizeof(sigset_t));
     if (sig)
         user_mem_assert(curenv, sig, sizeof(sig), PROT_R | PROT_W | PROT_USER_);
 
@@ -575,16 +577,16 @@ sys_sigwait(const sigset_t * set, int * sig) {
     all &= ~SIGNAL_FLAG(SIGSTOP);
     all &= ~SIGNAL_FLAG(SIGCONT);
     all &= ~SIGNAL_FLAG(SIGKILL);
-    if (*set & ~all)
+    if (tmp_set & ~all)
         return -E_INVAL;
-    if (!(*set & all))
+    if (!(tmp_set & all))
         return -E_INVAL;
 
-    curenv->env_sig_waiting = *set;
+    curenv->env_sig_waiting = tmp_set;
     curenv->env_sig_waiting_num_out = sig;
     curenv->env_tf.tf_regs.reg_rax = 0;
     if (trace_signals)
-        cprintf("signals: env %x: will wait for signals 0x%x\n", curenv->env_id, *set);
+        cprintf("signals: env %x: will wait for signals 0x%x\n", curenv->env_id, tmp_set);
     sched_yield();
     return 0;
 }
@@ -601,9 +603,11 @@ sys_sigaction(int sig, const struct sigaction * act, struct sigaction * oact) {\
 
     /// Ensure that pointers are valid
     size_t act_size = sizeof(struct sigaction);
+    struct sigaction sa_tmp;
     user_mem_assert(curenv, act, act_size, PROT_R | PROT_USER_);
+    nosan_memcpy(&sa_tmp, (void *)act, act_size);
 
-    if (act->sa_flags & ~SA_ALL_FLAGS)
+    if (sa_tmp.sa_flags & ~SA_ALL_FLAGS)
         return -E_INVAL;
 
     struct sigaction * env_act = curenv->env_sigaction + sig;
@@ -612,12 +616,42 @@ sys_sigaction(int sig, const struct sigaction * act, struct sigaction * oact) {\
         nosan_memcpy(oact, env_act, act_size);
     }
 
-    nosan_memcpy(env_act, act, act_size);
+    memcpy(env_act, (void *)&sa_tmp, act_size);
     return 0;
 }
 
-static int
-sys_sigsetmask(uint32_t new_mask) {
+
+int sys_sigprocmask(int how, const sigset_t * set, sigset_t * oldset) {
+    sigset_t nset;
+    if (set) {
+        user_mem_assert(curenv, set, sizeof(sigset_t), PROT_R | PROT_USER_);
+        nosan_memcpy(&nset, (void *)set, sizeof(sigset_t));
+    }
+
+    if (oldset) {
+        user_mem_assert(curenv, oldset, sizeof(sigset_t), PROT_R | PROT_W | PROT_USER_);
+        nosan_memcpy(oldset, &curenv->env_sig_mask, sizeof(sigset_t));
+    }
+
+    if (!set)
+        return 0;
+    
+    sigset_t new_mask = curenv->env_sig_mask;
+
+    switch (how) {
+    case SIG_BLOCK:
+        new_mask |= nset;
+        break;
+    case SIG_UNBLOCK:
+        new_mask &= ~nset;
+        break;
+    case SIG_SETMASK:
+        new_mask = nset;
+        break;
+    default:
+        return -E_INVAL;
+    }
+
     if (trace_signals)
         cprintf("signals: env %x: change mask from 0x%x to 0x%x\n", curenv->env_id, curenv->env_sig_mask, new_mask);
     curenv->env_sig_mask = new_mask;
@@ -674,8 +708,8 @@ syscall(uintptr_t syscallno, uintptr_t a1, uintptr_t a2, uintptr_t a3, uintptr_t
         return sys_sigwait((sigset_t *)a1, (int *)a2);
     case SYS_sigaction:
         return sys_sigaction((int)a1, (struct sigaction *)a2, (struct sigaction *)a3);
-    case SYS_sigsetmask:
-        return sys_sigsetmask((uint32_t)a1);
+    case SYS_sigprocmask:
+        return sys_sigprocmask((int)a1, (sigset_t *)a2, (sigset_t *)a3);
     default:
         return -E_NO_SYS;
     }

@@ -16,7 +16,7 @@ volatile sig_atomic_t sender = 0;
 volatile sig_atomic_t updated = 0;
 
 static void
-handler(int signo, siginfo_t * info, void *) {
+handler(int signo, siginfo_t * info, void * ctx) {
     assert(signo == SIGUSR1);
     value = info->si_value.sival_int;
     sender = info->si_pid;
@@ -45,16 +45,16 @@ sig_send(envid_t id, int value) {
     union sigval sv;
     sv.sival_int = value;
     sigset_t set = SIGNAL_FLAG(SIGUSR2);
-    if (sigsetmask(set))
-        panic("sigsetmask failed\n");
+    if (sigprocmask(SIG_BLOCK, &set, NULL))
+        panic("sigprocmask failed\n");
     if (sigqueue(id, SIGUSR1, sv))
         panic("sigqueue failed\n");
     // ensure signal is processed before sending the next one
     int sig = 0;
     if (sigwait(&set, &sig))
         panic("sigwait failed\n");
-    if (sigsetmask(0))
-        panic("sigsetmask failed\n");
+    if (sigprocmask(SIG_UNBLOCK, &set, NULL))
+        panic("sigprocmask failed\n");
     assert(sig == SIGUSR2);
 }
 

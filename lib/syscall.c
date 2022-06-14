@@ -164,7 +164,8 @@ sys_sigaction(int sig, const struct sigaction * act, struct sigaction * oact) {
     return syscall(SYS_sigaction, 1, (uintptr_t)sig, (uintptr_t)act, (uintptr_t)oact, 0, 0, 0);
 }
 
+
 int
-sys_sigsetmask(uint32_t new_mask) {
-    return syscall(SYS_sigsetmask, 1, (uintptr_t)new_mask, 0, 0, 0, 0, 0);
+sys_sigprocmask(int how, const sigset_t * set, sigset_t * oldset) {
+    return syscall(SYS_sigprocmask, 1, (uintptr_t)how, (uintptr_t)set, (uintptr_t)oldset, 0, 0, 0);
 }

@@ -425,20 +425,28 @@ call_signal_handler(uintptr_t rsp, struct Trapframe *tf, struct EnqueuedSignal *
     if (!curenv->env_pgfault_upcall)
         env_destroy(curenv);
 
+    size_t stack_alignment = 16;
+    if (rsp % stack_alignment)
+        rsp -= stack_alignment - rsp % stack_alignment;
+
+    size_t mask_alignment = 4;
     size_t frame_size = sizeof(struct UTrapframe) +
-                        sizeof(curenv->env_sig_mask) +
+                        sizeof(curenv->env_sig_mask) + mask_alignment +
                         sizeof(struct EnqueuedSignal);
+    assert(frame_size % 16 == 0);
     uintptr_t handler_rsp = rsp - frame_size;
     user_mem_assert(curenv, (void *)handler_rsp, frame_size, PROT_W);
 
     // Put signal info on stack
     uintptr_t dst = handler_rsp;
+    assert(dst % 8 == 0);
     as_memcpy(&curenv->address_space, dst, (uintptr_t)es, sizeof(struct EnqueuedSignal));
     dst += sizeof(struct EnqueuedSignal);
 
     // Put prev blocked signals mask on stack
+    assert(dst % 8 == 0);
     as_memcpy(&curenv->address_space, dst, (uintptr_t)&(curenv->env_sig_mask), sizeof(curenv->env_sig_mask));
-    dst += sizeof(curenv->env_sig_mask);
+    dst += sizeof(curenv->env_sig_mask) + mask_alignment;
 
     // Prepare trapframe for returning from handler
     struct UTrapframe utf;
@@ -448,6 +456,7 @@ call_signal_handler(uintptr_t rsp, struct Trapframe *tf, struct EnqueuedSignal *
     utf.utf_rflags = tf->tf_rflags;
     utf.utf_rsp = tf->tf_rsp;
     utf.utf_rip = tf->tf_rip;
+    assert(dst % 8 == 0);
     as_memcpy(&curenv->address_space, dst, (uintptr_t)&utf, sizeof(struct UTrapframe));
     dst += sizeof(struct UTrapframe);
 
@@ -458,6 +467,7 @@ call_signal_handler(uintptr_t rsp, struct Trapframe *tf, struct EnqueuedSignal *
     }
 
     // Modify trapframe to run handler
+    assert(handler_rsp % 16 == 0);
     tf->tf_rsp = handler_rsp;
     tf->tf_rip = (uintptr_t)curenv->env_pgfault_upcall;
 

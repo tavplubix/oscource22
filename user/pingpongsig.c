@@ -9,7 +9,7 @@ volatile sig_atomic_t sender = 0;
 volatile sig_atomic_t updated = 0;
 
 static void
-handler(int signo, siginfo_t * info, void *) {
+handler(int signo, siginfo_t * info, void * ctx) {
     assert(signo == SIGUSR1);
     value = info->si_value.sival_int;
     sender = info->si_pid;

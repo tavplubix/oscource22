@@ -11,7 +11,7 @@ handler_chld(int signo) {
 }
 
 static void
-handler(int signo, siginfo_t * info, void *) {
+handler(int signo, siginfo_t * info, void * ctx) {
     union sigval sv;
     sv.sival_int = 0;
     while (true) {
@@ -53,6 +53,28 @@ umain(int argc, char **argv) {
     err = sigqueue(0, SIGMAX, sv);
     assert(err == -E_INVAL);
 
+    // sigmasks
+    sigset_t test_set = SIGNAL_FLAG(SIGINT) | SIGNAL_FLAG(SIGTERM);
+    err = sigprocmask(123, &test_set, NULL);
+    assert(err == -E_INVAL);
+    err = sigprocmask(SIG_BLOCK, NULL, NULL);
+    assert(err == 0);
+    err = sigprocmask(SIG_SETMASK, &test_set, NULL);
+    assert(err == 0);
+    test_set = SIGNAL_FLAG(SIGUSR2);
+    err = sigprocmask(SIG_BLOCK, &test_set, NULL);
+    test_set = SIGNAL_FLAG(SIGUSR1);
+    err = sigprocmask(SIG_UNBLOCK, &test_set, NULL);
+    test_set = SIGNAL_FLAG(SIGINT);
+    err = sigprocmask(SIG_UNBLOCK, &test_set, NULL);
+    assert(err == 0);
+    sigset_t old_test_set;
+    err = sigprocmask(0, NULL, &old_test_set);
+    assert(err == 0);
+    assert(old_test_set == (SIGNAL_FLAG(SIGUSR2) | SIGNAL_FLAG(SIGTERM)));
+    test_set = 0;
+    err = sigprocmask(SIG_SETMASK, &test_set, NULL);
+
     // invalid flags
     sa.sa_flags = 123;
     err = sigaction(SIGUSR1, &sa, NULL);
@@ -82,6 +104,15 @@ umain(int argc, char **argv) {
         sigwait(&set, (void *)0xdeadbeef);
         assert(false);
     }
+    if (fork() == 0) {
+        sigprocmask(SIG_SETMASK, (void *)0xdeadbeef, NULL);
+        assert(false);
+    }
+    if (fork() == 0) {
+        sigset_t set = 2;
+        sigprocmask(SIG_SETMASK, &set, (void *)0xdeadbeef);
+        assert(false);
+    }
 
     // check that queue does not overflow
     // and that it's not possible to block special signals
@@ -97,7 +128,8 @@ umain(int argc, char **argv) {
     envid_t child1 = fork();
     if (child1 == 0) {
         // block all except USR1
-        sigsetmask(~SIGNAL_FLAG(SIGUSR1));
+        sigset_t set = ~SIGNAL_FLAG(SIGUSR1);
+        sigprocmask(SIG_SETMASK, &set, NULL);
         while (1) sys_yield();
     }
 
@@ -130,7 +162,7 @@ umain(int argc, char **argv) {
     assert(!updated);
 
     // test SIGCHLD and SA_NOCLDSTOP btw
-    assert(finished_children == 5);
+    assert(finished_children == 7);
 
     sa.sa_handler = handler_chld;
     sa.sa_flags = 0;
@@ -144,7 +176,7 @@ umain(int argc, char **argv) {
     sigqueue(child2, SIGSTOP, sv);
     sigqueue(child2, SIGCONT, sv);
     sigqueue(child2, SIGKILL, sv);
-    assert(finished_children == 8);
+    assert(finished_children == 10);
 
     cprintf("Test finished\n");
 }

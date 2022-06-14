@@ -54,6 +54,6 @@ int sigaction(int sig, const struct sigaction * act, struct sigaction * oact) {
     return sys_sigaction(sig, act, oact);
 }
 
-int sigsetmask(uint32_t new_mask) {
-    return sys_sigsetmask(new_mask);
+int sigprocmask(int how, const sigset_t * set, sigset_t * oldset) {
+    return sys_sigprocmask(how, set, oldset);
 }
