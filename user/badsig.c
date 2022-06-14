@@ -2,7 +2,7 @@
 #include <inc/signal.h>
 
 
-volatile int finished_children = 0;
+volatile sig_atomic_t finished_children = 0;
 
 static void
 handler_chld(int signo) {
@@ -21,12 +21,12 @@ handler(int signo, siginfo_t * info, void *) {
     }
 }
 
-volatile bool updated = false;
+volatile sig_atomic_t updated = 0;
 
 static void
 handler_usr2(int signo) {
     assert(signo == SIGUSR2);
-    updated = true;
+    updated = 1;
 }
 
 void
@@ -112,7 +112,7 @@ umain(int argc, char **argv) {
     err = sigqueue(child1, SIGSTOP, sv);
     assert(err == 0);
     assert(updated);
-    updated = false;
+    updated = 0;
     for (int i = 0; i < 10; ++i) sys_yield();
     assert(!updated);
 
@@ -125,7 +125,7 @@ umain(int argc, char **argv) {
     // kill
     err = sigqueue(child1, SIGKILL, sv);
     assert(err == 0);
-    updated = false;
+    updated = 0;
     for (int i = 0; i < 10; ++i) sys_yield();
     assert(!updated);
 

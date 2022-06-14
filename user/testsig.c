@@ -4,7 +4,7 @@
 
 union sigval sv;
 
-volatile int chldcntr = 0;
+volatile sig_atomic_t chldcntr = 0;
 
 static void
 handler_chld(int signo, siginfo_t *, void *) {
@@ -12,13 +12,13 @@ handler_chld(int signo, siginfo_t *, void *) {
     ++chldcntr;
 }
 
-volatile int depth = 0;
-volatile bool reached_max_depth = false;
+volatile sig_atomic_t depth = 0;
+volatile sig_atomic_t reached_max_depth = 0;
 
 static void
 handler_nodefer(int signo) {
     if (10 < depth) {
-        reached_max_depth = true;
+        reached_max_depth = 0;
         return;
     }
     ++depth;
@@ -28,7 +28,7 @@ handler_nodefer(int signo) {
 }
 
 
-volatile int intcount = 0;
+volatile sig_atomic_t intcount = 0;
 
 static void
 handler_defer(int signo) {
@@ -43,7 +43,7 @@ handler_defer(int signo) {
 }
 
 
-volatile int termcount = 0;
+volatile sig_atomic_t termcount = 0;
 
 static void
 handler_term(int signo) {
@@ -86,7 +86,7 @@ umain(int argc, char **argv) {
     assert(err == 0);
     assert(depth == 0);
     assert(reached_max_depth);
-    reached_max_depth = false;
+    reached_max_depth = 0;
 
     // signal is blocked by default
     sa.sa_handler = handler_defer;

@@ -11,16 +11,16 @@
 #include <inc/lib.h>
 #include <inc/signal.h>
 
-volatile int value = 0;
-volatile pid_t sender = 0;
-volatile bool updated = false;
+volatile sig_atomic_t value = 0;
+volatile sig_atomic_t sender = 0;
+volatile sig_atomic_t updated = 0;
 
 static void
 handler(int signo, siginfo_t * info, void *) {
     assert(signo == SIGUSR1);
     value = info->si_value.sival_int;
     sender = info->si_pid;
-    updated = true;
+    updated = 1;
 }
 
 static int
@@ -28,7 +28,7 @@ sig_recv(envid_t * out) {
     while (!updated) {
         sys_yield();
     }
-    updated = false;
+    updated = 0;
     *out = sender;
     int res = value;
     assert(!updated);

@@ -1,6 +1,10 @@
 #pragma once
 #include <stdint.h>
 
+// Operations with int32 are atomic in x86
+// and JOS does not work on other platforms anyway.
+typedef int32_t sig_atomic_t;
+
 typedef int32_t pid_t;  // envid_t
 
 #define SIGRESERVED 0
