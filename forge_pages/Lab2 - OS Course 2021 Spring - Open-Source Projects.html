@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Lab2 - OS Course 2021 Spring - Open-Source Projects</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Redmine">
+<meta name="keywords" content="issue,bug,tracker">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="z+FtsLpCuThNqsF0V6tIhRHOciUOrdy8ocsO8mpb2hvIiovYj3girX2Mi+LmkezRYNX7KnlZynDNVEVHGVAaMg==">
+<link rel="shortcut icon" href="https://forge.ispras.ru/favicon.ico?1642659995">
+<link rel="stylesheet" media="all" href="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-ui-1.css">
+<link rel="stylesheet" media="all" href="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.css">
+<link rel="stylesheet" media="all" href="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.css">
+<link rel="stylesheet" media="all" href="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.css">
+
+<script src="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-3.js"></script>
+<script src="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-migrate-3.js"></script>
+<script src="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.js"></script>
+<script src="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5.js"></script>
+<script src="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5_002.js"></script>
+<script src="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.js"></script>
+<script src="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.js"></script>
+<script>
+//<![CDATA[
+$(window).on('load', function(){ warnLeavingUnsaved('The current page contains unsaved text that will be lost if you leave this page.'); });
+//]]>
+</script>
+
+<script>
+//<![CDATA[
+rm = window.rm || {};rm.AutoComplete = rm.AutoComplete || {};rm.AutoComplete.dataSources = '{"issues":"/issues/auto_complete?project_id=oscourse-2021-spring\u0026q=","wiki_pages":"/wiki_pages/auto_complete?project_id=oscourse-2021-spring\u0026q="}';
+//]]>
+</script>
+ <link rel="stylesheet" media="screen" href="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/admin.css">
+<!-- page specific tags -->
+  <script src="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/attachments.js"></script>
+
+</head>
+<body class="project-oscourse-2021-spring has-main-menu controller-wiki action-show avatars-on">
+
+<div id="wrapper">
+
+<div class="flyout-menu js-flyout-menu">
+
+        <div class="flyout-menu__search">
+            <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-7fd0fa4e" method="get"><input name="utf8" type="hidden" value="✓">
+            <input type="hidden" name="wiki_pages" value="1">
+            <label class="search-magnifier search-magnifier--flyout" for="flyout-search">⚲</label>
+            <input type="text" name="q" id="flyout-search" class="small js-search-input" placeholder="Search">
+</form>        </div>
+
+        <div class="flyout-menu__avatar ">
+                <a href="https://forge.ispras.ru/users/12098"><img alt="" title="Александр Токмаков" class="gravatar" srcset="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef_002.png 2x" src="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef.png"></a>
+            <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a>
+        </div>
+
+        <h3>Project</h3>
+        <span class="js-project-menu"></span>
+
+    <h3>General</h3>
+    <span class="js-general-menu"></span>
+
+    <span class="js-sidebar flyout-menu__sidebar"></span>
+
+    <h3>Profile</h3>
+    <span class="js-profile-menu"></span>
+
+</div>
+
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a class="my-account" href="https://forge.ispras.ru/my/account">My account</a></li><li><a class="logout" rel="nofollow" data-method="post" href="https://forge.ispras.ru/logout">Sign out</a></li></ul>    </div>
+    <div id="loggedas">Logged in as <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a></div>
+    <ul><li><a class="home" href="https://forge.ispras.ru/">Home</a></li><li><a class="my-page" href="https://forge.ispras.ru/my/page">My page</a></li><li><a class="projects" href="https://forge.ispras.ru/projects">Projects</a></li><li><a class="help" href="https://www.redmine.org/guide">Help</a></li></ul></div>
+
+<div id="header">
+
+    <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
+
+    <div id="quick-search">
+        <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-d888874b" method="get"><input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="scope">
+        <input type="hidden" name="wiki_pages" value="1">
+        <label for="q">
+          <a accesskey="4" href="https://forge.ispras.ru/projects/oscourse-2021-spring/search">Search</a>:
+        </label>
+        <input type="text" name="q" id="q" size="20" class="small" accesskey="f" data-auto-complete="true">
+</form>        <div id="project-jump" class="drdn"><span class="drdn-trigger">OS Course 2021 Spring</span><div class="drdn-content"><div class="quick-search"><input type="text" name="q" id="projects-quick-search" class="autocomplete" data-automcomplete-url="/projects/autocomplete.js?jump=wiki" autocomplete="off" data-value-was=""></div><div class="drdn-items projects selection"><strong>Recently used</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a><strong>All Projects</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a></div><div class="drdn-items all-projects selection"><a href="https://forge.ispras.ru/projects?jump=wiki">All Projects</a></div></div></div>
+    </div>
+
+    <h1><span class="current-project">OS Course 2021 Spring</span></h1>
+
+    <div id="main-menu" class="tabs">
+        <ul><li>
+<a onclick="toggleNewObjectDropdown(); return false;" id="new-object" class="new-object" href="#"> + </a>
+<ul class="menu-children"><li><a class="new-version" href="https://forge.ispras.ru/projects/oscourse-2021-spring/versions/new">New version</a></li><li><a class="new-wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new">New wiki page</a></li><li><a class="new-file" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files/new">New file</a></li></ul>
+</li><li><a class="overview" href="https://forge.ispras.ru/projects/oscourse-2021-spring">Overview</a></li><li><a class="activity" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity">Activity</a></li><li><a class="wiki selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Wiki</a></li><li><a class="files" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files">Files</a></li><li><a class="settings" href="https://forge.ispras.ru/projects/oscourse-2021-spring/settings">Settings</a></li></ul>
+        <div class="tabs-buttons" style="display: none;">
+            <button class="tab-left" onclick="moveTabLeft(this); return false;"></button>
+            <button class="tab-right" onclick="moveTabRight(this); return false;"></button>
+        </div>
+    </div>
+</div>
+
+<div id="main" class="">
+    <div id="sidebar">
+          
+
+<h3>Wiki</h3>
+<ul>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Start page</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/index">Index by title</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/date_index">Index by date</a></li>
+</ul>
+
+
+
+
+        
+    </div>
+
+    <div id="content">
+        
+        <div class="contextual">
+
+  <a class="icon icon-edit" accesskey="e" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab2/edit">Edit</a>
+  <a class="wiki_page-1034-watcher icon icon-fav-off" data-remote="true" rel="nofollow" data-method="post" href="https://forge.ispras.ru/watchers/watch?object_id=1034&amp;object_type=wiki_page">Watch</a>
+
+  <span class="drdn"><span class="drdn-trigger"><span class="icon-only icon-actions" title="Actions">Actions</span></span><div class="drdn-content"><div class="drdn-items">
+    <a class="icon icon-history" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab2/history">History</a>
+
+      
+      
+      
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab2">Delete</a>
+
+      <a class="icon icon-add" data-remote="true" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new?parent=Lab2">New wiki page</a>
+</div></div></span></div>
+
+<p class="breadcrumb"><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Wiki">Wiki</a> » </p>
+
+
+<div class="wiki wiki-page">
+  <a name="Лабораторная-работа-2"></a>
+<h1>Лабораторная работа №2<a href="#Лабораторная-работа-2" class="wiki-anchor">¶</a></h1>
+
+
+	<p>Внимание! Данная лабораторная работа содержит множество отсылок к 
+документации Intel Software Developer Manual (SDM). Актуальную версию 
+сборного документа из 4 томов можно скачать по <a href="https://software.intel.com/content/www/us/en/develop/articles/intel-sdm.html#combined" class="external">ссылке</a>.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-2"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab2/edit?section=2">Edit this section</a></div><a name="Работа-в-различных-режимах-процессора"></a>
+<h2>Работа в различных режимах процессора<a href="#Работа-в-различных-режимах-процессора" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Современные реализации архитектуры x86 позволяют процессору работать
+ в разных режимах работы. В зависимости от текущего активного режима 
+меняется набор команд и их поведение, а также доступные для 
+использования ресурсы. Переключение между режимами выполняется 
+программно, и как на разных стадиях инициализации платформы, так и в 
+разное время работы операционной системы, процессор может работать в 
+разных режимах.</p>
+
+
+	<p>Перед тем как перейти к рассмотрению режимов работы процессора, 
+необходимо понять, как устроена сегментная адресация в архитектуре x86. 
+Подробно о сегментной адресации можно прочесть в Intel SDM в разделе 
+3.4.2 Segment Registers подраздела 3.4.1 Basic Program Execution 
+Registers первого тома и разделах 3.2 Using Segments третьего тома. 
+Любой используемый машинным кодом адрес принадлежит некоторому сегменту,
+ который описывает где в оперативной памяти этот адрес находится и 
+какими свойствами он обладает. Для выбора сегмента в инструкциях явно 
+или неявно используют сегментные регистры процессора. Адрес текущей 
+исполняемой инструкции принадлежит кодовому сегменту (описывается 
+сегментным регистром <code>cs</code>), адрес на стеке принадлежит сегменту стека (<code>ss</code>), данные в памяти — сегменту данных (<code>ds</code>), если иной сегмент не указан явно (например, <code>gs</code>, <code>fs</code>, <code>es</code>, см. 3.7.4 Specifying a Segment Selector).</p>
+
+
+	<p><img src="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/segmap.png" alt=""></p>
+
+
+	<p>Сегментный регистр внутри процессора состоит из двух частей: видимой
+ и скрытой. Значение сегментного регистра является видимой частью, биты 
+3:15 которой содержат индекс элемента в таблице в оперативной памяти, 
+который описывает данный сегмент. В момент обновления значения 
+сегментного регистра процессор загружает из памяти данный элемент и 
+сохраняет его в скрытой части сегментного регистра. Данная таблица 
+называется таблицей дескрипторов и может быть либо глобальной (<code>gdt</code>), либо локальной (<code>ldt</code>),
+ в зависимости от бита 2 в видимой части сегментного регистра. Значения,
+ загруженные в сегментный регистр из данной таблицы, в том числе 
+определяют текущий режим работы процессора.</p>
+
+
+	<p><img src="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/selector.png" alt=""></p>
+
+
+	<p>Хотя некоторые режимы работы процессора требуют использования 
+виртуальной памяти, которая в архитектуре x86 реализована посредством 
+страничной адресации, для данной лабораторной работы объяснения 
+принципов её работы не требуются, за исключением факта её наличия и 
+эквивалентности физического и виртуального адресов в нашей конфигурации.
+ Работа с виртуальной памятью будет позднее рассмотрена в следующих 
+лабораторных работах.</p>
+
+
+	<p>Доступные на текущий момент режимы процессора и возможности прямого переключения между ними изображены на рисунке ниже:</p>
+
+
+	<p><img src="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/intel.png" alt=""></p>
+
+
+	<ul>
+	<li><b>Реальный режим</b> (Real mode) процессора является старейшим 
+режимом с 16-битным набором команд и 20-битной адресацией. Первые 
+процессоры Intel, начиная с Intel 8086 и вплоть до 80286, могли 
+использовать исключительно реальный режим работы. Находясь в реальном 
+режиме работы, есть возможность перейти либо в защищённый режим, либо в 
+режим системного управления.</li>
+	</ul>
+
+
+	<ul>
+	<li><b>Защищённый режим</b> (Protected mode) процессора является 
+основным режимом для 32-битных процессоров Intel, появившийся в Intel 
+80286. Данный режим использует 32-битный набор команд, позволяет 
+адресовать больше памяти (32-битная адресация без PAE) и поддержку 
+виртуальной памяти, позволяющую реализовывать изоляцию задач в 
+операционной системе.</li>
+	</ul>
+
+
+	<ul>
+	<li><b>Режим системного управления</b> (System Management mode) 
+является прозрачным механизмом изоляции платформы от операционной 
+системы, который позволяет разработчику платформы реализовывать слой 
+управления питанием, организовывать безопасный доступ к критичным для 
+платформы устройствам, таким как SPI FLASH, или производить эмуляцию 
+устаревших интерфейсов, таких как PS/2 или VGA (UEFI Compatibility 
+Support Module).</li>
+	</ul>
+
+
+	<ul>
+	<li><b>Длинный режим</b> (Long mode, IA-32e mode) является основным 
+режимом работы для 64-битных процессоров Intel. Данный режим использует 
+64-битный набор команд и использует 64-битную (или 48-битную в ранних 
+версиях) адресацию памяти. В числе ключевых отличий от защищённого 
+режима является обязательное использование виртуальной памяти, отказ от 
+сегментной адресации и упрощённая относительная адресация для поддержки 
+PIC/PIE кода.</li>
+	</ul>
+
+
+	<p>Кроме основных режимов работы процессора также выделяются вспомогательные режимы или подрежимы работы:</p>
+
+
+	<ul>
+	<li><b>Нереальный режим</b> (Unreal mode) работы процессора — 
+возможность процессоров Intel 80286 и новее использовать 32-битные 
+сегменты, обеспечивая адресацию памяти за пределами 1 мегабайта.</li>
+	</ul>
+
+
+	<ul>
+	<li><b>Режим виртуального 8086</b> (Virtual 8086 mode) — аналог 
+реального режима, позволяющий использовать 16-битный набор команд после 
+перехода в защищённый режим.</li>
+	</ul>
+
+
+	<ul>
+	<li><b>Режим совместимости</b> (Compatibility mode) — аналог 
+защищённого режима, позволяющий использовать 32-битный набор команд 
+после перехода в длинный режим.</li>
+	</ul>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-3"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab2/edit?section=3">Edit this section</a></div><a name="Переход-в-длинный-режим"></a>
+<h2>Переход в длинный режим<a href="#Переход-в-длинный-режим" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Хотя основные реализации UEFI прошивок x86 используют 64-битную DXE 
+фазу, для встраиваемых систем на базе x86 и виртуальных машин можно 
+встретить 32-битную реализацию. Выбор архитектуры прошивки для запуска 
+JOS в виртуальной машине QEMU выполняется посредством переменной 
+окружения <code>ARCHS</code>. Значение <code>X64</code> (по умолчанию) означает 64-битный запуск, значение <code>IA32</code> производит запуск в 32-битном режиме.</p>
+
+
+	<p>Запустите JOS с 32-битной прошивкой OVMF с помощью команды <code>ARCHS=IA32 make qemu</code>. Если вы всё сделали правильно, то запуск операционной системы остановится на строчке <code>JOS: KernelCallGate: BE618C10</code>.
+ Это связано с тем, что ядро JOS ожидает передачи управления в 64-битном
+ режиме, однако код для перехода из 32-битного режима в 64-битный в 
+загрузчике ещё не был реализован.</p>
+
+
+	<p>Отредактируйте файл LoaderPkg/Ia32/Transition.nasm загрузчика JOS, 
+добавив в него код для перехода из 32-битного защищённого режима в 
+64-битный длинный режим. Подробно переход в 64-битный режим описан в 
+разделе 9.8.5 Initializing IA-32e Mode Intel SDM. Краткий пересказ 
+данного процесса также приведён ниже:</p>
+
+
+	<ol>
+	<li>Отключите использование виртуальной памяти (Paging) в регистре <code>CR0</code>.
+ Формат таблицы страниц виртуальной памяти для длинного и защищённого 
+режима отличается, поэтому переход напрямую в длинный режим без 
+отключения виртуальной памяти невозможен. Подробнее см. в 4.1.2 
+Paging-Mode Enabling Intel SDM.</li>
+		<li>Загрузите новую глобальную таблицу дескрипторов, в которой будут 
+содержаться дескрипторы с поддержкой длинного режима и обновите 
+сегментные регистры в значения, соответствующие сегментам кода и данных 
+для защищённого режима. Обратите внимание, что обновление регистра <code>cs</code> невозможно обычной командой mov, и для этого используются команды <code>far jmp</code> или <code>far ret</code>.</li>
+		<li>Активируйте поддержку расширения физического адреса (PAE) и глобальных страниц (PGE) в регистре <code>CR4</code>, необходимые для возможности использования нового формата таблицы страниц виртуальной памяти.</li>
+		<li>Обновите регистр адреса таблицы страниц виртуальной памяти (<code>CR3</code>)
+ на новую таблицу страниц, которая была передана в функцию. Обратите 
+внимание, что виртуальная память не будет использоваться до момента её 
+повторной активации в регистре <code>CR0</code>.</li>
+		<li>Активируйте поддержку длинного режима (LME) и бита защиты от исполнения памяти (NXE) в MSR регистре <code>EFER</code>.</li>
+		<li>Активируйте использование виртуальной памяти (Paging) в регистре <code>CR0</code>. При необходимости выставите биты мониторинга сопроцессора (MON), защиты памяти (WP) и выравнивания (ALIGN).</li>
+		<li>Обновите сегментные регистры для использования длинного режима.</li>
+	</ol>
+
+
+	<p>Если вы всё сделали правильно, то JOS будет запускаться с помощью команды <code>ARCHS=IA32 make qemu</code> аналогично запуску без <code>ARCHS=IA32</code>.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-4"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab2/edit?section=4">Edit this section</a></div><a name="Добавление-команды-монитора"></a>
+<h2>Добавление команды монитора<a href="#Добавление-команды-монитора" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Взаимодействие ядра с пользователем в данный момент осуществляется с
+ помощью монитора — интерактивной программы управления. Для тестирования
+ ядро JOS настроено таким образом, что оно выводит данные не только на 
+экран, но и в последовательный порт, данные из которого QEMU использует в
+ качестве стандартного вывода; ввод данных также осуществляется как с 
+клавиатуры, так и из последовательного порта. Таким образом, команды 
+монитора можно вводить как в окне QEMU, так и в окне терминала. В данный
+ момент заданы только две команды монитора: help и kerninfo.</p>
+
+
+	<p><em>Просмотрите файл kern/monitor.c. Как задаются команды монитора и
+ как происходит их вызов? Каким образом происходит вывод текста в 
+консоль? Добавьте свою команду, которая выводит в консоль произвольный 
+текст.</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-5"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab2/edit?section=5">Edit this section</a></div><a name="Стек"></a>
+<h2>Стек<a href="#Стек" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Для работы с локальными переменными и для вызова функций 
+используется область памяти, называемая стеком. Указатель стека (регистр
+ RSP) указывает на вершину стека — начало области стека, которая 
+используется в настоящее время. Вся память ниже этого указателя является
+ свободной. При добавлении значения в стек указатель стека уменьшается, а
+ затем нужное значение записывается в новую вершину стека. При 
+извлечении значения происходит чтение вершины стека, а затем его 
+указатель увеличивается. В 64-битном режиме стек может содержать только 
+64-битные значения, поэтому RSP всегда кратно 8. Регистр RSP 
+используется различными инструкциями x86, такими как call.</p>
+
+
+	<p>Регистр RBP (указатель базы), в отличие от RSP, связан со стеком 
+программным образом. При входе в С-функцию код пролога функции обычно 
+сохраняет указатель базы предыдущей функции, записывая его в стек, а 
+затем копирует текущее значение RSP в RBP на время выполнения функции. 
+Если все функции в программе следуют этому правилу, то в любой момент 
+выполнения программы можно проследить порядок вызова функций через стек,
+ следуя цепочке сохраненных указателей RBP, и определить, какая 
+последовательность вызовов функций привела к достижению данного места 
+выполнения программы. Эта возможность может быть особенно полезна, 
+например, когда та или иная функция вызывает assert или panic из-за 
+неправильных аргументов, но вы не уверены, какая именно функция передала
+ эти аргументы. Трассировка стека позволяет найти эту функцию.</p>
+
+
+<pre>        +-------------+
+        | ret %rip    | выше черты стек вызывающей функции
+        +-------------+ -----------
+        | saved %rbp  | ниже черты стек вызываемой функции
+%rbp -&gt; +-------------+
+        | local       |
+        | vars        |
+%rsp -&gt; +-------------+
+</pre>
+
+	<p><em>Определите, где происходит инициализация стека, и где стек 
+расположен в памяти. Как ядро резервирует область памяти для стека? 
+Какое место в этой области памяти является началом стека?</em></p>
+
+
+	<p><em>Чтобы ознакомиться с <a href="https://en.wikipedia.org/wiki/X86_calling_conventions#x86-64_calling_conventions" class="external">соглашением о вызовах C в System V на x86-64</a>,
+ найдите адрес функции test_backtrace в файле obj/kern/kernel.asm, 
+установите там точку останова и посмотрите, что происходит при каждом 
+вызове функции после загрузки ядра. Сколько 64-разрядных слов каждый 
+уровень test_backtrace добавляет в стек, что это за слова?</em></p>
+
+
+	<p>Приведенное выше упражнение должно дать вам информацию, необходимую 
+для реализации функции трассировки стека mon_backtrace(). Прототип для 
+этой функции уже находится в kern/monitor.c. Вы можете написать функцию 
+на C без использования ассемблера — для этого может оказаться полезной 
+функция read_rbp() в inc/x86.h. Вы также должны добавить новую функцию в
+ список команд монитора, чтобы она могла быть вызвана пользователем.</p>
+
+
+	<p>Функция трассировки должна отображать данные в следующем формате:</p>
+
+
+<pre>Stack backtrace:
+  rbp 0000008041616f00  rip 00000080416041ef
+  rbp 0000008041616fd0  rip 0000008041600294
+  rbp 0000008041616ff0  rip 0000008041600015
+  ...
+</pre>
+
+	<p>Первая строка соответствует выполняемой в данный момент функции 
+(mon_backtrace), вторая — функции, которая вызвала mon_backtrace и так 
+далее. Изучив файл kern/entry.S, вы найдете простой способ определить 
+момент, когда нужно остановиться.</p>
+
+
+	<p>В каждой строке значение RBP соответствует базовому указателю на 
+область стека, используемую данной функцией, то есть положению указателя
+ стека сразу после того, как функция начала работать и код пролога 
+функции установил базовый указатель. Значение RIP является указателем на
+ адрес возврата: адресом, по которому будет передано управление после 
+выхода из функции. Указатель на адрес возврата обычно указывает на 
+следующую инструкцию после call (почему?).</p>
+
+
+	<p><em>Почему код трассировки не может обнаружить, сколько аргументов было на самом деле? Как это можно исправить?</em></p>
+
+
+	<p><em>Реализуйте функцию трассировки, как описано выше. Используйте 
+тот же формат, что и в примере, иначе скрипт проверки не сработает. Если
+ вы считаете, что функция работает правильно, запустите JOSLLVM=0 (или 
+JOSLLVM=1) make grade, чтобы увидеть, соответствует ли вывод функции 
+тому, что ожидает скрипт проверки, и исправьте его, если не 
+соответствует.</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-6"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab2/edit?section=6">Edit this section</a></div><a name="Отладочная-информация"></a>
+<h2>Отладочная информация<a href="#Отладочная-информация" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Начиная с данной лабораторной работы для облегчения отладки 
+написанного кода имеется доступ к UndefinedBehaviorSanitizer на уровне 
+ядра, с инструкцией по использованию которого можно ознакомиться по <a class="wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/LLVM_Sanitizers">ссылке</a>. Все решения лабораторных работ должны быть проверены с помощью UndefinedBehaviorSanitizer.</p>
+
+
+	<p>В данный момент функция трассировки выводит адреса функций в стеке, 
+которые привели к выполнению mon_backtrace(). Однако на практике удобно 
+знать имена функций, соответствующих этим адресам — например, чтобы 
+узнать, в каких функциях может находиться ошибка, приводящая к краху 
+ядра. Для этого используется отладочная информация, которая создается 
+компилятором и компоновщиком при сборке двоичного файла (в данном случае
+ — образа ядра). Отладочная информация может храниться в самом 
+исполняемом файле или отдельно от него. Существуют различные форматы 
+отладочных данных, такие как STABS, COFF, DWARF. В JOS используется 
+формат DWARF, а отладочные данные хранятся в самом образе ядра.</p>
+
+
+	<p>Для работы с отладочными данными можно использовать функцию 
+debuginfo_rip(), которая ищет значение RIP в таблице символов и 
+возвращает отладочную информацию для этого адреса. Эта функция 
+определена в kern/kdebug.c.</p>
+
+
+	<p><em>Измените функцию трассировки стека для отображения для каждого 
+значения RIP соответствующих имени функции, имени исходного файла и 
+номера строки.</em></p>
+
+
+	<p><em>Откуда берутся значения Debug* в debuginfo_rip? Чтобы найти ответ, попробуйте сделать следующие вещи:</em></p>
+
+
+	<ol>
+	<li><em>Выполните objdump -h obj/kern/kernel.</em></li>
+		<li><em>Узнайте зачем в GNUmakefile используются gcc флаги -g и -gpubnames.</em></li>
+	</ol>
+
+
+	<p><em>Дополните реализацию функции debuginfo_rip вызовом line_for_address для нахождения номера строки в файле.</em></p>
+
+
+	<p><em>Дополните реализацию функции dwarf_read_abbrev_entry в файле 
+kern/dwarf.c разбором случая формы записи DW_FORM_block2 в таблице 
+аббревиатур по аналогии со случаем DW_FORM_block4.</em></p>
+
+
+	<p><em>Добавьте команду монитора backtrace, вызывающую функцию 
+mon_backtrace, и расширьте реализацию mon_backtrace вызовом 
+debuginfo_rip для вывода номера строки для каждого кадра стека в 
+следующем виде:</em></p>
+
+
+<pre>K&gt; backtrace
+Stack backtrace: 
+  rbp 0000008041616f00  rip 00000080416041ef
+    kern/monitor.c:124: monitor+429
+  rbp 0000008041616fd0  rip 0000008041600294
+    kern/init.c:123: i386_init+155
+  rbp 0000008041616ff0  rip 0000008041600015
+    kern/entry.S:21: &lt;unknown&gt;+0
+K&gt;
+</pre>
+
+	<p><em>Для каждого значения RIP выводится имя файла и номер строки, за 
+ними следуют имя функции и смещение значения RIP от начала этой функции 
+(например, monitor+432 означает, что RIP указывает на 432-й байт от 
+начала функции monitor).</em></p>
+
+
+	<p><em>Обратите внимание: чтобы скрипт проверки работал правильно, имя функции и файла должны выводиться на отдельной строке.</em></p>
+
+
+	<p><em>Вы можете обнаружить, что некоторые вызовы функций (например, 
+runcmd()) отсутствуют в трассировке. Это происходит из-за встраивания их
+ вызовов компилятором. Кроме того, из-за других оптимизаций, вносимых 
+компилятором, могут выводиться неправильные номера строк. Если удалить 
+опцию компилятора -O1 в GNUMakefile, трассировка станет более правильной
+ (но ядро будет работать несколько медленнее).</em></p>
+
+
+	<p>По окончании выполнения работы следует создать в репозитории новую 
+ветку working-lab2 и сохранить в ней внесенные изменения. После этого 
+нужно добавить удаленный репозиторий для сохранения результатов по 
+предоставленному преподавателем адресу и отправить в него эту ветку, 
+например:</p>
+
+
+<pre>git checkout -b working-lab2
+git add &lt;...&gt;
+git commit -m "Lab 2 done." 
+git remote add myrepo http://sed.ispras.ru/git/&lt;name&gt;-osprac # здесь &lt;name&gt; - ваш логин на sed.ispras.ru
+git push myrepo working-lab2
+</pre>
+</div>
+
+
+<fieldset class="collapsible hide-when-print">
+  <legend onclick="toggleFieldset(this);" class="icon icon-expended">Files (3)</legend>
+  <div style="">
+
+  <div class="attachments">
+<div class="contextual">
+  <a title="Edit attached files" class="icon-only icon-edit" href="https://forge.ispras.ru/attachments/wiki_pages/1034/edit">Edit attached files</a>
+  <a title="Download all files" class="icon-only icon-download" href="https://forge.ispras.ru/attachments/wiki_pages/1034/download">Download all files</a>
+</div>
+<table>
+<tbody><tr>
+  <td>
+    <a class="icon icon-attachment" href="https://forge.ispras.ru/attachments/8456">selector.png</a>    <span class="size">(7.94 KB)</span>
+    <a class="icon-only icon-download" title="Download" href="https://forge.ispras.ru/attachments/download/8456/selector.png">selector.png</a>  </td>
+  <td></td>
+  <td>
+      <span class="author">Vitaly Cheptsov, 03/01/2021 12:56 AM</span>
+  </td>
+  <td>
+      <a data-confirm="Are you sure?" class="delete icon-only icon-del" title="Delete" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/attachments/8456">Delete</a>
+  </td>
+</tr>
+<tr>
+  <td>
+    <a class="icon icon-attachment" href="https://forge.ispras.ru/attachments/8457">segmap.png</a>    <span class="size">(21.9 KB)</span>
+    <a class="icon-only icon-download" title="Download" href="https://forge.ispras.ru/attachments/download/8457/segmap.png">segmap.png</a>  </td>
+  <td></td>
+  <td>
+      <span class="author">Vitaly Cheptsov, 03/01/2021 12:56 AM</span>
+  </td>
+  <td>
+      <a data-confirm="Are you sure?" class="delete icon-only icon-del" title="Delete" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/attachments/8457">Delete</a>
+  </td>
+</tr>
+<tr>
+  <td>
+    <a class="icon icon-attachment" href="https://forge.ispras.ru/attachments/8458">intel.png</a>    <span class="size">(18.3 KB)</span>
+    <a class="icon-only icon-download" title="Download" href="https://forge.ispras.ru/attachments/download/8458/intel.png">intel.png</a>  </td>
+  <td></td>
+  <td>
+      <span class="author">Vitaly Cheptsov, 03/01/2021 12:56 AM</span>
+  </td>
+  <td>
+      <a data-confirm="Are you sure?" class="delete icon-only icon-del" title="Delete" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/attachments/8458">Delete</a>
+  </td>
+</tr>
+</tbody></table>
+  <div class="thumbnails">
+      <div><a title="selector.png" href="https://forge.ispras.ru/attachments/8456"><img srcset="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/200_003.png 2x" style="max-width: 100px; max-height: 100px;" src="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/8456.png"></a></div>
+      <div><a title="segmap.png" href="https://forge.ispras.ru/attachments/8457"><img srcset="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/200_002.png 2x" style="max-width: 100px; max-height: 100px;" src="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/8457.png"></a></div>
+      <div><a title="intel.png" href="https://forge.ispras.ru/attachments/8458"><img srcset="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/200.png 2x" style="max-width: 100px; max-height: 100px;" src="Lab2%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/8458.png"></a></div>
+  </div>
+</div>
+
+
+  <div id="wiki_add_attachment">
+    <form id="add_attachment_form" enctype="multipart/form-data" action="/projects/oscourse-2021-spring/wiki/Lab2/add_attachment" accept-charset="UTF-8" name="add_attachment_form-14c09f70" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="z+FtsLpCuThNqsF0V6tIhRHOciUOrdy8ocsO8mpb2hvIiovYj3girX2Mi+LmkezRYNX7KnlZynDNVEVHGVAaMg==">
+      <div class="box filedroplistner">
+      <p>
+<span class="attachments_form">
+  <span class="attachments_fields">
+  </span>
+  <span class="add_attachment" style="">
+    <input type="file" name="attachments[dummy][file]" class="file_selector filedrop" multiple="multiple" onchange="addInputFiles(this);" data-max-number-of-files-message="This file cannot be uploaded because it exceeds the maximum number of files that can be attached simultaneously (10)" data-max-file-size="1024000000" data-max-file-size-message="This file cannot be uploaded because it exceeds the maximum allowed file size (977 MB)" data-max-concurrent-uploads="2" data-upload-path="/uploads.js" data-param="attachments" data-description="true" data-description-placeholder="Optional description">
+    (Maximum size: 977 MB)
+  </span>
+</span>
+
+</p>
+      </div>
+      <input type="submit" name="commit" value="Add" data-disable-with="Add">
+</form>  </div>
+</div>
+</fieldset>
+
+<p class="wiki-update-info">
+    Updated by <a class="user active" href="https://forge.ispras.ru/users/2368">Vitaly Cheptsov</a> <a title="03/01/2021 12:56 AM" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity?from=2021-03-01">11 months</a> ago
+    · <a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab2/history">1 revisions</a>
+</p>
+
+
+
+
+
+        
+        <div style="clear:both;"></div>
+    </div>
+</div>
+<div id="footer">
+    Powered by <a href="https://www.redmine.org/">Redmine</a> © 2006-2022 Jean-Philippe Lang
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

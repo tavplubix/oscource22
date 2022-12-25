@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Lab11 - OS Course 2021 Spring - Open-Source Projects</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Redmine">
+<meta name="keywords" content="issue,bug,tracker">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="R0kUHwGQsZ4MjrIlhHQBaTa+A1YARu1WXf7SxVVsG5xAIvJ3NKoqCzyo+LM1TqU9R6WKWXey+5oxYZlwJmfbtQ==">
+<link rel="shortcut icon" href="https://forge.ispras.ru/favicon.ico?1642659995">
+<link rel="stylesheet" media="all" href="Lab11%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-ui-1.css">
+<link rel="stylesheet" media="all" href="Lab11%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.css">
+<link rel="stylesheet" media="all" href="Lab11%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.css">
+<link rel="stylesheet" media="all" href="Lab11%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.css">
+
+<script src="Lab11%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-3.js"></script>
+<script src="Lab11%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-migrate-3.js"></script>
+<script src="Lab11%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.js"></script>
+<script src="Lab11%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5.js"></script>
+<script src="Lab11%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5_002.js"></script>
+<script src="Lab11%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.js"></script>
+<script src="Lab11%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.js"></script>
+<script>
+//<![CDATA[
+$(window).on('load', function(){ warnLeavingUnsaved('The current page contains unsaved text that will be lost if you leave this page.'); });
+//]]>
+</script>
+
+<script>
+//<![CDATA[
+rm = window.rm || {};rm.AutoComplete = rm.AutoComplete || {};rm.AutoComplete.dataSources = '{"issues":"/issues/auto_complete?project_id=oscourse-2021-spring\u0026q=","wiki_pages":"/wiki_pages/auto_complete?project_id=oscourse-2021-spring\u0026q="}';
+//]]>
+</script>
+ <link rel="stylesheet" media="screen" href="Lab11%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/admin.css">
+<!-- page specific tags -->
+  <script src="Lab11%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/attachments.js"></script>
+
+</head>
+<body class="project-oscourse-2021-spring has-main-menu controller-wiki action-show avatars-on">
+
+<div id="wrapper">
+
+<div class="flyout-menu js-flyout-menu">
+
+        <div class="flyout-menu__search">
+            <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-4032be7b" method="get"><input name="utf8" type="hidden" value="✓">
+            <input type="hidden" name="wiki_pages" value="1">
+            <label class="search-magnifier search-magnifier--flyout" for="flyout-search">⚲</label>
+            <input type="text" name="q" id="flyout-search" class="small js-search-input" placeholder="Search">
+</form>        </div>
+
+        <div class="flyout-menu__avatar ">
+                <a href="https://forge.ispras.ru/users/12098"><img alt="" title="Александр Токмаков" class="gravatar" srcset="Lab11%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef.png 2x" src="Lab11%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef_002.png"></a>
+            <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a>
+        </div>
+
+        <h3>Project</h3>
+        <span class="js-project-menu"></span>
+
+    <h3>General</h3>
+    <span class="js-general-menu"></span>
+
+    <span class="js-sidebar flyout-menu__sidebar"></span>
+
+    <h3>Profile</h3>
+    <span class="js-profile-menu"></span>
+
+</div>
+
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a class="my-account" href="https://forge.ispras.ru/my/account">My account</a></li><li><a class="logout" rel="nofollow" data-method="post" href="https://forge.ispras.ru/logout">Sign out</a></li></ul>    </div>
+    <div id="loggedas">Logged in as <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a></div>
+    <ul><li><a class="home" href="https://forge.ispras.ru/">Home</a></li><li><a class="my-page" href="https://forge.ispras.ru/my/page">My page</a></li><li><a class="projects" href="https://forge.ispras.ru/projects">Projects</a></li><li><a class="help" href="https://www.redmine.org/guide">Help</a></li></ul></div>
+
+<div id="header">
+
+    <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
+
+    <div id="quick-search">
+        <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-5ced9b3c" method="get"><input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="scope">
+        <input type="hidden" name="wiki_pages" value="1">
+        <label for="q">
+          <a accesskey="4" href="https://forge.ispras.ru/projects/oscourse-2021-spring/search">Search</a>:
+        </label>
+        <input type="text" name="q" id="q" size="20" class="small" accesskey="f" data-auto-complete="true">
+</form>        <div id="project-jump" class="drdn"><span class="drdn-trigger">OS Course 2021 Spring</span><div class="drdn-content"><div class="quick-search"><input type="text" name="q" id="projects-quick-search" class="autocomplete" data-automcomplete-url="/projects/autocomplete.js?jump=wiki" autocomplete="off" data-value-was=""></div><div class="drdn-items projects selection"><strong>Recently used</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a><strong>All Projects</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a></div><div class="drdn-items all-projects selection"><a href="https://forge.ispras.ru/projects?jump=wiki">All Projects</a></div></div></div>
+    </div>
+
+    <h1><span class="current-project">OS Course 2021 Spring</span></h1>
+
+    <div id="main-menu" class="tabs">
+        <ul><li>
+<a onclick="toggleNewObjectDropdown(); return false;" id="new-object" class="new-object" href="#"> + </a>
+<ul class="menu-children"><li><a class="new-version" href="https://forge.ispras.ru/projects/oscourse-2021-spring/versions/new">New version</a></li><li><a class="new-wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new">New wiki page</a></li><li><a class="new-file" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files/new">New file</a></li></ul>
+</li><li><a class="overview" href="https://forge.ispras.ru/projects/oscourse-2021-spring">Overview</a></li><li><a class="activity" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity">Activity</a></li><li><a class="wiki selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Wiki</a></li><li><a class="files" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files">Files</a></li><li><a class="settings" href="https://forge.ispras.ru/projects/oscourse-2021-spring/settings">Settings</a></li></ul>
+        <div class="tabs-buttons" style="display: none;">
+            <button class="tab-left" onclick="moveTabLeft(this); return false;"></button>
+            <button class="tab-right" onclick="moveTabRight(this); return false;"></button>
+        </div>
+    </div>
+</div>
+
+<div id="main" class="">
+    <div id="sidebar">
+          
+
+<h3>Wiki</h3>
+<ul>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Start page</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/index">Index by title</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/date_index">Index by date</a></li>
+</ul>
+
+
+
+
+        
+    </div>
+
+    <div id="content">
+        
+        <div class="contextual">
+
+  <a class="icon icon-edit" accesskey="e" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab11/edit">Edit</a>
+  <a class="wiki_page-1051-watcher icon icon-fav-off" data-remote="true" rel="nofollow" data-method="post" href="https://forge.ispras.ru/watchers/watch?object_id=1051&amp;object_type=wiki_page">Watch</a>
+
+  <span class="drdn"><span class="drdn-trigger"><span class="icon-only icon-actions" title="Actions">Actions</span></span><div class="drdn-content"><div class="drdn-items">
+    <a class="icon icon-history" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab11/history">History</a>
+
+      
+      
+      
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab11">Delete</a>
+
+      <a class="icon icon-add" data-remote="true" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new?parent=Lab11">New wiki page</a>
+</div></div></span></div>
+
+<p class="breadcrumb"><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Wiki">Wiki</a> » </p>
+
+
+<div class="wiki wiki-page">
+  <a name="Лабораторная-работа-11"></a>
+<h1>Лабораторная работа №11<a href="#Лабораторная-работа-11" class="wiki-anchor">¶</a></h1>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-2"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab11/edit?section=2">Edit this section</a></div><a name="Введение"></a>
+<h2>Введение<a href="#Введение" class="wiki-anchor">¶</a></h2>
+
+
+	<p>В результате выполнения предыдущих работ было реализовано управление
+ памятью, процессами, исключениями и прерываниями, системные вызовы, 
+работа с внешними накопителями. Однако почти отсутствуют средства 
+взаимодействия с пользователем: такое взаимодействие производится с 
+помощью нескольких наперед заданных команд монитора, не позволяющих даже
+ запускать произвольные программы, либо путем автоматического внесения 
+изменений в код при запуске ОС (команды для запуска программ make 
+run-X).</p>
+
+
+	<p>Простым и универсальным способом взаимодействия с операционной 
+системой является текстовый интерфейс, реализацией которого является 
+командная оболочка. Она присутствует в различном виде почти во всех 
+операционных системах. В JOS командная оболочка в основном уже 
+реализована, далее будут добавлены возможности операционной системы, 
+необходимые ей для работы, и некоторые возможности самой оболочки. 
+Помимо последовательного выполнения команд (REPL — Read-Eval-Print Loop)
+ оболочка также поддерживает их пакетное выполнение из файлов на внешнем
+ накопителе.</p>
+
+
+	<p>Для получения изменений, необходимых для выполнения работы, следует 
+обновить удаленный репозиторий, создать новую ветвь под названием 
+working-lab11, после чего выполнить слияние с ней ветви lab11, которая 
+появилась в репозитории.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-3"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab11/edit?section=3">Edit this section</a></div><a name="Запуск-процессов"></a>
+<h2>Запуск процессов<a href="#Запуск-процессов" class="wiki-anchor">¶</a></h2>
+
+
+	<p>В репозиторий был добавлен код функции spawn(), которая создает 
+новый процесс, загружает в него образ программы из файловой системы, а 
+затем запускает. Родительский процесс затем продолжает выполнение 
+независимо от дочернего. Функция spawn(), по сути, соответствует 
+выполнению fork() с последующим выполнением в дочернем процессе exec().</p>
+
+
+	<p>Мы реализовали spawn() вместо exec(), потому что spawn() легче 
+реализовать в пространстве пользователя в стиле экзоядра, без 
+использования средств ядра. Подумайте, что необходимо для реализации 
+exec() в пространстве пользователя, и убедитесь, что вы понимаете, 
+почему такой вариант труднее.</p>
+
+
+	<p>Допишите функцию отображения сегмента в дочернем процессе -- 
+map_segment() в spawn.c. Она использует файловые API и системные вызовы 
+для работы с памятью.</p>
+
+
+	<p><em>Функция spawn() использует новый системный вызов 
+sys_env_set_trapframe() для инициализации состояния вновь созданного 
+процесса. Реализуйте sys_env_set_trapframe(). Проверьте свой код, 
+запустив user/spawnhello в kern/init.c. Эта программа будет пытаться 
+выполнить spawn() для программы /hello в файловой системе.</em></p>
+
+
+	<p><em>Используйте make grade для тестирования написанного кода. Если 
+при выполнении user/spawnhello возникает ошибка страницы (сообщение 
+«page fault in FS»), проследите, как работает сервер файловой системы, и
+ подумайте, что произойдет, если в системе не останется ни одного 
+процесса кроме него.</em></p>
+
+
+	<div class="contextual heading-3" title="Edit this section" id="section-4"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab11/edit?section=4">Edit this section</a></div><a name="Разделение-файловых-дескрипторов-между-родительским-процессом-и-процессами-порожденными-fork-и-spawn"></a>
+<h3>Разделение файловых дескрипторов между родительским процессом и процессами, порожденными fork и spawn<a href="#Разделение-файловых-дескрипторов-между-родительским-процессом-и-процессами-порожденными-fork-и-spawn" class="wiki-anchor">¶</a></h3>
+
+
+	<p>Файловые дескрипторы UNIX являются общим понятием, включающим в себя
+ также каналы, консольный ввод-вывод и т.д. В JOS каждый из этих типов 
+устройств имеет соответствующую структуру struct Dev с указателями на 
+функции, реализующими чтение, запись и т. д. для данного типа устройств.
+ В файле lib/fd.c находится реализация интерфейса UNIX-подобных файловых
+ дескрипторов на ее основе. Каждая структура struct Fd соответствует 
+своему типу устройства; большинство функций в lib/fd.c просто вызывает 
+функции в соответствующих структурах Dev.</p>
+
+
+	<p>В lib/fd.c также находится управление начинающимися с FSTABLE 
+таблицами дескрипторов в адресном пространстве каждого процесса. Эта 
+область памяти резервирует страницу (4 КБ) памяти для каждого из 
+файловых дескрипторов, которые программа может открыть одновременно (до 
+MAXFD — в настоящее время 32). В любой момент времени каждая страница 
+таблицы дескрипторов отображена только в том случае, если используется 
+соответствующий дескриптор. Каждый дескриптор также имеет дополнительную
+ «страницу данных» в области памяти, начинающейся с FILEDATA, которую 
+устройства могут использовать, если им это необходимо.</p>
+
+
+	<p>Сейчас при вызове fork() эта память будет отмечена скопирована 
+правильно, так как она отображается с флагом PROT_SHARE. (Посмторите на 
+реализацию map_region() в ядре и выясните почему это работает правильно)
+ Однако после вызова spawn() память вообще не будет скопирована, то есть
+ запущенные процессы начинают работать без открытых файловых 
+дескрипторов. Необходимо, чтобы память родительского процесса, 
+относящаяся к файловым дескрипторам, была доступна из дочерних 
+процессов. Для этого нужно реализовать foreach_shared_region(), которая 
+на данный момент является no-op, а должна вызывать переданную функцию 
+для каждой страницы с флагом PTE_SHARE.</p>
+
+
+	<p>PTE_SHARE соответствует одному из трех бит записи таблицы страниц, 
+которые описаны как «доступные для использования программами» в 
+руководствах Intel и AMD. Мы установим соглашение, что, если у записи в 
+таблице страниц установлен этот бит, данная запись должна быть 
+скопирована непосредственно от родительского процесса к дочернему, даже 
+если map_region вызван с флагом PROT_LAZY. О</p>
+
+
+	<p><em>Используйте make run-testpteshare, чтобы проверить, что ваш код 
+работает правильно. Вы должны увидеть строки «fork handles PTE_SHARE 
+right» и «spawn handles PTE_SHARE right».</em></p>
+
+
+	<p><em>Используйте make run-testfdsharing, чтобы проверить, что 
+файловые дескрипторы правильно разделяются. Вы должны увидеть строки 
+«read in child succeeded» and «read in parent succeeded».</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-5"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab11/edit?section=5">Edit this section</a></div><a name="Клавиатура"></a>
+<h2>Клавиатура<a href="#Клавиатура" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Чтобы командная оболочка могла работать, нужно обрабатывать вводимые
+ с клавиатуры данные. Ранее QEMU отображал вводимые с клавиатуры данные 
+на дисплей и в последовательный порт, но ввод до сих пор использовался 
+только при работе с монитором. В QEMU данные, вводимые в графическом 
+окне, передаются в JOS в качестве входных данных с клавиатуры, в то 
+время как данные, вводимые в консоли, передаются через последовательный 
+порт. Файл kern/console.c уже содержит драйвера клавиатуры и 
+последовательного порта, которые монитор ядра использовал начиная с 
+работы №1, но теперь вам нужно объединить их с остальной частью системы.</p>
+
+
+	<p><em>В файле kern/trap.c вызовите kbd_intr() для обработки IRQ_OFFSET+IRQ_KBD и serial_intr() для обработки IRQ_OFFSET+IRQ_SERIAL.</em></p>
+
+
+	<p><em>Проверьте свой код, вызвав make run-testkbd и введя что-либо с 
+клавиатуры. Система должна показать введенные символы. Попробуйте 
+вводить текст как в консоли, так и в графическом окне.</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-6"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab11/edit?section=6">Edit this section</a></div><a name="Командная-оболочка"></a>
+<h2>Командная оболочка<a href="#Командная-оболочка" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Выполните make run-icode или make run-icode-nox. Запустится JOS, а в
+ ней user/icode, который, в свою очередь, запускает user/init. Init 
+устанавливает консольный ввод-вывод как файлы с дескрипторами 0 (ввод) и
+ 1 (вывод). Затем init запускает sh — командную оболочку. В оболочке 
+попробуйте выполнить следующие команды:</p>
+
+
+<pre>echo hello world | cat
+cat lorem |cat
+cat lorem |num
+cat lorem |num |num |num |num |num
+</pre>
+
+	<p>Обратите внимание, что пользовательская библиотечная функция cprintf
+ выводит данные напрямую в консоль, не используя файловый дескриптор. 
+Это удобно для отладки, но не дает возможности передать выводимые данные
+ в другие программы. Чтобы вывести данные в конкретный файловый 
+дескриптор, используйте fprintf(1, "...", ...). Функция printf выводит 
+данные в дескриптор 1. В файле user/lsfd.c можно увидеть примеры 
+использования этих функций.</p>
+
+
+	<p><em>Командная оболочка не поддерживает перенаправление ввода-вывода.
+ Реализуйте его в файле user/sh.c. После этого вы должны иметь 
+возможность выполнить команды:</em></p>
+
+
+<pre>cat script
+sh &lt;script
+</pre>
+
+	<p><em>Выполните make run-testshell, чтобы проверить командную 
+оболочку. Программа testshell просто выполняет команды, указанные выше, и
+ сравнивает вывод с файлом fs/testshell.key. На данный момент ваш код 
+должен проходить все тесты, запускаемые make grade.</em></p>
+
+
+	<p><em>По окончании выполнения работы следует сохранить внесенные изменения и отправить их в удаленный репозиторий.</em></p>
+</div>
+
+
+<fieldset class="collapsible collapsed hide-when-print">
+  <legend onclick="toggleFieldset(this);" class="icon icon-collapsed">Files (0)</legend>
+  <div style="display: none;">
+
+  
+
+  <div id="wiki_add_attachment">
+    <form id="add_attachment_form" enctype="multipart/form-data" action="/projects/oscourse-2021-spring/wiki/Lab11/add_attachment" accept-charset="UTF-8" name="add_attachment_form-6971cda4" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="R0kUHwGQsZ4MjrIlhHQBaTa+A1YARu1WXf7SxVVsG5xAIvJ3NKoqCzyo+LM1TqU9R6WKWXey+5oxYZlwJmfbtQ==">
+      <div class="box filedroplistner">
+      <p>
+<span class="attachments_form">
+  <span class="attachments_fields">
+  </span>
+  <span class="add_attachment" style="">
+    <input type="file" name="attachments[dummy][file]" class="file_selector filedrop" multiple="multiple" onchange="addInputFiles(this);" data-max-number-of-files-message="This file cannot be uploaded because it exceeds the maximum number of files that can be attached simultaneously (10)" data-max-file-size="1024000000" data-max-file-size-message="This file cannot be uploaded because it exceeds the maximum allowed file size (977 MB)" data-max-concurrent-uploads="2" data-upload-path="/uploads.js" data-param="attachments" data-description="true" data-description-placeholder="Optional description">
+    (Maximum size: 977 MB)
+  </span>
+</span>
+
+</p>
+      </div>
+      <input type="submit" name="commit" value="Add" data-disable-with="Add">
+</form>  </div>
+</div>
+</fieldset>
+
+<p class="wiki-update-info">
+    Updated by <a class="user active" href="https://forge.ispras.ru/users/2368">Vitaly Cheptsov</a> <a title="05/17/2021 10:20 AM" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity?from=2021-05-17">9 months</a> ago
+    · <a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab11/history">1 revisions</a>
+</p>
+
+
+
+
+
+        
+        <div style="clear:both;"></div>
+    </div>
+</div>
+<div id="footer">
+    Powered by <a href="https://www.redmine.org/">Redmine</a> © 2006-2022 Jean-Philippe Lang
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

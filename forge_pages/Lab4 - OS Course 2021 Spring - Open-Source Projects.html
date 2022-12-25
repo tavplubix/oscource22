@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Lab4 - OS Course 2021 Spring - Open-Source Projects</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Redmine">
+<meta name="keywords" content="issue,bug,tracker">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="jma0dG5hlM8C1cgYlzeWRDKxNG2fC3pc32i9BoJ8PGWJDVIcW1sPWjLzgo4mDTIQQ6q9Yuj/bJCz9/az8Xf8TA==">
+<link rel="shortcut icon" href="https://forge.ispras.ru/favicon.ico?1642659995">
+<link rel="stylesheet" media="all" href="Lab4%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-ui-1.css">
+<link rel="stylesheet" media="all" href="Lab4%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.css">
+<link rel="stylesheet" media="all" href="Lab4%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.css">
+<link rel="stylesheet" media="all" href="Lab4%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.css">
+
+<script src="Lab4%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-3.js"></script>
+<script src="Lab4%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-migrate-3.js"></script>
+<script src="Lab4%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.js"></script>
+<script src="Lab4%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5.js"></script>
+<script src="Lab4%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5_002.js"></script>
+<script src="Lab4%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.js"></script>
+<script src="Lab4%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.js"></script>
+<script>
+//<![CDATA[
+$(window).on('load', function(){ warnLeavingUnsaved('The current page contains unsaved text that will be lost if you leave this page.'); });
+//]]>
+</script>
+
+<script>
+//<![CDATA[
+rm = window.rm || {};rm.AutoComplete = rm.AutoComplete || {};rm.AutoComplete.dataSources = '{"issues":"/issues/auto_complete?project_id=oscourse-2021-spring\u0026q=","wiki_pages":"/wiki_pages/auto_complete?project_id=oscourse-2021-spring\u0026q="}';
+//]]>
+</script>
+ <link rel="stylesheet" media="screen" href="Lab4%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/admin.css">
+<!-- page specific tags -->
+  <script src="Lab4%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/attachments.js"></script>
+
+</head>
+<body class="project-oscourse-2021-spring has-main-menu controller-wiki action-show avatars-on">
+
+<div id="wrapper">
+
+<div class="flyout-menu js-flyout-menu">
+
+        <div class="flyout-menu__search">
+            <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-6eab761b" method="get"><input name="utf8" type="hidden" value="✓">
+            <input type="hidden" name="wiki_pages" value="1">
+            <label class="search-magnifier search-magnifier--flyout" for="flyout-search">⚲</label>
+            <input type="text" name="q" id="flyout-search" class="small js-search-input" placeholder="Search">
+</form>        </div>
+
+        <div class="flyout-menu__avatar ">
+                <a href="https://forge.ispras.ru/users/12098"><img alt="" title="Александр Токмаков" class="gravatar" srcset="Lab4%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef.png 2x" src="Lab4%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef_002.png"></a>
+            <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a>
+        </div>
+
+        <h3>Project</h3>
+        <span class="js-project-menu"></span>
+
+    <h3>General</h3>
+    <span class="js-general-menu"></span>
+
+    <span class="js-sidebar flyout-menu__sidebar"></span>
+
+    <h3>Profile</h3>
+    <span class="js-profile-menu"></span>
+
+</div>
+
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a class="my-account" href="https://forge.ispras.ru/my/account">My account</a></li><li><a class="logout" rel="nofollow" data-method="post" href="https://forge.ispras.ru/logout">Sign out</a></li></ul>    </div>
+    <div id="loggedas">Logged in as <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a></div>
+    <ul><li><a class="home" href="https://forge.ispras.ru/">Home</a></li><li><a class="my-page" href="https://forge.ispras.ru/my/page">My page</a></li><li><a class="projects" href="https://forge.ispras.ru/projects">Projects</a></li><li><a class="help" href="https://www.redmine.org/guide">Help</a></li></ul></div>
+
+<div id="header">
+
+    <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
+
+    <div id="quick-search">
+        <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-881f1d88" method="get"><input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="scope">
+        <input type="hidden" name="wiki_pages" value="1">
+        <label for="q">
+          <a accesskey="4" href="https://forge.ispras.ru/projects/oscourse-2021-spring/search">Search</a>:
+        </label>
+        <input type="text" name="q" id="q" size="20" class="small" accesskey="f" data-auto-complete="true">
+</form>        <div id="project-jump" class="drdn"><span class="drdn-trigger">OS Course 2021 Spring</span><div class="drdn-content"><div class="quick-search"><input type="text" name="q" id="projects-quick-search" class="autocomplete" data-automcomplete-url="/projects/autocomplete.js?jump=wiki" autocomplete="off" data-value-was=""></div><div class="drdn-items projects selection"><strong>Recently used</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a><strong>All Projects</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a></div><div class="drdn-items all-projects selection"><a href="https://forge.ispras.ru/projects?jump=wiki">All Projects</a></div></div></div>
+    </div>
+
+    <h1><span class="current-project">OS Course 2021 Spring</span></h1>
+
+    <div id="main-menu" class="tabs">
+        <ul><li>
+<a onclick="toggleNewObjectDropdown(); return false;" id="new-object" class="new-object" href="#"> + </a>
+<ul class="menu-children"><li><a class="new-version" href="https://forge.ispras.ru/projects/oscourse-2021-spring/versions/new">New version</a></li><li><a class="new-wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new">New wiki page</a></li><li><a class="new-file" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files/new">New file</a></li></ul>
+</li><li><a class="overview" href="https://forge.ispras.ru/projects/oscourse-2021-spring">Overview</a></li><li><a class="activity" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity">Activity</a></li><li><a class="wiki selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Wiki</a></li><li><a class="files" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files">Files</a></li><li><a class="settings" href="https://forge.ispras.ru/projects/oscourse-2021-spring/settings">Settings</a></li></ul>
+        <div class="tabs-buttons" style="display: none;">
+            <button class="tab-left" onclick="moveTabLeft(this); return false;"></button>
+            <button class="tab-right" onclick="moveTabRight(this); return false;"></button>
+        </div>
+    </div>
+</div>
+
+<div id="main" class="">
+    <div id="sidebar">
+          
+
+<h3>Wiki</h3>
+<ul>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Start page</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/index">Index by title</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/date_index">Index by date</a></li>
+</ul>
+
+
+
+
+        
+    </div>
+
+    <div id="content">
+        
+        <div class="contextual">
+
+  <a class="icon icon-edit" accesskey="e" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab4/edit">Edit</a>
+  <a class="wiki_page-1036-watcher icon icon-fav-off" data-remote="true" rel="nofollow" data-method="post" href="https://forge.ispras.ru/watchers/watch?object_id=1036&amp;object_type=wiki_page">Watch</a>
+
+  <span class="drdn"><span class="drdn-trigger"><span class="icon-only icon-actions" title="Actions">Actions</span></span><div class="drdn-content"><div class="drdn-items">
+    <a class="icon icon-history" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab4/history">History</a>
+
+      
+      
+      
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab4">Delete</a>
+
+      <a class="icon icon-add" data-remote="true" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new?parent=Lab4">New wiki page</a>
+</div></div></span></div>
+
+<p class="breadcrumb"><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Wiki">Wiki</a> » </p>
+
+
+<div class="wiki wiki-page">
+  <a name="Лабораторная-работа-4"></a>
+<h1>Лабораторная работа №4<a href="#Лабораторная-работа-4" class="wiki-anchor">¶</a></h1>
+
+
+	<p>Для получения файлов, необходимых для выполнения работы, следует 
+обновить удаленный репозиторий, создать новую ветвь под названием 
+working-lab4, после чего выполнить слияние с ней ветви lab4, которая 
+появилась в репозитории. О работе с git можно прочитать на <a class="wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/GitManual">соответствующей странице</a>.</p>
+
+
+	<p>Представленные ниже задания посвящены работе с часами реального 
+времени (RTC — Real-Time Clock). Часы реального времени являются одним 
+из механизмов работы с реальным временем в процессорах Intel (существуют
+ и другие механизмы: улучшенный программируемый контроллер прерываний 
+APIC, программируемый интервальный таймер PIT и т.&nbsp;д.). Работа с 
+реальным временем необходима для реализации планировщика процессов, 
+который должен учитывать и контролировать время работы каждого процесса.</p>
+
+
+	<p>После запуска компьютера прерывания от часов реального времени 
+отключены. После инициализации часы будут периодически генерировать 
+прерывание 8 (IRQ_CLOCK).</p>
+
+
+	<p>Для управления часами используются три байта в памяти CMOS, 
+называемые регистрами A, B и C. Для работы с этими регистрами 
+используются порты ввода-вывода 0x70 и 0x71 (в JOS для работы с ними 
+используются константы IO_RTC_CMND и IO_RTC_DATA).</p>
+
+
+	<p>Более подробная информация о работе с часами содержится в их 
+документации, которая находится в файлах проекта настоящего курса 
+(Файлы/Standards/rtc.pdf).</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-2"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab4/edit?section=2">Edit this section</a></div><a name="Задание-1"></a>
+<h2>Задание №1<a href="#Задание-1" class="wiki-anchor">¶</a></h2>
+
+
+	<p><em>Допишите вспомогательные функции для наботой с CMOS/регистрами 
+RTC (cmos_read8() и cmos_write8()). Обратите внимание на то, что после 
+обращения к выбранному регистру CMOS, номер регистра сбрасывается на 
+нулевой.</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-3"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab4/edit?section=3">Edit this section</a></div><a name="Задание-2"></a>
+<h2>Задание №2<a href="#Задание-2" class="wiki-anchor">¶</a></h2>
+
+
+	<p><em>Необходимо дописать в файле kern/kclock.c недостающий код 
+функций rtc_timer_init(), в которой происходит инициализация часов rtc, и
+ rtc_check_status, в которой происходит проверка статуса часов. Алгоритм
+ инициализации выглядит следующим образом:</em></p>
+
+
+	<p><em>1. Переключение на регистр часов B.</em></p>
+
+
+	<p><em>2. Чтение значения регистра B из порта ввода-вывода.</em></p>
+
+
+	<p><em>3. Установка бита RTC_PIE.</em></p>
+
+
+	<p><em>4. Запись обновленного значения регистра в порт ввода-вывода.</em></p>
+
+
+	<p><em>Для проверки статуса часов в функции rtc_check_status() необходимо прочитать значение регистра часов C.</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-4"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab4/edit?section=4">Edit this section</a></div><a name="Задание-3"></a>
+<h2>Задание №3<a href="#Задание-3" class="wiki-anchor">¶</a></h2>
+
+
+	<p><em>Во время выполнения кода ядра ОC прерывания на процессоре должны
+ быть замаскированы. Это является архитектурной особенностью ядра JOS. 
+Для этого необходимо расставить в файле kern/entry.S в нужных местах две
+ инструкции cli, которые осуществляют маскирование прерываний.</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-5"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab4/edit?section=5">Edit this section</a></div><a name="Задание-4"></a>
+<h2>Задание №4<a href="#Задание-4" class="wiki-anchor">¶</a></h2>
+
+
+	<p><em>После инициализации часов RTC и программируемого контроллера 
+прерываний PIC необходимо размаскировать на контроллере линию IRQ_CLOCK,
+ по которой приходят прерывания от часов. Для этого можно использовать 
+функцию irq_setmask_8259A.</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-6"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab4/edit?section=6">Edit this section</a></div><a name="Задание-5"></a>
+<h2>Задание №5<a href="#Задание-5" class="wiki-anchor">¶</a></h2>
+
+
+	<p><em>После того, как прерывание сгенерировано и обработано, перед 
+вызовом планировщика необходимо прочесть регистр статуса RTC и отправить
+ сигнал EOI на контроллер прерываний, сигнализируя об окончании 
+обработки прерывания. Иначе дальнейшие прерывания от часов не будут 
+генерироваться PIC. Для этого можно использовать функции 
+rtc_check_status(), pic_send_eoi().</em></p>
+
+
+	<p>Выполнив эти задания и запустив команду JOSLLVM=0 (или JOSLLVM=1) make qemu, вы увидите примерно следующий результат:</p>
+
+
+<pre>6828 decimal is 15254 octal!
+END: 0x8041674000
+enabled interrupts: 2
+enabled interrupts: 2 8
+Framebuffer initialised
+[00001000] env started: RUNNABLE
+[00001000] env stopped: RUNNING
+[00001001] env started: RUNNABLE
+TEST2 LOADED.
+[00001001] env stopped: RUNNING
+[00001002] env started: RUNNABLE
+[00001002] env stopped: RUNNING
+[00001003] env started: RUNNABLE
+TEST4 LOADED.
+[00001003] env stopped: RUNNING
+[00001000] env started: RUNNABLE
+[00001000] env stopped: RUNNING
+[00001001] env started: RUNNABLE
+[00001001] env stopped: RUNNING
+[00001002] env started: RUNNABLE
+[00001002] env stopped: RUNNING
+[00001003] env started: RUNNABLE
+[00001003] env stopped: RUNNING
+[00001000] env started: RUNNABLE
+[00001000] env stopped: RUNNING
+[00001001] env started: RUNNABLE
+[00001001] env stopped: RUNNING
+[00001002] env started: RUNNABLE
+[00001002] env stopped: RUNNING
+[00001003] env started: RUNNABLE
+[00001003] env stopped: RUNNING
+[00001000] env started: RUNNABLE
+[00001000] env stopped: FREE
+[00001001] env started: RUNNABLE
+[00001001] env stopped: RUNNING
+[00001002] env started: RUNNABLE
+[00001002] env stopped: FREE
+[00001003] env started: RUNNABLE
+[00001003] env stopped: RUNNING
+[00001001] env started: RUNNABLE
+[00001001] env stopped: RUNNING
+[00001003] env started: RUNNABLE
+[00001003] env stopped: RUNNING
+[00001001] env started: RUNNABLE
+[00001001] env stopped: FREE
+[00001003] env started: RUNNABLE
+[00001003] env stopped: RUNNING
+[00001003] env started: RUNNING
+[00001003] env stopped: RUNNING
+.....
+</pre>
+
+	<div class="contextual heading-2" title="Edit this section" id="section-7"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab4/edit?section=7">Edit this section</a></div><a name="Задание-6"></a>
+<h2>Задание №6<a href="#Задание-6" class="wiki-anchor">¶</a></h2>
+
+
+	<p><em>В данный момент часы реального времени работают на некой 
+стандартной частоте. Измените процедуру rtc_init так, чтобы прерывания 
+от часов приходили один раз в полсекунды. Для этого необходимо изменить 
+делитель частоты, которому соответствуют младшие 4 бита регистра часов 
+A.</em></p>
+
+
+	<p><em>По окончании выполнения работы следует сохранить внесенные изменения и отправить их в удаленный репозиторий.</em></p>
+</div>
+
+
+<fieldset class="collapsible collapsed hide-when-print">
+  <legend onclick="toggleFieldset(this);" class="icon icon-collapsed">Files (0)</legend>
+  <div style="display: none;">
+
+  
+
+  <div id="wiki_add_attachment">
+    <form id="add_attachment_form" enctype="multipart/form-data" action="/projects/oscourse-2021-spring/wiki/Lab4/add_attachment" accept-charset="UTF-8" name="add_attachment_form-93c63a40" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="jma0dG5hlM8C1cgYlzeWRDKxNG2fC3pc32i9BoJ8PGWJDVIcW1sPWjLzgo4mDTIQQ6q9Yuj/bJCz9/az8Xf8TA==">
+      <div class="box filedroplistner">
+      <p>
+<span class="attachments_form">
+  <span class="attachments_fields">
+  </span>
+  <span class="add_attachment" style="">
+    <input type="file" name="attachments[dummy][file]" class="file_selector filedrop" multiple="multiple" onchange="addInputFiles(this);" data-max-number-of-files-message="This file cannot be uploaded because it exceeds the maximum number of files that can be attached simultaneously (10)" data-max-file-size="1024000000" data-max-file-size-message="This file cannot be uploaded because it exceeds the maximum allowed file size (977 MB)" data-max-concurrent-uploads="2" data-upload-path="/uploads.js" data-param="attachments" data-description="true" data-description-placeholder="Optional description">
+    (Maximum size: 977 MB)
+  </span>
+</span>
+
+</p>
+      </div>
+      <input type="submit" name="commit" value="Add" data-disable-with="Add">
+</form>  </div>
+</div>
+</fieldset>
+
+<p class="wiki-update-info">
+    Updated by <a class="user active" href="https://forge.ispras.ru/users/2368">Vitaly Cheptsov</a> <a title="03/22/2021 07:49 AM" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity?from=2021-03-22">11 months</a> ago
+    · <a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab4/history">1 revisions</a>
+</p>
+
+
+
+
+
+        
+        <div style="clear:both;"></div>
+    </div>
+</div>
+<div id="footer">
+    Powered by <a href="https://www.redmine.org/">Redmine</a> © 2006-2022 Jean-Philippe Lang
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

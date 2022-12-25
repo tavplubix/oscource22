@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Lab10 - OS Course 2021 Spring - Open-Source Projects</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Redmine">
+<meta name="keywords" content="issue,bug,tracker">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="qlyDwdSKUdBBK2bPJwhJzVaA3Y5wCkGk5z+AET+I+CCtN2Wp4bDKRXENLFmWMu2ZJ5tUgQf+V2iLoMukTIM4CQ==">
+<link rel="shortcut icon" href="https://forge.ispras.ru/favicon.ico?1642659995">
+<link rel="stylesheet" media="all" href="Lab10%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-ui-1.css">
+<link rel="stylesheet" media="all" href="Lab10%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.css">
+<link rel="stylesheet" media="all" href="Lab10%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.css">
+<link rel="stylesheet" media="all" href="Lab10%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.css">
+
+<script src="Lab10%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-3.js"></script>
+<script src="Lab10%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-migrate-3.js"></script>
+<script src="Lab10%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.js"></script>
+<script src="Lab10%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5.js"></script>
+<script src="Lab10%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5_002.js"></script>
+<script src="Lab10%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.js"></script>
+<script src="Lab10%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.js"></script>
+<script>
+//<![CDATA[
+$(window).on('load', function(){ warnLeavingUnsaved('The current page contains unsaved text that will be lost if you leave this page.'); });
+//]]>
+</script>
+
+<script>
+//<![CDATA[
+rm = window.rm || {};rm.AutoComplete = rm.AutoComplete || {};rm.AutoComplete.dataSources = '{"issues":"/issues/auto_complete?project_id=oscourse-2021-spring\u0026q=","wiki_pages":"/wiki_pages/auto_complete?project_id=oscourse-2021-spring\u0026q="}';
+//]]>
+</script>
+ <link rel="stylesheet" media="screen" href="Lab10%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/admin.css">
+<!-- page specific tags -->
+  <script src="Lab10%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/attachments.js"></script>
+
+</head>
+<body class="project-oscourse-2021-spring has-main-menu controller-wiki action-show avatars-on">
+
+<div id="wrapper">
+
+<div class="flyout-menu js-flyout-menu">
+
+        <div class="flyout-menu__search">
+            <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-49ca10a3" method="get"><input name="utf8" type="hidden" value="✓">
+            <input type="hidden" name="wiki_pages" value="1">
+            <label class="search-magnifier search-magnifier--flyout" for="flyout-search">⚲</label>
+            <input type="text" name="q" id="flyout-search" class="small js-search-input" placeholder="Search">
+</form>        </div>
+
+        <div class="flyout-menu__avatar ">
+                <a href="https://forge.ispras.ru/users/12098"><img alt="" title="Александр Токмаков" class="gravatar" srcset="Lab10%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef.png 2x" src="Lab10%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef_002.png"></a>
+            <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a>
+        </div>
+
+        <h3>Project</h3>
+        <span class="js-project-menu"></span>
+
+    <h3>General</h3>
+    <span class="js-general-menu"></span>
+
+    <span class="js-sidebar flyout-menu__sidebar"></span>
+
+    <h3>Profile</h3>
+    <span class="js-profile-menu"></span>
+
+</div>
+
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a class="my-account" href="https://forge.ispras.ru/my/account">My account</a></li><li><a class="logout" rel="nofollow" data-method="post" href="https://forge.ispras.ru/logout">Sign out</a></li></ul>    </div>
+    <div id="loggedas">Logged in as <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a></div>
+    <ul><li><a class="home" href="https://forge.ispras.ru/">Home</a></li><li><a class="my-page" href="https://forge.ispras.ru/my/page">My page</a></li><li><a class="projects" href="https://forge.ispras.ru/projects">Projects</a></li><li><a class="help" href="https://www.redmine.org/guide">Help</a></li></ul></div>
+
+<div id="header">
+
+    <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
+
+    <div id="quick-search">
+        <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-7ff30a84" method="get"><input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="scope">
+        <input type="hidden" name="wiki_pages" value="1">
+        <label for="q">
+          <a accesskey="4" href="https://forge.ispras.ru/projects/oscourse-2021-spring/search">Search</a>:
+        </label>
+        <input type="text" name="q" id="q" size="20" class="small" accesskey="f" data-auto-complete="true">
+</form>        <div id="project-jump" class="drdn"><span class="drdn-trigger">OS Course 2021 Spring</span><div class="drdn-content"><div class="quick-search"><input type="text" name="q" id="projects-quick-search" class="autocomplete" data-automcomplete-url="/projects/autocomplete.js?jump=wiki" autocomplete="off" data-value-was=""></div><div class="drdn-items projects selection"><strong>Recently used</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a><strong>All Projects</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a></div><div class="drdn-items all-projects selection"><a href="https://forge.ispras.ru/projects?jump=wiki">All Projects</a></div></div></div>
+    </div>
+
+    <h1><span class="current-project">OS Course 2021 Spring</span></h1>
+
+    <div id="main-menu" class="tabs">
+        <ul><li>
+<a onclick="toggleNewObjectDropdown(); return false;" id="new-object" class="new-object" href="#"> + </a>
+<ul class="menu-children"><li><a class="new-version" href="https://forge.ispras.ru/projects/oscourse-2021-spring/versions/new">New version</a></li><li><a class="new-wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new">New wiki page</a></li><li><a class="new-file" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files/new">New file</a></li></ul>
+</li><li><a class="overview" href="https://forge.ispras.ru/projects/oscourse-2021-spring">Overview</a></li><li><a class="activity" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity">Activity</a></li><li><a class="wiki selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Wiki</a></li><li><a class="files" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files">Files</a></li><li><a class="settings" href="https://forge.ispras.ru/projects/oscourse-2021-spring/settings">Settings</a></li></ul>
+        <div class="tabs-buttons" style="display: none;">
+            <button class="tab-left" onclick="moveTabLeft(this); return false;"></button>
+            <button class="tab-right" onclick="moveTabRight(this); return false;"></button>
+        </div>
+    </div>
+</div>
+
+<div id="main" class="">
+    <div id="sidebar">
+          
+
+<h3>Wiki</h3>
+<ul>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Start page</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/index">Index by title</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/date_index">Index by date</a></li>
+</ul>
+
+
+
+
+        
+    </div>
+
+    <div id="content">
+        
+        <div class="contextual">
+
+  <a class="icon icon-edit" accesskey="e" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab10/edit">Edit</a>
+  <a class="wiki_page-1047-watcher icon icon-fav-off" data-remote="true" rel="nofollow" data-method="post" href="https://forge.ispras.ru/watchers/watch?object_id=1047&amp;object_type=wiki_page">Watch</a>
+
+  <span class="drdn"><span class="drdn-trigger"><span class="icon-only icon-actions" title="Actions">Actions</span></span><div class="drdn-content"><div class="drdn-items">
+    <a class="icon icon-history" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab10/history">History</a>
+
+      
+      
+      
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab10">Delete</a>
+
+      <a class="icon icon-add" data-remote="true" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new?parent=Lab10">New wiki page</a>
+</div></div></span></div>
+
+<p class="breadcrumb"><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Wiki">Wiki</a> » </p>
+
+
+<div class="wiki wiki-page">
+  <a name="Лабораторная-работа-10"></a>
+<h1>Лабораторная работа №10<a href="#Лабораторная-работа-10" class="wiki-anchor">¶</a></h1>
+
+
+	<p>Для получения файлов и изменений, необходимых для выполнения работы,
+ следует обновить удаленный репозиторий, создать новую ветвь под 
+названием working-lab10, после чего выполнить слияние с ней ветви lab10,
+ которая появилась в репозитории.</p>
+
+
+	<p>Файлы, которые появились в этой работе, в основном связаны с 
+поддержкой файловой системы и расположены в новой директории fs. 
+Просмотрите все файлы в этой директории. Кроме того, некоторые файлы, 
+связанные с поддержкой файловой системы, появились в директориях user и 
+lib.</p>
+
+
+	<p>После слияния кода данной работы запустите программы pingpong, 
+primes и forktree из предыдущей работы. Для начала нужно 
+закомментировать строку ENV_CREATE(fs_fs) в kern/init.c, потому что 
+fs/fs.c пытается совершить некоторые еще не реализованные операции 
+ввода/вывода. Кроме того, временно закомментируйте вызов close_all() в 
+lib/exit.c; эта функция также использует еще не реализованные функции. 
+Если ваши предыдущие работы выполнены верно, тесты должны работать 
+правильно; не продолжайте, пока не убедитесь в этом. После выполнения 
+первого упражнения раскомментируйте эти строки.</p>
+
+
+	<p>Поддержка файловой системы, которая поддерживает все базовые 
+возможности (создание, чтение, запись, удаление файлов), в целом уже 
+реализована. Вам нужно будет лишь изменить существующий код таким 
+образом, чтобы файловая система заработала в JOS. Для этого 
+необязательно знать все детали реализации файловой системы или ее 
+структуру на диске, но важно ознакомиться с принципами ее работы и 
+программным интерфейсом.</p>
+
+
+	<p>Файловая система реализована в микроядерном стиле, вне ядра, в 
+пределах своего собственного пользовательского процесса (т. н. сервера 
+файловой системы). Другие процессы получают доступ к файловой системе с 
+помощью IPC-запросов.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-2"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab10/edit?section=2">Edit this section</a></div><a name="sys_region_refs"></a>
+<h2>sys_region_refs()<a href="#sys_region_refs" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Для реализации получения количества ссылок использующийся для pipe и
+ в других функциях, необходимо реализовать вспомогательный системный 
+вызов sys_region_refs() в ядре, который используется для реализации двух
+ библиотечных вызовов -- sys_region_refs() и sys_region_refs2(). Первый 
+из них возвращает максимальное количество ссылок на регион памяти. А 
+второй -- разницу между количеством ссылок на два региона и в результате
+ практически эквивалентен sys_region_refs(addr, size) - 
+sys_region_refs(addr2, size2), за исключением того, что он выполняется 
+атомарно, что помогает предотващать гонки в реализации pipe.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-3"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab10/edit?section=3">Edit this section</a></div><a name="Доступ-к-диску"></a>
+<h2>Доступ к диску<a href="#Доступ-к-диску" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Сервер файловой системы в JOS должен получать доступ к диску, но эта
+ возможность еще не реализована. Вместо того, чтобы использовать обычную
+ стратегию монолитного ядра, — добавление IDE-драйвера в ядро вместе с 
+необходимыми системными вызовами для доступа к файловой системе — 
+IDE-драйвер будет реализован как часть сервера файловой системы. Однако 
+для того, чтобы дать серверу файловой системы возможность 
+непосредственно обращаться к диску, все же придется модифицировать ядро.</p>
+
+
+	<p>Реализовать доступ к диску в пользовательском пространстве несложно,
+ если использовать PMIO или MMIO и не использовать дисковые прерывания. 
+Можно реализовать дисковый драйвер, основанный на прерываниях, в 
+пользовательском режиме (например, таким образом он реализован в ядрах 
+L3 и L4), но это труднее, так как ядро должно отправлять дисковые 
+прерывания нужному пользовательскому процессу.</p>
+
+
+	<p>x86-процессор использует биты IOPL в регистре EFLAGS, чтобы 
+определить, разрешается ли коду защищенного режима выполнять специальные
+ инструкции ввода-вывода, такие как IN и OUT. Так как все регистры 
+IDE-дисков, к которым необходимо получить доступ, расположены в 
+пространстве ввода/вывода x86, не отображаясь в память, единственное, 
+что нужно сделать для доступа к ним — дать процессу привилегию I/O. В 
+сущности, биты IOPL регистра EFLAGS обеспечивают простой метод контроля 
+доступа к пространству ввода-вывода для кода пользовательского режима — 
+«все или ничего». Для разграничения доступа нужно, чтобы сервер файловой
+ системы имел возможность доступа к пространству ввода-вывода, а другие 
+процессы не имели.</p>
+
+
+	<p><em>Функция i386_init идентифицирует сервер файловой системы, 
+передавая тип ENV_TYPE_FS в функцию создания процесса (env_create). 
+Измените функцию env_create в env.c, чтобы она давала такому процессу 
+привилегию ввода/вывода, но не давала ее никакому другому процессу.</em></p>
+
+
+	<p><em>Убедитесь, что вы можете запустить сервер файловой системы без 
+ошибки. При запуске make grade ваш код должен пройти тест «fs i/o».</em></p>
+
+
+	<p><em>Ответьте на следующий вопрос:</em></p>
+
+
+	<ul>
+	<li><em>Нужно ли сделать что-нибудь еще, чтобы убедиться, что 
+привилегия ввода/вывода будет сохранена и восстановлена должным образом 
+при переключении между процессами? Почему?</em></li>
+	</ul>
+
+
+	<p>В предыдущих лабораторных работах образ ядра вместе с 
+пользовательскими программами после сборки находился в файле 
+obj/kernel/kernel.img, который при запуске использовался QEMU как образ 
+для диска 0 («Диск C:» в DOS/Windows). В данной работе происходит то же 
+самое, но, помимо этого, в качестве образа для диска 1 («Диск D:») 
+используется новый файл obj/fs/fs.img, в котором находятся в т.ч. новые 
+пользовательские программы. Файловая система должна использовать только 
+диск 1; диск 0 используется только для загрузки ядра.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-4"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab10/edit?section=4">Edit this section</a></div><a name="Кэш-блоков"></a>
+<h2>Кэш блоков<a href="#Кэш-блоков" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Кроме того, для файловой системы будет реализован простой кэш блоков
+ с помощью системы виртуальной памяти процессора. Его код находится в 
+fs/bc.c.</p>
+
+
+	<p>Файловая система будет иметь ограничение на размер диска — не более 3
+ ГБ. Для отображения в память диска резервируется фиксированная область 
+адресного пространства сервера файловой системы размером 3 ГБ, от 
+0x10000000 (DISKMAP) до 0xD0000000 (DISKMAP + DISKMAX). Например, блок 0
+ отображается по виртуальному адресу 0x10000000, блок 1 отображается по 
+виртуальному адресу 0x10001000 и т.д. Функция diskaddr в fs/bc.c 
+реализует эту трансляцию из номеров блоков в виртуальные адреса (вместе с
+ некоторыми проверками).</p>
+
+
+	<p>Так как сервер файловой системы имеет собственное виртуальное 
+адресное пространство, независимое от адресных пространств других 
+процессов, и единственное, что он должен делать — реализовать доступ к 
+файлам, такое резервирование большей части адресного пространства 
+допустимо. Для реальной реализации файловой системы на 32-битном 
+процессоре это было бы странно, так как современные диски обычно больше 
+3ГБ. Однако для 64-битного процессора такой подход также может быть 
+допустим.</p>
+
+
+	<p>Конечно, было бы неразумно читать в память сразу все содержимое 
+диска. Вместо этого выделение страницы памяти и чтение необходимого 
+блока с диска будет происходить при возникновении ошибки страницы. Таким
+ образом создается иллюзия, что весь диск находится в памяти.</p>
+
+
+	<p><em>Реализуйте функции bc_pgfault() и flush_block() в fs/bc.c. 
+Функция bc_pgfault() используется в качестве обработчика ошибки 
+страницы, при ее возникновении загружая страницу с диска. При ее 
+написании имейте в виду, что (1) addr может не быть выровнен по границе 
+блока и (2) ide_read оперирует секторами, а не блоками. Функция 
+flush_block() записывает блок на диск, если необходимо, но ничего не 
+делает в случаях, когда блок не находится в кэше или не помечен как 
+dirty. Блок помечается как dirty (т.е. как измененный с тех пор, как 
+было произведено чтение или запись) процессором при обращении к странице
+ на запись (см. "4.8 ACCESSED AND DIRTY FLAGS" в Intel Software 
+Developer Manual), то есть для проверки необходимости записи блока на 
+диск достаточно проверить бит PTE_D в uvpt. После записи блока на диск 
+функция flush_block() должна очищать флаг PTE_D с помощью sys_page_map.</em></p>
+
+
+	<p><em>Используйте make grade для тестирования кода. Код должен проходить проверки «check_bc», «check_super», «check_bitmap».</em></p>
+
+
+	<p>Функция fs_init() в fs/fs.c является ярким примером использования 
+кэша. После инициализации кэша она записывает указатели (номера блоков) 
+на область отображения диска в глобальной переменной super. С этого 
+момента можно просто читать данные из структуры super, как если бы она 
+находилась в памяти, а обработчик ошибок страницы будет читать их с 
+диска по мере необходимости.</p>
+
+
+	<p>После установки в fs_init() указателя bitmap этот указатель можно 
+рассматривать как битовый массив, в котором каждый бит соответствует 
+блоку на диске; см., например, функцию block_is_free(), которая 
+проверяет, помечен ли данный блок как свободный.</p>
+
+
+	<p><em>Реализуйте alloc_block() по аналогии с free_block(). Эта функция
+ должна находить свободный блок в bitmap, помечать его как используемый и
+ возвращать его номер. Сразу после выделения блока необходимо записать 
+изменившийся блок на диск с помощью flush_block(), чтобы сохранить 
+целостность файловой системы. После выполнения этого упражнения ваш код 
+должен проходить проверку «alloc_block».</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-5"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab10/edit?section=5">Edit this section</a></div><a name="Операции-с-файлами"></a>
+<h2>Операции с файлами<a href="#Операции-с-файлами" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Основные функции для операций с файлами представлены в файле 
+fs/fs.c. Просмотрите их и убедитесь, что вы понимаете, что делает каждая
+ из функций.</p>
+
+
+	<p><em>Реализуйте функции file_block_walk() и file_get_block(). После 
+выполнения этого упражнения ваш код должен проходить проверки 
+«file_open», «file_get_block», «file_flush/file_truncated/file_rewrite»,
+ «testfile».</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-6"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab10/edit?section=6">Edit this section</a></div><a name="Интерфейс-файловой-системы"></a>
+<h2>Интерфейс файловой системы<a href="#Интерфейс-файловой-системы" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Теперь, когда сервер файловой системы может получать доступ к диску,
+ нужно сделать его доступным для других процессов, которые хотят 
+использовать файловую систему. Так как другие процессы не могут напрямую
+ вызывать функции в сервере файловой системы, доступ будет 
+осуществляться с помощью удаленного вызова процедур, или RPC — 
+абстракции, построенной на базе механизма IPC. Графически вызов сервера 
+файловой системы (например, read()) изображен на рисунке:</p>
+
+
+	<p><img src="Lab10%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/fsrpc.png" style="width:33%;" alt=""></p>
+
+
+	<p>Все, что ниже пунктирной линии, — просто механика передачи запроса 
+на чтение от обычного процесса к серверу файловой системы. Функция 
+read() работает на любых файловых дескрипторах и просто вызывает 
+соответствующую функцию чтения для устройства, в данном случае 
+devfile_read() (теоретически могут существовать различные типы 
+устройств, такие как каналы). Функция devfile_read() реализует read() 
+для файлов на диске. Эта и другие функции devfile_ * в lib/file.c 
+реализуют клиентскую сторону операций с ФС и работают приблизительно 
+одинаковым образом, собирая аргументы в структуру запроса, вызывая fsipc
+ для отправки IPC-запроса, а затем распаковывая и возвращая результат. 
+Функция fsipc обрабатывает отправку запроса к серверу и получение 
+ответа.</p>
+
+
+	<p>Код сервера файловой системы можно найти в fs/serv.c. Он реализован 
+как бесконечный цикл с функцией serve(), получающей запрос от IPC, 
+диспетчеризующей запрос в соответствующую функцию-обработчик и 
+отправляющей результат обратно через IPC. При выполнении операции 
+чтения, например, serve() направит запрос в serve_read(), которая 
+позаботится об особенностях IPC, соответствующих запросу на чтение, 
+таких как распаковка структуры запроса и, наконец, вызов file_read(), 
+фактически выполняющий чтение файла.</p>
+
+
+	<p>Напомним, что механизм межпроцессного взаимодействия JOS позволяет 
+процессу отправить одно 32-битное число и, возможно, открыть страницу 
+для совместного доступа. Для отправки запроса от клиента к серверу 
+используется 32-битное число, обозначающее тип запроса (функции RPC 
+сервера файловой системы пронумерованы, как и системные вызовы), а 
+аргументы запроса хранятся в union Fsipc на странице, к которой открыт 
+доступ с помощью IPC. На стороне клиента страница отображается с 
+разделяемым доступом как fsipcbuf; на стороне сервера она отображается 
+из входящего запроса в fsreq (0x0FFFF000).</p>
+
+
+	<p>Кроме того, сервер отправляет ответ обратно через IPC. 32-битное 
+число здесь используется для кода возврата функции, и это единственное, 
+что возвращает большая часть функций RPC. Однако FSREQ_READ и FSREQ_STAT
+ также возвращают данные, просто записывая их на страницу, на которой 
+клиент отправил запрос. Нет необходимости отправлять эту страницу в 
+ответе IPC, так как изначально именно клиент отправил ее серверу 
+файловой системы. Кроме того, в своем ответе FSREQ_OPEN открывает 
+клиенту доступ к новой FD-странице (странице файлового дескриптора).</p>
+
+
+	<p><em>Реализуйте функции serve_read(), serve_write() в fs/serv.c и 
+devfile_write() в lib/file.c. Функция serve_read() должна, по сути, 
+просто предоставлять интерфейс к функции file_read(). Просмотрите 
+комментарии и код в функции serve_set_size(), чтобы понять, как должны 
+быть устроены функции сервера файловой системы.</em></p>
+
+
+	<p><em>После этого код должен проходить проверки 
+«serve_open/file_stat/file_close», «file_read», «file_write», «file_read
+ after file_write», «open» и «large file».</em></p>
+
+
+	<p><em>После выполнения этого задания рекомендуется проверить 
+разработанный код с помощью make grade. Скрипт должен выводить OK для 
+всех тестов.</em></p>
+
+
+	<p><em>В заключение работы ответьте на следующий вопрос:</em></p>
+
+
+	<ul>
+	<li><em>Что плохого может произойти с файловой системой при неожиданном отключении питания? Как этого можно избежать?</em></li>
+	</ul>
+
+
+	<p><em>По окончании выполнения работы следует сохранить внесенные изменения и отправить их в удаленный репозиторий.</em></p>
+</div>
+
+
+<fieldset class="collapsible collapsed hide-when-print">
+  <legend onclick="toggleFieldset(this);" class="icon icon-collapsed">Files (1)</legend>
+  <div style="display: none;">
+
+  <div class="attachments">
+<div class="contextual">
+  <a title="Edit attached files" class="icon-only icon-edit" href="https://forge.ispras.ru/attachments/wiki_pages/1047/edit">Edit attached files</a>
+  
+</div>
+<table>
+<tbody><tr>
+  <td>
+    <a class="icon icon-attachment" href="https://forge.ispras.ru/attachments/8794">fsrpc.png</a>    <span class="size">(237 KB)</span>
+    <a class="icon-only icon-download" title="Download" href="https://forge.ispras.ru/attachments/download/8794/fsrpc.png">fsrpc.png</a>  </td>
+  <td></td>
+  <td>
+      <span class="author">Vitaly Cheptsov, 05/09/2021 08:19 PM</span>
+  </td>
+  <td>
+      <a data-confirm="Are you sure?" class="delete icon-only icon-del" title="Delete" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/attachments/8794">Delete</a>
+  </td>
+</tr>
+</tbody></table>
+  <div class="thumbnails">
+      <div><a title="fsrpc.png" href="https://forge.ispras.ru/attachments/8794"><img srcset="Lab10%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/200.png 2x" style="max-width: 100px; max-height: 100px;" src="Lab10%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/8794.png"></a></div>
+  </div>
+</div>
+
+
+  <div id="wiki_add_attachment">
+    <form id="add_attachment_form" enctype="multipart/form-data" action="/projects/oscourse-2021-spring/wiki/Lab10/add_attachment" accept-charset="UTF-8" name="add_attachment_form-e482ad9f" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="qlyDwdSKUdBBK2bPJwhJzVaA3Y5wCkGk5z+AET+I+CCtN2Wp4bDKRXENLFmWMu2ZJ5tUgQf+V2iLoMukTIM4CQ==">
+      <div class="box filedroplistner">
+      <p>
+<span class="attachments_form">
+  <span class="attachments_fields">
+  </span>
+  <span class="add_attachment" style="">
+    <input type="file" name="attachments[dummy][file]" class="file_selector filedrop" multiple="multiple" onchange="addInputFiles(this);" data-max-number-of-files-message="This file cannot be uploaded because it exceeds the maximum number of files that can be attached simultaneously (10)" data-max-file-size="1024000000" data-max-file-size-message="This file cannot be uploaded because it exceeds the maximum allowed file size (977 MB)" data-max-concurrent-uploads="2" data-upload-path="/uploads.js" data-param="attachments" data-description="true" data-description-placeholder="Optional description">
+    (Maximum size: 977 MB)
+  </span>
+</span>
+
+</p>
+      </div>
+      <input type="submit" name="commit" value="Add" data-disable-with="Add">
+</form>  </div>
+</div>
+</fieldset>
+
+<p class="wiki-update-info">
+    Updated by <a class="user active" href="https://forge.ispras.ru/users/2368">Vitaly Cheptsov</a> <a title="06/15/2021 06:06 PM" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity?from=2021-06-15">8 months</a> ago
+    · <a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab10/history">2 revisions</a>
+</p>
+
+
+
+
+
+        
+        <div style="clear:both;"></div>
+    </div>
+</div>
+<div id="footer">
+    Powered by <a href="https://www.redmine.org/">Redmine</a> © 2006-2022 Jean-Philippe Lang
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

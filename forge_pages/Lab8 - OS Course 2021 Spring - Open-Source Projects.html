@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Lab8 - OS Course 2021 Spring - Open-Source Projects</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Redmine">
+<meta name="keywords" content="issue,bug,tracker">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="OUQW2Ze9Z5x4tomAnvO8DrgZ9cWACzzs0hADSRM4Z3Q+L/Cxoof8CUiQwxYvyRhayQJ8yvf/KiC+j0j8YDOnXQ==">
+<link rel="shortcut icon" href="https://forge.ispras.ru/favicon.ico?1642659995">
+<link rel="stylesheet" media="all" href="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-ui-1.css">
+<link rel="stylesheet" media="all" href="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.css">
+<link rel="stylesheet" media="all" href="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.css">
+<link rel="stylesheet" media="all" href="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.css">
+
+<script src="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-3.js"></script>
+<script src="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-migrate-3.js"></script>
+<script src="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.js"></script>
+<script src="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5_002.js"></script>
+<script src="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5.js"></script>
+<script src="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.js"></script>
+<script src="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.js"></script>
+<script>
+//<![CDATA[
+$(window).on('load', function(){ warnLeavingUnsaved('The current page contains unsaved text that will be lost if you leave this page.'); });
+//]]>
+</script>
+
+<script>
+//<![CDATA[
+rm = window.rm || {};rm.AutoComplete = rm.AutoComplete || {};rm.AutoComplete.dataSources = '{"issues":"/issues/auto_complete?project_id=oscourse-2021-spring\u0026q=","wiki_pages":"/wiki_pages/auto_complete?project_id=oscourse-2021-spring\u0026q="}';
+//]]>
+</script>
+ <link rel="stylesheet" media="screen" href="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/admin.css">
+<!-- page specific tags -->
+  <script src="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/attachments.js"></script>
+
+</head>
+<body class="project-oscourse-2021-spring has-main-menu controller-wiki action-show avatars-on">
+
+<div id="wrapper">
+
+<div class="flyout-menu js-flyout-menu">
+
+        <div class="flyout-menu__search">
+            <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-ffa0f3d2" method="get"><input name="utf8" type="hidden" value="✓">
+            <input type="hidden" name="wiki_pages" value="1">
+            <label class="search-magnifier search-magnifier--flyout" for="flyout-search">⚲</label>
+            <input type="text" name="q" id="flyout-search" class="small js-search-input" placeholder="Search">
+</form>        </div>
+
+        <div class="flyout-menu__avatar ">
+                <a href="https://forge.ispras.ru/users/12098"><img alt="" title="Александр Токмаков" class="gravatar" srcset="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef.png 2x" src="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef_002.png"></a>
+            <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a>
+        </div>
+
+        <h3>Project</h3>
+        <span class="js-project-menu"></span>
+
+    <h3>General</h3>
+    <span class="js-general-menu"></span>
+
+    <span class="js-sidebar flyout-menu__sidebar"></span>
+
+    <h3>Profile</h3>
+    <span class="js-profile-menu"></span>
+
+</div>
+
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a class="my-account" href="https://forge.ispras.ru/my/account">My account</a></li><li><a class="logout" rel="nofollow" data-method="post" href="https://forge.ispras.ru/logout">Sign out</a></li></ul>    </div>
+    <div id="loggedas">Logged in as <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a></div>
+    <ul><li><a class="home" href="https://forge.ispras.ru/">Home</a></li><li><a class="my-page" href="https://forge.ispras.ru/my/page">My page</a></li><li><a class="projects" href="https://forge.ispras.ru/projects">Projects</a></li><li><a class="help" href="https://www.redmine.org/guide">Help</a></li></ul></div>
+
+<div id="header">
+
+    <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
+
+    <div id="quick-search">
+        <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-8409aa13" method="get"><input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="scope">
+        <input type="hidden" name="wiki_pages" value="1">
+        <label for="q">
+          <a accesskey="4" href="https://forge.ispras.ru/projects/oscourse-2021-spring/search">Search</a>:
+        </label>
+        <input type="text" name="q" id="q" size="20" class="small" accesskey="f" data-auto-complete="true">
+</form>        <div id="project-jump" class="drdn"><span class="drdn-trigger">OS Course 2021 Spring</span><div class="drdn-content"><div class="quick-search"><input type="text" name="q" id="projects-quick-search" class="autocomplete" data-automcomplete-url="/projects/autocomplete.js?jump=wiki" autocomplete="off" data-value-was=""></div><div class="drdn-items projects selection"><strong>Recently used</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a><strong>All Projects</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a></div><div class="drdn-items all-projects selection"><a href="https://forge.ispras.ru/projects?jump=wiki">All Projects</a></div></div></div>
+    </div>
+
+    <h1><span class="current-project">OS Course 2021 Spring</span></h1>
+
+    <div id="main-menu" class="tabs">
+        <ul><li>
+<a onclick="toggleNewObjectDropdown(); return false;" id="new-object" class="new-object" href="#"> + </a>
+<ul class="menu-children"><li><a class="new-version" href="https://forge.ispras.ru/projects/oscourse-2021-spring/versions/new">New version</a></li><li><a class="new-wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new">New wiki page</a></li><li><a class="new-file" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files/new">New file</a></li></ul>
+</li><li><a class="overview" href="https://forge.ispras.ru/projects/oscourse-2021-spring">Overview</a></li><li><a class="activity" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity">Activity</a></li><li><a class="wiki selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Wiki</a></li><li><a class="files" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files">Files</a></li><li><a class="settings" href="https://forge.ispras.ru/projects/oscourse-2021-spring/settings">Settings</a></li></ul>
+        <div class="tabs-buttons" style="display: none;">
+            <button class="tab-left" onclick="moveTabLeft(this); return false;"></button>
+            <button class="tab-right" onclick="moveTabRight(this); return false;"></button>
+        </div>
+    </div>
+</div>
+
+<div id="main" class="">
+    <div id="sidebar">
+          
+
+<h3>Wiki</h3>
+<ul>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Start page</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/index">Index by title</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/date_index">Index by date</a></li>
+</ul>
+
+
+
+
+        
+    </div>
+
+    <div id="content">
+        
+        <div class="contextual">
+
+  <a class="icon icon-edit" accesskey="e" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/edit">Edit</a>
+  <a class="wiki_page-1044-watcher icon icon-fav-off" data-remote="true" rel="nofollow" data-method="post" href="https://forge.ispras.ru/watchers/watch?object_id=1044&amp;object_type=wiki_page">Watch</a>
+
+  <span class="drdn"><span class="drdn-trigger"><span class="icon-only icon-actions" title="Actions">Actions</span></span><div class="drdn-content"><div class="drdn-items">
+    <a class="icon icon-history" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/history">History</a>
+
+      
+      
+      
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8">Delete</a>
+
+      <a class="icon icon-add" data-remote="true" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new?parent=Lab8">New wiki page</a>
+</div></div></span></div>
+
+<p class="breadcrumb"><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Wiki">Wiki</a> » </p>
+
+
+<div class="wiki wiki-page">
+  <a name="Лабораторная-работа-8"></a>
+<h1>Лабораторная работа №8<a href="#Лабораторная-работа-8" class="wiki-anchor">¶</a></h1>
+
+
+	<p>Начиная с данной лабораторной работы для облегчения отладки 
+написанного кода имеется доступ к AddressSanitizer и 
+UndefinedBehaviorSanitizer на пользовательском уровне, с инструкцией по 
+использованию которых можно ознакомиться <a class="wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/LLVM_Sanitizers">по ссылке</a>.
+ Все решения лабораторных работ должны быть проверены с помощью 
+AddressSanitizer и UndefinedBehaviorSanitizer. В случае несовместимости 
+инструмента с лабораторной работой должно быть приведено соответствующее
+ обоснование с описанием причин (например, ограничения по памяти). 
+Примерами таких тестов для данной лабораторной работы являются тесты, 
+намеренно некорректно работающие с памятью: faultreadkernel, faultwrite,
+ faultwritekernel, testbss. Для того чтобы AddressSanitizer стал 
+работоспособным, необходимо дописать задания связанные с ним ниже.</p>
+
+
+	<p>Для взаимодействия операционной системы с процессами и с различными 
+устройствами они должны иметь возможность в нужный момент вызвать ее. 
+Для этого используется механизм прерываний. При возникновении прерывания
+ выполнение текущей последовательности команд приостанавливается, и 
+управление передается обработчику прерывания, заданному ядром. Этот 
+обработчик нужным образом реагирует на возникшее событие, после чего 
+возвращает управление в прерванный код.</p>
+
+
+	<p>Прерывания делятся на:<br>1. Асинхронные, или внешние — события, 
+которые исходят от внешних источников, например, сигнал от часов, 
+клавиатуры или дискового накопителя.<br>2. Синхронные, или внутренние 
+(исключения) — события в самом процессоре, например, деление на ноль, 
+обращение по недопустимому адресу, недопустимый код операции. Частным 
+случаем исключений являются программные прерывания, инициируемые 
+выполнением специальной инструкции в коде программы — например, 
+системный вызов или точка останова.</p>
+
+
+	<p>Более подробную информацию о механизме прерываний можно получить в 
+главе 6 «Interrupt and exception handling» руководства Intel, а на 
+концептуальном уровне — в книге Э. Таненбаума «Архитектура компьютера».</p>
+
+
+	<p>Для получения файлов и изменений, необходимых для выполнения работы,
+ следует обновить удаленный репозиторий, создать новую ветвь под 
+названием working-lab8, после чего выполнить слияние с ней ветви lab8, 
+которая появилась в репозитории. О работе с git можно прочитать на <a class="wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/GitManual">соответствующей странице</a>.</p>
+
+
+	<p>Структура Env в inc/env.h изменилась, в ней появилось поле 
+address_space — состояние адресного пространства процесса. Адресное 
+пространство процесса определяется по таблицам страниц, на которые 
+указывает address_space.pml4. Чтобы запустить процесс, ядро должно 
+установить в процессоре и сохраненные регистры, и соответствующее 
+адресное пространство (с помощью switch_address_space).</p>
+
+
+	<p>В таблице страниц 4 уровня первое вхождение (pml4 [0]) соответствует
+ виртуальной памяти, с которой пользовательские пространства могут 
+работать. Для каждого пространства создается свое вхождение. Второе 
+вхождение (pml4 [1]) соответствует той памяти, которая должна быть общая
+ для всех пространств - общая пользовательская память (регион от UTOP до
+ ULIM), а также память ядра (регион от KERNBASE до UVPT). Третье 
+вхождение (pml4 [2]) используется для отображения всей таблицы саму в 
+себя, что позволяет получать доступ к ее элементам обычным доступом к 
+линейной памяти вместо ручного обхода по памяти ядра.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-2"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/edit?section=2">Edit this section</a></div><a name="Выделение-массива-процессов"></a>
+<h2>Выделение массива процессов<a href="#Выделение-массива-процессов" class="wiki-anchor">¶</a></h2>
+
+
+	<p><em>Реализуйте динамическое выделение массива envs размера NENV в 
+env_init() и последующее его отображение на UENVS так, чтобы он был 
+доступен пользовательской программе, но только на чтение.</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-3"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/edit?section=3">Edit this section</a></div><a name="Создание-и-запуск-процесса"></a>
+<h2>Создание и запуск процесса<a href="#Создание-и-запуск-процесса" class="wiki-anchor">¶</a></h2>
+
+
+	<p><em>Теперь в kern/env.c нужно написать код, необходимый для запуска 
+пользовательского процесса. GNUmakefile данной работы создает ряд 
+двоичных файлов в obj/user/, аналогично работе 3; исходный код этих 
+файлов берется из user/. В функции i386_init() в kern/init.c находится 
+код для запуска одного из этих файлов в качестве процесса. Основные 
+функции настройки пользовательских процессов были написаны в работе 3, 
+однако необходимо изменить их таким образом, чтобы процессы использовали
+ виртуальную память.</em></p>
+
+
+	<p><em>В файле env.c/pmap.c допишите следующие функции:</em></p>
+
+
+	<ul>
+	<li><em>init_address_space()<br>Выделяет каталог страниц для нового 
+процесса, корень дерева виртуальной памяти и инициализирует часть 
+адресного пространства нового процесса, относящуюся к ядру.</em></li>
+		<li><em>load_icode()<br>Основная часть этой функции уже написана, 
+необходимо изменить ее таким образом, чтобы она использовала виртуальную
+ память, и добавить отображение страницы для стека процесса.</em></li>
+		<li><em>env_create()<br>Выделяет процесс с помощью env_alloc и загружает в него двоичный ELF-образ путем вызова load_icode.</em></li>
+		<li><em>env_run()<br>Запускает данный процесс в пользовательском режиме.</em></li>
+	</ul>
+
+
+	<p>Как происходит инициализвация ядра до запуска пользовательского кода? Какие функциии вызываются, в каком порядке и почему?</p>
+
+
+	<p>В данным момент, при попытке запустить QEMU будет возникать general protection fault,<br>потому что менеджер памяти требует обработки #PF для ленивого выделения памяти.<br>(В
+ JOS память выделяется только после того как происходит запись в нее, до
+ этого она отображена на специальные константные страницы)</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-4"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/edit?section=4">Edit this section</a></div><a name="Обработка-прерываний-и-исключений"></a>
+<h2>Обработка прерываний и исключений<a href="#Обработка-прерываний-и-исключений" class="wiki-anchor">¶</a></h2>
+
+
+	<p>В данный момент первый вызов инструкции int $0x30 в пользовательском
+ пространстве является тупиком: как только процессор переходит в 
+пользовательский режим, нет способа вернуться обратно. Необходимо 
+реализовать простой механизм обработки исключений и системных вызовов, 
+чтобы дать возможность ядру восстановить контроль над процессором из 
+пользовательского режима.</p>
+
+
+	<p>Обычно мы следуем терминологии Intel касательно прерываний, 
+исключений и т.п. Тем не менее, такие термины, как исключение, ловушка, 
+прерывание, отказ не имеют стандартного значения для разных архитектур и
+ операционных систем, и часто используются без учета тонких различий 
+между ними для конкретной архитектуры, такой как x86. Когда вы видите 
+эти термины вне данной работы, их значения могут несколько отличаться.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-5"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/edit?section=5">Edit this section</a></div><a name="Защищенная-передача-управления"></a>
+<h2>Защищенная передача управления<a href="#Защищенная-передача-управления" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Исключения и прерывания являются «защищенными передачами 
+управления», которые заставляют процессор перейти из пользовательского 
+режима в режим ядра (CPL = 0), не давая пользовательскому коду 
+возможности вмешаться в функционирование ядра или других процессов. В 
+терминологии Intel прерывание является защищенной передачей управления, 
+вызываемой асинхронными событиями, как правило, внешними по отношению к 
+процессору, например, уведомлениями от внешних устройств ввода/вывода. 
+Исключение, напротив, является защищенной передачей управления, 
+вызываемой синхронно выполняемым в данный момент кодом, например, из-за 
+деления на ноль или неправильного доступа к памяти.</p>
+
+
+	<p>Чтобы гарантировать, что эти защищенные передачи управления на самом
+ деле являются защищенными, механизм прерываний/исключений процессора 
+разработан таким образом, что код, работающий в настоящее время, не 
+имеет возможности выбирать, где и как передавать управление ядру. Вместо
+ этого процессор гарантирует, что управление ядру может быть передано 
+только в контролируемых условиях. В x86 эту защиту обеспечивает 
+совместная работа двух механизмов:</p>
+
+
+	<p><strong>Таблица дескрипторов прерываний.</strong> Процессор 
+гарантирует, что прерывания и исключения могут заставить ядро начать 
+выполняться только в нескольких конкретных местах, четко определенных 
+самим ядром, а не кодом, выполняемым при возникновении прерывания или 
+исключения.</p>
+
+
+	<p>Архитектура x86 позволяет использовать до 256 различных точек входа 
+из прерывания или исключения в ядро, каждая со своим вектором 
+прерывания. Вектор является числом от 0 до 255. Вектор прерывания 
+определяется источником прерывания: различные устройства, ошибки и 
+запросы приложений к ядру генерируют прерывания с разными векторами. 
+Процессор использует вектор как индекс в таблице дескрипторов прерываний
+ (IDT), которую ядро создает в своей закрытой памяти, как и GDT. Из 
+соответствующей записи в этой таблице процессор получает:</p>
+
+
+	<ul>
+	<li>значение для загрузки в регистр RIP, указывающее на код ядра, предназначенный для обработки этого типа исключений;</li>
+		<li>значение для загрузки в регистр CS, которое включает в себя в 
+битах 0-1 уровень привилегий, с которым будет запускаться обработчик 
+исключения (в JOS все исключения обрабатываются в режиме ядра с уровнем 
+привилегий 0).</li>
+	</ul>
+
+
+	<p><strong>Сегмент состояния задачи.</strong> Процессору необходимо 
+место для сохранения состояния перед прерыванием или исключением, в том 
+числе значений RIP и CS до вызова обработчика исключения, чтобы в 
+дальнейшем восстановить это состояние и возобновить прерванное 
+выполнение с того места, где оно было прервано. Но эта область 
+сохранения состояния процессора, в свою очередь, должна быть защищена от
+ непривилегированного кода пользовательского режима, в противном случае 
+ошибка или вредоносный пользовательский код может поставить под угрозу 
+ядро.</p>
+
+
+	<p>Поэтому, принимая прерывание или ловушку, которые вызывают изменение
+ уровня привилегий от пользовательского режима до режима ядра, процессор
+ также переключается на стек в памяти ядра. Структура под названием 
+Сегмент состояния задачи (Task State Segment, TSS) указывает селектор 
+сегмента и адрес, по которому находится стек. Процессор добавляет в этот
+ новый стек регистры SS, RSP, EFLAGS, CS, RIP и опциональный код ошибки.
+ Затем он загружает CS и RIP из дескриптора прерывания и устанавливает 
+значения RSP и SS для нового стека.</p>
+
+
+	<p>Хотя TSS имеет большой размер и потенциально может использоваться в 
+различных целях, JOS использует его только для определения стека ядра, 
+на который процессор должен переключаться, когда переходит из 
+пользовательского режима в режим ядра. Поскольку «режим ядра» в JOS 
+соответствует уровню привилегий 0 в x86, процессор использует поля TSS 
+RSP0 и SS0 для определения стека ядра при входе в режим ядра. Для 
+поддержки исключений страничной адресации внутни ядра для ленивого 
+выделения памяти, также используется один вектор IST для установки 
+отдельного стека обработчика #PF. JOS не использует никаких других полей
+ TSS.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-6"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/edit?section=6">Edit this section</a></div><a name="Типы-исключений-и-прерываний"></a>
+<h2>Типы исключений и прерываний<a href="#Типы-исключений-и-прерываний" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Все синхронные исключения, которые может генерировать процессор x86,
+ используют векторы прерываний от 0 до 31, и, следовательно, 
+соответствуют записям IDT 0-31. Например, ошибка страницы всегда 
+вызывает исключение по вектору 14. Вектора прерываний выше 31 
+используются только программными прерываниями, которые могут 
+генерироваться инструкцией int, или асинхронными аппаратными 
+прерываниями, вызываемыми внешними устройствами, когда они требуют 
+внимания.</p>
+
+
+	<p>Далее будет реализована обработка исключений в векторах 0-31. В 
+следующем разделе будет реализована обработка программного вектора 
+прерывания 48 (0x30), который JOS использует в качестве вектора 
+прерывания для системных вызовов. Затем в следующей лабораторной работе 
+будет реализована обработка внешних аппаратных прерываний,  в т.ч. 
+прерываний от часов реального времени.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-7"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/edit?section=7">Edit this section</a></div><a name="Пример"></a>
+<h2>Пример<a href="#Пример" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Объединим вышеописанные части вместе и проследим их работу на 
+примере. Пусть процессор выполняет код пользовательского процесса и 
+встречает инструкцию деления, которая пытается делить на ноль.</p>
+
+
+	<ul>
+	<li>Процессор переключается на стек, определенный полями SS0 и RSP0 в 
+TSS, которые в JOS будут содержать соответственно значения GD_KD и 
+KSTACKTOP.</li>
+	</ul>
+
+
+	<ul>
+	<li>Процессор добавляет параметры исключения в стек ядра, начиная с адреса KSTACKTOP:</li>
+	</ul>
+
+
+	<p><img src="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tf.png" style="width:25%;" alt=""></p>
+
+
+	<ul>
+	<li>Так как обрабатывается ошибка деления, которая соответствует 
+вектору прерывания 0 в x86, процессор читает запись IDT с номером 0 и 
+устанавливает CS:RIP на функцию-обработчик, описываемую этой записью.</li>
+	</ul>
+
+
+	<ul>
+	<li>Управление передается функции-обработчику, которая обрабатывает 
+исключение, например, путем завершения пользовательского процесса.</li>
+	</ul>
+
+
+	<p>Для некоторых типов исключений процессор записывает в стек еще одно 
+слово в дополнение к обычным пяти машинным словам выше, содержащее код 
+ошибки. Примером является исключение ошибки страницы (номер 14). 
+Просмотрите упомянутое выше руководство Intel, чтобы определить, для 
+каких номеров исключений процессор записывает код ошибки, и что код 
+ошибки в этих случаях означает. Когда процессор записывает в стек код 
+ошибки, стек будет выглядеть следующим образом:</p>
+
+
+	<p><img src="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tf-err.png" style="width:25%;" alt=""></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-8"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/edit?section=8">Edit this section</a></div><a name="Вложенные-исключения-и-прерывания"></a>
+<h2>Вложенные исключения и прерывания<a href="#Вложенные-исключения-и-прерывания" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Процессор может принимать исключения и прерывания, находясь как в 
+режиме ядра, так и в пользовательском режиме. Однако только при входе в 
+режим ядра из пользовательского режима процессор x86 автоматически 
+переключает стек перед сохранением состояния регистров и вызовом 
+соответствующего обработчика исключения через IDT. Если процессор уже 
+находится в режиме ядра, когда происходит прерывание или исключение 
+(нижние 2 бита регистра CS уже равны нулю), процессор только записывает 
+дополнительные значения в том же стеке ядра. В этом случае ядро может 
+корректно обработать вложенные исключения, вызванные кодом внутри самого
+ ядра (кроме ошибки страничной адресации, которая обрабатывается 
+отдельно). Эта возможность является важным инструментом в реализации 
+защиты, как мы увидим далее в разделе о системных вызовах.</p>
+
+
+	<p>Если процессор уже находится в режиме ядра и принимает вложенное 
+исключение, он не сохраняет значения SS и RSP, так как не требует 
+переключения стеков. Для типов исключений, которые не используют код 
+ошибки, стек ядра, следовательно, при входе в обработчик исключения 
+выглядит следующим образом:</p>
+
+
+	<p><img src="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tf-kern.png" style="width:25%;" alt=""></p>
+
+
+	<p>Для типов исключений, которые используют код ошибки, процессор помещает код ошибки сразу же после RIP, как и ранее.</p>
+
+
+	<p>Существует важная проблема в обработке вложенных исключений. Если 
+процессор принимает исключение, уже находясь в режиме ядра, и не может 
+сохранить свое состояние в стек ядра по той или иной причине, например, 
+из-за отсутствия места в стеке, то процессор не может ничего сделать и 
+просто перезагружается. Излишне говорить, что ядро должно быть 
+сконструировано таким образом, чтобы этого не могло произойти.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-9"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/edit?section=9">Edit this section</a></div><a name="Создание-IDT"></a>
+<h2>Создание IDT<a href="#Создание-IDT" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Теперь вы можете создать IDT и обрабатывать исключения в JOS. На 
+данный момент вы создадите IDT для обработки векторов прерываний 0-31 
+(исключения процессора). Прерывания системных вызовов будут 
+обрабатываться далее в этой работе, а прерывания 32-47 (прерывания 
+устройств) — в следующей.</p>
+
+
+	<p>Заголовочные файлы inc/trap.h и kern/trap.h содержат важные 
+определения, связанные с прерываниями и исключениями. С этими 
+определениями вам нужно ознакомиться. Файл kern/trap.h относится только к
+ ядру, а inc/trap.h содержит определения, которые также могут быть 
+полезны для пользовательских программ и библиотек.</p>
+
+
+	<p>Общий поток управления, которого нужно достичь, изображен ниже:</p>
+
+
+	<p><img src="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/trap.png" style="width:33%;" alt=""></p>
+
+
+	<p>Каждое исключение или прерывание должно иметь свой собственный 
+обработчик в trapentry.S, а trap_init() должна инициализировать IDT 
+адресами этих обработчиков. Каждый из обработчиков должен создавать 
+структуру Trapframe (см. inc/trap.h) в стеке и вызывать trap() (в 
+trap.c) с указателем на Trapframe. Функция trap() затем обрабатывает 
+исключение/прерывание или направляет к конкретной функции-обработчику.</p>
+
+
+	<p>Некоторые исключения в диапазоне 0-31 определены Intel как 
+зарезервированные. Так как они никогда не будут генерироваться 
+процессором, неважно, как их обрабатывать.</p>
+
+
+	<p><em>Отредактируйте trapentry.S и trap.c и реализуйте вышеописанные 
+функции. Для этого полезны макросы TRAPHANDLER и TRAPHANDLER_NOEC в 
+trapentry.S и константы T</em>* в inc/trap.h. Необходимо добавить точку 
+входа в trapentry.S с помощью этих макросов для каждого прерывания или 
+исключения, определенного в inc/trap.h, а также функцию <em>alltraps, на
+ которую ссылаются макросы TRAPHANDLER. Также нужно изменить 
+trap_init(), инициализируя IDT таким образом, чтобы он указывал на 
+каждую из этих точек входа, определенных в trapentry.S; для этого 
+полезен макрос SETGATE.</em></p>
+
+
+	<p><em>Функция _alltraps должна:</em></p>
+
+
+	<ul>
+	<li><em>Записать значения в стек таким образом, чтобы стек был похож на структуру Trapframe;</em></li>
+		<li><em>Записать GD_KD в %ds и %es;</em></li>
+		<li><em>С помощью pushl %esp передать указатель на Trapframe в качестве аргумента функции trap();</em></li>
+		<li><em>Вызвать trap (может ли trap вернуться?).</em></li>
+	</ul>
+
+
+	<p><em>Может быть полезной инструкция pushal, которая соответствует структуре Trapframe.</em></p>
+
+
+	<p><em>Необходимо учитывать особенности x86, которые не позволяют присваивать абсолютные значения в сегментные регистры напрямую.</em></p>
+
+
+	<p><em>Код обработки прерываний можно проверить с помощью тех тестовых 
+программ в каталоге user, которые вызывают исключения — например, 
+user/divzero. Скрипт make grade должен срабатывать на вызовах divzero, 
+softint и badsegment.</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-10"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/edit?section=10">Edit this section</a></div><a name="Вопросы"></a>
+<h2>Вопросы<a href="#Вопросы" class="wiki-anchor">¶</a></h2>
+
+
+	<p><em>Ответьте на следующие вопросы:</em></p>
+
+
+	<ul>
+	<li><em>Какова цель наличия отдельных функций-обработчиков для каждого 
+исключения/прерывания? Если бы для всех исключений/прерываний вызывался 
+один и тот же обработчик, какая функция, присутствующая в текущей 
+реализации, не могла бы быть реализована?</em></li>
+		<li><em>Нужно ли было что-либо делать, чтобы программа user/softint 
+работала правильно? Скрипт проверки ожидает, что она создаст общую 
+ошибку защиты (ловушка 13), но в коде softint находится инструкция int 
+$14. Почему она фактически будет создавать исключение с вектором 13? Что
+ произойдет, если ядро позволит инструкции int $14 в softint запустить 
+обработчик ошибок ядра (с вектором прерывания 14)?</em></li>
+	</ul>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-11"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/edit?section=11">Edit this section</a></div><a name="Обработка-ошибок-страниц"></a>
+<h2>Обработка ошибок страниц<a href="#Обработка-ошибок-страниц" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Теперь, когда ядро имеет базовые возможности обработки исключений, 
+можно использовать их для обработки таких исключений, как ошибки 
+страниц, системные вызовы и точки останова.</p>
+
+
+	<p>Исключение ошибки страницы с вектором прерывания 14 (T_PGFLT) 
+используется в этой и в следующей работе. Когда процессор принимает 
+ошибку страницы, он сохраняет линейный (т.е. виртуальный) адрес, который
+ вызвал ошибку, в специальном регистре CR2. В trap.c есть специальный 
+обработчик T_PGFLT, который расположен до основного кода обработки 
+исключениий. Зачем это нужно?. Каким образом реализован механизм 
+ленивого выделения авмяти в JOS? (Обратитие внимание на код trap() и 
+функцию force_alloc_page() -- для чего она используется?)</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-12"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/edit?section=12">Edit this section</a></div><a name="Системные-вызовы"></a>
+<h2>Системные вызовы<a href="#Системные-вызовы" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Пользовательские процессы могут отправлять ОС запросы на 
+определенные действия путем системных вызовов. Когда пользовательский 
+процесс выполняет системный вызов, процессор переходит в режим ядра, 
+затем процессор и ядро сохраняют состояние пользовательского процесса, 
+ядро выполняет соответствующий код системного вызова, а затем 
+возобновляет выполнение процесса. Точный способ передачи 
+пользовательским процессом информации о вызове в ядро и определения 
+конкретного системного вызова в разных операционных системах 
+различаются.</p>
+
+
+	<p>В ядре JOS в качестве прерывания системного вызова используется int 
+$0x30. Этому значению соответствует константа T_SYSCALL. Необходимо 
+создать дескриптор прерывания, чтобы позволить пользовательским 
+процессам вызывать его. Обратите внимание на то, что прерывание 0x30 не 
+может быть сгенерировано аппаратно, поэтому возможность для 
+пользовательского кода генерировать его не создает никакой 
+двусмысленности.</p>
+
+
+	<p>Программа передает номер системного вызова и его аргументы в 
+регистрах, чтобы не обращаться к стеку пользовательского процесса или 
+потоку инструкций. Номер системного вызова находится в %rax, а аргументы
+ (количеством до шести) находятся в %rdx, %rcx, %rbx, %rdi, %rsi и %r8 
+соответственно. Возвращаемое значение передается в %rax. Ассемблерный 
+код для системного вызова находится в функции syscall() в lib/syscall.c.
+ Вы должны прочесть его и убедиться, что понимаете, что происходит.</p>
+
+
+	<p><em>Добавьте обработчик для вектора прерывания T_SYSCALL. Для этого 
+нужно внести изменения в kern/trapentry.S и в функцию trap_init() 
+(kern/trap.c). Кроме того, необходимо изменить trap_dispatch() для 
+обработки прерывания системного вызова вызовом функции syscall() 
+(определенной в kern/syscall.c) с соответствующими аргументами, а затем 
+вернуть возвращаемое значение в пользовательский процесс через регистр 
+%rax. Наконец, необходимо реализовать функцию syscall() в 
+kern/syscall.c. Эта функция должна возвращать -E_NO_SYS, если системный 
+вызов с переданным номером не существует. Вы должны прочитать и понять 
+lib/syscall.c (особенно ассемблерную часть), чтобы подтвердить ваше 
+понимание механизма системных вызовов. Также может быть полезным чтение 
+inc/syscall.h.</em></p>
+
+
+	<p><em>Запустите программу user/hello в вашем ядре (make run-hello). 
+Она должна вывести в консоль «hello, world», а затем вызвать ошибку 
+страницы в пользовательском режиме. Если этого не происходит, вероятно, 
+присутствует ошибка в обработчике системного вызова. Кроме того, теперь 
+должен срабатывать тест testbss в make grade.</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-13"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/edit?section=13">Edit this section</a></div><a name="Точка-останова"></a>
+<h2>Точка останова<a href="#Точка-останова" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Исключение точки останова с номером 3 (T_BRKPT) обычно используется,
+ чтобы дать возможность отладчикам устанавливать точки останова в коде 
+программы, временно заменяя соответствующую инструкцию специальной 
+однобайтной инструкцией int3, вызывающей программную точку останова. В 
+JOS мы используем это исключение не совсем правильным образом, превратив
+ его в примитивный псевдо-системный вызов, который позволит любому 
+пользовательскому процессу вызвать монитор JOS. Это использование в 
+определенной степени уместно, если думать о мониторе ядра JOS как о 
+примитивном отладчике. Например, реализация panic() в lib/panic.c 
+выполняет int3 после показа сообщения.</p>
+
+
+	<p><em>Измените trap_dispatch(), чтобы точки останова вызывали монитор. Теперь make grade должен проходить проверку breakpoint.</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-14"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/edit?section=14">Edit this section</a></div><a name="Вопросы-2"></a>
+<h2>Вопросы<a href="#Вопросы-2" class="wiki-anchor">¶</a></h2>
+
+
+	<p><em>Ответьте на следующие вопросы:</em></p>
+
+
+	<ul>
+	<li><em>Тест breakpoint будет генерировать либо исключение точки 
+останова, либо общую ошибку защиты в зависимости от того, как вы 
+инициализировали точку входа в точку останова в IDT (то есть в 
+зависимости от вашего вызова SETGATE из trap_init). Почему? Как 
+настроить его таким образом, чтобы заставить точку останова работать 
+правильным образом, и какая неправильная настройка будет вызывать общую 
+ошибку защиты?</em></li>
+	</ul>
+
+
+	<ul>
+	<li><em>В чем, по-вашему, смысл этих механизмов, особенно в свете того, что делает программа user/softint?</em></li>
+	</ul>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-15"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/edit?section=15">Edit this section</a></div><a name="Запуск-пользовательского-режима"></a>
+<h2>Запуск пользовательского режима<a href="#Запуск-пользовательского-режима" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Пользовательская программа начинает работать в начале lib/entry.S. 
+После некоторых предварительных действий этот код вызывает libmain(), в 
+lib/libmain.c. Вы должны изменить libmain() для инициализации 
+глобального указателя thisenv, чтобы он указывал на соответствующую 
+текущему процессу структуру Env в массиве envs[]. (Заметим, что в 
+lib/entry.S уже определены envs, чтобы указывать на отображение UENVS, 
+созданное ранее.) Для этого полезно просмотреть inc/env.h и использовать
+ sys_getenvid.</p>
+
+
+	<p>Функция libmain() вызывает umain, которая, в случае программы hello,
+ находится в user/hello.c. Обратите внимание, что после вывода «Hello, 
+World» она пытается получить доступ к thisenv-&gt;env_id. Именно поэтому
+ ранее она вызывала ошибку. Теперь, когда вы инициализировали thisenv 
+должным образом, ошибки быть не должно. Если ошибка все еще есть, вы, 
+вероятно, не отобразили область UENVS с возможностью чтения 
+пользователем (ранее, в pmap.c; это первый раз, когда мы использовали 
+область UENVS).</p>
+
+
+	<p><em>Добавьте необходимый код в пользовательскую библиотеку, а затем 
+загрузите ядро. Вы должны увидеть, что user/hello печатает «Hello, 
+World», а затем «i am environment 00001000». Программа user/hello затем 
+пытается «выйти» путем вызова sys_env_destroy() (см. lib/libmain.c и 
+lib/exit.c). Так как ядро в настоящее время поддерживает только один 
+пользовательский процесс, оно должно сообщить, что уничтожило 
+единственный процесс, а затем запустить монитор. Теперь make grade 
+должен срабатывать на тесте hello.</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-16"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/edit?section=16">Edit this section</a></div><a name="Отладочная-информация-для-пользовательских-программ"></a>
+<h2>Отладочная информация для пользовательских программ<a href="#Отладочная-информация-для-пользовательских-программ" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Если попытаться запустить команду `backtrace` из монитора после 
+запуска процесса, она приведёт к панике ядра, так как не реализована 
+загрузка отладочной информации для пользовательских программ. Поскольку 
+сейчас все образы процессов вшиты в ядро, для поддержки отладочной 
+информации для пользовательских программ достаточно в структуре addrs 
+предоставить ссылки на секции с отладочной информацией в памяти ядра.</p>
+
+
+	<p><em>В структуру Env добавлено поле binary - указатель на начало 
+образа программы в памяти ядра. Допишите функцию env_create в файле 
+kern/env.c, чтобы она инициализировала этот указатель.</em></p>
+
+
+	<p><em>Допишите в функцию debuginfo_rip в файле kern/kdebug.c поддержку пользовательских адресов.</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-17"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/edit?section=17">Edit this section</a></div><a name="Ошибки-страниц-и-защита-памяти"></a>
+<h2>Ошибки страниц и защита памяти<a href="#Ошибки-страниц-и-защита-памяти" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Защита памяти является важнейшей особенностью операционной системы. 
+Она гарантирует, что ошибки в одной программе не могут повредить другие 
+программы или саму операционную систему.</p>
+
+
+	<p>Операционные системы обычно используют аппаратную поддержку для 
+реализации защиты памяти. ОС сообщает аппаратуре о том, какие 
+виртуальные адреса являются верными, а какие нет. Когда программа 
+пытается получить доступ к неверному адресу или к такому, для которого 
+она не имеет разрешения, процессор останавливает программу на 
+инструкции, вызвавшей данную проблему, а затем переходит в ядро с 
+информацией о неудавшейся операции. Если ошибку можно исправить, ядро 
+исправляет ее и программа продолжает работу. Если ошибку исправить 
+нельзя, программа не может продолжаться, так как она никогда не перейдет
+ дальше инструкции, вызвавшей ошибку.</p>
+
+
+	<p>В качестве примера поправимой ошибки можно рассмотреть автоматически
+ увеличиваемый стек. Во многих системах ядро первоначально выделяет одну
+ страницу для стека, а затем, если программа вызывает неисправность при 
+доступе к страницам далее вниз по стеку, ядро будет автоматически 
+выделять эти страницы и позволять программе продолжаться. Таким образом,
+ ядро выделяет столько памяти под стек, сколько на самом деле 
+используется в каждый момент времени, но программа может работать в 
+иллюзии, что стек имеет сколь угодно большой размер. В JOS подобный 
+механизм используется для ленивого выделения памяти, а также для 
+выделения памяти для UASAN (в отличие от KASAN в котором используется 
+обычный механизм ленивого выделения памяти, в UASAN используется 
+обработка прерывания в пространстве пользователя, для уменьшения 
+требуемого количества метаинформации в ядре).</p>
+
+
+	<p>Для того чтобы отлавливать рекурсивные ошибки страничной адресации, 
+сущевтвует флаг in_page_fault, который устанавливается на время 
+обработки #PF. Этот флаг необходимо очищать в env_destroy() (допишите 
+необходимый код). В каких случаях это используется?</p>
+
+
+	<p>Системные вызовы представляют собой интересную задачу для защиты 
+памяти. Большинство интерфейсов системных вызовов позволяет пользователю
+ передавать указатели в ядро. Эти указатели указывают на 
+пользовательские буферы, которые можно читать или записывать. Затем ядро
+ разыменовывает эти указатели при выполнении системного вызова. Здесь 
+есть две проблемы:</p>
+
+
+	<ul>
+	<li>Ошибка страницы в ядре — потенциально гораздо более серьезная вещь,
+ чем ошибка страницы в пользовательской программе. Если ошибка страниц в
+ ядре возникает при манипуляции собственными структурами данных ядра, и 
+не связана с ленивым выделеием памяти, это ошибка в ядре, и обработчик 
+ошибок должен вызывать панику ядра (и, следовательно, всей системы). Но 
+когда ядро разыменовывает указатели, предоставляемые ему 
+пользовательской программой, оно должно найти способ запомнить, что 
+любые ошибки страниц при разыменовании этих указателей на самом деле 
+являются ошибками в пользовательской программе.</li>
+	</ul>
+
+
+	<ul>
+	<li>Ядро обычно имеет больше прав доступа к памяти, чем 
+пользовательские программы. Пользовательская программа может передать 
+системному вызову указатель на память, которую ядро может читать или 
+писать, а программа не может. В ядре нужно соблюдать осторожность, чтобы
+ не разыменовывать такой указатель, поскольку это может раскрыть 
+закрытую информацию или нарушить целостность ядра.</li>
+	</ul>
+
+
+	<p>По обеим причинам ядро должно быть чрезвычайно осторожным при 
+обращении с указателями, предоставленными пользовательскими программами.</p>
+
+
+	<p>Обе проблемы решаются использованием одного и того же механизма, 
+который изучает все указатели, передаваемые из пользовательского 
+пространства в ядро. Когда программа передает ядру указатель, ядро 
+должно убедиться, что адрес находится в пользовательской части адресного
+ пространства, а таблица страниц позволяет такой доступ к памяти.</p>
+
+
+	<p>Таким образом, ядро никогда не будет вызывать ошибку страницы из-за 
+разыменования пользовательского указателя. Если ядро вызывает ошибку 
+страницы, оно должно паниковать и прекращать работу.</p>
+
+
+	<p><em>Реализуйте user_mem_assert и user_mem_check в kern/pmap.c.</em></p>
+
+
+	<p><em>Измените kern/syscall.c для проверки аргументов системных вызовов.</em></p>
+
+
+	<p><em>Загрузите ядро, выполните user/buggyhello. Процесс должен быть уничтожен, но ядро не должно вызывать panic(). Вы должны увидеть:</em></p>
+
+
+<pre>[00001000] user_mem_check assertion failure for va=0000000000000001 ip=0000000000800125
+[00001000] free env 00001000
+Halt
+No runnable environments in the system!
+</pre>
+
+	<p><em>Наконец, измените debuginfo_rip в kern/kdebug.c для вызова 
+user_mem_check для .debug секций. Если вы сейчас запустите 
+user/breakpoint, вы должны быть в состоянии запустить backtrace в 
+мониторе и увидеть трассировку в lib/libmain.c перед паникой ядра с 
+ошибкой страницы. Каковы причины этой ошибки страницы? Вам не нужно 
+исправлять ее, но вы должны понимать, почему она происходит.</em></p>
+
+
+	<p><em>Обратите внимание, что тот же механизм, который вы только что 
+реализовали, работает и для вредоносных пользовательских приложений 
+(например, user/evilhello).</em></p>
+
+
+	<p><em>Загрузите ядро, выполнив user/evilhello. Процесс должен быть уничтожен, но ядро не должно вызывать panic(). Вы должны увидеть:</em></p>
+
+
+<pre>[00001000] user_mem_check assertion failure for va=000000804020000c ip=000000000080012a
+[00001000] free env 00001000
+Halt
+No runnable environments in the system!
+</pre>
+
+	<div class="contextual heading-2" title="Edit this section" id="section-18"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/edit?section=18">Edit this section</a></div><a name="AddressSanitizer"></a>
+<h2>AddressSanitizer<a href="#AddressSanitizer" class="wiki-anchor">¶</a></h2>
+
+
+	<p><em>Прочтите статью по ссылке вначале страницы и убедитесь что понимаете как устроен ASAN.</em></p>
+
+
+	<p><em>В libmain.c вызываются глобальные конструкторы, одним из которых
+ является platform_asan_init(), помечающий некоторые регионы памяти как 
+доступные. В 8 лабораторной shadow память выделяется внутри ядра в связи
+ с отсутствие необходимых для выделения интерфейсов в пространстве 
+пользователя. Это будет исправлено в следующей лабораторной.</em></p>
+
+
+	<p><em>Допишите недостающий код инициализации в 
+llvm/asan/asan_platform.ujos.c и попробуйдет добиться того, что ваш код 
+запускается (и работает) с флагом UASAN=1</em></p>
+
+
+	<p><em>Убедитесь что ваш код проходит grade-тесты. По окончании 
+выполнения работы следует сохранить внесенные изменения и отправить их в
+ удаленный репозиторий.</em></p>
+</div>
+
+
+<fieldset class="collapsible collapsed hide-when-print">
+  <legend onclick="toggleFieldset(this);" class="icon icon-collapsed">Files (4)</legend>
+  <div style="display: none;">
+
+  <div class="attachments">
+<div class="contextual">
+  <a title="Edit attached files" class="icon-only icon-edit" href="https://forge.ispras.ru/attachments/wiki_pages/1044/edit">Edit attached files</a>
+  <a title="Download all files" class="icon-only icon-download" href="https://forge.ispras.ru/attachments/wiki_pages/1044/download">Download all files</a>
+</div>
+<table>
+<tbody><tr>
+  <td>
+    <a class="icon icon-attachment" href="https://forge.ispras.ru/attachments/8767">tf-kern.png</a>    <span class="size">(125 KB)</span>
+    <a class="icon-only icon-download" title="Download" href="https://forge.ispras.ru/attachments/download/8767/tf-kern.png">tf-kern.png</a>  </td>
+  <td></td>
+  <td>
+      <span class="author">Vitaly Cheptsov, 04/26/2021 01:50 AM</span>
+  </td>
+  <td>
+      <a data-confirm="Are you sure?" class="delete icon-only icon-del" title="Delete" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/attachments/8767">Delete</a>
+  </td>
+</tr>
+<tr>
+  <td>
+    <a class="icon icon-attachment" href="https://forge.ispras.ru/attachments/8768">trap.png</a>    <span class="size">(242 KB)</span>
+    <a class="icon-only icon-download" title="Download" href="https://forge.ispras.ru/attachments/download/8768/trap.png">trap.png</a>  </td>
+  <td></td>
+  <td>
+      <span class="author">Vitaly Cheptsov, 04/26/2021 01:50 AM</span>
+  </td>
+  <td>
+      <a data-confirm="Are you sure?" class="delete icon-only icon-del" title="Delete" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/attachments/8768">Delete</a>
+  </td>
+</tr>
+<tr>
+  <td>
+    <a class="icon icon-attachment" href="https://forge.ispras.ru/attachments/8769">tf-err.png</a>    <span class="size">(251 KB)</span>
+    <a class="icon-only icon-download" title="Download" href="https://forge.ispras.ru/attachments/download/8769/tf-err.png">tf-err.png</a>  </td>
+  <td></td>
+  <td>
+      <span class="author">Vitaly Cheptsov, 04/26/2021 01:50 AM</span>
+  </td>
+  <td>
+      <a data-confirm="Are you sure?" class="delete icon-only icon-del" title="Delete" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/attachments/8769">Delete</a>
+  </td>
+</tr>
+<tr>
+  <td>
+    <a class="icon icon-attachment" href="https://forge.ispras.ru/attachments/8770">tf.png</a>    <span class="size">(198 KB)</span>
+    <a class="icon-only icon-download" title="Download" href="https://forge.ispras.ru/attachments/download/8770/tf.png">tf.png</a>  </td>
+  <td></td>
+  <td>
+      <span class="author">Vitaly Cheptsov, 04/26/2021 01:50 AM</span>
+  </td>
+  <td>
+      <a data-confirm="Are you sure?" class="delete icon-only icon-del" title="Delete" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/attachments/8770">Delete</a>
+  </td>
+</tr>
+</tbody></table>
+  <div class="thumbnails">
+      <div><a title="tf-kern.png" href="https://forge.ispras.ru/attachments/8767"><img srcset="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/200_004.png 2x" style="max-width: 100px; max-height: 100px;" src="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/8767.png"></a></div>
+      <div><a title="trap.png" href="https://forge.ispras.ru/attachments/8768"><img srcset="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/200_003.png 2x" style="max-width: 100px; max-height: 100px;" src="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/8768.png"></a></div>
+      <div><a title="tf-err.png" href="https://forge.ispras.ru/attachments/8769"><img srcset="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/200.png 2x" style="max-width: 100px; max-height: 100px;" src="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/8769.png"></a></div>
+      <div><a title="tf.png" href="https://forge.ispras.ru/attachments/8770"><img srcset="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/200_002.png 2x" style="max-width: 100px; max-height: 100px;" src="Lab8%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/8770.png"></a></div>
+  </div>
+</div>
+
+
+  <div id="wiki_add_attachment">
+    <form id="add_attachment_form" enctype="multipart/form-data" action="/projects/oscourse-2021-spring/wiki/Lab8/add_attachment" accept-charset="UTF-8" name="add_attachment_form-f9179799" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="OUQW2Ze9Z5x4tomAnvO8DrgZ9cWACzzs0hADSRM4Z3Q+L/Cxoof8CUiQwxYvyRhayQJ8yvf/KiC+j0j8YDOnXQ==">
+      <div class="box filedroplistner">
+      <p>
+<span class="attachments_form">
+  <span class="attachments_fields">
+  </span>
+  <span class="add_attachment" style="">
+    <input type="file" name="attachments[dummy][file]" class="file_selector filedrop" multiple="multiple" onchange="addInputFiles(this);" data-max-number-of-files-message="This file cannot be uploaded because it exceeds the maximum number of files that can be attached simultaneously (10)" data-max-file-size="1024000000" data-max-file-size-message="This file cannot be uploaded because it exceeds the maximum allowed file size (977 MB)" data-max-concurrent-uploads="2" data-upload-path="/uploads.js" data-param="attachments" data-description="true" data-description-placeholder="Optional description">
+    (Maximum size: 977 MB)
+  </span>
+</span>
+
+</p>
+      </div>
+      <input type="submit" name="commit" value="Add" data-disable-with="Add">
+</form>  </div>
+</div>
+</fieldset>
+
+<p class="wiki-update-info">
+    Updated by <a class="user active" href="https://forge.ispras.ru/users/2368">Vitaly Cheptsov</a> <a title="04/26/2021 02:19 AM" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity?from=2021-04-26">10 months</a> ago
+    · <a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab8/history">4 revisions</a>
+</p>
+
+
+
+
+
+        
+        <div style="clear:both;"></div>
+    </div>
+</div>
+<div id="footer">
+    Powered by <a href="https://www.redmine.org/">Redmine</a> © 2006-2022 Jean-Philippe Lang
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

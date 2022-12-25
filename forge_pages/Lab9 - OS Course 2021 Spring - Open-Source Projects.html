@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Lab9 - OS Course 2021 Spring - Open-Source Projects</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Redmine">
+<meta name="keywords" content="issue,bug,tracker">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="ska0KXEBNpBol0PCPSF2Jrc0jWV3mNl+yDvWBsSWzI61LVJBRDutBVixCVSMG9Jyxi8EagBsz7KkpJ2zt50Mpw==">
+<link rel="shortcut icon" href="https://forge.ispras.ru/favicon.ico?1642659995">
+<link rel="stylesheet" media="all" href="Lab9%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-ui-1.css">
+<link rel="stylesheet" media="all" href="Lab9%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.css">
+<link rel="stylesheet" media="all" href="Lab9%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.css">
+<link rel="stylesheet" media="all" href="Lab9%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.css">
+
+<script src="Lab9%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-3.js"></script>
+<script src="Lab9%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-migrate-3.js"></script>
+<script src="Lab9%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.js"></script>
+<script src="Lab9%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5.js"></script>
+<script src="Lab9%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5_002.js"></script>
+<script src="Lab9%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.js"></script>
+<script src="Lab9%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.js"></script>
+<script>
+//<![CDATA[
+$(window).on('load', function(){ warnLeavingUnsaved('The current page contains unsaved text that will be lost if you leave this page.'); });
+//]]>
+</script>
+
+<script>
+//<![CDATA[
+rm = window.rm || {};rm.AutoComplete = rm.AutoComplete || {};rm.AutoComplete.dataSources = '{"issues":"/issues/auto_complete?project_id=oscourse-2021-spring\u0026q=","wiki_pages":"/wiki_pages/auto_complete?project_id=oscourse-2021-spring\u0026q="}';
+//]]>
+</script>
+ <link rel="stylesheet" media="screen" href="Lab9%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/admin.css">
+<!-- page specific tags -->
+  <script src="Lab9%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/attachments.js"></script>
+
+</head>
+<body class="project-oscourse-2021-spring has-main-menu controller-wiki action-show avatars-on">
+
+<div id="wrapper">
+
+<div class="flyout-menu js-flyout-menu">
+
+        <div class="flyout-menu__search">
+            <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-487a0a82" method="get"><input name="utf8" type="hidden" value="✓">
+            <input type="hidden" name="wiki_pages" value="1">
+            <label class="search-magnifier search-magnifier--flyout" for="flyout-search">⚲</label>
+            <input type="text" name="q" id="flyout-search" class="small js-search-input" placeholder="Search">
+</form>        </div>
+
+        <div class="flyout-menu__avatar ">
+                <a href="https://forge.ispras.ru/users/12098"><img alt="" title="Александр Токмаков" class="gravatar" srcset="Lab9%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef.png 2x" src="Lab9%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef_002.png"></a>
+            <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a>
+        </div>
+
+        <h3>Project</h3>
+        <span class="js-project-menu"></span>
+
+    <h3>General</h3>
+    <span class="js-general-menu"></span>
+
+    <span class="js-sidebar flyout-menu__sidebar"></span>
+
+    <h3>Profile</h3>
+    <span class="js-profile-menu"></span>
+
+</div>
+
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a class="my-account" href="https://forge.ispras.ru/my/account">My account</a></li><li><a class="logout" rel="nofollow" data-method="post" href="https://forge.ispras.ru/logout">Sign out</a></li></ul>    </div>
+    <div id="loggedas">Logged in as <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a></div>
+    <ul><li><a class="home" href="https://forge.ispras.ru/">Home</a></li><li><a class="my-page" href="https://forge.ispras.ru/my/page">My page</a></li><li><a class="projects" href="https://forge.ispras.ru/projects">Projects</a></li><li><a class="help" href="https://www.redmine.org/guide">Help</a></li></ul></div>
+
+<div id="header">
+
+    <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
+
+    <div id="quick-search">
+        <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-7e020bff" method="get"><input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="scope">
+        <input type="hidden" name="wiki_pages" value="1">
+        <label for="q">
+          <a accesskey="4" href="https://forge.ispras.ru/projects/oscourse-2021-spring/search">Search</a>:
+        </label>
+        <input type="text" name="q" id="q" size="20" class="small" accesskey="f" data-auto-complete="true">
+</form>        <div id="project-jump" class="drdn"><span class="drdn-trigger">OS Course 2021 Spring</span><div class="drdn-content"><div class="quick-search"><input type="text" name="q" id="projects-quick-search" class="autocomplete" data-automcomplete-url="/projects/autocomplete.js?jump=wiki" autocomplete="off" data-value-was=""></div><div class="drdn-items projects selection"><strong>Recently used</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a><strong>All Projects</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a></div><div class="drdn-items all-projects selection"><a href="https://forge.ispras.ru/projects?jump=wiki">All Projects</a></div></div></div>
+    </div>
+
+    <h1><span class="current-project">OS Course 2021 Spring</span></h1>
+
+    <div id="main-menu" class="tabs">
+        <ul><li>
+<a onclick="toggleNewObjectDropdown(); return false;" id="new-object" class="new-object" href="#"> + </a>
+<ul class="menu-children"><li><a class="new-version" href="https://forge.ispras.ru/projects/oscourse-2021-spring/versions/new">New version</a></li><li><a class="new-wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new">New wiki page</a></li><li><a class="new-file" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files/new">New file</a></li></ul>
+</li><li><a class="overview" href="https://forge.ispras.ru/projects/oscourse-2021-spring">Overview</a></li><li><a class="activity" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity">Activity</a></li><li><a class="wiki selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Wiki</a></li><li><a class="files" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files">Files</a></li><li><a class="settings" href="https://forge.ispras.ru/projects/oscourse-2021-spring/settings">Settings</a></li></ul>
+        <div class="tabs-buttons" style="display: none;">
+            <button class="tab-left" onclick="moveTabLeft(this); return false;"></button>
+            <button class="tab-right" onclick="moveTabRight(this); return false;"></button>
+        </div>
+    </div>
+</div>
+
+<div id="main" class="">
+    <div id="sidebar">
+          
+
+<h3>Wiki</h3>
+<ul>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Start page</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/index">Index by title</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/date_index">Index by date</a></li>
+</ul>
+
+
+
+
+        
+    </div>
+
+    <div id="content">
+        
+        <div class="contextual">
+
+  <a class="icon icon-edit" accesskey="e" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9/edit">Edit</a>
+  <a class="wiki_page-1046-watcher icon icon-fav-off" data-remote="true" rel="nofollow" data-method="post" href="https://forge.ispras.ru/watchers/watch?object_id=1046&amp;object_type=wiki_page">Watch</a>
+
+  <span class="drdn"><span class="drdn-trigger"><span class="icon-only icon-actions" title="Actions">Actions</span></span><div class="drdn-content"><div class="drdn-items">
+    <a class="icon icon-history" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9/history">History</a>
+
+      
+      
+      
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9">Delete</a>
+
+      <a class="icon icon-add" data-remote="true" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new?parent=Lab9">New wiki page</a>
+</div></div></span></div>
+
+<p class="breadcrumb"><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Wiki">Wiki</a> » </p>
+
+
+<div class="wiki wiki-page">
+  <a name="Лабораторная-работа-9"></a>
+<h1>Лабораторная работа №9<a href="#Лабораторная-работа-9" class="wiki-anchor">¶</a></h1>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-2"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9/edit?section=2">Edit this section</a></div><a name="Введение"></a>
+<h2>Введение<a href="#Введение" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Для получения файлов и изменений, необходимых для выполнения работы,
+ следует обновить удаленный репозиторий, создать новую ветвь под 
+названием working-lab9, после чего выполнить слияние с ней ветви lab9, 
+которая появилась в репозитории. О работе с git можно прочитать на <a class="wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/GitManual">соответствующей странице</a>.</p>
+
+
+	<p>В этой лабораторной работе вы реализуете некоторые базовые системные
+ вызовы для управления процессами (вызовы, которые создают и уничтожают 
+процессы, выделяют память), системный вызов fork(), позволяющий 
+процессам создавать копии себя, а также механизм межпроцессного 
+взаимодействия (IPC, inter-process communication), позволяющий различным
+ пользовательским процессам явным образом передавать друг другу 
+сообщения.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-3"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9/edit?section=3">Edit this section</a></div><a name="Системные-вызовы-для-создания-процессов"></a>
+<h2>Системные вызовы для создания процессов<a href="#Системные-вызовы-для-создания-процессов" class="wiki-anchor">¶</a></h2>
+
+
+	<p>В настоящий момент ядро уже может запускать процессы и переключаться
+ между ними, но по-прежнему ограничивается процессами, которые само 
+запустило. Далее будут реализованы системные вызовы, необходимые для 
+создания и запуска новых пользовательских процессов уже запущенными.</p>
+
+
+	<p>В Unix для создания процессов используется системный вызов fork(). 
+Вызов fork() копирует все адресное пространство вызывающего 
+(родительского) процесса, создавая новый (дочерний) процесс. 
+Единственное различие между двумя процессами, наблюдаемое из 
+пользовательского пространства — идентификаторы самих процессов и 
+родительских процессов (getpid() и getppid()). В родительском процессе 
+fork() возвращает идентификатор созданного дочернего процесса, а в 
+дочернем — 0. Обычно каждый процесс получает свое собственное адресное 
+пространство, и модификации памяти, выполняемые другими процессами, ему 
+не видны.</p>
+
+
+	<p>Далее нужно разработать набор более примитивных, чем fork(), 
+системных вызовов для создания новых пользовательских процессов в JOS. С
+ помощью этих системных вызовов можно будет затем реализовать 
+Unix-подобный fork() и другие способы создания процессов полностью в 
+пользовательском пространстве. Вы должны написать следующие системные 
+вызовы для JOS:</p>
+
+
+	<ul>
+	<li><em>envid_t sys_exofork(void):</em><br>Создает новый почти чистый 
+процесс: ничего не отображено в пользовательской части его адресного 
+пространства, и он не является runnable. Новый процесс должен иметь то 
+же состояние регистров, что и родительский в момент вызова sys_exofork. В
+ родительском процессе sys_exofork должен возвращать envid_t вновь 
+созданного процесса (или отрицательный код ошибки, если создать процесс 
+не удалось). В дочернем процессе он должен вернуть 0. (Поскольку 
+дочерний процесс изначально не-runnable, он не выйдет из sys_exofork, 
+пока родитель не сделает его runnable с помощью следующего вызова).</li>
+	</ul>
+
+
+	<ul>
+	<li><em>int sys_env_set_status(envid_t envid, int status):</em><br>Устанавливает
+ состояние указанного процесса в ENV_RUNNABLE или ENV_NOT_RUNNABLE. Этот
+ системный вызов, как правило, используется для обозначения того, что 
+новый процесс готов к запуску, когда его адресное пространство и 
+регистры полностью инициализированы.</li>
+	</ul>
+
+
+	<ul>
+	<li><em>int sys_alloc_region(envid_t envid, void *va, size_t size, int perm):</em><br>Лениво
+ выделяет регион страничной памяти по данному виртуальному адресу в 
+адресном пространстве данного процесса. Память заполнена нулями 
+(ALLOC_ZERO) или 0xFF (ALLOC_ONE).</li>
+	</ul>
+
+
+	<ul>
+	<li><em>int sys_map_region(envid_t srcenvid, void *srcva, envid_t dstenvid, void *dstva, size_t size, int perm):</em><br>Отображает регион папяти одного процесса на некоторый адрес другого (или того же самого) процесса.</li>
+	</ul>
+
+
+	<ul>
+	<li><em>int sys_unmap_region(envid_t envid, void *va):</em><br>Удаляет отображенный регион памяти из данного процесса заданного размера.</li>
+	</ul>
+
+
+	<p>Для всех системных вызовов, которые принимают идентификаторы 
+процессов, ядро поддерживает соглашение о том, что значение 0 (константа
+ CURENVID) означает «текущий процесс». Это соглашение осуществляется с 
+помощью envid2env() в kern/env.c.</p>
+
+
+	<p>В тестовой программе user/dumbfork.c написана примитивная реализация
+ Unix-подобного fork(). Эта программа использует системные вызовы, 
+указанные выше, для создания и запуска дочернего процесса с копией 
+своего собственного адресного пространства. Затем два процесса 
+переключаются между собой, используя sys_yield. Родительский процесс 
+завершает работу после 10 итераций, а дочерний — после 20.</p>
+
+
+	<p><em>Реализуйте системные вызовы, описанные выше, в kern/syscall.c. 
+Для этого нужно будет использовать различные функции из kern/pmap.c и 
+kern/env.c, в том числе envid2env(). При вызове envid2env() передавайте 1
+ в качестве параметра checkperm. Убедитесь, что вы проверяете аргументы 
+системных вызовов на правильность, при необходимости возвращая -E_INVAL.
+ Кроме того, необходимо будет исправить функцию env_destroy, чтобы она 
+поддерживала работу нескольких пользовательских процессов одновременно. 
+Проверьте ядро с помощью user/dumbfork и убедитесь, что оно работает, 
+прежде чем продолжать.</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-4"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9/edit?section=4">Edit this section</a></div><a name="Fork-с-копированием-при-записи"></a>
+<h2>Fork() с копированием при записи<a href="#Fork-с-копированием-при-записи" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Как было сказано ранее, в Unix системный вызов fork() используется в
+ качестве основного способа создания процессов. Вызов fork() копирует 
+адресное пространство вызывающего процесса (родительского), создавая 
+новый процесс (дочерний).</p>
+
+
+	<p>Тем не менее, очень часто после вызова fork() почти сразу происходит
+ вызов exec() в дочернем процессе, который заменяет его память новой 
+программой. В этом случае время, потраченное на копирование адресного 
+пространства родительского процесса, будет потрачено почти впустую, 
+потому что дочерний процесс использует лишь незначительную часть своей 
+памяти до вызова exec().</p>
+
+
+	<p>Поэтому в современных версиях Unix используется аппаратная поддержка
+ виртуальной памяти, чтобы родительский и дочерний процессы делили между
+ собой память, отображаемую в их адресные пространства, до момента, 
+когда один из процессов ее изменит. Этот метод известен как копирование 
+при записи (copy-on-write). Для этого при вызове fork() ядро будет 
+копировать от родительского процесса к дочернему только отображение 
+адресного пространства, но не содержимое отображенных страниц, и 
+одновременно отмечать эти общие страницы как «только для чтения». Когда 
+один из двух процессов попытается записать что-либо в одну из общих 
+страниц, произойдет ошибка страницы. При возникновении этой ошибки ядро 
+создаст новую, доступную для записи копию страницы для процесса, 
+вызвавшего ошибку. Таким образом, содержимое отдельных страниц не будет 
+фактически скопировано, пока в них не будет произведена запись. Эта 
+оптимизация делает вызов fork(), а затем exec() дочерним процессом 
+гораздо быстрее: ему, вероятно, нужно будет скопировать только одну 
+страницу (текущую страницу своего стека) до вызова exec().</p>
+
+
+	<p>В следующей части этой лабораторной работы вы реализуете 
+«правильный» Unix-подобный fork() с копированием при записи в качестве 
+библиотечной функции с использованием sys_exofork() и sys_map_region() 
+(последний может предоставлять небохдимый интерфейс, при вызове с 
+нужными аргуметами и копировать все адресное пространство лениво за один
+ системный вызов).</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-5"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9/edit?section=5">Edit this section</a></div><a name="Реализация-fork-c-копированием-при-записи"></a>
+<h2>Реализация fork() c копированием при записи<a href="#Реализация-fork-c-копированием-при-записи" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Поток управления fork() заключается в следующем:</p>
+
+
+	<p>1. Родитель вызывает sys_exofork(), чтобы создать дочерний процесс.</p>
+
+
+	<p>2. Родитель отображает свое адресное пространство на пространство 
+дочернего процесса с использованием флагов PROT_ALL, PROT_LAZY и 
+PROT_COMBINE (Подумайте, почему используется именно такая комбинация 
+флагов?)</p>
+
+
+	<p>3. Родительский процесс устанавливает такую же, как у себя, точку входа в обработчик ошибки страницы в дочернем процессе.</p>
+
+
+	<p>4. Дочерний процесс в настоящее время готов работать, так что родитель помечает его runnable.</p>
+
+
+	<p><em>Реализуйте fork, duppage и pgfault в lib/fork.c.</em></p>
+
+
+	<p><em>Проверьте свой код программой forktree. Она должна выдавать 
+следующие сообщения, с вкраплениями сообщений “new env”, "free env" и 
+“exiting gracefully”. Сообщения необязательно появляются в таком 
+порядке, и идентификаторы процессов могут отличаться.</em></p>
+
+
+<pre>    1000: I am ''
+    1001: I am '0'
+    2000: I am '00'
+    2001: I am '000'
+    1002: I am '1'
+    3000: I am '11'
+    3001: I am '10'
+    4000: I am '100'
+    1003: I am '01'
+    5000: I am '010'
+    4001: I am '011'
+    2002: I am '110'
+    1004: I am '001'
+    1005: I am '111'
+    1006: I am '101'
+</pre>
+
+	<div class="contextual heading-2" title="Edit this section" id="section-6"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9/edit?section=6">Edit this section</a></div><a name="Обработка-ошибок-страниц-в-пользовательском-режиме"></a>
+<h2>Обработка ошибок страниц в пользовательском режиме<a href="#Обработка-ошибок-страниц-в-пользовательском-режиме" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Для более гибкой реализации выделения shadow памяти для UASAN, 
+необходимо реализовать возможность обрабатывать в пользовательском 
+режиме ошибки при доступе к страницам, защищенным от записи.<br>Это 
+только одно из многих возможных применений для такой возможности. 
+Необходимость выполнять некоторое действие при возникновении ошибки 
+страницы возникает во множестве различных случаев. Например, большинство
+ ядер Unix-подобных операционных систем изначально отображает только 
+одну страницу в области стека нового процесса; дополнительные страницы 
+выделяются и отображаются по мере увеличения размера стека процесса, при
+ возникновении ошибок страниц при доступе по адресам в стеке, которые 
+еще не отображены (это реализовано в JOS на уровне ядра благодаря 
+поддержке ленивой аллокации/копирования). Обычно ядро должно 
+предпринимать разные действия при возникновении ошибки страницы в разных
+ областях адресного пространства процесса. Например, ошибка в области 
+стека, как правило, требует выделения и отображения новой страницы 
+физической памяти. При ошибке в области BSS, как правило, нужно также 
+выделить и отобразить новую страницу, а также заполнить ее нулями. В 
+некоторых системах исполняемые файлы выделяют память по необходимости: 
+при ошибке в сегменте .text будут прочитаны с диска и отображены 
+соответствующие страницы.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-7"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9/edit?section=7">Edit this section</a></div><a name="Установка-обработчика-ошибки-страницы"></a>
+<h2>Установка обработчика ошибки страницы<a href="#Установка-обработчика-ошибки-страницы" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Для того, чтобы обрабатывать ошибки страниц, пользовательскому 
+процессу нужно зарегистрировать точку входа обработчика ошибок страниц в
+ ядре. Он делает это при помощи нового системного вызова 
+sys_env_set_pgfault_upcall. Для хранения этой информации к структуре Env
+ было добавлено поле env_pgfault_upcall.</p>
+
+
+	<p><em>Реализуйте sys_env_set_pgfault_upcall. Не забудьте проверку 
+разрешений при поиске идентификаторов процессов, так как это «опасный» 
+системный вызов.</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-8"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9/edit?section=8">Edit this section</a></div><a name="Обычный-стек-и-стек-исключений-в-пользовательских-процессах"></a>
+<h2>Обычный стек и стек исключений в пользовательских процессах<a href="#Обычный-стек-и-стек-исключений-в-пользовательских-процессах" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Во время нормальной работы программы пользовательский процесс будет 
+использовать обычный стек: его регистр rsp изначально указывает на 
+USTACKTOP, а данные, добавляемые в стек, находятся между 
+USTACKTOP-USTACKSIZE и USTACKTOP-1 включительно. Однако при 
+возникновении ошибки страницы ядро запускает обработчик ошибок страниц с
+ использованием стека пользовательского исключения. Таким образом, 
+происходит автоматическое «переключение стека» аналогично тому, как 
+процессор x86 переключает стек при переходе из пользовательского режима в
+ режим ядра.</p>
+
+
+	<p>Cтек пользовательского исключения JOS имеет размер в одну страницу, а
+ его вершина определяется виртуальным адресом UXSTACKTOP, то есть данные
+ стека находятся от UXSTACKTOP-PGSIZE до UXSTACKTOP-1 включительно. Во 
+время работы обработчик ошибок страниц пользовательского режима может 
+использовать обычные системные вызовы JOS для добавления новых 
+отображений страниц или настройки отображений таким образом, чтобы 
+исправить проблему, изначально вызвавшую ошибку страницы. Затем 
+обработчик через обертку, написанную на языке ассемблера, переходит к 
+коду, вызвавшему ошибку, который будет использовать обычный стек.</p>
+
+
+	<p>Каждый пользовательский процесс, использующий обработку ошибок 
+страниц в пользовательском режиме, должен выделить память для своего 
+собственного стека исключений с помощью sys_page_alloc().</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-9"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9/edit?section=9">Edit this section</a></div><a name="Вызов-пользовательского-обработчика-ошибок-страниц"></a>
+<h2>Вызов пользовательского обработчика ошибок страниц<a href="#Вызов-пользовательского-обработчика-ошибок-страниц" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Теперь вам необходимо изменить код обработки ошибок страниц в 
+kern/trap.c для обработки ошибок страниц из пользовательского режима, 
+как описано ниже.</p>
+
+
+	<p>Если зарегистрированный обработчик ошибки страницы отсутствует, ядро
+ ​​JOS уничтожает пользовательский процесс с соответствующим сообщением,
+ как и ранее. В противном случае ядро добавляет кадр стека исключений, 
+который выглядит как структура UTrapframe в inc/trap.h:</p>
+
+
+	<p><img src="Lab9%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/utf.png" style="width:25%;" alt=""></p>
+
+
+	<p>Затем ядро организует для пользовательского процесса продолжение 
+работы с обработчиком ошибки страницы, работающим на стеке исключений с 
+этого кадра стека. Вы должны выяснить, как правильно реализовать такое 
+поведение. Значение fault_va — это виртуальный адрес, который вызвал 
+ошибку страницы.</p>
+
+
+	<p>Если пользовательский процесс уже запущен на стеке исключения при 
+возникновении исключения, значит, обработчик ошибки страницы сам вызвал 
+ошибку. В этом случае вы должны начать новый кадр стека сразу после 
+текущего tf-&gt; tf_rsp, а не с UXSTACKTOP. Вы должны сначала добавить в
+ стек пустое 32-разрядное слово, а затем структуру UTrapframe.</p>
+
+
+	<p>Для проверки, находится ли tf_rsp в пользовательском стеке 
+исключения, проверьте, находится ли его значение в диапазоне между 
+UXSTACKTOP-PGSIZE и UXSTACKTOP-1 включительно.</p>
+
+
+	<p><em>Реализуйте необходимый для отправки ошибок страниц обработчику 
+пользовательского режима код в page_fault_handler в kern/trap.c. Примите
+ соответствующие меры предосторожности при записи данных в стек 
+исключений. (Что произойдет, если у пользовательского процесса 
+закончится пространство в стеке исключений?)</em></p>
+
+
+	<p>Для того чтобы предотвратить рекурсивную ошибку страничной 
+адресации, необходимо выделить стек исключений явно (с помощью 
+force_alloc_page которая также используется для ленивого выделения.)<br>Так
+ как KASAN не должен проверять обращения к пользовательской памяти 
+используйте nosan_memcpy для записи в пользовательский стек исколючений.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-10"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9/edit?section=10">Edit this section</a></div><a name="Точка-входа-ошибки-страницы-пользовательского-режима"></a>
+<h2>Точка входа ошибки страницы пользовательского режима<a href="#Точка-входа-ошибки-страницы-пользовательского-режима" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Далее вам нужно реализовать процедуру на языке ассемблера, которая 
+будет вызывать обработчик ошибки страницы на С и возобновлять выполнение
+ с инструкции, которая вызвала обработчик ошибки. Эта процедура — 
+обработчик, который будет зарегистрирован ядром с помощью 
+sys_env_set_pgfault_upcall().</p>
+
+
+	<p><em>Реализуйте _pgfault_upcall в lib/pfentry.S. Важным моментом 
+является возвращение в исходную точку пользовательского кода, вызвавшую 
+ошибку страницы: оно происходит без перехода в ядро. Сложность 
+заключается в одновременном переключении стеков и значения RIP.</em></p>
+
+
+	<p><em>Наконец, дополните реализацию пользовательской части механизма обработки ошибок страниц — add_pgfault_handler() в lib/pgfault.c.</em></p>
+
+
+	<p><em>Пользовательский интерфейс поддерживает установку цепочки 
+обработчиков исключений для того чтобы упростить обработку различных 
+областей памяти по разному. (Например, в следующей лабораторной файловая
+ система будет использовать обработчик исключений для реализации 
+дискового кеша одновременно с UASAN, использующим данный обработчик для 
+выделения shadow памяти). Обработчики вызываются по очереди, до тех пор 
+пока не встретится обработчик вернувший истину в качестве реазультата, 
+что есть сигнал библиотеке о том что исключение обработано. Если не 
+одини обработчик из загеристрированных не вернул истину, вызывается 
+panic.</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-11"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9/edit?section=11">Edit this section</a></div><a name="Выделение-Shadow-памяти"></a>
+<h2>Выделение Shadow памяти<a href="#Выделение-Shadow-памяти" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Реализуйте выделение shadow памяти в качестве пользовательского обработчика исключений.<br>Обратите внимание, что он должен выделять память только для shadow памяти, не соответствующей части ей самой.<br>Дополните код выделения памяти в обработчике #PF в llvm/asan/asan_platform.ujos.c.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-12"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9/edit?section=12">Edit this section</a></div><a name="Тестирование"></a>
+<h2>Тестирование<a href="#Тестирование" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Запустите user/faultread. Вы должны увидеть:<br></p><pre>...
+&lt;0x80201070e8&gt; Page fault ip=00800029 va=00000000 err=-U--- -&gt; fault
+[00001000] user_mem_check assertion failure for va=0000007ffffffec0 ip=0000000000800029
+[00001000] free env 00001000
+Halt
+</pre><p></p>
+
+
+	<p>Запустите user/faultdie. Вы должны увидеть:</p>
+
+
+<pre>...
+&lt;0x80201070e8&gt; Page fault ip=0080008D va=DEADBEEF err=-UW-- -&gt; redirected to user
+i faulted at va deadbeef, err 6
+[00001000] exiting gracefully
+[00001000] free env 00001000
+Halt
+</pre>
+
+	<p>Запустите user/faultalloc. Вы должны увидеть:</p>
+
+
+<pre>...
+&lt;0x80201070e8&gt; Page fault ip=0080000F va=7FFFFF6FF8 err=PUW-- -&gt; resolved by kernel
+&lt;0x80201070e8&gt; Page fault ip=008006EF va=BEEFDEAD err=-U--- -&gt; redirected to user
+fault beefdead
+&lt;0x80201070e8&gt; Page fault ip=0080045A va=BEEFDEAD err=PUW-- -&gt; resolved by kernel
+this string was faulted in at beefdead
+&lt;0x80201070e8&gt; Page fault ip=008006EF va=CAFEBFFE err=-U--- -&gt; redirected to user
+fault cafebffe
+&lt;0x80201070e8&gt; Page fault ip=0080045A va=CAFEBFFE err=PUW-- -&gt; resolved by kernel
+&lt;0x80201070e8&gt; Page fault ip=0080045A va=CAFEC000 err=-UW-- -&gt; redirected to user
+fault cafec000
+&lt;0x80201070e8&gt; Page fault ip=0080045A va=CAFEC000 err=PUW-- -&gt; resolved by kernel
+this string was faulted in at cafebffe
+[00001000] exiting gracefully
+[00001000] free env 00001000
+Halt
+</pre>
+
+	<p>Если вы видите только первую строку «this string...», это означает, 
+что вы не обрабатываете рекурсивные ошибки страниц должным образом.</p>
+
+
+	<p>Запустите user/faultallocbad. Вы должны увидеть:<br></p><pre>...
+[00001000] user_mem_check assertion failure for va=00000000deadbeef ip=00000000008010bb
+[00001000] free env 00001000
+Halt
+</pre><p></p>
+
+
+	<p>Убедитесь, что вы понимаете, почему user/faultalloc и user/faultallocbad ведут себя по-разному.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-13"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9/edit?section=13">Edit this section</a></div><a name="Межпроцессное-взаимодействие-IPC"></a>
+<h2>Межпроцессное взаимодействие (IPC)<a href="#Межпроцессное-взаимодействие-IPC" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Ранее мы сосредоточились на изоляции процессов и способах создания 
+иллюзии, что для каждой программы компьютер находится в полном ее 
+распоряжении. Другой важной функцией операционной системы является связь
+ программ между собой. Возможность для программ взаимодействовать между 
+собой достаточно важна. Канонический пример — модель pipe'ов в Unix.</p>
+
+
+	<p>Существуют различные модели межпроцессного взаимодействия, каждая из
+ которых имеет свои достоинства и недостатки. Далее мы реализуем одну из
+ таких моделей.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-14"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9/edit?section=14">Edit this section</a></div><a name="IPC-в-JOS"></a>
+<h2>IPC в JOS<a href="#IPC-в-JOS" class="wiki-anchor">¶</a></h2>
+
+
+	<p>С точки зрения процесса механизм межпроцессного взаимодействия будет
+ реализован в виде двух новых системных вызовов, sys_ipc_recv() и 
+sys_ipc_try_send(), и двух библиотечных оберток для них, ipc_recv() и 
+ipc_send().</p>
+
+
+	<p>«Сообщения», которые пользовательские процессы могут отправить друг 
+другу, используя механизм IPC JOS, состоят из двух компонентов: 
+32-битное значение и опциональный регион памяти. Разрешение для 
+процессов передавать регионы памяти в сообщениях обеспечивает 
+эффективный способ передать больше данных, чем может поместиться в одно 
+32-битное целое число, а также позволяет процессам использовать общую 
+память.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-15"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9/edit?section=15">Edit this section</a></div><a name="Отправка-и-прием-сообщений"></a>
+<h2>Отправка и прием сообщений<a href="#Отправка-и-прием-сообщений" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Для получения сообщения процесс вызывает sys_ipc_recv. Этот 
+системный вызов усыпляет текущий процесс и не запускает его снова, пока 
+сообщение не получено. Когда процесс ждет сообщения, любой другой 
+процесс может послать ему сообщение — необязательно некий конкретный 
+процесс, и необязательно процесс, имеющий с принимающим связи 
+родительский/дочерний. Другими словами, при IPC не происходит никакой 
+проверки прав доступа, так как его механизм разработан так, чтобы быть 
+«безопасным»: один процесс не может испортить другой путем посылки 
+IPC-сообщения.</p>
+
+
+	<p>Чтобы попытаться отправить сообщение, процесс вызывает 
+sys_ipc_try_send с id целевого процесса и значением, которое будет 
+отправлено. Если указанный процесс действительно в данный момент 
+принимает сообщения (вызвал sys_ipc_recv и еще не получил значение), то 
+функция доставляет сообщение и возвращает 0. В противном случае функция 
+возвращает -E_IPC_NOT_RECV, чтобы указать, что целевой процесс в данный 
+момент не ожидает сообщения.</p>
+
+
+	<p>Функция ipc_recv в пользовательском пространстве вызывает 
+sys_ipc_recv и ищет информацию о полученных значениях в struct Env 
+текущего процесса. Аналогично, функция ipc_send вызывает 
+sys_ipc_try_send до тех пор, пока передача не удастся.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-16"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9/edit?section=16">Edit this section</a></div><a name="Передача-страниц"></a>
+<h2>Передача страниц<a href="#Передача-страниц" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Когда процесс вызывает sys_ipc_recv с правильным параметром dstva 
+(ниже UTOP), он таким образом заявляет, что готов получить страницу. 
+Если отправитель посылает страницу, то эта страница будет отображена по 
+адресу dstva в адресном пространстве получателя. Если получатель уже 
+имеет страницу, отображенную по адресу dstva, то отображение этой 
+страницы удаляется.</p>
+
+
+	<p>Когда процесс вызывает sys_ipc_try_send с правильным srcva (ниже 
+UTOP), это означает, что отправитель хочет отправить регион, 
+отображенную в данный момент по адресу srcva, с разрешениями perm. После
+ успешного осуществления IPC отправитель сохраняет свое первоначальное 
+отображение по адресу srcva в своем адресном пространстве, а получатель 
+принимает отображение для этой же памяти по адресу dstva, первоначально 
+указанному получателем, в адресном пространстве получателя. В результате
+ эта страница становится общей для отправителя и получателя.</p>
+
+
+	<p>Если отправитель или получатель не заявляют, что должен быть передан
+ регион, то он не передается. После любого IPC ядро устанавливает новое 
+поле env_ipc_perm в структуре Env получателя на права доступа к 
+полученной памяти, или 0, если она не была не была получена. При 
+отображении используется минимальный размер памяти из указанных 
+получателем и отправителем.</p>
+
+
+	<p><em>Реализуйте sys_ipc_recv и sys_ipc_try_send в kern/syscall.c. 
+Прочитайте комментарии к обеим функциям до их реализации, так как они 
+должны работать вместе. При вызове envid2env в этих функциях вы должны 
+установить флаг checkperm в 0, это означает, что любой процесс имеет 
+право отправлять IPC-сообщения любому другому процессу, и ядро не делает
+ никаких специальных проверок разрешений, кроме подтверждения того, что 
+целевой envid является правильным.</em></p>
+
+
+	<p><em>Затем реализуйте функции ipc_recv и ipc_send в lib/ipc.c.</em></p>
+
+
+	<p><em>Используйте user/pingpong и user/primes для тестирования 
+механизма IPC. Вам также может быть интересно прочитать user/primes.c, 
+чтобы понять, что происходит.</em></p>
+
+
+	<p><em>После выполнения этого задания рекомендуется проверить 
+разработанный код с помощью make grade. Скрипт должен выводить OK для 
+всех тестов.</em></p>
+
+
+	<p><em>По окончании выполнения работы следует сохранить внесенные изменения и отправить их в удаленный репозиторий.</em></p>
+</div>
+
+
+<fieldset class="collapsible collapsed hide-when-print">
+  <legend onclick="toggleFieldset(this);" class="icon icon-collapsed">Files (1)</legend>
+  <div style="display: none;">
+
+  <div class="attachments">
+<div class="contextual">
+  <a title="Edit attached files" class="icon-only icon-edit" href="https://forge.ispras.ru/attachments/wiki_pages/1046/edit">Edit attached files</a>
+  
+</div>
+<table>
+<tbody><tr>
+  <td>
+    <a class="icon icon-attachment" href="https://forge.ispras.ru/attachments/8784">utf.png</a>    <span class="size">(198 KB)</span>
+    <a class="icon-only icon-download" title="Download" href="https://forge.ispras.ru/attachments/download/8784/utf.png">utf.png</a>  </td>
+  <td></td>
+  <td>
+      <span class="author">Vitaly Cheptsov, 05/02/2021 11:47 PM</span>
+  </td>
+  <td>
+      <a data-confirm="Are you sure?" class="delete icon-only icon-del" title="Delete" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/attachments/8784">Delete</a>
+  </td>
+</tr>
+</tbody></table>
+  <div class="thumbnails">
+      <div><a title="utf.png" href="https://forge.ispras.ru/attachments/8784"><img srcset="Lab9%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/200.png 2x" style="max-width: 100px; max-height: 100px;" src="Lab9%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/8784.png"></a></div>
+  </div>
+</div>
+
+
+  <div id="wiki_add_attachment">
+    <form id="add_attachment_form" enctype="multipart/form-data" action="/projects/oscourse-2021-spring/wiki/Lab9/add_attachment" accept-charset="UTF-8" name="add_attachment_form-dc9842cb" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="ska0KXEBNpBol0PCPSF2Jrc0jWV3mNl+yDvWBsSWzI61LVJBRDutBVixCVSMG9Jyxi8EagBsz7KkpJ2zt50Mpw==">
+      <div class="box filedroplistner">
+      <p>
+<span class="attachments_form">
+  <span class="attachments_fields">
+  </span>
+  <span class="add_attachment" style="">
+    <input type="file" name="attachments[dummy][file]" class="file_selector filedrop" multiple="multiple" onchange="addInputFiles(this);" data-max-number-of-files-message="This file cannot be uploaded because it exceeds the maximum number of files that can be attached simultaneously (10)" data-max-file-size="1024000000" data-max-file-size-message="This file cannot be uploaded because it exceeds the maximum allowed file size (977 MB)" data-max-concurrent-uploads="2" data-upload-path="/uploads.js" data-param="attachments" data-description="true" data-description-placeholder="Optional description">
+    (Maximum size: 977 MB)
+  </span>
+</span>
+
+</p>
+      </div>
+      <input type="submit" name="commit" value="Add" data-disable-with="Add">
+</form>  </div>
+</div>
+</fieldset>
+
+<p class="wiki-update-info">
+    Updated by <a class="user active" href="https://forge.ispras.ru/users/2368">Vitaly Cheptsov</a> <a title="05/02/2021 11:47 PM" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity?from=2021-05-02">9 months</a> ago
+    · <a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab9/history">1 revisions</a>
+</p>
+
+
+
+
+
+        
+        <div style="clear:both;"></div>
+    </div>
+</div>
+<div id="footer">
+    Powered by <a href="https://www.redmine.org/">Redmine</a> © 2006-2022 Jean-Philippe Lang
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

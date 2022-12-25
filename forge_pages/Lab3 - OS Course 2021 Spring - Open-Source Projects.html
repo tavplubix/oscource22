@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Lab3 - OS Course 2021 Spring - Open-Source Projects</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Redmine">
+<meta name="keywords" content="issue,bug,tracker">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="tfNTm1hd/o4qwl0vQIdDbeiVTnD5wOFE/NnZYcKcSD2ymLXzbWdlGxrkF7nxvec5mY7Hf44094iQRpLUsZeIFA==">
+<link rel="shortcut icon" href="https://forge.ispras.ru/favicon.ico?1642659995">
+<link rel="stylesheet" media="all" href="Lab3%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-ui-1.css">
+<link rel="stylesheet" media="all" href="Lab3%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.css">
+<link rel="stylesheet" media="all" href="Lab3%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.css">
+<link rel="stylesheet" media="all" href="Lab3%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.css">
+
+<script src="Lab3%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-3.js"></script>
+<script src="Lab3%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-migrate-3.js"></script>
+<script src="Lab3%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.js"></script>
+<script src="Lab3%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5.js"></script>
+<script src="Lab3%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5_002.js"></script>
+<script src="Lab3%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.js"></script>
+<script src="Lab3%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.js"></script>
+<script>
+//<![CDATA[
+$(window).on('load', function(){ warnLeavingUnsaved('The current page contains unsaved text that will be lost if you leave this page.'); });
+//]]>
+</script>
+
+<script>
+//<![CDATA[
+rm = window.rm || {};rm.AutoComplete = rm.AutoComplete || {};rm.AutoComplete.dataSources = '{"issues":"/issues/auto_complete?project_id=oscourse-2021-spring\u0026q=","wiki_pages":"/wiki_pages/auto_complete?project_id=oscourse-2021-spring\u0026q="}';
+//]]>
+</script>
+ <link rel="stylesheet" media="screen" href="Lab3%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/admin.css">
+<!-- page specific tags -->
+  <script src="Lab3%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/attachments.js"></script>
+
+</head>
+<body class="project-oscourse-2021-spring has-main-menu controller-wiki action-show avatars-on">
+
+<div id="wrapper">
+
+<div class="flyout-menu js-flyout-menu">
+
+        <div class="flyout-menu__search">
+            <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-ba51d94d" method="get"><input name="utf8" type="hidden" value="✓">
+            <input type="hidden" name="wiki_pages" value="1">
+            <label class="search-magnifier search-magnifier--flyout" for="flyout-search">⚲</label>
+            <input type="text" name="q" id="flyout-search" class="small js-search-input" placeholder="Search">
+</form>        </div>
+
+        <div class="flyout-menu__avatar ">
+                <a href="https://forge.ispras.ru/users/12098"><img alt="" title="Александр Токмаков" class="gravatar" srcset="Lab3%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef.png 2x" src="Lab3%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef_002.png"></a>
+            <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a>
+        </div>
+
+        <h3>Project</h3>
+        <span class="js-project-menu"></span>
+
+    <h3>General</h3>
+    <span class="js-general-menu"></span>
+
+    <span class="js-sidebar flyout-menu__sidebar"></span>
+
+    <h3>Profile</h3>
+    <span class="js-profile-menu"></span>
+
+</div>
+
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a class="my-account" href="https://forge.ispras.ru/my/account">My account</a></li><li><a class="logout" rel="nofollow" data-method="post" href="https://forge.ispras.ru/logout">Sign out</a></li></ul>    </div>
+    <div id="loggedas">Logged in as <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a></div>
+    <ul><li><a class="home" href="https://forge.ispras.ru/">Home</a></li><li><a class="my-page" href="https://forge.ispras.ru/my/page">My page</a></li><li><a class="projects" href="https://forge.ispras.ru/projects">Projects</a></li><li><a class="help" href="https://www.redmine.org/guide">Help</a></li></ul></div>
+
+<div id="header">
+
+    <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
+
+    <div id="quick-search">
+        <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-bbba324e" method="get"><input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="scope">
+        <input type="hidden" name="wiki_pages" value="1">
+        <label for="q">
+          <a accesskey="4" href="https://forge.ispras.ru/projects/oscourse-2021-spring/search">Search</a>:
+        </label>
+        <input type="text" name="q" id="q" size="20" class="small" accesskey="f" data-auto-complete="true">
+</form>        <div id="project-jump" class="drdn"><span class="drdn-trigger">OS Course 2021 Spring</span><div class="drdn-content"><div class="quick-search"><input type="text" name="q" id="projects-quick-search" class="autocomplete" data-automcomplete-url="/projects/autocomplete.js?jump=wiki" autocomplete="off" data-value-was=""></div><div class="drdn-items projects selection"><strong>Recently used</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a><strong>All Projects</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a></div><div class="drdn-items all-projects selection"><a href="https://forge.ispras.ru/projects?jump=wiki">All Projects</a></div></div></div>
+    </div>
+
+    <h1><span class="current-project">OS Course 2021 Spring</span></h1>
+
+    <div id="main-menu" class="tabs">
+        <ul><li>
+<a onclick="toggleNewObjectDropdown(); return false;" id="new-object" class="new-object" href="#"> + </a>
+<ul class="menu-children"><li><a class="new-version" href="https://forge.ispras.ru/projects/oscourse-2021-spring/versions/new">New version</a></li><li><a class="new-wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new">New wiki page</a></li><li><a class="new-file" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files/new">New file</a></li></ul>
+</li><li><a class="overview" href="https://forge.ispras.ru/projects/oscourse-2021-spring">Overview</a></li><li><a class="activity" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity">Activity</a></li><li><a class="wiki selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Wiki</a></li><li><a class="files" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files">Files</a></li><li><a class="settings" href="https://forge.ispras.ru/projects/oscourse-2021-spring/settings">Settings</a></li></ul>
+        <div class="tabs-buttons" style="display: none;">
+            <button class="tab-left" onclick="moveTabLeft(this); return false;"></button>
+            <button class="tab-right" onclick="moveTabRight(this); return false;"></button>
+        </div>
+    </div>
+</div>
+
+<div id="main" class="">
+    <div id="sidebar">
+          
+
+<h3>Wiki</h3>
+<ul>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Start page</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/index">Index by title</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/date_index">Index by date</a></li>
+</ul>
+
+
+
+
+        
+    </div>
+
+    <div id="content">
+        
+        <div class="contextual">
+
+  <a class="icon icon-edit" accesskey="e" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab3/edit">Edit</a>
+  <a class="wiki_page-1035-watcher icon icon-fav-off" data-remote="true" rel="nofollow" data-method="post" href="https://forge.ispras.ru/watchers/watch?object_id=1035&amp;object_type=wiki_page">Watch</a>
+
+  <span class="drdn"><span class="drdn-trigger"><span class="icon-only icon-actions" title="Actions">Actions</span></span><div class="drdn-content"><div class="drdn-items">
+    <a class="icon icon-history" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab3/history">History</a>
+
+      
+      
+      
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab3">Delete</a>
+
+      <a class="icon icon-add" data-remote="true" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new?parent=Lab3">New wiki page</a>
+</div></div></span></div>
+
+<p class="breadcrumb"><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Wiki">Wiki</a> » </p>
+
+
+<div class="wiki wiki-page">
+  <a name="Лабораторная-работа-3"></a>
+<h1>Лабораторная работа №3<a href="#Лабораторная-работа-3" class="wiki-anchor">¶</a></h1>
+
+
+	<p>Одним из основных ресурсов компьютера является центральный 
+процессор. Для эффективного использования процессора операционная 
+система должна управлять задачами, которые выполняются на нем. 
+Современные компьютеры, как правило, должны выполнять несколько задач 
+одновременно. В случае с персональным компьютером помимо той программы, с
+ которой в данный момент осуществляется взаимодействие, могут 
+выполняться программы обмена сообщениями, музыкальные проигрыватели, 
+программы синхронизации с облачным хранилищем и т.&nbsp;д. Веб-сервер 
+может обрабатывать сразу несколько запросов, часть из которых может 
+ожидать обмена данными с диском. Даже вычислительные программы для более
+ полного использования современных многоядерных процессоров 
+рекомендуется по возможности разделять на несколько одновременно 
+выполняющихся вычислений.</p>
+
+
+	<p>С точки зрения операционной системы для управления одновременно 
+выполняющимися задачами используется модель процессов. При этом 
+процессор переключается между процессами по определенному алгоритму, 
+заданному операционной системой в виде планировщика процессов, и 
+предоставляет каждому процессу определенный интервал времени для 
+выполнения. Процесс — это экземпляр выполняемой программы, включающий в 
+себя помимо ее кода значения регистров процессора и прочие необходимые 
+для выполнения данные. Концептуально каждый процесс использует свой 
+собственный виртуальный процессор.</p>
+
+
+	<p>В этой и следующих работах в JOS добавляется возможность запускать 
+одновременно несколько процессов, а также все сопутствующие возможности,
+ требуемые для их работы (управление процессами, планировщик процессов и
+ т.&nbsp;д.), причём все процессы работают в едином адресном 
+пространстве, то есть могут иметь прямой доступ к памяти друг друга и к 
+памяти ядра ОС. В связи с этим ядро и процессы не могут быть защищены 
+друг от друга, и любая ошибка в программе может привести к порче данных 
+ядра или другого процесса, что некритично для учебной ОС, но недопустимо
+ для настоящей. Данная проблема будет решена в дальнейших работах.</p>
+
+
+	<p>Для получения файлов и изменений, необходимых для выполнения работы,
+ следует обновить удаленный репозиторий, создать новую ветвь под 
+названием working-lab3, после чего выполнить слияние с ней ветви lab3, 
+которая появилась в репозитории, например:</p>
+
+
+<pre>$ git pull
+$ git checkout lab3
+$ git checkout working-lab2
+$ git checkout -b working-lab3
+$ git merge lab3
+</pre>
+
+	<p>При возникновении конфликтов (случаев, когда при выполнении 
+предыдущих работ вы изменили файлы, изменившиеся в ветке lab3) команда 
+git merge сообщит, какие файлы находятся в состоянии конфликта, и перед 
+выполнением работы вам потребуется избавиться от конфликта, 
+отредактировав эти файлы, и выполнить git commit -a.</p>
+
+
+	<p>Эта лабораторная работа посвящена реализации основных возможностей 
+ядра, необходимых для запуска процессов в режиме ядра без виртуальной 
+памяти. В частности, нужно реализовать создание в ядре JOS структур для 
+отслеживания процессов, функции создания нового процесса, загрузки 
+образа программы и запуска процесса. Процессы на данном этапе будут 
+функционировать в режиме ядра. Некоторые участки кода защищены макросом 
+CONFIG_KSPACE. Это необходимо для того, чтобы в дальнейшем, когда 
+процессы будут работать в пользовательском режиме, этот специфичный код 
+не использовался или использовался его альтернативный вариант.</p>
+
+
+	<p>В этой работе может быть полезной возможность GCC встраивать в код 
+программы фрагменты на языке ассемблера — для этого используется 
+оператор asm. Работа может быть выполнена и без их использования, однако
+ такие фрагменты уже присутствуют в исходном коде, и их необходимо 
+понимать.</p>
+
+
+	<p>Новый заголовочный файл inc/env.h содержит основные определения для 
+процессов в JOS. Ядро использует структуру Env (от environment — 
+окружение; название подчеркивает отличие интерфейса управления 
+процессами от традиционного, используемого в UNIX-подобных операционных 
+системах) для отслеживания каждого процесса. В результате выполнения 
+этой работы будет создан только один процесс, но возможность создания 
+нескольких процессов будет добавлена.</p>
+
+
+	<p><img src="Lab3%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/env_list.png" style="width:40%;" alt=""></p>
+
+
+	<p>Как можно видеть в kern/env.c, ядро поддерживает три основных глобальных переменных, относящихся к процессам:</p>
+
+
+<pre>struct Env *envs; // Массив всех процессов, используемых и свободных
+struct Env *curenv = NULL; // Указатель на текущий процесс
+static struct Env *env_free_list; // Список свободных процессов
+</pre>
+
+	<p>После того, как JOS запущена, указатель envs указывает на массив 
+структур Env, соответствующих всем возможным процессам в системе. Ядро 
+JOS поддерживает максимум NENV (константа, определенная в inc/env.h) 
+одновременно активных процессов, хотя обычно таких процессов гораздо 
+меньше. После того, как массив envs выделен, он содержит один экземпляр 
+структуры Env для каждого из NENV возможных процессов.</p>
+
+
+	<p>Ядро JOS содержит все неактивные структуры Env в связном списке 
+env_free_list, что дает возможность легкого выделения и освобождения 
+процессов путем их добавления в список и удаления из него.</p>
+
+
+	<p>Ядро также использует curenv для отслеживания выполняемого в данный 
+момент процесса. Во время загрузки ядра, до первого запуска процесса, 
+curenv равен NULL.</p>
+
+
+	<p>Структура Env определена в inc/env.h следующим образом:<br></p><pre><code class="c syntaxhl"><span class="k">struct</span> <span class="n">Env</span> <span class="p">{</span>
+    <span class="k">struct</span> <span class="n">Trapframe</span> <span class="n">env_tf</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">Env</span> <span class="o">*</span><span class="n">env_link</span><span class="p">;</span>
+    <span class="n">envid_t</span> <span class="n">env_id</span><span class="p">;</span>
+    <span class="n">envid_t</span> <span class="n">env_parent_id</span><span class="p">;</span>
+    <span class="k">enum</span> <span class="n">EnvType</span> <span class="n">env_type</span><span class="p">;</span>
+    <span class="kt">unsigned</span> <span class="n">env_status</span><span class="p">;</span>
+    <span class="kt">uint32_t</span> <span class="n">env_runs</span><span class="p">;</span>
+    <span class="kt">uint8_t</span> <span class="o">*</span><span class="n">binary</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre><p></p>
+
+
+Рассмотрим подробнее поля этой структуры:
+	<ul>
+	<li>env_tf: <br>Структура, определенная в inc/trap.h. Содержит 
+сохраненные значения регистров для процесса в момент, когда процесс не 
+выполняется, а выполняется код ядра или другой процесс. Ядро сохраняет 
+эти значения при переключении процессов, чтобы работа процесса в 
+дальнейшем могла быть возобновлена в том же месте, где она была 
+прервана.</li>
+		<li>env_link:<br>Ссылка на следующий Env в env_free_list. Сама переменная env_free_list указывает на первый свободный процесс в списке.</li>
+		<li>env_id:<br>Значение, однозначно идентифицирующее процесс, который в
+ настоящее время использует данную структуру Env (т.е. данный слот в 
+массиве envs). После завершения процесса ядро может использовать ту же 
+структуру Env для нового процесса, но новый процесс будет иметь другое 
+значение env_id.</li>
+		<li>env_parent_id:<br>Идентификатор (env_id) родительского процесса, 
+т.е. процесса, который создал данный. Таким образом, процессы формируют 
+«родословную», которая может быть полезна, например, для контроля 
+доступа.</li>
+		<li>env_type:<br>Тип процесса. В настоящий момент это поле может 
+принимать только одно значение ENV_TYPE_KERNEL. В дальнейшем будет 
+введено еще несколько типов процессов.</li>
+		<li>env_status:<br>Статус процесса. Принимает одно из следующих значений:
+	<ul>
+	<li>ENV_FREE: структура неактивна и, следовательно, находится в env_free_list.</li>
+		<li>ENV_RUNNABLE: структура соответствует процессу, который ждет возможности работать на процессоре.</li>
+		<li>ENV_RUNNING: структура соответствует процессу, работающему в данный момент.</li>
+		<li>ENV_NOT_RUNNABLE: структура соответствует процессу, который 
+активен, но в данный момент не готов к работе: например, ожидает 
+межпроцессного взаимодействия (IPC) с другим процессом.</li>
+		<li>ENV_DYING: структура соответствует зомби-процессу. Зомби-процесс 
+будет освобожден в следующий раз, когда он вызовет исключение ядра. В 
+данной работе это значение не используется.</li>
+	</ul>
+	</li>
+		<li>binary:<br>Указатель на начало исполняемого файла в ядре для файлов, включенных в образ ядра.</li>
+	</ul>
+
+
+	<p>Как и Unix-процесс, процесс JOS связывает понятия «поток» и 
+«адресное пространство». Поток определяется прежде всего сохраненными 
+регистрами (поле env_tf), а адресное пространство — закрепленной за 
+каждым процессом индивидуальной областью памяти. Области памяти разных 
+процессов не должны пересекаться. Сами адреса, которые закреплены за 
+процессом, задаются компоновщиком при сборке. Чтобы запустить процесс на
+ выполнение, ядро должно установить сохраненные значения регистров 
+процессора.</p>
+
+
+	<div class="contextual heading-3" title="Edit this section" id="section-2"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab3/edit?section=2">Edit this section</a></div><a name="Создание-и-запуск-процесса"></a>
+<h3>Создание и запуск процесса<a href="#Создание-и-запуск-процесса" class="wiki-anchor">¶</a></h3>
+
+
+	<p>Теперь следует написать в kern/env.c код, необходимый для запуска 
+процесса. Так как файловая система отсутствует, ядро загружает 
+статический двоичный образ программы в формате ELF, встроенный в само 
+ядро.</p>
+
+
+	<p>GNUmakefile создает ряд двоичных образов в obj/prog/, а в 
+kern/Makefrag эти файлы встраиваются непосредственно в ядро, как если бы
+ они были файлами .o. Параметр командной строки компоновщика -b binary 
+заставляет его вставлять эти файлы в образ ядра в том виде, в котором 
+они находятся на диске, никак их не интерпретируя и не изменяя; с точки 
+зрения компоновщика эти файлы могут являться даже не ELF-образами, а, 
+например, текстовыми файлами или фотографиями. В файле 
+obj/kern/kernel.sym после сборки ядра можно видеть ряд символов, 
+соответствующих этим файлам, с названиями вида 
+_binary_obj_prog_test1_start, _binary_obj_prog_test1_end и 
+_binary_obj_prog_test1_size. Эти символы обеспечивают возможность 
+ссылаться на эти встроенные двоичные файлы в обычном коде ядра.</p>
+
+
+	<p>В функции i386_init() в kern/init.c находится код для запуска этих 
+двоичных образов в качестве процессов. Тем не менее, критически важные 
+функции настройки процессов не завершены, вы должны написать их 
+самостоятельно.</p>
+
+
+<em><strong>Упражнение №1</strong></em><br><em>В файле env.c допишите следующие функции:</em>
+	<ul>
+	<li><em>env_init()</em><br><em>Инициализирует все структуры Env в 
+массиве envs и добавляет их в env_free_list. Также вызывает 
+env_init_percpu, которая настраивает оборудование для сегментации с 
+отдельными сегментами для уровня привилегий 0 (ядро) и 3 (пользователь).</em></li>
+		<li><em>load_icode()</em><br><em>Декодирует двоичный ELF-образ так же,
+ как это уже делает загрузчик, и загружает его содержимое в адресное 
+пространство нового процесса. Пока не следует обращать внимания на 
+функцию bind_functions.</em></li>
+		<li><em>env_create()</em><br><em>Выделяет процесс с помощью env_alloc и загружает в него двоичный ELF-образ путем вызова load_icode.</em></li>
+		<li><em>env_run()</em><br><em>Запускает процесс.</em></li>
+	</ul>
+
+
+	<p>В этих функциях может быть полезной новая строка форматирования 
+cprintf %i — она выводит описание, соответствующее коду ошибки. 
+Например,</p>
+
+
+<pre><code class="c syntaxhl"><span class="n">r</span> <span class="o">=</span> <span class="o">-</span><span class="n">E_NO_MEM</span><span class="p">;</span>
+<span class="n">panic</span><span class="p">(</span><span class="s">"env_alloc: %i"</span><span class="p">,</span> <span class="n">r</span><span class="p">);</span>
+</code></pre>
+
+	<p>остановит работу ядра с сообщением «env_alloc: out of memory».</p>
+
+
+	<p>Ниже приведен граф вызовов кода до точки, в которой запускается код процесса. Убедитесь, что вы понимаете цели каждого шага.</p>
+
+
+	<ul>
+	<li>start (kern/entry.S)</li>
+		<li>i386_init (kern/init.c)</li>
+		<li>cons_init</li>
+		<li>fb_init()</li>
+		<li>env_init</li>
+		<li>env_create</li>
+		<li>sched_yield
+	<ul>
+	<li>env_run
+	<ul>
+	<li>env_pop_tf</li>
+	</ul></li>
+	</ul></li>
+	</ul>
+
+
+	<p>После реализации всех вышеупомянутых функций следует скомпилировать и
+ запустить ядро. Система должна запустить двоичное приложение test1, 
+которое проработает до первой инструкции push. Так как стек процесса не 
+был задан (это будет сделано в следующем задании), будет сгенерировано 
+исключение общей защиты. Ядро обнаружит, что его оно также не может 
+обработать, что создает двойное исключение, которое на данном этапе 
+также не обрабатывается. Наконец, процессор генерирует «тройную ошибку» 
+(triple fault). Обычно в таких случаях процессор сбрасывается и система 
+перезагружается.</p>
+
+
+	<p>В ближайшее время эта проблема будет решена, но сейчас можно 
+использовать отладчик, чтобы убедиться, что осуществляется передача 
+управления процессу. Запустите JOSLLVM=0 (или JOSLLVM=1) make qemu-gdb и
+ установите точку прерывания в env_pop_tf, которая передает управление 
+процессу. Пройдите эту функцию с помощью команды si; непосредственно 
+передачу управления процессу производит инструкция ret. Система должна 
+сгенерировать тройную ошибку раньше нее, на инструкции pushq — она 
+записывает некоторые данные в стек, но адрес стека в этот момент еще не 
+задан. Если ошибка происходит раньше, код управления процессами или 
+загрузки программы ошибочен.</p>
+
+
+	<p><em><strong>Упражнение №2</strong></em><br><em>В функции env_alloc (kern/env.c) содержатся строки:</em></p>
+
+
+<pre><code class="c syntaxhl"><span class="c1">// LAB 3: Your code here:</span>
+<span class="k">static</span> <span class="kt">uintptr_t</span> <span class="n">stack_top</span> <span class="o">=</span> <span class="mh">0x2000000</span><span class="p">;</span>
+</code></pre>
+
+	<p><em>Закомментированная строка задает адрес стека для процесса. 
+Раскомментируйте ее и исправьте таким образом, чтобы для каждого 
+процесса (т.е. при каждом вызове env_alloc) задавался уникальный адрес 
+стека.</em></p>
+
+
+	<p><em>Примечание: Не имеет смысла выделять под стек большие объемы памяти. Как правило, должно хватать двух страничных кадров.</em></p>
+
+
+	<p>После выполнения этого упражнения программы должны работать до 
+первой попытки вызова любой функции ядра (cprintf, sys_yield, sys_exit).
+ Эти функции в программах представляют собой глобальные указатели, 
+которые еще не инициализированы и равны нулю. Это проблема решается в 
+дальнейших упражнениях.</p>
+
+
+	<div class="contextual heading-3" title="Edit this section" id="section-3"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab3/edit?section=3">Edit this section</a></div><a name="Планировщик"></a>
+<h3>Планировщик<a href="#Планировщик" class="wiki-anchor">¶</a></h3>
+
+
+	<p>Для поддержки переключения процессов необходим модуль, который 
+определяет очередность работы процессов на основании некоторого 
+алгоритма. Такой модуль называется планировщиком. Существуют различные 
+алгоритмы планирования процессов, каждый из которых выполняет свои 
+задачи и имеет свои положительные и отрицательные стороны. Например, в 
+ОС Linux используется планировщик CFS (Completely Fair Scheduler), 
+основной задачей которого является максимизация использования 
+процессорного времени при одновременном сохранении максимальной 
+интерактивности системы. Одним из простейших алгоритмов планирования 
+процессов является Round-robin: в нем процессы выбираются для выполнения
+ циклически по очереди, без использования приоритетов и других эвристик.
+ Именно этот алгоритм следует реализовать для планирования процессов в 
+JOS.</p>
+
+
+	<p><em><strong>Упражнение №3</strong></em></p>
+
+
+	<p><em>В функции sched_yield (kern/sched.c) должен быть реализован 
+алгоритм планировщика. В данном случае используется простейший алгоритм 
+Round-robin. Необходимо чтобы учитывалось как состояние процессов 
+ENV_RUNNABLE, так и и ENV_RUNNING. Исходите из того, что в системе JOS 
+не поддерживается процессорной многоядерности. Обратите внимание на 
+комментарии в функции sched_yield.</em></p>
+
+
+	<p><em><strong>Упражнение №4</strong></em></p>
+
+
+	<p><em>В файле kern/entry.S присутствует функция sys_yield. Эту функцию
+ процессы вызывают для добровольной передачи управления ядру. В ней 
+происходит сохранение контекста процесса, переключение на контекст ядра и
+ передача управления планировщику. В этом же файле присутствует функция 
+sys_exit, вызываемая процессом для завершения работы. <br>Допишите 
+sys_exit по аналогии с sys_yield (примечание: в sys_exit сохранение 
+контекста процесса, отдающего управление, не требуется).</em></p>
+
+
+	<div class="contextual heading-3" title="Edit this section" id="section-4"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab3/edit?section=4">Edit this section</a></div><a name="Связывание"></a>
+<h3>Связывание<a href="#Связывание" class="wiki-anchor">¶</a></h3>
+
+
+	<p><em><strong>Упражнение 5.</strong></em><br><em>В функции load_icode 
+(kern/env.c) помимо загрузки образа процесса по необходимым ему адресам 
+(эта задача была решена в предыдущих упражнениях) необходимо реализовать
+ связывание (функция bind_functions) для загружаемых программ, чтобы они
+ могли вызывать функции ядра.</em></p>
+
+
+	<p><em>Ваша задача состоит в реализации кода, который по адресам 
+глобальных указателей на функции запишет адреса функций ядра, чтобы 
+процессам был доступен любой запрошенный набор функций. Для этого 
+необходимо сначала получить адреса глобальных переменных с конкретными 
+названиями. Сейчас они получены из файлов obj/prog/test1.sym и 
+obj/prog/test2.sym, и могут не совпадать с теми, которые будут 
+сгенерированы в вашем случае. В функции bind_functions нужно получать 
+адреса глобальных переменных (подобно тому, как это делают программы nm 
+-n, objdump -x), и каждой глобальной переменной, чьё имя совпадает с 
+именем одной из функций ядра, присваивать адрес последней. Адреса 
+функций ядра должны быть получены из отладочной информации, с которой вы
+ уже научились работать в прошлой рабораторной работе. Для этого 
+необходимо реализовать функции find_function и dwarf_find_function 
+(kern/kdebug.c) и дополнить функцию address_by_fname (kern/dwarf.c) 
+нахождением значения атрибута DW_AT_low_pc, содержащего адрес функции.</em></p>
+
+
+	<p><em>Примечание: обратите внимание на функции в файле lib/string.c, 
+на раздел Symbol Table в спецификации Elf формата; cтроки, не 
+завершенные нулем, можно легко вывести с помощью функции printf 
+следующим образом: вызов printf(“%.*s”, length, string); выведет 
+максимум length байт из строки string (более подробную информацию о 
+работе функции printf можно получить на её man-странице).</em></p>
+
+
+	<p><em>После реализации всех заданий, при выполнении JOSLLVM=0 (или 
+JOSLLVM=1) make qemu на экран должна выводиться примерно следующая 
+информация:</em><br></p><pre>[00000000] new env 00001000
+[00000000] new env 00001001
+[00000000] new env 00001002
+[00001000] env started: RUNNABLE
+[00001000] env stopped: RUNNING
+[00001001] env started: RUNNABLE
+TEST2 LOADED.
+[00001001] env stopped: RUNNING
+[00001002] env started: RUNNABLE
+[00001002] env stopped: RUNNING
+[00001000] env started: RUNNABLE
+[00001000] env stopped: RUNNING
+[00001001] env started: RUNNABLE
+[00001001] env stopped: RUNNING
+[00001002] env started: RUNNABLE
+[00001002] env stopped: RUNNING
+[00001000] env started: RUNNABLE
+[00001000] env stopped: RUNNING
+[00001001] env started: RUNNABLE
+[00001001] env stopped: RUNNING
+[00001002] env started: RUNNABLE
+[00001002] env stopped: RUNNING
+[00001000] env started: RUNNABLE
+[00001000] free env 00001000
+[00001000] env stopped: FREE
+[00001001] env started: RUNNABLE
+[00001001] env stopped: RUNNING
+[00001002] env started: RUNNABLE
+[00001002] free env 00001002
+[00001002] env stopped: FREE
+[00001001] env started: RUNNABLE
+[00001001] env stopped: RUNNING
+[00001001] env started: RUNNING
+[00001001] free env 00001001
+Halt
+No runnable environments in the system!
+Welcome to the JOS kernel monitor!
+Type 'help' for a list of commands.
+K&gt;
+</pre><p></p>
+
+
+	<p><em>По окончании выполнения работы следует сохранить внесенные изменения и отправить их в удаленный репозиторий.</em></p>
+</div>
+
+
+<fieldset class="collapsible collapsed hide-when-print">
+  <legend onclick="toggleFieldset(this);" class="icon icon-collapsed">Files (1)</legend>
+  <div style="display: none;">
+
+  <div class="attachments">
+<div class="contextual">
+  <a title="Edit attached files" class="icon-only icon-edit" href="https://forge.ispras.ru/attachments/wiki_pages/1035/edit">Edit attached files</a>
+  
+</div>
+<table>
+<tbody><tr>
+  <td>
+    <a class="icon icon-attachment" href="https://forge.ispras.ru/attachments/8533">env_list.png</a>    <span class="size">(118 KB)</span>
+    <a class="icon-only icon-download" title="Download" href="https://forge.ispras.ru/attachments/download/8533/env_list.png">env_list.png</a>  </td>
+  <td></td>
+  <td>
+      <span class="author">Vitaly Cheptsov, 03/15/2021 08:07 AM</span>
+  </td>
+  <td>
+      <a data-confirm="Are you sure?" class="delete icon-only icon-del" title="Delete" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/attachments/8533">Delete</a>
+  </td>
+</tr>
+</tbody></table>
+  <div class="thumbnails">
+      <div><a title="env_list.png" href="https://forge.ispras.ru/attachments/8533"><img srcset="Lab3%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/200.png 2x" style="max-width: 100px; max-height: 100px;" src="Lab3%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/8533.png"></a></div>
+  </div>
+</div>
+
+
+  <div id="wiki_add_attachment">
+    <form id="add_attachment_form" enctype="multipart/form-data" action="/projects/oscourse-2021-spring/wiki/Lab3/add_attachment" accept-charset="UTF-8" name="add_attachment_form-59dc9c06" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="tfNTm1hd/o4qwl0vQIdDbeiVTnD5wOFE/NnZYcKcSD2ymLXzbWdlGxrkF7nxvec5mY7Hf44094iQRpLUsZeIFA==">
+      <div class="box filedroplistner">
+      <p>
+<span class="attachments_form">
+  <span class="attachments_fields">
+  </span>
+  <span class="add_attachment" style="">
+    <input type="file" name="attachments[dummy][file]" class="file_selector filedrop" multiple="multiple" onchange="addInputFiles(this);" data-max-number-of-files-message="This file cannot be uploaded because it exceeds the maximum number of files that can be attached simultaneously (10)" data-max-file-size="1024000000" data-max-file-size-message="This file cannot be uploaded because it exceeds the maximum allowed file size (977 MB)" data-max-concurrent-uploads="2" data-upload-path="/uploads.js" data-param="attachments" data-description="true" data-description-placeholder="Optional description">
+    (Maximum size: 977 MB)
+  </span>
+</span>
+
+</p>
+      </div>
+      <input type="submit" name="commit" value="Add" data-disable-with="Add">
+</form>  </div>
+</div>
+</fieldset>
+
+<p class="wiki-update-info">
+    Updated by <a class="user active" href="https://forge.ispras.ru/users/2368">Vitaly Cheptsov</a> <a title="10/04/2021 03:34 PM" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity?from=2021-10-04">4 months</a> ago
+    · <a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab3/history">2 revisions</a>
+</p>
+
+
+
+
+
+        
+        <div style="clear:both;"></div>
+    </div>
+</div>
+<div id="footer">
+    Powered by <a href="https://www.redmine.org/">Redmine</a> © 2006-2022 Jean-Philippe Lang
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

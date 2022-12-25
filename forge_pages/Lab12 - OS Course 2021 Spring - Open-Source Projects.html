@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Lab12 - OS Course 2021 Spring - Open-Source Projects</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Redmine">
+<meta name="keywords" content="issue,bug,tracker">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="5zbPAsdrJrMSI1gIz9s6kSMN252rHmZTg+IqyuO1qmLgXSlq8lG9JiIFEp5+4Z7FUhZSktzqcJ/vfWF/kL5qSw==">
+<link rel="shortcut icon" href="https://forge.ispras.ru/favicon.ico?1642659995">
+<link rel="stylesheet" media="all" href="Lab12%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-ui-1.css">
+<link rel="stylesheet" media="all" href="Lab12%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.css">
+<link rel="stylesheet" media="all" href="Lab12%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.css">
+<link rel="stylesheet" media="all" href="Lab12%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.css">
+
+<script src="Lab12%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-3.js"></script>
+<script src="Lab12%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-migrate-3.js"></script>
+<script src="Lab12%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.js"></script>
+<script src="Lab12%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5_002.js"></script>
+<script src="Lab12%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5.js"></script>
+<script src="Lab12%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.js"></script>
+<script src="Lab12%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.js"></script>
+<script>
+//<![CDATA[
+$(window).on('load', function(){ warnLeavingUnsaved('The current page contains unsaved text that will be lost if you leave this page.'); });
+//]]>
+</script>
+
+<script>
+//<![CDATA[
+rm = window.rm || {};rm.AutoComplete = rm.AutoComplete || {};rm.AutoComplete.dataSources = '{"issues":"/issues/auto_complete?project_id=oscourse-2021-spring\u0026q=","wiki_pages":"/wiki_pages/auto_complete?project_id=oscourse-2021-spring\u0026q="}';
+//]]>
+</script>
+ <link rel="stylesheet" media="screen" href="Lab12%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/admin.css">
+<!-- page specific tags -->
+  <script src="Lab12%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/attachments.js"></script>
+
+</head>
+<body class="project-oscourse-2021-spring has-main-menu controller-wiki action-show avatars-on">
+
+<div id="wrapper">
+
+<div class="flyout-menu js-flyout-menu">
+
+        <div class="flyout-menu__search">
+            <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-b9e8839e" method="get"><input name="utf8" type="hidden" value="✓">
+            <input type="hidden" name="wiki_pages" value="1">
+            <label class="search-magnifier search-magnifier--flyout" for="flyout-search">⚲</label>
+            <input type="text" name="q" id="flyout-search" class="small js-search-input" placeholder="Search">
+</form>        </div>
+
+        <div class="flyout-menu__avatar ">
+                <a href="https://forge.ispras.ru/users/12098"><img alt="" title="Александр Токмаков" class="gravatar" srcset="Lab12%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef.png 2x" src="Lab12%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef_002.png"></a>
+            <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a>
+        </div>
+
+        <h3>Project</h3>
+        <span class="js-project-menu"></span>
+
+    <h3>General</h3>
+    <span class="js-general-menu"></span>
+
+    <span class="js-sidebar flyout-menu__sidebar"></span>
+
+    <h3>Profile</h3>
+    <span class="js-profile-menu"></span>
+
+</div>
+
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a class="my-account" href="https://forge.ispras.ru/my/account">My account</a></li><li><a class="logout" rel="nofollow" data-method="post" href="https://forge.ispras.ru/logout">Sign out</a></li></ul>    </div>
+    <div id="loggedas">Logged in as <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a></div>
+    <ul><li><a class="home" href="https://forge.ispras.ru/">Home</a></li><li><a class="my-page" href="https://forge.ispras.ru/my/page">My page</a></li><li><a class="projects" href="https://forge.ispras.ru/projects">Projects</a></li><li><a class="help" href="https://www.redmine.org/guide">Help</a></li></ul></div>
+
+<div id="header">
+
+    <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
+
+    <div id="quick-search">
+        <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-50aab2fe" method="get"><input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="scope">
+        <input type="hidden" name="wiki_pages" value="1">
+        <label for="q">
+          <a accesskey="4" href="https://forge.ispras.ru/projects/oscourse-2021-spring/search">Search</a>:
+        </label>
+        <input type="text" name="q" id="q" size="20" class="small" accesskey="f" data-auto-complete="true">
+</form>        <div id="project-jump" class="drdn"><span class="drdn-trigger">OS Course 2021 Spring</span><div class="drdn-content"><div class="quick-search"><input type="text" name="q" id="projects-quick-search" class="autocomplete" data-automcomplete-url="/projects/autocomplete.js?jump=wiki" autocomplete="off" data-value-was=""></div><div class="drdn-items projects selection"><strong>Recently used</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a><strong>All Projects</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a></div><div class="drdn-items all-projects selection"><a href="https://forge.ispras.ru/projects?jump=wiki">All Projects</a></div></div></div>
+    </div>
+
+    <h1><span class="current-project">OS Course 2021 Spring</span></h1>
+
+    <div id="main-menu" class="tabs">
+        <ul><li>
+<a onclick="toggleNewObjectDropdown(); return false;" id="new-object" class="new-object" href="#"> + </a>
+<ul class="menu-children"><li><a class="new-version" href="https://forge.ispras.ru/projects/oscourse-2021-spring/versions/new">New version</a></li><li><a class="new-wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new">New wiki page</a></li><li><a class="new-file" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files/new">New file</a></li></ul>
+</li><li><a class="overview" href="https://forge.ispras.ru/projects/oscourse-2021-spring">Overview</a></li><li><a class="activity" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity">Activity</a></li><li><a class="wiki selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Wiki</a></li><li><a class="files" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files">Files</a></li><li><a class="settings" href="https://forge.ispras.ru/projects/oscourse-2021-spring/settings">Settings</a></li></ul>
+        <div class="tabs-buttons" style="display: none;">
+            <button class="tab-left" onclick="moveTabLeft(this); return false;"></button>
+            <button class="tab-right" onclick="moveTabRight(this); return false;"></button>
+        </div>
+    </div>
+</div>
+
+<div id="main" class="">
+    <div id="sidebar">
+          
+
+<h3>Wiki</h3>
+<ul>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Start page</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/index">Index by title</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/date_index">Index by date</a></li>
+</ul>
+
+
+
+
+        
+    </div>
+
+    <div id="content">
+        
+        <div class="contextual">
+
+  <a class="icon icon-edit" accesskey="e" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab12/edit">Edit</a>
+  <a class="wiki_page-1053-watcher icon icon-fav-off" data-remote="true" rel="nofollow" data-method="post" href="https://forge.ispras.ru/watchers/watch?object_id=1053&amp;object_type=wiki_page">Watch</a>
+
+  <span class="drdn"><span class="drdn-trigger"><span class="icon-only icon-actions" title="Actions">Actions</span></span><div class="drdn-content"><div class="drdn-items">
+    <a class="icon icon-history" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab12/history">History</a>
+
+      
+      
+      
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab12">Delete</a>
+
+      <a class="icon icon-add" data-remote="true" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new?parent=Lab12">New wiki page</a>
+</div></div></span></div>
+
+<p class="breadcrumb"><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Wiki">Wiki</a> » </p>
+
+
+<div class="wiki wiki-page">
+  <a name="Лабораторная-работа-12"></a>
+<h1>Лабораторная работа №12<a href="#Лабораторная-работа-12" class="wiki-anchor">¶</a></h1>
+
+
+	<p>В данной работе будет реализовано окружение, необходимое для запуска простого варианта программы <a href="http://www.gnu.org/software/coreutils/date" class="external">date</a>
+ - без поддержки часовых поясов, локализации, установки даты и т.д. Для 
+этого требуется реализовать системный вызов, получающий из CMOS текущее 
+время.</p>
+
+
+	<p>Кроме того, будет реализована поддержка системных вызовов в стиле vsyscall - без переключения контекста.</p>
+
+
+	<p>Для получения изменений, необходимых для выполнения работы, следует 
+обновить удаленный репозиторий, создать новую ветвь под названием 
+working-lab12, после чего выполнить слияние с ней ветви lab12, которая 
+появилась в репозитории.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-2"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab12/edit?section=2">Edit this section</a></div><a name="Получение-текущего-времени"></a>
+<h2>Получение текущего времени<a href="#Получение-текущего-времени" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Для получения текущего времени от часов RTC необходимо прочитать данные из памяти CMOS, аналогично <a class="wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab4">лабораторной работе №4</a>. Данные расположены в указанных ниже регистрах CMOS, для которых также заданы соответствующие константы в kern/kclock.h:</p>
+
+
+	<table>
+		<tbody><tr data-sort-method="none">
+			<th role="columnheader">Регистр </th>
+			<th role="columnheader">Значение </th>
+		</tr>
+		<tr>
+			<td>  0x00    </td>
+			<td>  Секунды  </td>
+		</tr>
+		<tr>
+			<td>  0x02    </td>
+			<td>  Минуты   </td>
+		</tr>
+		<tr>
+			<td>  0x04    </td>
+			<td>  Часы     </td>
+		</tr>
+		<tr>
+			<td>  0x07    </td>
+			<td>  День     </td>
+		</tr>
+		<tr>
+			<td>  0x08    </td>
+			<td>  Месяц    </td>
+		</tr>
+		<tr>
+			<td>  0x09    </td>
+			<td>  Год      </td>
+		</tr>
+	</tbody></table>
+
+
+
+
+	<p>Данные хранятся в двоично-десятичном формате (BCD). Для конвертации их в двоичный формат можно использовать макрос BCD2BIN.</p>
+
+
+	<p>Микросхема часов RTC работает относительно медленно, поэтому раз в 
+секунду, когда происходит обновление времени, RTC может выдавать 
+неправильные значения. Например, в момент обновления с 8:59:59 до 
+9:00:00 из часов могут быть прочитаны не только эти два значения, но и 
+8:59:00 или 8:00:00. Для обработки такой ситуации существует бит Update 
+in progress (бит 7 в регистре А - 0x0A), однако просто проверить этот 
+бит на 0 недостаточно: обновление времени может начать происходить и 
+после этого. Простой способ обработать такую ситуацию - дождаться, пока 
+этот бит станет равным 0, после чего прочитать значения два раза и 
+сравнить: если они изменились, значит, произошло обновление времени и 
+полученные данные могут быть неверными; в таком случае необходимо 
+прочитать их еще раз.</p>
+
+
+	<p>Часто используется представление времени в виде одного числа (UNIX 
+time, POSIX time, timestamp): количества секунд с 00:00:00 1 января 1970
+ года. Этот формат удобен для передачи времени, в частности, между 
+программой и ОС посредством системного вызова. Функции для конвертации 
+времени в этот формат и из него присутствуют в inc/time.h.</p>
+
+
+	<p><em>Получите текущее время из CMOS в формате UNIX time в функции gettime в kern/kclock.c.</em></p>
+
+
+	<p><em>Реализуйте системный вызов sys_gettime.</em></p>
+
+
+	<p><em>Теперь программа date должна выдавать текущее время (в часовом поясе UTC).</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-3"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab12/edit?section=3">Edit this section</a></div><a name="Системные-вызовы-без-переключения-контекста"></a>
+<h2>Системные вызовы без переключения контекста<a href="#Системные-вызовы-без-переключения-контекста" class="wiki-anchor">¶</a></h2>
+
+
+	<p>В связи с необходимостью переключения контекста, обычные системные 
+вызовы являются относительно медленными. Системные вызовы, которые 
+только получают данные от ядра, но не отправляют, в Linux реализуются 
+без переключения контекста путем простого чтения разделяемой между ядром
+ и процессами памяти; при этом задача ядра - держать получаемые данные в
+ актуальном состоянии.</p>
+
+
+	<p>Программа vdate использует такой псевдо-системный вызов 
+vsys_getdate, однако для его работы необходимо реализовать описанный 
+выше механизм, а также записать по известному процессам адресу текущее 
+время.</p>
+
+
+	<p><em>В inc/memlayout.h задана константа UVSYS, равная 0. Измените ее и
+ другие значения таким образом, чтобы она соответствовала некому 
+выделенному пространству для разделяемых данных.</em></p>
+
+
+	<p><em>В kern/pmap.c выделите массив для разделяемых данных (длина 
+массива определяется в inc/vsyscall.h) и отобразите его только для 
+чтения для пользовательских процессов по адресу UVSYS.</em></p>
+
+
+	<p><em>В lib/entry.S добавьте переменную, соответствующую этой области памяти, для пользовательских программ.</em></p>
+
+
+	<p><em>В lib/vsyscall.c реализуйте чтение ячейки памяти с номером, соответствующим системному вызову (номера заданы в inc/vsyscall.h).</em></p>
+
+
+	<p><em>Кроме того, добавьте обновление нужной ячейки памяти при срабатывании прерывания от часов.</em></p>
+
+
+	<p><em>Теперь программа vdate также должна выдавать текущее время (в часовом поясе UTC).</em></p>
+
+
+	<p><em>По окончании выполнения работы следует сохранить внесенные изменения и отправить их в удаленный репозиторий.</em></p>
+</div>
+
+
+<fieldset class="collapsible collapsed hide-when-print">
+  <legend onclick="toggleFieldset(this);" class="icon icon-collapsed">Files (0)</legend>
+  <div style="display: none;">
+
+  
+
+  <div id="wiki_add_attachment">
+    <form id="add_attachment_form" enctype="multipart/form-data" action="/projects/oscourse-2021-spring/wiki/Lab12/add_attachment" accept-charset="UTF-8" name="add_attachment_form-32a4f430" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="5zbPAsdrJrMSI1gIz9s6kSMN252rHmZTg+IqyuO1qmLgXSlq8lG9JiIFEp5+4Z7FUhZSktzqcJ/vfWF/kL5qSw==">
+      <div class="box filedroplistner">
+      <p>
+<span class="attachments_form">
+  <span class="attachments_fields">
+  </span>
+  <span class="add_attachment" style="">
+    <input type="file" name="attachments[dummy][file]" class="file_selector filedrop" multiple="multiple" onchange="addInputFiles(this);" data-max-number-of-files-message="This file cannot be uploaded because it exceeds the maximum number of files that can be attached simultaneously (10)" data-max-file-size="1024000000" data-max-file-size-message="This file cannot be uploaded because it exceeds the maximum allowed file size (977 MB)" data-max-concurrent-uploads="2" data-upload-path="/uploads.js" data-param="attachments" data-description="true" data-description-placeholder="Optional description">
+    (Maximum size: 977 MB)
+  </span>
+</span>
+
+</p>
+      </div>
+      <input type="submit" name="commit" value="Add" data-disable-with="Add">
+</form>  </div>
+</div>
+</fieldset>
+
+<p class="wiki-update-info">
+    Updated by <a class="user active" href="https://forge.ispras.ru/users/2368">Vitaly Cheptsov</a> <a title="05/23/2021 10:17 AM" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity?from=2021-05-23">9 months</a> ago
+    · <a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab12/history">1 revisions</a>
+</p>
+
+
+
+
+
+        
+        <div style="clear:both;"></div>
+    </div>
+</div>
+<div id="footer">
+    Powered by <a href="https://www.redmine.org/">Redmine</a> © 2006-2022 Jean-Philippe Lang
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

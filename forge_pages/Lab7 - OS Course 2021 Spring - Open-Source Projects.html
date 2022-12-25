@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Lab7 - OS Course 2021 Spring - Open-Source Projects</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Redmine">
+<meta name="keywords" content="issue,bug,tracker">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="pwd4xIDqbsEULdvTYm4PldCnaPov79w80/PfwqfjWfigbJ6stdD1VCQLkUXTVKvBobzh9VgbyvC/bJR31OiZ0Q==">
+<link rel="shortcut icon" href="https://forge.ispras.ru/favicon.ico?1642659995">
+<link rel="stylesheet" media="all" href="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-ui-1.css">
+<link rel="stylesheet" media="all" href="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.css">
+<link rel="stylesheet" media="all" href="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.css">
+<link rel="stylesheet" media="all" href="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.css">
+
+<script src="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-3.js"></script>
+<script src="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-migrate-3.js"></script>
+<script src="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.js"></script>
+<script src="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5.js"></script>
+<script src="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5_002.js"></script>
+<script src="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.js"></script>
+<script src="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.js"></script>
+<script>
+//<![CDATA[
+$(window).on('load', function(){ warnLeavingUnsaved('The current page contains unsaved text that will be lost if you leave this page.'); });
+//]]>
+</script>
+
+<script>
+//<![CDATA[
+rm = window.rm || {};rm.AutoComplete = rm.AutoComplete || {};rm.AutoComplete.dataSources = '{"issues":"/issues/auto_complete?project_id=oscourse-2021-spring\u0026q=","wiki_pages":"/wiki_pages/auto_complete?project_id=oscourse-2021-spring\u0026q="}';
+//]]>
+</script>
+ <link rel="stylesheet" media="screen" href="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/admin.css">
+<!-- page specific tags -->
+  <script src="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/attachments.js"></script>
+
+</head>
+<body class="project-oscourse-2021-spring has-main-menu controller-wiki action-show avatars-on">
+
+<div id="wrapper">
+
+<div class="flyout-menu js-flyout-menu">
+
+        <div class="flyout-menu__search">
+            <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-3412633d" method="get"><input name="utf8" type="hidden" value="✓">
+            <input type="hidden" name="wiki_pages" value="1">
+            <label class="search-magnifier search-magnifier--flyout" for="flyout-search">⚲</label>
+            <input type="text" name="q" id="flyout-search" class="small js-search-input" placeholder="Search">
+</form>        </div>
+
+        <div class="flyout-menu__avatar ">
+                <a href="https://forge.ispras.ru/users/12098"><img alt="" title="Александр Токмаков" class="gravatar" srcset="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef.png 2x" src="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef_002.png"></a>
+            <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a>
+        </div>
+
+        <h3>Project</h3>
+        <span class="js-project-menu"></span>
+
+    <h3>General</h3>
+    <span class="js-general-menu"></span>
+
+    <span class="js-sidebar flyout-menu__sidebar"></span>
+
+    <h3>Profile</h3>
+    <span class="js-profile-menu"></span>
+
+</div>
+
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a class="my-account" href="https://forge.ispras.ru/my/account">My account</a></li><li><a class="logout" rel="nofollow" data-method="post" href="https://forge.ispras.ru/logout">Sign out</a></li></ul>    </div>
+    <div id="loggedas">Logged in as <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a></div>
+    <ul><li><a class="home" href="https://forge.ispras.ru/">Home</a></li><li><a class="my-page" href="https://forge.ispras.ru/my/page">My page</a></li><li><a class="projects" href="https://forge.ispras.ru/projects">Projects</a></li><li><a class="help" href="https://www.redmine.org/guide">Help</a></li></ul></div>
+
+<div id="header">
+
+    <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
+
+    <div id="quick-search">
+        <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-272e2bbd" method="get"><input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="scope">
+        <input type="hidden" name="wiki_pages" value="1">
+        <label for="q">
+          <a accesskey="4" href="https://forge.ispras.ru/projects/oscourse-2021-spring/search">Search</a>:
+        </label>
+        <input type="text" name="q" id="q" size="20" class="small" accesskey="f" data-auto-complete="true">
+</form>        <div id="project-jump" class="drdn"><span class="drdn-trigger">OS Course 2021 Spring</span><div class="drdn-content"><div class="quick-search"><input type="text" name="q" id="projects-quick-search" class="autocomplete" data-automcomplete-url="/projects/autocomplete.js?jump=wiki" autocomplete="off" data-value-was=""></div><div class="drdn-items projects selection"><strong>Recently used</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a><strong>All Projects</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a></div><div class="drdn-items all-projects selection"><a href="https://forge.ispras.ru/projects?jump=wiki">All Projects</a></div></div></div>
+    </div>
+
+    <h1><span class="current-project">OS Course 2021 Spring</span></h1>
+
+    <div id="main-menu" class="tabs">
+        <ul><li>
+<a onclick="toggleNewObjectDropdown(); return false;" id="new-object" class="new-object" href="#"> + </a>
+<ul class="menu-children"><li><a class="new-version" href="https://forge.ispras.ru/projects/oscourse-2021-spring/versions/new">New version</a></li><li><a class="new-wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new">New wiki page</a></li><li><a class="new-file" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files/new">New file</a></li></ul>
+</li><li><a class="overview" href="https://forge.ispras.ru/projects/oscourse-2021-spring">Overview</a></li><li><a class="activity" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity">Activity</a></li><li><a class="wiki selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Wiki</a></li><li><a class="files" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files">Files</a></li><li><a class="settings" href="https://forge.ispras.ru/projects/oscourse-2021-spring/settings">Settings</a></li></ul>
+        <div class="tabs-buttons" style="display: none;">
+            <button class="tab-left" onclick="moveTabLeft(this); return false;"></button>
+            <button class="tab-right" onclick="moveTabRight(this); return false;"></button>
+        </div>
+    </div>
+</div>
+
+<div id="main" class="">
+    <div id="sidebar">
+          
+
+<h3>Wiki</h3>
+<ul>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Start page</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/index">Index by title</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/date_index">Index by date</a></li>
+</ul>
+
+
+
+
+        
+    </div>
+
+    <div id="content">
+        
+        <div class="contextual">
+
+  <a class="icon icon-edit" accesskey="e" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab7/edit">Edit</a>
+  <a class="wiki_page-1041-watcher icon icon-fav-off" data-remote="true" rel="nofollow" data-method="post" href="https://forge.ispras.ru/watchers/watch?object_id=1041&amp;object_type=wiki_page">Watch</a>
+
+  <span class="drdn"><span class="drdn-trigger"><span class="icon-only icon-actions" title="Actions">Actions</span></span><div class="drdn-content"><div class="drdn-items">
+    <a class="icon icon-history" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab7/history">History</a>
+
+      
+      
+      
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab7">Delete</a>
+
+      <a class="icon icon-add" data-remote="true" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new?parent=Lab7">New wiki page</a>
+</div></div></span></div>
+
+<p class="breadcrumb"><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Wiki">Wiki</a> » </p>
+
+
+<div class="wiki wiki-page">
+  <a name="Лабораторная-работа-7"></a>
+<h1>Лабораторная работа №7<a href="#Лабораторная-работа-7" class="wiki-anchor">¶</a></h1>
+
+
+	<p>Для получения файлов и изменений, необходимых для выполнения работы,
+ следует обновить удаленный репозиторий, создать новую ветвь под 
+названием working-lab7, после чего выполнить слияние с ней ветви lab7, 
+которая появилась в репозитории. О работе с git можно прочитать на <a class="wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/GitManual">соответствующей странице</a>.
+ Начиная с данной лабораторной работы для облегчения отладки написанного
+ кода имеется доступ к ядерному AddressSanitizer, с инструкцией по 
+использованию которых можно ознакомиться <a class="wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/LLVM_Sanitizers">по ссылке</a>.
+ Все решения лабораторных работ должны быть проверены с помощью 
+AddressSanitizer (и UndefinedBehaviorSanitizer, который был доступен 
+ранее). В случае несовместимости инструмента с лабораторной работой 
+должно быть приведено соответствующее обоснование с описанием причин 
+(например, ограничения по памяти).</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-2"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab7/edit?section=2">Edit this section</a></div><a name="Виртуальная-память"></a>
+<h2>Виртуальная память<a href="#Виртуальная-память" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Перед продолжением ознакомьтесь с архитектурой управления памятью 
+x86, а именно с сегментацией и со страничной трансляцией. Изучите Intel 
+Software Developer Manual (во вложении). Разделы, касающиеся 
+сегментации, не следует пропускать: JOS использует страничную 
+организацию памяти, но сегментная трансляция и сегментная защита памяти 
+не могут быть отключены на процессорах x86 в режиме IA-32, а режим x64, 
+хотя и не использует сегментацию памяти, все еще требует использование 
+глобальной таблицы дескрипторов (GDT), так что вам потребуются базовые 
+знания о них.</p>
+
+
+	<p>В терминологии x86 виртуальный адрес состоит из селектора сегмента и
+ смещения внутри сегмента. Линейный адрес получается после сегментной 
+трансляции, но до страничной трансляции. Физический адрес является 
+результатом сегментной и страничной трансляции; в конечном итоге, на 
+аппаратном уровне используется именно он.</p>
+
+
+	<p><img src="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/translation.png" style="width:50%;" alt=""></p>
+
+
+	<p>Указатель в языке С содержит компонент «смещение» виртуального 
+адреса. В LoaderPkg/.../Transition.nasm мы установили глобальную таблицу
+ дескрипторов (GDT), которая отключила сегментную трансляцию путем 
+установки всех базовых адресов сегментов в 0 и размеров в 0xFFFFFFFF. 
+Таким образом, «селектор» не имеет никакого эффекта и линейный адрес 
+всегда равен смещению виртуального адреса. Стоит отметить, что в режиме 
+x64 в таблице дескрипторов разрешены только "линейные" сегменты, и 
+фактически сегментация памяти не используется.</p>
+
+
+	<p>При страничной трансляции информация об отображении физических 
+страниц на виртуальные хранится в многоуровневом каталоге страниц. Адрес
+ текущего каталога страниц наивысшего уровня должен находиться в 
+контрольном регистре CR3; таким образом, процессор может переключаться 
+между несколькими каталогами страниц для разных процессов и ядра.</p>
+
+
+	<p><img src="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/pml4.png" style="width:75%;" alt=""></p>
+
+
+	<p>При использовании страниц, отображающих четыре килобайта памяти, 
+наивысшим уровнем таблицы страниц является четвертый. В таблице страниц 
+четвертого уровня (PML4) хранятся структуры PML4E (Page Map Level 4 
+Entry — запись карты страниц четвертого уровня), в которых содержится 
+адрес физической страницы для таблицы указателей на каталог страниц (PDP
+ - Page Directory Pointer) и флаги для нее. В свою очередь, таблицы 
+указателей на каталог страниц содержит структуры PDPE (Page Directory 
+Pointer Entry — запись указателя на каталог страниц), в которых 
+содержится адрес для каталога страниц и флаги для нее. Далее, в каталоге
+ страниц хранятся структуры PDE (Page Directory Entry — запись каталога 
+страниц), в которых содержится адрес физической страницы для таблицы 
+страниц и флаги для нее. Наконец, в таблице страниц содержатся структуры
+ PTE (Page Table Entry — запись таблицы страниц), в которых содержится 
+адрес конкретной физической страницы и флаги для нее.  Таким образом, 
+каталог страниц для таблиц размером 4 килобайта является 
+четырехуровневым, а виртуальный адрес состоит из пяти компонент: номера 
+PML4E, номера PDPE, номера PDE, номера PTE и смещения на конкретной 
+странице.</p>
+
+
+	<p>В PML4E, PDPE, PDE заданы следующие флаги:</p>
+
+
+	<ul>
+	<li>S — Size, размер страницы: может быть выставлен только в PDE и 
+PDPE; если бит выставлен, то размер страницы 2МБ и 1ГБ соответственно.</li>
+		<li>A — Accessed, обращение. Процессор устанавливает этот флаг каждый раз, когда обращается к таблице для чтения или записи.</li>
+		<li>D — Cache Disabled, запрещение кэша. Запрещает кэширование таблицы страниц.</li>
+		<li>W — Write Through, сквозная запись. Управляет кэшированием страниц.</li>
+		<li>U — User, пользовательская таблица. Если установлен — таблица 
+доступна из пользовательского режима, если нет — только из режима ядра.</li>
+		<li>R — Read/Write, чтение/запись. Определяет тип доступа к таблице: 
+если установлен — таблица доступна на запись, если нет — только на 
+чтение.</li>
+		<li>P — Present, присутствие. Означает, что страница отображена и может использоваться при трансляции адреса.</li>
+	</ul>
+
+
+	<p>В PTE заданы несколько другие флаги:</p>
+
+
+	<ul>
+	<li>G — Global. Влияет на процесс кэширования страниц (в JOS не используется).</li>
+		<li>D — Dirty, изменение. Процессор устанавливает этот флаг каждый раз, когда обращается к странице для записи.</li>
+		<li>A — Accessed, обращение. Процессор устанавливает этот флаг каждый раз, когда обращается к странице для чтения или записи.</li>
+		<li>C — Cache Disabled, запрещение кэша. Запрещает кэширование страницы.</li>
+		<li>W — Write Through, сквозная запись. Управляет кэшированием страниц (в JOS не используется).</li>
+		<li>U — User, пользовательская страница. Если установлен — страница 
+доступна из пользовательского режима, если нет — только из режима ядра.</li>
+		<li>R — Read/Write, чтение/запись. Определяет тип доступа к странице: 
+если установлен — страница доступна на запись, если нет — только на 
+чтение.</li>
+		<li>P — Present, присутствие. Означает, что страница отображена и может использоваться при трансляции.</li>
+		<li>NX -  No execute, без выполнения. Если данный бит выставлен, то 
+исполнение кода в данной странице запрещено (в JOS не используется).</li>
+	</ul>
+
+
+	<p>В inc/mmu.h содержатся макросы для работы с таблицами страниц.</p>
+
+
+	<p>В kern/bootstrap.S задан простой каталог страниц, позволяющий ядру 
+работать по своему адресу связывания 0x8041600000, хотя на самом деле 
+оно загружается в физическую память сразу после ROM BIOS по адресу 
+0x1600000. Этот каталог отображает первые 1024МБ памяти. В данной работе
+ это пространство будет расширено до всей доступной памяти (вплоть до 
+~500ГБ), начиная с виртуального адреса 0x8040000000.</p>
+
+
+	<p><em>В то время как GDB может обращаться к памяти QEMU только по 
+виртуальным адресам, часто бывает полезно иметь возможность 
+контролировать физическую память при настройке виртуальной памяти. 
+Изучите команды монитора QEMU в <a class="wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/QEMU">соответствующем разделе</a>, особенно команду xp, которая позволяет просматривать физическую память.</em></p>
+
+
+	<p><em>Используйте команду xp монитора QEMU и команду х GDB для 
+проверки памяти по соответствующим физическим и виртуальным адресам и 
+убедитесь, что вы видите одни и те же данные.</em></p>
+
+
+	<p>Для дальнейшей работы также могут быть полезны команды info mem 
+(показывает обзор отображенных областей виртуальной памяти и их 
+разрешения) и info pg (показывает компактное, но детальное представление
+ текущих таблиц страниц, включая все отображенные диапазоны памяти, 
+разрешения и флаги).</p>
+
+
+	<p>При нахождении в защищенном (32-битном) и "длинном" (64-битном) 
+режиме нет никакого способа непосредственно использовать линейный или 
+физический адрес. Все ссылки на память интерпретируются как виртуальные 
+адреса и транслируются MMU (Memory Management Unit — блок управления 
+памятью процессоров x86). Это означает, что все указатели в C содержат 
+виртуальные адреса.</p>
+
+
+	<p>Периодически возникает необходимость манипулировать физическими и 
+виртуальными адресами как значениями или как целыми числами, без 
+разыменования, например, в аллокаторе физической памяти. Для этого в JOS
+ используется два типа: uintptr_t представляет собой виртуальный адрес, а
+ physaddr_t — физический. Оба типа являются синонимами для 64-разрядных 
+целых чисел (uint64_t), поэтому компилятор не запретит присвоение 
+значения одного типа переменной другого. Так как эти типы не являются 
+указателями, их невозможно напрямую разыменовать. Для разыменования 
+uintptr_t можно привести его к указателю, однако разыменовать физический
+ адрес разумным образом нельзя, так как MMU преобразовывает все 
+обращения к памяти. Если привести physaddr_t к указателю, можно 
+обращаться по этому виртуальному адресу, но он, скорее всего, не будет 
+соответствовать необходимому физическому.</p>
+
+
+	<p>Иногда необходимо обращаться к памяти, для которой известен только 
+физический адрес. Например, добавление отображения в таблицу страниц 
+может потребовать выделения физической памяти для хранения каталога 
+страниц, а затем инициализации этой памяти. Тем не менее, ядро, как и 
+любое другое программное обеспечение, не может обойти трансляцию адресов
+ и, следовательно, не может напрямую использовать физические адреса. 
+Одна из причин, по которым JOS распределяет всю физическую память, 
+начиная с физического адреса 0, по виртуальному адресу 0x8040000000 — 
+необходимость помочь ядру использовать память, для которой оно знает 
+только физический адрес. Для того, чтобы перевести физический адреса в 
+виртуальный, которые ядро может использовать, нужно добавить к 
+физическому адресу 0x8040000000. Для этого следует использовать макрос <abbr title="pa">KADDR</abbr>.</p>
+
+
+	<p>Иногда нужно, наоборот, найти физический адрес по виртуальному 
+адресу, где хранятся данные ядра. Глобальные переменные ядра и память, 
+выделенная для метаданных, находятся в области, где ядро было загружено,
+ начиная с 0x8040000000 (KERN_BASE_ADDR) — в той самой области, куда мы 
+отобразили всю физическую память. Таким образом, чтобы превратить 
+виртуальный адрес в этой области в физический, нужно просто вычесть 
+0x8040000000. Для этого следует использовать макрос <abbr title="va">PADDR</abbr>.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-3"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab7/edit?section=3">Edit this section</a></div><a name="Управление-таблицами-страниц"></a>
+<h2>Управление таблицами страниц<a href="#Управление-таблицами-страниц" class="wiki-anchor">¶</a></h2>
+
+
+	<p>В JOS используются адресные пространства (struct address_space) в 
+качестве абстракции над таблицами страниц процессора. Они содержат в 
+себе сами таблицы страниц, а также дерево, описывающее отображение 
+виртуальных страниц на адреса. Именно это дерево используется ядром для 
+работы с адересным пространством. Листовые узлы этого дерева содержат 
+сслыки на виртуальные страницы физической памяти, отображенные на 
+соответствующий виртуальный адрес. Эти узлы имеют тип MAPPING_NODE, 
+тогда как промежуточные имеют тип INTERMEDIATE_NODE.</p>
+
+
+	<p>В качестве функции доступных в качестве интерфейса, используются 
+map_region()/unmap_region()/map_physical_region()/mmio_map_region()/mmio_remap_last_region()/region_maxref(),
+ которые могут обрабатываать произвольные регионы памяти.</p>
+
+
+	<p>Внутри себя они вызывают низкоуровневые функции, оперирующие 
+виртуальными страницами, описывающие выравненные на свой размер регионы 
+размера, являющегося степенью 2. Среди них</p>
+
+
+	<ul>
+	<li>page_lookup_vitual()/page_lookup() -- функция поиска страницы в 
+виртуальном/физическом дереве. В них обрабатываются все нихкоуровневые 
+детали ленивого выделения частей дерева.</li>
+	</ul>
+
+
+	<ul>
+	<li>page_map()/page_unmap() -- функции для отображения виртуальных страниц на адресные пространства</li>
+	</ul>
+
+
+	<ul>
+	<li>page_ref()/page_unref() -- функции для управления ссылками на 
+страницы физического дерева, использующиеся для управления выделением 
+физической памятью.</li>
+	</ul>
+
+
+	<ul>
+	<li>alloc_page() -- функция выделения физических страниц.</li>
+	</ul>
+
+
+	<p><em>В файле kern/pmap.c необходимо реализовать чаасть кода следующих функций:</em></p>
+
+
+	<ul>
+	<li><em>page_unmap</em><br>Убирает отображение (из дерева страниц ядра и
+ аппаратных таблиц страниц) виртуальной страницы в адресном 
+пространстве, переданном в качестве аргумента.</li>
+	</ul>
+
+
+	<ul>
+	<li><em>page_map</em><br>Убирает отображение (в дерево страниц ядра и 
+на аппаратную таблицу страниц) виртуальнуой страницы в адресном 
+пространстве, переданном в качестве аргумента.</li>
+	</ul>
+
+
+	<ul>
+	<li><em>switch_address_space</em><br>Выполняет переключение между адресными пространствами.</li>
+	</ul>
+
+
+	<ul>
+	<li><em>memcpy_page</em><br>Копирует виртуальную страницу по заданнуму виртальному адресу в некотором адресном пространстве.</li>
+	</ul>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-4"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab7/edit?section=4">Edit this section</a></div><a name="Адресное-пространство-ядра"></a>
+<h2>Адресное пространство ядра<a href="#Адресное-пространство-ядра" class="wiki-anchor">¶</a></h2>
+
+
+	<p>JOS делит 64-битное линейное адресное пространство процессора на три
+ части. Пользовательские процессы будут контролировать схему и 
+содержимое нижней части, а ядро всегда сохраняет полный контроль над 
+двумя верхними частями. Разделительная линия определяется условно 
+символом ULIM в файле inc/memlayout.h, резервируя пространство для ядра с
+ 0x803fc00000 до 0x10000000000. Именно для этого нужен такой высокий 
+адрес связывания ядра: в противном случае было бы недостаточно места в 
+виртуальном адресном пространстве для отображения пользовательских 
+процессов ниже ядра. Третьим регионом является полная иерархия таблицы 
+PM4, хранимой по адресу 0x10000000000 (что соответствует вхождению pml4 
+по индексу 2).</p>
+
+
+	<p>Поскольку и память ядра, и память пользователя присутствуют в 
+адресном пространстве каждого процесса, нужно использовать биты 
+разрешений в таблицах страниц, чтобы разрешить пользователю доступ 
+только к пользовательской части адресного пространства. В противном 
+случае ошибки в пользовательском коде могут изменить данные ядра, что 
+может привести к сбоям или ошибкам; пользовательский код может также 
+получить доступ к данным других процессов.</p>
+
+
+	<p>Пользовательские процессы не будут иметь разрешений для любой памяти
+ выше ULIM, в то время как ядро сможет читать и писать в эту память. 
+Данный адрес соответствует границе вхождения pml4 по индексу 0, то есть 
+адресу 0x8000000000. Для диапазона адресов [UTOP, ULIM) и ядро, и 
+пользовательские процессы имеют одинаковые разрешения: они могут читать,
+ но не писать в этот диапазон адресов. Этот диапазон адресов 
+используется для предоставления определенных структур данных ядра 
+пользовательским процессам только для чтения. Наконец, адресное 
+пространство ниже UTOP доступно для использования пользовательским 
+процессам: процесс может сам задавать разрешения для доступа к этой 
+памяти.</p>
+
+
+	<p>Теперь следует правильным образом отобразить адресное пространство 
+выше UTOP — часть адресного пространства, принадлежащую ядру. В файле 
+inc/memlayout.h показана схема, которую следует использовать. Для 
+создания соответствующих отображений нужно использовать 
+map_physical_region, использующий функции, дописанные в предыдущем 
+задании.</p>
+
+
+	<p><em>Допишите недостающий код в init_memory().</em></p>
+
+
+	<p>Теперь код должен проходить проверки check_virtual_tree() и 
+check_physical_tree(). После выполнения этого задания рекомендуется 
+проверить разработанный код с помощью make grade. Скрипт должен выводить
+ OK для всех тестов.</p>
+
+
+	<p>Дополнительно, реализуйте функции dump_virtual_tree() и 
+dump_page_table() из pmap.c, a также команды монитора mon_virt() и 
+mon_pagetable(), их использующие.</p>
+
+
+	<p><em>Мы поместили пользовательские процессы и ядро в одном адресном 
+пространстве. Почему пользовательские программы не смогут читать или 
+писать в память ядра? Какие конкретные механизмы защищают память ядра?</em></p>
+
+
+	<p><em>Каков максимальный объем физической памяти, который данная операционная система может поддерживать? Почему?</em></p>
+
+
+	<p><em>Сколько дополнительных затрат памяти потребовалось бы для 
+управления памятью, если мы на самом деле имели максимальный объем 
+физической памяти? На какие части эти накладные расходы разбиты?</em></p>
+
+
+	<p><em>Изучите еще раз механизм настройки таблицы страниц в 
+kern/bootstrap.S. Сразу после включения страничной организации памяти 
+RIP по-прежнему имеет низкое значение (чуть более 21 МБ). В какой точке 
+мы переходим к использованию RIP выше KERNBASE? Что делает возможным 
+продолжение выполнения с низким RIP между моментом, когда мы включаем 
+страничную организацию, и моментом, когда мы начинаем использовать RIP 
+выше KERNBASE? Почему этот переход необходим?</em></p>
+
+
+	<p><em>По окончании выполнения работы следует сохранить внесенные изменения и отправить их в удаленный репозиторий.</em></p>
+</div>
+
+
+<fieldset class="collapsible collapsed hide-when-print">
+  <legend onclick="toggleFieldset(this);" class="icon icon-collapsed">Files (3)</legend>
+  <div style="display: none;">
+
+  <div class="attachments">
+<div class="contextual">
+  <a title="Edit attached files" class="icon-only icon-edit" href="https://forge.ispras.ru/attachments/wiki_pages/1041/edit">Edit attached files</a>
+  <a title="Download all files" class="icon-only icon-download" href="https://forge.ispras.ru/attachments/wiki_pages/1041/download">Download all files</a>
+</div>
+<table>
+<tbody><tr>
+  <td>
+    <a class="icon icon-attachment" href="https://forge.ispras.ru/attachments/8671">pml4.png</a>    <span class="size">(32.2 KB)</span>
+    <a class="icon-only icon-download" title="Download" href="https://forge.ispras.ru/attachments/download/8671/pml4.png">pml4.png</a>  </td>
+  <td></td>
+  <td>
+      <span class="author">Vitaly Cheptsov, 04/12/2021 03:15 AM</span>
+  </td>
+  <td>
+      <a data-confirm="Are you sure?" class="delete icon-only icon-del" title="Delete" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/attachments/8671">Delete</a>
+  </td>
+</tr>
+<tr>
+  <td>
+    <a class="icon icon-attachment" href="https://forge.ispras.ru/attachments/8672">pgdir.png</a>    <span class="size">(1.27 MB)</span>
+    <a class="icon-only icon-download" title="Download" href="https://forge.ispras.ru/attachments/download/8672/pgdir.png">pgdir.png</a>  </td>
+  <td></td>
+  <td>
+      <span class="author">Vitaly Cheptsov, 04/12/2021 03:15 AM</span>
+  </td>
+  <td>
+      <a data-confirm="Are you sure?" class="delete icon-only icon-del" title="Delete" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/attachments/8672">Delete</a>
+  </td>
+</tr>
+<tr>
+  <td>
+    <a class="icon icon-attachment" href="https://forge.ispras.ru/attachments/8673">translation.png</a>    <span class="size">(192 KB)</span>
+    <a class="icon-only icon-download" title="Download" href="https://forge.ispras.ru/attachments/download/8673/translation.png">translation.png</a>  </td>
+  <td></td>
+  <td>
+      <span class="author">Vitaly Cheptsov, 04/12/2021 03:15 AM</span>
+  </td>
+  <td>
+      <a data-confirm="Are you sure?" class="delete icon-only icon-del" title="Delete" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/attachments/8673">Delete</a>
+  </td>
+</tr>
+</tbody></table>
+  <div class="thumbnails">
+      <div><a title="pml4.png" href="https://forge.ispras.ru/attachments/8671"><img srcset="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/200_002.png 2x" style="max-width: 100px; max-height: 100px;" src="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/8671.png"></a></div>
+      <div><a title="pgdir.png" href="https://forge.ispras.ru/attachments/8672"><img srcset="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/200.png 2x" style="max-width: 100px; max-height: 100px;" src="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/8672.png"></a></div>
+      <div><a title="translation.png" href="https://forge.ispras.ru/attachments/8673"><img srcset="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/200_003.png 2x" style="max-width: 100px; max-height: 100px;" src="Lab7%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/8673.png"></a></div>
+  </div>
+</div>
+
+
+  <div id="wiki_add_attachment">
+    <form id="add_attachment_form" enctype="multipart/form-data" action="/projects/oscourse-2021-spring/wiki/Lab7/add_attachment" accept-charset="UTF-8" name="add_attachment_form-dd513e57" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="pwd4xIDqbsEULdvTYm4PldCnaPov79w80/PfwqfjWfigbJ6stdD1VCQLkUXTVKvBobzh9VgbyvC/bJR31OiZ0Q==">
+      <div class="box filedroplistner">
+      <p>
+<span class="attachments_form">
+  <span class="attachments_fields">
+  </span>
+  <span class="add_attachment" style="">
+    <input type="file" name="attachments[dummy][file]" class="file_selector filedrop" multiple="multiple" onchange="addInputFiles(this);" data-max-number-of-files-message="This file cannot be uploaded because it exceeds the maximum number of files that can be attached simultaneously (10)" data-max-file-size="1024000000" data-max-file-size-message="This file cannot be uploaded because it exceeds the maximum allowed file size (977 MB)" data-max-concurrent-uploads="2" data-upload-path="/uploads.js" data-param="attachments" data-description="true" data-description-placeholder="Optional description">
+    (Maximum size: 977 MB)
+  </span>
+</span>
+
+</p>
+      </div>
+      <input type="submit" name="commit" value="Add" data-disable-with="Add">
+</form>  </div>
+</div>
+</fieldset>
+
+<p class="wiki-update-info">
+    Updated by <a class="user active" href="https://forge.ispras.ru/users/2368">Vitaly Cheptsov</a> <a title="04/12/2021 03:15 AM" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity?from=2021-04-12">10 months</a> ago
+    · <a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab7/history">2 revisions</a>
+</p>
+
+
+
+
+
+        
+        <div style="clear:both;"></div>
+    </div>
+</div>
+<div id="footer">
+    Powered by <a href="https://www.redmine.org/">Redmine</a> © 2006-2022 Jean-Philippe Lang
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

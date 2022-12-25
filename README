@@ -1,29 +1,37 @@
-This branch contains vastly improoved kernel memory
-subsystem with following new features:
-    * 2M/1G pages
-    * Lazy copying/lazy memory allocation
-        * Used for speeding up ASAN memory allocation
-        * Kernel memory is also lazily allocated
-    * NX flag
-    * Buddy physical memory allocator
-    * O((log N)^2) region manipulation
-    * More convinient syscall API
-    * IPC with memory regions of size larger than 4K
-        * Not used at the moment but would be useful
-          for file server optimization
-    * Reduced memory consumption by a lot
-    * All supported sanitizers can work simultaniously
-      with any amount of memory (as long as bootloader can allocate enough memory for the kernel)
+Материалы курса "Конструирование ядра операционных систем" магистратуры "Системное программирование"
 
-The code is mostly located in kern/pmap.c
-A set of trees is used for holding metadata (nodes are of type struct Page):
-    * A tree describing physical memory
-    * One tree for every address space (for every environment and kernel)
+Лучший курс ever (нет); преподаватель хороший и задачи интересные (лол)
 
-TODO
-    * Replace user_mem_assert with exception-based code
-        * copyin/copyout functions
-    * Refactor address spcae and move all kernel-only memory
-      regions to cannonical upper part of adress space
-      (this requeres copyin/copyout functions because
-       ASAN should never touch userspace memory)
+Презентации и описания заданий: см. ./presentations и ./forge_pages
+
+Лекции: https://www.youtube.com/watch?v=D7py24ZU-Rw&list=PL4_hYwCyhAva5JvmFBIUc_-JqZk4xfc5f 
+
+Вопросы/ответы для защиты лаб: 
+
+https://docs.google.com/spreadsheets/d/1a5POnprdcAd8CLAC1vBzTVmqE_LoszW9JinWKDDDcRA/edit?usp=sharing
+
+https://docs.google.com/document/d/1Q6RiHLmvTguFCau4iq3T03cNxwkh7Y7XXOd-Lj-Tc7Y/edit?usp=sharing
+
+Список других репозиториев, которые могут быть полезны:
+https://github.com/ARTI1208/osprac
+https://github.com/DariaShel/OSkern
+https://github.com/yakalex/jos-smp-threads
+https://github.com/rdnply/os-course
+https://github.com/eadium/oscourse-2021
+https://github.com/MediaX/kernel_prac
+https://github.com/WoodieGeek/josos
+https://github.com/MediaX/kernel_prac4diman
+https://github.com/WhiteWolfGeralt/JOScourse
+https://github.com/dimazilla123/jos-svga
+https://github.com/molchalin/jos-network
+https://github.com/link-to-badekin/osc
+https://github.com/Ivan-Medvedev/Oscourse
+https://github.com/Belovchenko/indtask
+https://github.com/Yasago/oscourse
+https://github.com/Savuri/os-course
+https://github.com/gtfobar/oscourse2020
+
+Warning: во многих репозиториях (включая этот) решения неполные и с багами. Иногда баги стреляют через несколько лаб.
+
+Good luck, have fun!
+

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Lab6 - OS Course 2021 Spring - Open-Source Projects</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Redmine">
+<meta name="keywords" content="issue,bug,tracker">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="RilrLfweD+DxlEaNP428WoZLtlIqdmo72U2kBM3+YqlBQo1FySSUdcGyDBuOtxgO91A/XV2CfPe10u+xvvWigA==">
+<link rel="shortcut icon" href="https://forge.ispras.ru/favicon.ico?1642659995">
+<link rel="stylesheet" media="all" href="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-ui-1.css">
+<link rel="stylesheet" media="all" href="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.css">
+<link rel="stylesheet" media="all" href="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.css">
+<link rel="stylesheet" media="all" href="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.css">
+
+<script src="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-3.js"></script>
+<script src="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-migrate-3.js"></script>
+<script src="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.js"></script>
+<script src="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5_002.js"></script>
+<script src="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5.js"></script>
+<script src="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.js"></script>
+<script src="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.js"></script>
+<script>
+//<![CDATA[
+$(window).on('load', function(){ warnLeavingUnsaved('The current page contains unsaved text that will be lost if you leave this page.'); });
+//]]>
+</script>
+
+<script>
+//<![CDATA[
+rm = window.rm || {};rm.AutoComplete = rm.AutoComplete || {};rm.AutoComplete.dataSources = '{"issues":"/issues/auto_complete?project_id=oscourse-2021-spring\u0026q=","wiki_pages":"/wiki_pages/auto_complete?project_id=oscourse-2021-spring\u0026q="}';
+//]]>
+</script>
+ <link rel="stylesheet" media="screen" href="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/admin.css">
+<!-- page specific tags -->
+  <script src="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/attachments.js"></script>
+
+</head>
+<body class="project-oscourse-2021-spring has-main-menu controller-wiki action-show avatars-on">
+
+<div id="wrapper">
+
+<div class="flyout-menu js-flyout-menu">
+
+        <div class="flyout-menu__search">
+            <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-d3ba4b03" method="get"><input name="utf8" type="hidden" value="✓">
+            <input type="hidden" name="wiki_pages" value="1">
+            <label class="search-magnifier search-magnifier--flyout" for="flyout-search">⚲</label>
+            <input type="text" name="q" id="flyout-search" class="small js-search-input" placeholder="Search">
+</form>        </div>
+
+        <div class="flyout-menu__avatar ">
+                <a href="https://forge.ispras.ru/users/12098"><img alt="" title="Александр Токмаков" class="gravatar" srcset="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef.png 2x" src="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef_002.png"></a>
+            <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a>
+        </div>
+
+        <h3>Project</h3>
+        <span class="js-project-menu"></span>
+
+    <h3>General</h3>
+    <span class="js-general-menu"></span>
+
+    <span class="js-sidebar flyout-menu__sidebar"></span>
+
+    <h3>Profile</h3>
+    <span class="js-profile-menu"></span>
+
+</div>
+
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a class="my-account" href="https://forge.ispras.ru/my/account">My account</a></li><li><a class="logout" rel="nofollow" data-method="post" href="https://forge.ispras.ru/logout">Sign out</a></li></ul>    </div>
+    <div id="loggedas">Logged in as <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a></div>
+    <ul><li><a class="home" href="https://forge.ispras.ru/">Home</a></li><li><a class="my-page" href="https://forge.ispras.ru/my/page">My page</a></li><li><a class="projects" href="https://forge.ispras.ru/projects">Projects</a></li><li><a class="help" href="https://www.redmine.org/guide">Help</a></li></ul></div>
+
+<div id="header">
+
+    <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
+
+    <div id="quick-search">
+        <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-22d3fa12" method="get"><input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="scope">
+        <input type="hidden" name="wiki_pages" value="1">
+        <label for="q">
+          <a accesskey="4" href="https://forge.ispras.ru/projects/oscourse-2021-spring/search">Search</a>:
+        </label>
+        <input type="text" name="q" id="q" size="20" class="small" accesskey="f" data-auto-complete="true">
+</form>        <div id="project-jump" class="drdn"><span class="drdn-trigger">OS Course 2021 Spring</span><div class="drdn-content"><div class="quick-search"><input type="text" name="q" id="projects-quick-search" class="autocomplete" data-automcomplete-url="/projects/autocomplete.js?jump=wiki" autocomplete="off" data-value-was=""></div><div class="drdn-items projects selection"><strong>Recently used</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a><strong>All Projects</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a></div><div class="drdn-items all-projects selection"><a href="https://forge.ispras.ru/projects?jump=wiki">All Projects</a></div></div></div>
+    </div>
+
+    <h1><span class="current-project">OS Course 2021 Spring</span></h1>
+
+    <div id="main-menu" class="tabs">
+        <ul><li>
+<a onclick="toggleNewObjectDropdown(); return false;" id="new-object" class="new-object" href="#"> + </a>
+<ul class="menu-children"><li><a class="new-version" href="https://forge.ispras.ru/projects/oscourse-2021-spring/versions/new">New version</a></li><li><a class="new-wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new">New wiki page</a></li><li><a class="new-file" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files/new">New file</a></li></ul>
+</li><li><a class="overview" href="https://forge.ispras.ru/projects/oscourse-2021-spring">Overview</a></li><li><a class="activity" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity">Activity</a></li><li><a class="wiki selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Wiki</a></li><li><a class="files" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files">Files</a></li><li><a class="settings" href="https://forge.ispras.ru/projects/oscourse-2021-spring/settings">Settings</a></li></ul>
+        <div class="tabs-buttons" style="display: none;">
+            <button class="tab-left" onclick="moveTabLeft(this); return false;"></button>
+            <button class="tab-right" onclick="moveTabRight(this); return false;"></button>
+        </div>
+    </div>
+</div>
+
+<div id="main" class="">
+    <div id="sidebar">
+          
+
+<h3>Wiki</h3>
+<ul>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Start page</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/index">Index by title</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/date_index">Index by date</a></li>
+</ul>
+
+
+
+
+        
+    </div>
+
+    <div id="content">
+        
+        <div class="contextual">
+
+  <a class="icon icon-edit" accesskey="e" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab6/edit">Edit</a>
+  <a class="wiki_page-1038-watcher icon icon-fav-off" data-remote="true" rel="nofollow" data-method="post" href="https://forge.ispras.ru/watchers/watch?object_id=1038&amp;object_type=wiki_page">Watch</a>
+
+  <span class="drdn"><span class="drdn-trigger"><span class="icon-only icon-actions" title="Actions">Actions</span></span><div class="drdn-content"><div class="drdn-items">
+    <a class="icon icon-history" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab6/history">History</a>
+
+      
+      
+      
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab6">Delete</a>
+
+      <a class="icon icon-add" data-remote="true" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new?parent=Lab6">New wiki page</a>
+</div></div></span></div>
+
+<p class="breadcrumb"><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Wiki">Wiki</a> » </p>
+
+
+<div class="wiki wiki-page">
+  <a name="Лабораторная-работа-6"></a>
+<h1>Лабораторная работа №6<a href="#Лабораторная-работа-6" class="wiki-anchor">¶</a></h1>
+
+
+	<p>Помимо процессора, важным ресурсом компьютера является оперативная 
+память. Часть операционной системы, которая ей управляет, называется 
+диспетчером памяти. Простейший диспетчер памяти уже реализован в JOS и 
+позволяет процессам и ядру выделять и освобождать память. Однако, как 
+было сказано выше, на данном этапе развития JOS все процессы работают в 
+едином адресном пространстве, то есть могут иметь прямой доступ к памяти
+ друг друга и к памяти ядра ОС, что может привести к фатальным 
+последствиям. Для решения этой проблемы используется модель виртуальной 
+памяти.</p>
+
+
+	<p>В основе виртуальной памяти лежит идея, что у каждого процесса 
+имеется свое собственное адресное пространство, разделенное на участки, 
+называемые страницами. Каждая страница может быть отображена на участок 
+физической памяти того же размера, но отображение всех возможных страниц
+ сразу необязательно. При доступе к памяти программа использует не 
+физические адреса, а виртуальные, которые затем с учетом таблицы страниц
+ процесса транслируются процессором в физические. Кроме того, процессор 
+может, например, ограничивать доступ процесса на запись в определенные 
+страницы памяти — т.&nbsp;е. процесс может получить доступ к некоторым 
+страницам памяти ядра без опасений, что он испортит его.</p>
+
+
+	<p>О поддержке управления памятью в процессорах x86 можно более 
+подробно прочитать в главах 3-5 части 3А Руководства для разработчиков 
+приложений для 64- и 32-разрядных архитектур Intel. На концептуальном 
+уровне управление памятью описано в главе 3 книги Э. Таненбаума 
+"Современные операционные системы".</p>
+
+
+	<p>Для получения файлов и изменений, необходимых для выполнения работы,
+ следует обновить удаленный репозиторий, создать новую ветвь под 
+названием working-lab6, после чего выполнить слияние с ней ветви lab6, 
+которая появилась в репозитории. О работе с git можно прочитать на <a class="wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/GitManual">соответствующей странице</a>.</p>
+
+
+	<p>В данной работе вам будет необходимо реализовать аллокатор памяти, 
+который позволит ядру выделять и освобождать память. Ваш аллокатор будет
+ оперировать страницами памяти размером 4096 байт. Для его реализации 
+нужно вести учет выделенных и свободных физических страниц, а также 
+количества процессов, использующих каждую страницу.</p>
+
+
+	<p>Рассмотрим файлы, важные для выполнения лабораторной работы. Файл <strong>memlayout.h</strong> описывает структуру виртуального адресного пространства, которую необходимо реализовать путем изменения файла <strong>pmap.c</strong>. В <strong>memlayout.h</strong> и <strong>pmap.h</strong> определена структура PageInfo, которую вы будете использовать, чтобы отслеживать, какие страницы физической памяти свободны. <strong>uefi.h</strong> обладает структурой <strong>EFI_MEMORY_DESCRIPTOR</strong>, которая  хранит информацию о всех регионах физической памяти. Указатель на таблицу регионов памяти передается в <strong>uefi_lp</strong> из UEFI, и для корректного определения объема доступной памяти требуется полный проход по данной таблице.</p>
+
+
+	<p>Обратите особое внимание на <strong>memlayout.h</strong> и <strong>pmap.h</strong>,
+ так как эта лабораторная работа требует, чтобы вы использовали и 
+понимали многие из определений, которые они содержат. Вы можете также 
+ознакомиться с <strong>inc/mmu.h</strong>, так как он также содержит ряд полезных определений.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-2"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab6/edit?section=2">Edit this section</a></div><a name="Использование-виртуальной-памяти-для-обхода-зависимости-от-местоположения"></a>
+<h2>Использование виртуальной памяти для обхода зависимости от местоположения<a href="#Использование-виртуальной-памяти-для-обхода-зависимости-от-местоположения" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Ядро операционной системы часто имеет очень высокий виртуальный 
+адрес связывания, например, 0x8041500000, чтобы оставить нижнюю часть 
+виртуального адресного пространства для пользовательских программ. 
+Причины этого станут яснее в последующих лабораторных работах.</p>
+
+
+	<p>При этом многие компьютеры не имеют физической памяти по адресу 
+0x8041500000, поэтому мы не можем рассчитывать на возможность хранить 
+там ядро. Вместо этого мы будем использовать инструменты процессора для 
+управления памятью, чтобы сопоставить виртуальный адрес 0x8041500000 
+(адрес связывания, по которому код ядра ожидает быть запущенным) 
+физическому адресу 0x01500000 (по которому загрузчик UEFI загружает ядро
+ в физическую память). Таким образом, хотя виртуальный адрес ядра 
+достаточно высок, чтобы оставить достаточно адресного пространства для 
+UEFI загрузчика, оно будет загружено в физическую память в точку 21 МБ. 
+Этот подход требует, чтобы компьютер имел хотя бы несколько мегабайт 
+физической памяти (чтобы физический адрес 0x01500000 был доступен), но 
+это условие скорее всего выполняется любым современным компьютером.</p>
+
+
+	<p>В этой и следующих лабораторных работах мы будем сопоставлять все 
+доступное физическое адресное пространство компьютера, от 0x00000000 
+вплоть до 0x7FC0000000, виртуальным адресам от 0x8040000000 до 
+0x10000000000 соответственно.</p>
+
+
+	<p>На данный момент сопоставлены только первые BOOT_MEM_SIZE (1024 МБ) 
+физической памяти, которых будет достаточно, чтобы дать возможность ядру
+ запуститься и работать. Это делается с помощью написанных вручную и 
+статически инициализируемых двухмегабайтовых таблиц в kern/bootstrap.S. 
+До установки таблицы pml4 в регистр cr3 в kern/bootstrap.S ссылки на 
+память рассматриваются как физические адреса. После установки таблицы 
+pml4 ссылки на память являются виртуальными адресами, которые 
+транслируются процессором в физические адреса (строго говоря, загрузчик 
+UEFI уже установил свою собственную таблицу pml4 на процессоре, где 
+установлено тождественное отображение из линейных адресов в физические, 
+но как правило операционные системы всегда создают свои собственные 
+таблицы). pml4 в bootstrap.S транслирует виртуальные адреса в диапазоне 
+от 0x8040000000 до 0x8080000000 в физические от 0x00000000 до 
+0x40000000, а также виртуальные адреса от 0x00000000 до 0x40000000 в 
+физические от 0x00000000 до 0x40000000. Помимо этого, в init.c в функции
+ early_boot_pml4_init дополнительно происходит отображение участков 
+памяти, необходимых для раннего доступа к передаваемым параметрам 
+uefi_lp, инициализации ASAN, а также для доступа к чтению 
+EFI_MEMORY_DESCRIPTOR из UEFI. Обращение по любому виртуальному адресу, 
+который не находится в одном из этих двух диапазонов, вызовет аппаратное
+ исключение, которое, так как мы еще не создали обработку прерываний, 
+заставит QEMU завершиться из-за тройного исключения.</p>
+
+
+	<p><img src="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/mapping.png" style="width:25%;" alt=""></p>
+
+
+	<p><em>Используйте QEMU и GDB, чтобы проследить работу ядра JOS и 
+остановиться на movq %rax, %cr3. Изучите память по адресам 0x01600000 и 
+0x8041600000. Теперь выполните одну инструкцию, используя команду GDB 
+stepi. Еще раз изучите память по адресам 0x01600000 и 0x8041600000. 
+Убедитесь, что вы понимаете, что произошло.</em></p>
+
+
+	<p><em>Какая инструкция первой не сможет выполниться правильным 
+образом, если отображение не будет установлено? Закомментируйте movq 
+%rax, %cr3 в kern/bootstrap.S, проследите выполнение и проверьте, были 
+ли вы правы.</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-3"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab6/edit?section=3">Edit this section</a></div><a name="Управление-страницами"></a>
+<h2>Управление страницами<a href="#Управление-страницами" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Операционная система должна отслеживать, какие части физической 
+памяти в настоящий момент свободны, а какие используются. Данную задачу 
+выполняет модуль, который называется менеджером памяти. Для эффективного
+ управления памятью используется<br>одно дерево, описывающее физическую 
+память системы (узлы дерева имеют тип struct Page — в менеджере памяти 
+используется обобщенное понятие страницы, под которым подразумевается 
+регион памяти имеющий размер равный степени 2 и адрес, выровненный<br>на
+ этот размер). А также набор связанных списков свободных страниц для 
+каждого используемого размера памяти. Обратите внимание, что память 
+может именть различные типы (Описываемые enum PageState) и в списках 
+свободных страниц могут находится только страницы типа ALLOCATABLE_NODE 
+со счетчиком ссылок refc  0 и без дочерних узлов.</p>
+
+
+	<p>Узлы деревьев (метаданные аллокатора) выделяются из самой памяти 
+аллокатора и адресуются с использованием отображения физической памяти 
+один-к-одному на KERN_BASE_ADDR. Выделение узлов произсходит из пулов 
+узлов, которых хранятся в страницах и выделяются alloc_page() в флагом 
+ALLOC_POOL при исчерпании свободных узлов из списка free_descriptors.</p>
+
+
+	<p>Для более удобной работы со списками используются функции работы со 
+списками (list_). Допишите иx. Списки имеют пустой заголовочный узел и 
+закольцованны т.е. пустой список состоит из одной структуры struct List 
+list у которой &amp;list  list.prev и &amp;list = list-&gt;next. Функция
+ освобождения узла делает из удаленного узла пустой список.</p>
+
+
+	<p><em>В файле kern/pmap.c необходимо исправить или написать функции, список которых приведен ниже.</em></p>
+
+
+	<p><img src="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/extfreemem.png" style="width:25%;" alt=""></p>
+
+
+	<ul>
+	<li><em>detect_memory()</em></li>
+	</ul>
+
+
+	<p><em>Инициализирует дерево физической памяти, используя карту памяти UEFI или данные из CMOS если первая не доступна.<br>В данной функции используется функция attach_region, которую необходимо дописать далее</em></p>
+
+
+	<ul>
+	<li><em>attach_region()</em></li>
+	</ul>
+
+
+	<p><em>Присоединяет произольный регион памяти к физическому дереву, рабивая этот регион на страницы, выровненные на<br>степени 2 и имеющие размер кратный степени 2. Данная функция использует page_lookup для аллокации новой страницы<br>с параметром alloc равным 1</em></p>
+
+
+	<ul>
+	<li><em>alloc_child()</em></li>
+	</ul>
+
+
+	<p><em>Вспомогательная функция, которая выделяет и инициализирует дочерний узел в дереве, описывающем физическую память.<br>Посмотрите на поля структуры Page и комментарии к функции, и подумайте, как инициализировать поля нового узла.</em></p>
+
+
+	<p><em>Кроме того, необходимо добавить в монитор команду, выводящую 
+список всех свободных страниц по классам вызывающую функцию 
+dump_memory_lists() и саму эту функцию.</em></p>
+
+
+	<p>Функция check_physical_tree() и различные вызовы assert() в коде 
+проверяют корректность аллокатора. Запустите JOS и убедитесь в том, что 
+эти функции выполняются и код выводит необходимые сообщения на экран. 
+При необходимости исправьте код так, чтобы эта функция срабатывала. Для 
+отладки может быть полезным использование GDB и добавление различных 
+вызовов assert(). При запуске JOS вы должны увидеть следующий вывод:</p>
+
+
+<pre>Memory allocator is initiallized
+Physical memory: 512M available, base = 640K, extended = 523648K
+Physical memory tree is correct
+enabled interrupts: 2
+Initialized timer rtc
+Initialized timer pm
+Initialized timer hpet0
+Initialized timer hpet1
+Framebuffer initialised
+enabled interrupts: 0 2
+</pre>
+
+	<p>При запуске make grade система должна проходить тесты.</p>
+
+
+	<p><em>Примечание: поддержка ACPI (используется для таймеров HPET и PM)
+ была отключена в данной лабораторной работе, убедитесь, что вы 
+понимаете, почему это произошло и что необходимо сделать, чтобы её 
+реализовать в дальнейшем.</em></p>
+
+
+	<p><em>По окончании выполнения работы следует сохранить внесенные изменения и отправить их в удаленный репозиторий.</em></p>
+</div>
+
+
+<fieldset class="collapsible collapsed hide-when-print">
+  <legend onclick="toggleFieldset(this);" class="icon icon-collapsed">Files (5)</legend>
+  <div style="display: none;">
+
+  <div class="attachments">
+<div class="contextual">
+  <a title="Edit attached files" class="icon-only icon-edit" href="https://forge.ispras.ru/attachments/wiki_pages/1038/edit">Edit attached files</a>
+  <a title="Download all files" class="icon-only icon-download" href="https://forge.ispras.ru/attachments/wiki_pages/1038/download">Download all files</a>
+</div>
+<table>
+<tbody><tr>
+  <td>
+    <a class="icon icon-attachment" href="https://forge.ispras.ru/attachments/8643">mem_list.png</a>    <span class="size">(118 KB)</span>
+    <a class="icon-only icon-download" title="Download" href="https://forge.ispras.ru/attachments/download/8643/mem_list.png">mem_list.png</a>  </td>
+  <td></td>
+  <td>
+      <span class="author">Vitaly Cheptsov, 04/04/2021 12:40 PM</span>
+  </td>
+  <td>
+      <a data-confirm="Are you sure?" class="delete icon-only icon-del" title="Delete" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/attachments/8643">Delete</a>
+  </td>
+</tr>
+<tr>
+  <td>
+    <a class="icon icon-attachment" href="https://forge.ispras.ru/attachments/8644">extfreemem-2.png</a>    <span class="size">(298 KB)</span>
+    <a class="icon-only icon-download" title="Download" href="https://forge.ispras.ru/attachments/download/8644/extfreemem-2.png">extfreemem-2.png</a>  </td>
+  <td></td>
+  <td>
+      <span class="author">Vitaly Cheptsov, 04/04/2021 12:40 PM</span>
+  </td>
+  <td>
+      <a data-confirm="Are you sure?" class="delete icon-only icon-del" title="Delete" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/attachments/8644">Delete</a>
+  </td>
+</tr>
+<tr>
+  <td>
+    <a class="icon icon-attachment" href="https://forge.ispras.ru/attachments/8645">mapping-2.png</a>    <span class="size">(184 KB)</span>
+    <a class="icon-only icon-download" title="Download" href="https://forge.ispras.ru/attachments/download/8645/mapping-2.png">mapping-2.png</a>  </td>
+  <td></td>
+  <td>
+      <span class="author">Vitaly Cheptsov, 04/04/2021 12:40 PM</span>
+  </td>
+  <td>
+      <a data-confirm="Are you sure?" class="delete icon-only icon-del" title="Delete" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/attachments/8645">Delete</a>
+  </td>
+</tr>
+<tr>
+  <td>
+    <a class="icon icon-attachment" href="https://forge.ispras.ru/attachments/8646">extfreemem.png</a>    <span class="size">(278 KB)</span>
+    <a class="icon-only icon-download" title="Download" href="https://forge.ispras.ru/attachments/download/8646/extfreemem.png">extfreemem.png</a>  </td>
+  <td></td>
+  <td>
+      <span class="author">Vitaly Cheptsov, 04/04/2021 12:40 PM</span>
+  </td>
+  <td>
+      <a data-confirm="Are you sure?" class="delete icon-only icon-del" title="Delete" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/attachments/8646">Delete</a>
+  </td>
+</tr>
+<tr>
+  <td>
+    <a class="icon icon-attachment" href="https://forge.ispras.ru/attachments/8647">mapping.png</a>    <span class="size">(128 KB)</span>
+    <a class="icon-only icon-download" title="Download" href="https://forge.ispras.ru/attachments/download/8647/mapping.png">mapping.png</a>  </td>
+  <td></td>
+  <td>
+      <span class="author">Vitaly Cheptsov, 04/04/2021 12:40 PM</span>
+  </td>
+  <td>
+      <a data-confirm="Are you sure?" class="delete icon-only icon-del" title="Delete" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/attachments/8647">Delete</a>
+  </td>
+</tr>
+</tbody></table>
+  <div class="thumbnails">
+      <div><a title="mem_list.png" href="https://forge.ispras.ru/attachments/8643"><img srcset="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/200_002.png 2x" style="max-width: 100px; max-height: 100px;" src="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/8643.png"></a></div>
+      <div><a title="extfreemem-2.png" href="https://forge.ispras.ru/attachments/8644"><img srcset="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/200.png 2x" style="max-width: 100px; max-height: 100px;" src="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/8644.png"></a></div>
+      <div><a title="mapping-2.png" href="https://forge.ispras.ru/attachments/8645"><img srcset="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/200_004.png 2x" style="max-width: 100px; max-height: 100px;" src="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/8645.png"></a></div>
+      <div><a title="extfreemem.png" href="https://forge.ispras.ru/attachments/8646"><img srcset="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/200_003.png 2x" style="max-width: 100px; max-height: 100px;" src="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/8646.png"></a></div>
+      <div><a title="mapping.png" href="https://forge.ispras.ru/attachments/8647"><img srcset="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/200_005.png 2x" style="max-width: 100px; max-height: 100px;" src="Lab6%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/8647.png"></a></div>
+  </div>
+</div>
+
+
+  <div id="wiki_add_attachment">
+    <form id="add_attachment_form" enctype="multipart/form-data" action="/projects/oscourse-2021-spring/wiki/Lab6/add_attachment" accept-charset="UTF-8" name="add_attachment_form-ff9c01ce" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="RilrLfweD+DxlEaNP428WoZLtlIqdmo72U2kBM3+YqlBQo1FySSUdcGyDBuOtxgO91A/XV2CfPe10u+xvvWigA==">
+      <div class="box filedroplistner">
+      <p>
+<span class="attachments_form">
+  <span class="attachments_fields">
+  </span>
+  <span class="add_attachment" style="">
+    <input type="file" name="attachments[dummy][file]" class="file_selector filedrop" multiple="multiple" onchange="addInputFiles(this);" data-max-number-of-files-message="This file cannot be uploaded because it exceeds the maximum number of files that can be attached simultaneously (10)" data-max-file-size="1024000000" data-max-file-size-message="This file cannot be uploaded because it exceeds the maximum allowed file size (977 MB)" data-max-concurrent-uploads="2" data-upload-path="/uploads.js" data-param="attachments" data-description="true" data-description-placeholder="Optional description">
+    (Maximum size: 977 MB)
+  </span>
+</span>
+
+</p>
+      </div>
+      <input type="submit" name="commit" value="Add" data-disable-with="Add">
+</form>  </div>
+</div>
+</fieldset>
+
+<p class="wiki-update-info">
+    Updated by <a class="user active" href="https://forge.ispras.ru/users/2368">Vitaly Cheptsov</a> <a title="04/04/2021 12:40 PM" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity?from=2021-04-04">10 months</a> ago
+    · <a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab6/history">1 revisions</a>
+</p>
+
+
+
+
+
+        
+        <div style="clear:both;"></div>
+    </div>
+</div>
+<div id="footer">
+    Powered by <a href="https://www.redmine.org/">Redmine</a> © 2006-2022 Jean-Philippe Lang
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>

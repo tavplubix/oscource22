@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Lab1 - OS Course 2021 Spring - Open-Source Projects</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Redmine">
+<meta name="keywords" content="issue,bug,tracker">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="t9y5SkaU1uopRccet7bNq+Wj0mg6ymlcrZH+djPR+TGwt18ic65NfxljjYgGjGn/lLhbZ00+f5DBDrXDQNo5GA==">
+<link rel="shortcut icon" href="https://forge.ispras.ru/favicon.ico?1642659995">
+<link rel="stylesheet" media="all" href="Lab1%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-ui-1.css">
+<link rel="stylesheet" media="all" href="Lab1%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.css">
+<link rel="stylesheet" media="all" href="Lab1%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.css">
+<link rel="stylesheet" media="all" href="Lab1%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.css">
+
+<script src="Lab1%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-3.js"></script>
+<script src="Lab1%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/jquery-migrate-3.js"></script>
+<script src="Lab1%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tribute-5.js"></script>
+<script src="Lab1%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5.js"></script>
+<script src="Lab1%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/tablesort-5_002.js"></script>
+<script src="Lab1%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/application.js"></script>
+<script src="Lab1%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/responsive.js"></script>
+<script>
+//<![CDATA[
+$(window).on('load', function(){ warnLeavingUnsaved('The current page contains unsaved text that will be lost if you leave this page.'); });
+//]]>
+</script>
+
+<script>
+//<![CDATA[
+rm = window.rm || {};rm.AutoComplete = rm.AutoComplete || {};rm.AutoComplete.dataSources = '{"issues":"/issues/auto_complete?project_id=oscourse-2021-spring\u0026q=","wiki_pages":"/wiki_pages/auto_complete?project_id=oscourse-2021-spring\u0026q="}';
+//]]>
+</script>
+ <link rel="stylesheet" media="screen" href="Lab1%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/admin.css">
+<!-- page specific tags -->
+  <script src="Lab1%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/attachments.js"></script>
+
+</head>
+<body class="project-oscourse-2021-spring has-main-menu controller-wiki action-show avatars-on">
+
+<div id="wrapper">
+
+<div class="flyout-menu js-flyout-menu">
+
+        <div class="flyout-menu__search">
+            <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-68e48571" method="get"><input name="utf8" type="hidden" value="✓">
+            <input type="hidden" name="wiki_pages" value="1">
+            <label class="search-magnifier search-magnifier--flyout" for="flyout-search">⚲</label>
+            <input type="text" name="q" id="flyout-search" class="small js-search-input" placeholder="Search">
+</form>        </div>
+
+        <div class="flyout-menu__avatar ">
+                <a href="https://forge.ispras.ru/users/12098"><img alt="" title="Александр Токмаков" class="gravatar" srcset="Lab1%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef.png 2x" src="Lab1%20-%20OS%20Course%202021%20Spring%20-%20Open-Source%20Projects_files/b8899b4ea6afc4650cde974ae3aa70ef_002.png"></a>
+            <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a>
+        </div>
+
+        <h3>Project</h3>
+        <span class="js-project-menu"></span>
+
+    <h3>General</h3>
+    <span class="js-general-menu"></span>
+
+    <span class="js-sidebar flyout-menu__sidebar"></span>
+
+    <h3>Profile</h3>
+    <span class="js-profile-menu"></span>
+
+</div>
+
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a class="my-account" href="https://forge.ispras.ru/my/account">My account</a></li><li><a class="logout" rel="nofollow" data-method="post" href="https://forge.ispras.ru/logout">Sign out</a></li></ul>    </div>
+    <div id="loggedas">Logged in as <a class="user active" href="https://forge.ispras.ru/users/12098">avtokmakov</a></div>
+    <ul><li><a class="home" href="https://forge.ispras.ru/">Home</a></li><li><a class="my-page" href="https://forge.ispras.ru/my/page">My page</a></li><li><a class="projects" href="https://forge.ispras.ru/projects">Projects</a></li><li><a class="help" href="https://www.redmine.org/guide">Help</a></li></ul></div>
+
+<div id="header">
+
+    <a href="#" class="mobile-toggle-button js-flyout-menu-toggle-button"></a>
+
+    <div id="quick-search">
+        <form action="/projects/oscourse-2021-spring/search" accept-charset="UTF-8" name="form-8fb82f16" method="get"><input name="utf8" type="hidden" value="✓">
+        <input type="hidden" name="scope">
+        <input type="hidden" name="wiki_pages" value="1">
+        <label for="q">
+          <a accesskey="4" href="https://forge.ispras.ru/projects/oscourse-2021-spring/search">Search</a>:
+        </label>
+        <input type="text" name="q" id="q" size="20" class="small" accesskey="f" data-auto-complete="true">
+</form>        <div id="project-jump" class="drdn"><span class="drdn-trigger">OS Course 2021 Spring</span><div class="drdn-content"><div class="quick-search"><input type="text" name="q" id="projects-quick-search" class="autocomplete" data-automcomplete-url="/projects/autocomplete.js?jump=wiki" autocomplete="off" data-value-was=""></div><div class="drdn-items projects selection"><strong>Recently used</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a><strong>All Projects</strong><a title="OS Course 2021 Spring" class="selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring?jump=wiki"><span style="padding-left:0px;">OS Course 2021 Spring</span></a></div><div class="drdn-items all-projects selection"><a href="https://forge.ispras.ru/projects?jump=wiki">All Projects</a></div></div></div>
+    </div>
+
+    <h1><span class="current-project">OS Course 2021 Spring</span></h1>
+
+    <div id="main-menu" class="tabs">
+        <ul><li>
+<a onclick="toggleNewObjectDropdown(); return false;" id="new-object" class="new-object" href="#"> + </a>
+<ul class="menu-children"><li><a class="new-version" href="https://forge.ispras.ru/projects/oscourse-2021-spring/versions/new">New version</a></li><li><a class="new-wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new">New wiki page</a></li><li><a class="new-file" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files/new">New file</a></li></ul>
+</li><li><a class="overview" href="https://forge.ispras.ru/projects/oscourse-2021-spring">Overview</a></li><li><a class="activity" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity">Activity</a></li><li><a class="wiki selected" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Wiki</a></li><li><a class="files" href="https://forge.ispras.ru/projects/oscourse-2021-spring/files">Files</a></li><li><a class="settings" href="https://forge.ispras.ru/projects/oscourse-2021-spring/settings">Settings</a></li></ul>
+        <div class="tabs-buttons" style="display: none;">
+            <button class="tab-left" onclick="moveTabLeft(this); return false;"></button>
+            <button class="tab-right" onclick="moveTabRight(this); return false;"></button>
+        </div>
+    </div>
+</div>
+
+<div id="main" class="">
+    <div id="sidebar">
+          
+
+<h3>Wiki</h3>
+<ul>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki">Start page</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/index">Index by title</a></li>
+  <li><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/date_index">Index by date</a></li>
+</ul>
+
+
+
+
+        
+    </div>
+
+    <div id="content">
+        
+        <div class="contextual">
+
+  <a class="icon icon-edit" accesskey="e" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab1/edit">Edit</a>
+  <a class="wiki_page-1030-watcher icon icon-fav-off" data-remote="true" rel="nofollow" data-method="post" href="https://forge.ispras.ru/watchers/watch?object_id=1030&amp;object_type=wiki_page">Watch</a>
+
+  <span class="drdn"><span class="drdn-trigger"><span class="icon-only icon-actions" title="Actions">Actions</span></span><div class="drdn-content"><div class="drdn-items">
+    <a class="icon icon-history" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab1/history">History</a>
+
+      
+      
+      
+      <a data-confirm="Are you sure?" class="icon icon-del" rel="nofollow" data-method="delete" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab1">Delete</a>
+
+      <a class="icon icon-add" data-remote="true" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/new?parent=Lab1">New wiki page</a>
+</div></div></span></div>
+
+<p class="breadcrumb"><a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Wiki">Wiki</a> » </p>
+
+
+<div class="wiki wiki-page">
+  <a name="Лабораторная-работа-1"></a>
+<h1>Лабораторная работа №1<a href="#Лабораторная-работа-1" class="wiki-anchor">¶</a></h1>
+
+
+	<p>В данной работе рассматривается первая задача, которая возникает 
+перед разработчиком операционной системы: запуск на компьютере 
+произвольной программы. Эта задача не так проста, как может показаться 
+на первый взгляд. При разработке обычных программ способ их запуска, 
+поддержка ввода-вывода и другие необходимые для работы условия считаются
+ по умолчанию выполненными: программа имеет в качестве окружения 
+операционную систему и стандартную библиотеку, что позволяет 
+сконцентрироваться на реализации нужного алгоритма. При разработке 
+операционной системы ситуация кардинально меняется: необходимо напрямую 
+работать с аппаратным обеспечением компьютера, вручную реализовывать 
+программную поддержку его возможностей и особенностей. В результате 
+разработка даже, казалось бы, простейшей программы, выводящей на экран 
+произвольную строку, требует глубокого понимания процесса загрузки 
+компьютера, структуры физической памяти, аппаратной поддержки 
+ввода-вывода и т.д.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-2"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab1/edit?section=2">Edit this section</a></div><a name="Подготовка-окружения"></a>
+<h2>Подготовка окружения<a href="#Подготовка-окружения" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Для выполнения лабораторных работ необходимо запустить операционную 
+систему JOS в виртуальной машине QEMU. Установка QEMU и использование 
+виртуальной машины описаны в <a class="wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Tools">соответствующей статье</a>. После установки QEMU нужно клонировать репозиторий с исходным кодом лабораторных работ и переключиться на ветку lab1.</p>
+
+
+<pre>$ git clone http://sed.ispras.ru/git/oscourse-2021-spring -b lab1 oscourse
+</pre>
+
+	<p>Затем нужно перейти в каталог с репозиторием и собрать JOS, выполнив make. После этого можно запустить ее, выполнив make qemu:</p>
+
+
+<pre>$ cd oscourse
+$ make
+$ make qemu
+</pre>
+
+	<p>Если всё сделано правильно, в окне QEMU появится текст следующего вида:</p>
+
+
+<pre>BdsDxe: failed to load Boot0001 "UEFI QEMU DVD-ROM QM00003 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Secondary,Master,0x0): Not Found
+BdsDxe: loading Boot0002 "UEFI QEMU HARDDISK QM00001 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Primary,Master,0x0)
+BdsDxe: starting Boot0002 "UEFI QEMU HARDDISK QM00001 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Primary,Master,0x0)
+JOS: Awaiting debugger connection
+</pre>
+
+	<p>Данные строки означают, что виртуальная машина QEMU запустила 
+прошивку, совместимую с UEFI BIOS, и передала управление загрузчику 
+операционной системы JOS. В текущем виде загрузчик операционной системы 
+ожидает подключения отладчика для продолжения загрузки скелета ядра JOS.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-3"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab1/edit?section=3">Edit this section</a></div><a name="Загрузка-платформ-на-базе-x86"></a>
+<h2>Загрузка платформ на базе x86<a href="#Загрузка-платформ-на-базе-x86" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Первые компьютеры, основанные на 16-битных процессорах Intel 8088, 
+могли адресовать только 1 МБ физической памяти. Их физическое адресное 
+пространство начиналось с 0x00000000, но заканчивалось на 0x000FFFFF 
+вместо 0xFFFFFFFF. Эти компьютеры могли использовать только область 
+размером в 640 КБ, часто называемую «нижняя область памяти» (Low 
+Memory), причем некоторые из них были сконфигурированы для использования
+ только 16, 32 или 64 КБ памяти. Область размером 384 КБ от 0x000a0000 
+до 0x000FFFFF была зарезервирована для специального применения, 
+например, в качестве буфера дисплея или для отображения микропрограммы, 
+находящиеся в энергонезависимой памяти. Наиболее важной частью этой 
+зарезервированной области памяти являлся <a href="https://www.scs.stanford.edu/nyu/04fa/lab/specsbbs101.pdf" class="external">BIOS</a>
+ (базовая система ввода-вывода), который занимал область размером 64 КБ 
+от 0x000F0000 до 0x000FFFFF. В ранних компьютерах BIOS находился в 
+настоящих ПЗУ, доступных только для чтения, в современных компьютерах 
+BIOS хранится в перезаписываемой флэш-памяти.</p>
+
+
+	<p>Современный BIOS, также называемый UEFI BIOS, архитектурно 
+отличается от первоначального BIOS для компьютеров 8086 и обычно 
+занимает больше памяти, порядка нескольких мегабайт. UEFI BIOS (или UEFI
+ Firmware) является <a href="https://uefi.org/specifications" class="external">переносимой спецификацией</a>
+ начальной загрузки платформы, которая описывает интерфейсы 
+взаимодействия между операционной системой и оборудованием. Теневая 
+копия UEFI BIOS на x86 расположена в памяти по адресу 0xFFFFFFFF и ниже.
+ Это связано в том числе с тем, что вектор начальной загрузки процессора
+ (Reset Vector) находится по адресу 0xFFFFFFF0. Существуют реализации 
+UEFI BIOS не только для x86, но также для ARM и RISC-V. QEMU использует 
+использует открытую реализацию UEFI BIOS под названием <a href="https://github.com/tianocore/tianocore.github.io/wiki/OVMF" class="external">OVMF</a>. Для компьютеров, которые не поддерживают UEFI BIOS, можно использовать среду эмуляции UEFI <a href="https://warfish.github.io/2013/06/15/uefi-emulation-what-exactly-is-duetpkg/" class="external">TianoCore DuetPkg</a>, актуальная версия которой находится <a href="https://github.com/acidanthera/OpenCorePkg" class="external">здесь</a>.</p>
+
+
+	<p>Любой BIOS отвечает за выполнение основных операций инициализации 
+платформы, таких как активация видеокарты или проверка объема 
+установленной памяти. После выполнения инициализации BIOS загружает 
+операционную систему с носителя или из сети, а затем передает ей 
+контроль над компьютером. В числе необходимой информации о платформе, 
+которую должен предоставить операционной системе загрузчик, является 
+информация об оперативной памяти: её общем количестве и назначении 
+отдельных диапазонов. Современные x86-процессоры могут поддерживать 
+более 4 ГБ физической памяти и использовать области выше 0xFFFFFFFF. Для
+ информирования операционной системы о местоположении зарезервированных и
+ иных областей, таких как конфигурационное пространство PCI, BIOS 
+реализует интерфейсы по прерыванию <code>15h AX=E820h</code> (Legacy BIOS) или по вызову <code>GetMemoryMap</code> (UEFI BIOS). Понять различные принципы работы UEFI BIOS можно в разделе <a class="wiki-page" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/UEFI_Intro">введение в UEFI</a>.
+ Прочтите его перед дальнейшим выполнением лабораторной работы. 
+Подробнее о зарезервированных областях памяти и организации архитектуры 
+PCI устройств можно прочитать <a href="https://resources.infosecinstitute.com/system-address-map-initialization-in-x86x64-architecture-part-1-pci-based-systems" class="external">здесь</a> и <a href="https://resources.infosecinstitute.com/system-address-map-initialization-x86x64-architecture-part-2-pci-express-based-systems" class="external">здесь</a>.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-4"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab1/edit?section=4">Edit this section</a></div><a name="Отладка-загрузчика"></a>
+<h2>Отладка загрузчика<a href="#Отладка-загрузчика" class="wiki-anchor">¶</a></h2>
+
+
+	<p>В случае отсутствия иных загрузочных опций в соответствии со 
+спецификацией UEFI BIOS ищет загрузчик на диске по фиксированному пути 
+(Removable Media Path), который соответствует <code>EFI\BOOT\BOOTX64.efi</code> для Intel 64 и <code>EFI\BOOT\BOOTIa32.efi</code> для Intel 32. Так как загрузчики операционных систем грузятся прошивкой UEFI по случайному адресу и находятся в формате <a href="https://docs.microsoft.com/en-us/windows/desktop/Debug/pe-format" class="external">Portable Executable</a>,
+ для подключения с помощью отладчика потребуются отдельные скрипты. 
+Готовые скрипты для отладки как прошивки, так и загрузчика можно найти <a href="https://github.com/acidanthera/OpenCorePkg/tree/master/Debug" class="external">здесь</a>.</p>
+
+
+	<ol>
+	<li>Откройте два окна терминала.</li>
+		<li>В первом окне терминала перейдите в каталог с исходным кодом 
+лабораторных работ и запустите виртуальную машину отладки QEMU в режиме 
+отладки, указав порт 8864 для подключения отладчика GDB:<br>    <pre>GDBPORT=8864 make qemu-gdb</pre>
+ В результате выполнения команды виртуальная машина QEMU остановится 
+сразу перед началом выполнения процессором первой инструкции и будет 
+ожидать.</li>
+		<li>Во втором окне терминала склонируйте репозиторий с отладочными скриптами в любой удобный каталог и перейдите в подкаталог Debug:<br>    <pre>git clone --depth=1 https://github.com/acidanthera/OpenCorePkg
+cd OpenCorePkg/Debug</pre></li>
+		<li>Произведите подключение с помощью к QEMU с помощью отладчика:<br>    <pre>EFI_DEBUGGER=gdb EFI_ARCH=X64 ./efidebug.tool</pre> Запустится отладчик GDB и появится текст следующего вида:<br>    <pre>GNU gdb (GDB) 10.1
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-unknown-linux-musl".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+&lt;https://www.gnu.org/software/gdb/bugs/&gt;.
+Find the GDB manual and other documentation resources online at:
+    &lt;http://www.gnu.org/software/gdb/documentation/&gt;.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from GdbSyms/Bin/X64_GCC5/GdbSyms.debug...
+The target architecture is set to "i386:x86-64:intel".
+Remote debugging using localhost:8864
+0x000000000000fff0 in ?? ()
+No EFI_SYSTEM_TABLE...
+Function "DebugBreak" not defined.
+Make breakpoint pending on future shared library load? (y or [n])</pre></li>
+		<li>Так как прошивка ещё не была загружена, необходимо передать команду <code>c</code> (<code>continue</code>) и дождаться запуска загрузчика JOS, определить который можно по появлению строки <code>JOS: Awaiting debugger connection</code> в первом окне. После этого необходимо остановить отладчик комбинацией Ctrl+C и загрузить символы прошивки командой <code>reload-uefi</code>:<br><pre>(gdb) c
+Continuing.
+
+Program received signal SIGINT, Interrupt.
+0x000000001e6b1ff3 in ?? ()
+(gdb) reload-uefi
+EFI_SYSTEM_TABLE_POINTER @ 0x1f800000
+EFI_SYSTEM_TABLE @ 0x1f9ee018
+Connected to EDK II (Rev. 0x10000)
+ConfigurationTable @ 0x1f9eec98, 0xa entries
+DebugImageInfoTable @ 0x1f8e8018, 0x5f entries
+Found 95 images...
+Loading new symbols...
+add symbol table from file "/home/jbes/src/cont/osc/LoaderPkg/UDK/Build/OvmfX64/RELEASE_GCC5/X64/MdeModulePkg/Core/Dxe/DxeMain/DEBUG/DxeCore.debug" at
+.text_addr = 0x1febe240
+.data_addr = 0x1fed2e80
+...множество подобных строк опущены...
+(gdb) bt
+#0  0x000000001e6b1ff3 in UefiMain (ImageHandle=0x1ee84e98, SystemTable=0x1f9ee018) at /home/jbes/src/cont/osc/LoaderPkg/UDK/LoaderPkg/Loader/Bootloader.c:1017
+#1  0x000000001e6b29cb in ProcessModuleEntryPointList (ImageHandle=0x1ee84e98, SystemTable=0x1f9ee018) at /home/jbes/src/cont/osc/LoaderPkg/UDK/Build/LoaderPkg/NOOPT_GCC5/X64/LoaderPkg/Loader/Loader/DEBUG/AutoGen.c:409
+#2  0x000000001e6b666f in _ModuleEntryPoint (ImageHandle=0x1ee84e98, SystemTable=0x1f9ee018) at /home/jbes/src/cont/osc/LoaderPkg/UDK/MdePkg/Library/UefiApplicationEntryPoint/ApplicationEntryPoint.c:59
+#3  0x000000001fecf625 in CoreStartImage (ImageHandle=0x1ee84e98, ExitDataSize=0x1e7b6618, ExitData=0x1e7b6610) at /home/jbes/src/cont/osc/LoaderPkg/UDK/MdeModulePkg/Core/Dxe/Image/Image.c:1654
+#4  0x000000001f21d2e4 in EfiBootManagerBoot (BootOption=BootOption@entry=0x1e7b65c8) at /home/jbes/src/cont/osc/LoaderPkg/UDK/MdeModulePkg/Library/UefiBootManagerLib/BmBoot.c:1982
+#5  0x000000001f22016a in BootBootOptions (BootManagerMenu=0x1febdb40, BootOptionCount=5, BootOptions=0x1e7b6518) at /home/jbes/src/cont/osc/LoaderPkg/UDK/MdeModulePkg/Universal/BdsDxe/BdsEntry.c:408
+#6  BdsEntry (This=&lt;optimized out&gt;) at /home/jbes/src/cont/osc/LoaderPkg/UDK/MdeModulePkg/Universal/BdsDxe/BdsEntry.c:1062
+#7  0x000000001fec8535 in DxeMain (HobStart=0x1f8ea018) at /home/jbes/src/cont/osc/LoaderPkg/UDK/MdeModulePkg/Core/Dxe/DxeMain/DxeMain.c:543
+#8  0x000000001fec856c in ProcessModuleEntryPointList (HobStart=&lt;optimized out&gt;) at /home/jbes/src/cont/osc/LoaderPkg/UDK/Build/OvmfX64/RELEASE_GCC5/X64/MdeModulePkg/Core/Dxe/DxeMain/DEBUG/AutoGen.c:462
+#9  _ModuleEntryPoint (HobStart=&lt;optimized out&gt;) at /home/jbes/src/cont/osc/LoaderPkg/UDK/MdePkg/Library/DxeCoreEntryPoint/DxeCoreEntryPoint.c:48
+#10 0x000000001feec7ef in ?? ()
+#11 0x0000000000000000 in ?? (
+(gdb) </pre></li>
+		<li>С этого момента вы можете осуществлять пошаговое выполнение кода загрузчика JOS с помощью команд <code>n</code> (<code>next</code>) и <code>s</code> (<code>step</code>). Для выхода из бесконечного цикла ожидания отладчика используйте команду <code>p Connected = 1</code>. Данная команда обновит значение переменной и позволит продолжить выполнение процесса загрузки.</li>
+	</ol>
+
+
+	<p>Перед продолжением убедитесь, что вы понимаете, почему выполнение кода останавливается в цикле <code>while (!Connected) { }</code>.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-5"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab1/edit?section=5">Edit this section</a></div><a name="Устройство-загрузчика-JOS"></a>
+<h2>Устройство загрузчика JOS<a href="#Устройство-загрузчика-JOS" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Загрузчик JOS использует средство разработки программного обеспечения UEFI под названием <a href="https://github.com/tianocore/edk2" class="external">TianoCore EDK II</a>.
+ В системе сборки EDK II программное обеспечение группируется в пакеты 
+(packages), которые состоят из драйверов и приложений. Подробнее о 
+системе сборки EDK II можно прочесть в <a href="https://edk2-docs.gitbook.io/edk-ii-build-specification" class="external">спецификации системы сборки EDK II</a> и на <a href="https://github.com/tianocore/tianocore.github.io/wiki/Getting-Started-with-EDK-II" class="external">TianoCore Wiki</a>. EDK II пакет JOS находится в каталоге <code>LoaderPkg</code>, который состоит из одного UEFI приложения — загрузчика <code>Loader</code>, исходники которого находятся в каталоге <code>LoaderPkg/Loader</code>.
+ Для упрощения процесса сборки клонирование EDK II и передача всех 
+необходимых команд для компиляции загрузчика, а также создания 
+необходимой структуры каталогов для работы QEMU, выполняется в рамках 
+системы сборки make.</p>
+
+
+	<p>Пользовательской точкой входа в загрузчик является функция <code>UefiMain</code> в файле <code>Bootloader.c</code>. Её имя, как и файл, в котором она находится, определяется в манифесте сборки загрузчика — <code>Loader.inf</code>. В манифесте также указываются используемые в загрузчике библиотеки. Служебные библиотеки точки входа, например, <code>UefiApplicationEntryPoint</code>,
+ осуществляют проверку совместимости платформы в момент запуска 
+загрузчика, проводят инициализацию других библиотек через их 
+конструкторы и передают управление в пользовательскую точку входа. В 
+случае завершения работы приложения данная библиотека также вызывает 
+деструкторы используемых библиотек. Вместо стандартной библиотеки языка C
+ в EDK II используются собственные библиотечные функции и сервисы. О 
+возможностях UEFI Boot Services (<code>gBS</code>) и UEFI Runtime Services (<code>gRT</code>)
+ можно прочесть в спецификации UEFI. О возможностях используемых 
+библиотек можно узнать в соответствующих заголовочных файлах пакета, 
+интерфейс которого конкретная библиотека реализует. Например, интерфейс 
+библиотеки отладки, который предоставляет средства вывода отладочных 
+сообщений и встроенные проверки (assertions), описан в <code>LoaderPkg/UDK/MdePkg/Include/Library/DebugLib.h</code>.</p>
+
+
+	<p>В процессе работы загрузчик выполняет следующие шаги:</p>
+
+
+	<ol>
+	<li>Ожидает подключения отладчика GDB (если данный код активен).</li>
+		<li>Получает актуальную дату из UEFI Runtime Services и выводит её в консоль.</li>
+		<li>Выделяет память для аргументов загрузки ядра JOS.</li>
+		<li>Инициализирует параметры графики.</li>
+		<li>Загружает ядро JOS из файловой системы по пути <code>EFI\BOOT\kernel</code> и отображает в память.</li>
+		<li>Настраивает адресное пространство для работы ядра и завершает выполнение UEFI Boot Services.</li>
+		<li>Выполняет переход к точке входа ядра JOS.</li>
+	</ol>
+
+
+	<p>Изучите код загрузчика и убедитесь, что вы понимаете логику работы 
+кода загрузчика на всех этапах. Обратите внимание, что стиль написания 
+кода загрузчика JOS отличается от остального стиля кода в JOS и близок к
+ стилю кода EDK II. Спецификация стиля написания кода для EDK II 
+доступна на <a href="https://github.com/tianocore/tianocore.github.io/wiki/Code-Style-C" class="external">Wiki TianoCore</a>. Описание стиля написания кода остальной части JOS доступно в файле <code>CODING</code> и может быть применено с помощью <a href="https://clang.llvm.org/docs/ClangFormat.html" class="external">ClangFormat</a> посредством команды <code>make format</code>.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-6"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab1/edit?section=6">Edit this section</a></div><a name="Загрузка-ядра"></a>
+<h2>Загрузка ядра<a href="#Загрузка-ядра" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Рассмотрим более подробно пятый этап работы загрузчика, 
+реализованный в функции LoadKernel. JOS использует обычный механизм 
+загрузки с жесткого диска. Загрузчик получает содержимое ядра JOS 
+посредством использования протокола Simple FileSystem. Данный протокол 
+описан в спецификации UEFI и позволяет скрыть внутреннее устройство 
+драйвера носителя. Так как разработка драйверов устройств является очень
+ важной частью разработки ОС, более подробно к ней мы вернёмся в 
+следующих частях лабораторной работы. Альтернативным способом загрузки 
+является использование протокола Load Image, который позволяет 
+реализовать сетевую загрузку.</p>
+
+
+	<p>Ядро находится на диске в двоичном формате ELF (Executable and 
+Linkable Format, «Исполняемый и компонуемый формат»). При компиляции и 
+компоновке программы на C (например, ядра JOS) компилятор создает на 
+основе каждого исходного файла (.с) объектный (.о), содержащий 
+инструкции процессора в двоичном формате. Затем компоновщик объединяет 
+все скомпилированные объектные файлы в единый двоичный образ, который в 
+случае с JOS является двоичным файлом в формате ELF и находится в 
+obj/kern/kernel.</p>
+
+
+	<p>ELF-файл можно рассматривать как заголовок с метаинформацией, за 
+которой идет несколько секций программы, каждая из которых представляет 
+собой непрерывный кусок кода или данных, предназначенный для загрузки в 
+память по указанному адресу. Загрузчик никак не меняет код или данные, 
+он загружает их в память и начинает выполнение.</p>
+
+
+	<p>Метаинформация в ELF-файлах состоит из ELF-заголовка фиксированной 
+длины и заголовка программы переменной длины, в котором перечислены все 
+секции, которые должны быть загружены. Определения на языке C для этих 
+заголовков, позволяющие программно обрабатывать их, находятся в <code>LoaderPkg/Include/Elf64.h</code>. Нас интересуют следующие секции программы:</p>
+
+
+	<p><code>.text</code>: исполняемые инструкции программы;<br><code>.rodata</code>: данные только для чтения, например, строковые константы (мы не будем запрещать их чтение на аппаратном уровне);<br><code>.data</code>: инициализированные данные программы, например, глобальные переменные, объявленные с помощью конструкций вида <code>int х = 5;</code></p>
+
+
+	<p>Когда компоновщик вычисляет расположение программы в памяти, он 
+оставляет пространство для неинициализированных глобальных переменных, 
+объявленных с помощью конструкций вида int х, в секции <code>.bss</code>, которая следует сразу после <code>.data</code>.
+ Стандарт языка C требует, чтобы неинициализированные глобальные 
+переменные инициализировались нулевым значением. Таким образом, нет 
+необходимости хранить содержимое <code>.bss</code> в ELF-файле. Вместо этого компоновщик записывает только адрес и размер <code>.bss</code>. Загрузчик или сама программа должны инициализировать секцию <code>.bss</code> нулевыми значениями.</p>
+
+
+	<p>Изучите полный список названий, размеров и адресов всех секций в ядре с помощью <code>objdump</code> (<code>x86_64-jetos-elf-objdump</code> для macOS):</p>
+
+
+<pre>$ objdump -h obj/kern/kernel
+</pre>
+
+	<p>Вы увидите значительно больше секций. Большая часть секций содержит 
+отладочную информацию, которая обычно включается в исполняемый файл 
+программы, но не загружается в память.</p>
+
+
+	<p>Обратите особое внимание на значения VMA (адреса связывания) и LMA (адреса загрузки) секций <code>.bootstrap</code> и <code>.text</code>.
+ Адрес загрузки — это тот адрес, по которому секция должна быть 
+загружена в память. В структуре, описывающей формат ELF, это значение 
+хранится в поле <code>ph-&gt;p_pa</code> (в данном случае это 
+действительно физический адрес, однако в спецификации ELF фактическое 
+значение этого поля является неопределённым). Адрес связывания секции — 
+это адрес, с которого секция ожидает начать выполнение. Компоновщик 
+использует адрес связывания, например, при вычислении адреса глобальной 
+переменной, в результате чего исполняемый файл, как правило, не будет 
+работать, если он начинает выполнение с неправильного адреса. Существует
+ также возможность генерации позиционно-независимого кода, который не 
+содержит таких абсолютных адресов. Эта возможность широко используется в
+ современных библиотеках, но она связана с затратами производительности и
+ увеличением сложности, поэтому мы не будем её использовать.</p>
+
+
+	<p>В секции <code>.bootstrap</code> содержится код начальной загрузки 
+ядра JOS, осуществляющий первичную настройку виртуального адресного 
+пространства ядра, которое является обязательным в 64-битном режиме 
+работы процессора Intel. Так как окружение UEFI работает в режиме 
+однозначного отображения (Identity Mapping), т.е. отображения, в котором
+ физический адрес равен виртуальному, ядро JOS на ранней стадии запуска 
+переходит к другому отображению, исполнение в котором производится с 
+высоких адресов. По этой причине VMA и LMA адреса секций <code>.text</code> и других не совпадают. Подробнее работу с виртуальной памятью мы рассмотрим в следующих лабораторных работах.</p>
+
+
+	<p>Для удобства реализации секции ELF файла группируются в соответствии
+ с их правами доступа в сегменты, и именно по ним в соответствии со 
+спецификацией должна осуществляться загрузка образа в память. В текущей 
+версии JOS для упрощения демонстрации отсутствует защита памяти данных 
+от исполнения. В других операционных системах является стандартной 
+практика <a href="https://en.wikipedia.org/wiki/W%5EX" class="external">W^X</a> — запрета исполнения изменяемых данных. Посмотреть список сегментов можно также с помощью команды <code>objdump</code>:</p>
+
+
+<pre>$ objdump -p obj/kern/kernel</pre>
+
+	<p>Помимо информации о секциях и сегментах, есть ещё одно важное поле в заголовке ELF: <code>e_entry</code>.
+ В этом поле находится адрес точки входа в программу — адрес в одной из 
+секций, с которого программа должна начать выполнение. Для ядра JOS этот
+ адрес находится в секции <code>.bootstrap</code> и равен функции <code>_head64</code>. Вы также можете получить адрес точки входа с помощью команды <code>objdump</code>:</p>
+
+
+<pre>$ objdump -f obj/kern/kernel
+</pre>
+
+	<p>Таким образом должно быть понятно, что загрузчик JOS читает ядро с 
+диска по сегментам в память по адресу, соответствующему адресу 
+связывания секции, а затем переходит к точке входа в ядро.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-7"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab1/edit?section=7">Edit this section</a></div><a name="Доработка-загрузчика"></a>
+<h2>Доработка загрузчика<a href="#Доработка-загрузчика" class="wiki-anchor">¶</a></h2>
+
+
+	<p>В качестве знакомства с кодом загрузчика JOS внесите следующие изменения в код:</p>
+
+
+	<ol>
+	<li>Измените разрешение экрана в загрузчике на такое, с которым бы вам было наиболее удобно работать.</li>
+		<li>Отключите остановку выполнения для подключения отладчика в загрузчике.</li>
+	</ol>
+
+
+	<p><em>Подсказка</em>: в UEFI вывод на экран осуществляется с помощью 
+протокола Graphics Output, устройство которого описано в спецификации 
+UEFI. Для изменения разрешения вы можете внести изменения в функцию <code>InitGraphics</code>, обойдя все доступные разрешения и выбрав предпочтительное посредством функций <code>QueryMode</code> и <code>SetMode</code> протокола. Заголовочный файл протокола также находится по пути <code>LoaderPkg/UDK/MdePkg/Include/Protocol/GraphicsOutput.h</code>.</p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-8"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab1/edit?section=8">Edit this section</a></div><a name="Отладка-ядра"></a>
+<h2>Отладка ядра<a href="#Отладка-ядра" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Если в предыдущих пунктах всё было сделано правильно, то при выполнении команды <code>make qemu</code> в окне QEMU появится текст следующего вида:</p>
+
+
+<pre>BdsDxe: failed to load Boot0001 "UEFI QEMU DVD-ROM QM00003 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Secondary,Master,0x0): Not Found
+BdsDxe: loading Boot0002 "UEFI QEMU HARDDISK QM00001 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Primary,Master,0x0)
+BdsDxe: starting Boot0002 "UEFI QEMU HARDDISK QM00001 " from PciRoot(0x0)/Pci(0x1,0x1)/Ata(Primary,Master,0x0)
+JOS: Loading at 2021-2-7 - 9:27:9...
+JOS: Found ACPI 1.0 RSDP table 1FB7E000
+JOS: Found ACPI 2.0 RSDP table 1FB7E014
+JOS: CR0 - 80010033 CR3 - 1FC01000
+JOS: Loading kernel image...
+JOS: Loading debug tables...
+JOS: MinAddress: 0x1500000, MaxAddress: 0x1619000, Kernel size: 0x119000
+JOS: Loaded kernel with 1500000 entry point
+JOS: LoaderParams pointer: 1F940018
+JOS: KernelCallGate: 1E6D06B7
+6828 decimal is XXX octal!
+END: 0x8041619000
+Framebuffer initialised
+entering test_backtrace 5
+entering test_backtrace 4
+entering test_backtrace 3
+entering test_backtrace 2
+entering test_backtrace 1
+entering test_backtrace 0
+leaving test_backtrace 0
+leaving test_backtrace 1
+leaving test_backtrace 2
+leaving test_backtrace 3
+leaving test_backtrace 4
+leaving test_backtrace 5
+Welcome to the JOS kernel monitor!
+Type 'help' for a list of commands.
+K&gt; 
+</pre>
+
+	<p>Всё, что выведено после строки "JOS: KernelCallGate: 1E6D06B7…", 
+выведено скелетом ядра JOS. "K&gt;" — приглашение монитора 
+(интерактивной программы управления). Эти команды выводятся в окне QEMU и
+ в терминале: для тестирования ядро JOS настроено таким образом, что оно
+ выводит данные не только на экран, но и в последовательный порт, данные
+ из которого QEMU использует как стандартный вывод. Аналогично, ядро JOS
+ принимает данные как с клавиатуры, так и из параллельного порта, то 
+есть можно вводить команды как в окне QEMU, так и в терминале. В данный 
+момент существует только две команды: help и kerninfo.</p>
+
+
+	<p>По аналогии с отладкой загрузчика, откройте два окна терминала, и в 
+обоих перейдите в каталог с исходным кодом лабораторных работ. В одном 
+выполните команду <code>make qemu-gdb</code>. Во втором выполните команду <code>gdb</code> (или <code>ggdb</code> на macOS). Запустится отладчик GDB и появится текст следующего вида:</p>
+
+
+<pre>GNU gdb (GDB) 9.1
+Copyright (C) 2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-apple-darwin19.4.0".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+&lt;http://www.gnu.org/software/gdb/bugs/&gt;.
+Find the GDB manual and other documentation resources online at:
+    &lt;http://www.gnu.org/software/gdb/documentation/&gt;.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word".
++ target remote localhost:25501
+warning: No executable has been specified and target does not support
+determining executable automatically.  Try using the "file" command.
+0x000000000000fff0 in ?? ()
++ symbol-file obj/kern/kernel
+(gdb)</pre>
+
+	<p>Вы можете установить адрес точки прерывания в GDB командой <code>b</code>, для установки точки прерывания на адрес может быть использован символ <code>*</code>. Например, <code>b * 0x7c00</code> устанавливает точку прерывания на адрес 0x7C00, а <code>b func</code> — на символ <code>func</code>. Как только точка срабатывает, вы можете продолжить выполнение с помощью команд <code>c</code> и <code>si</code>: <code>c</code> заставляет QEMU продолжить выполнение до следующей точки прерывания (или до нажатия Ctrl-C в GDB), <code>si N</code> позволяет выполнить сразу N инструкций подряд.</p>
+
+
+	<p>Чтобы изучить инструкции в памяти (помимо следующей, которая будет 
+выполнена — её GDB выводит автоматически), можно использовать команду <code>x/i</code>. Эта команда имеет синтаксис <code>х/Ni ADDR</code>, где N — количество последовательных инструкций, а ADDR — адрес, с которого нужно начать.</p>
+
+
+	<p>Для отладки ядра с первой инструкции установите точку остановка на функцию <code>_head64</code> и продолжите выполнение: </p><pre>(gdb) b _head64
+Breakpoint 1 at 0x1500000: file kern/bootstrap.S, line 21.
+(gdb) c
+Continuing.
+
+Breakpoint 1, _head64 () at kern/bootstrap.S:21
+21    cli
+(gdb)</pre><p></p>
+
+
+	<p>Сравните код в отладчике с файлом obj/kern/kernel.asm. Этот файл 
+представляет собой дизассемблированный код ядра, который создается после
+ компиляции. Он позволяет увидеть, где именно находится тот или иной код
+ ядра, и упрощает отслеживание с помощью GDB. Описание ассемблера x86 
+можно найти в <a href="http://www.intel.com/products/processor/manuals/index.htm" class="external">руководстве Intel по архитектуре процессора</a>. Краткое введение в 64-битный ассемблер описано в отдельной <a href="https://software.intel.com/content/www/us/en/develop/articles/introduction-to-x64-assembly.html" class="external">статье</a>. Логика работы ассемблера x86 без 64-битного режима описано в книге <a href="http://pacman128.github.io/pcasm" class="external">PC Assembly</a>.</p>
+
+
+	<p>Для удобного просмотра исходного кода также можно воспользоваться 
+текстовым интерфейсом TUI. Переключение в TUI можно выполнить командой <code>layout next</code>.
+ Обратите внимание, что в разных видах TUI доступны разные окна, которые
+ позволяют одновременно просматривать отлаживаемую программу из разных 
+перспектив: ассемблера, исходного кода, значений регистров. Для выбора 
+активного окна в TUI используйте команду <code>focus</code>, например, <code>focus cmd</code> для выбора окна командной строки. Для выхода из TUI используйте команду <code>tui disable</code>.</p>
+
+
+	<p>Последовательно выполняйте инструкции ядра из файлов 
+kern/bootstrap.S и kern/entry.S вплоть до функции до функции 
+i386_init(), находящейся в kern/init.c. При необходимости сравнивайте 
+исходный код ядра с его дизассемблированным кодом 
+(obj/kernel/kernel.asm) и выводом GDB. Также может быть полезным 
+просмотр содержимого регистров с помощью GDB.</p>
+
+
+	<p>Для просмотра содержимого регистров процессора воспользуйтесь командой <code>info registers</code>.
+ Эта команда GDB выводит содержимое всех регистров CPU. Для печати 
+содержимого отдельного регистра, например, RAX, нужно указать регистр 
+как аргумент команды: <code>info registers rax</code>. Альтернативным способом инспекции значений, в том числе регистров, является команда <code>p</code>, например, <code>p $rax</code>.</p>
+
+
+	<p>Исследовать память можно с помощью команды GDB <code>x</code>. В руководстве GDB есть полная информация, но сейчас достаточно знать, что команда <code>х/Nx ADDR</code> выводит N слов по адресу ADDR. (Обратите внимание, что оба “<code>x</code>”
+ в команде находятся в нижнем регистре.) Внимание: размер слова не 
+является универсальным стандартом. В ассемблере GNU размер слова - 2 
+байта (буква <code>w</code> в команде <code>xorw</code> означает слово и соответствует 2 байтам)</p>
+
+
+	<p>После изучения кода начальной загрузки ядра ответьте на следующие вопросы:</p>
+
+
+	<ul>
+	<li><em>Как передаются параметры UEFI загрузчика в ядро, и куда они сохраняются?</em></li>
+		<li><em>Какой стек использует C-код ядра, и где он выделяется?</em></li>
+		<li><em>В какой момент код начинает выполняться по "верхним" адресам?</em></li>
+		<li><em>Какие значения CR3 и GDT используются на протяжении работы ядра?</em></li>
+		<li><em>Почему в стартовом коде не требуется обновлять GDT в отличие от CR3?</em></li>
+	</ul>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-9"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab1/edit?section=9">Edit this section</a></div><a name="Форматированный-вывод"></a>
+<h2>Форматированный вывод<a href="#Форматированный-вывод" class="wiki-anchor">¶</a></h2>
+
+
+	<p>Для вывода данных монитор использует функции форматированного вывода
+ (в частности, cprintf). Обычно для этого используются функции из 
+стандартной библиотеки C, однако в данном случае она избыточна. Поэтому 
+JOS использует собственный упрощенный вариант этих функций.</p>
+
+
+	<p><em>Просмотрите файлы kern/printf.c, lib/printfmt.c и 
+kern/console.c. В одном из них пропущен небольшой фрагмент кода: печать 
+чисел в восьмеричном виде при использовании последовательности %o. 
+Найдите это место и восполните недостающий фрагмент.</em></p>
+
+
+	<div class="contextual heading-2" title="Edit this section" id="section-10"><a class="icon-only icon-edit" href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab1/edit?section=10">Edit this section</a></div><a name="Проверка-и-выкладка-лабораторной-работы"></a>
+<h2>Проверка и выкладка лабораторной работы<a href="#Проверка-и-выкладка-лабораторной-работы" class="wiki-anchor">¶</a></h2>
+
+
+	<p>По окончании выполнения каждой работы необходимо убедиться, что её 
+код компилируется всеми поддерживаемыми компиляторами во всех 
+поддерживаемых конфигурациях и корректно выполняется. Если ранее вы 
+использовали компилятор GCC, убедитесь, что ваша лабораторная корректно 
+работает и с компилятором LLVM, используя команду <code>JOSLLVM=1 make qemu</code>. В противном случае проверьте GCC, указав <code>JOSLLVM=0</code>.
+ В следующих лабораторных работах у вас появятся новые переменные 
+окружения, позволяющие определить другие конфигурации запуска JOS, а 
+также команда <code>make grade</code>, которая позволяет выполнить автоматические тесты для текущей лабораторной работы.</p>
+
+
+	<p>По окончании выполнения работы следует создать в репозитории новую 
+ветку working-lab1 и сохранить в ней внесенные изменения. После этого 
+нужно добавить удаленный репозиторий для сохранения результатов по 
+предоставленному преподавателем адресу и отправить в него эту ветку, 
+например:</p>
+
+
+<pre>git checkout -b working-lab1
+git add &lt;...&gt;
+git commit -m "Lab 1 done." 
+git remote add myrepo http://sed.ispras.ru/git/&lt;name&gt;-osprac # здесь &lt;name&gt; - ваш логин на sed.ispras.ru
+git push myrepo working-lab1
+</pre>
+</div>
+
+
+<fieldset class="collapsible collapsed hide-when-print">
+  <legend onclick="toggleFieldset(this);" class="icon icon-collapsed">Files (0)</legend>
+  <div style="display: none;">
+
+  
+
+  <div id="wiki_add_attachment">
+    <form id="add_attachment_form" enctype="multipart/form-data" action="/projects/oscourse-2021-spring/wiki/Lab1/add_attachment" accept-charset="UTF-8" name="add_attachment_form-0a3c4bdc" method="post"><input name="utf8" type="hidden" value="✓"><input type="hidden" name="authenticity_token" value="t9y5SkaU1uopRccet7bNq+Wj0mg6ymlcrZH+djPR+TGwt18ic65NfxljjYgGjGn/lLhbZ00+f5DBDrXDQNo5GA==">
+      <div class="box filedroplistner">
+      <p>
+<span class="attachments_form">
+  <span class="attachments_fields">
+  </span>
+  <span class="add_attachment" style="">
+    <input type="file" name="attachments[dummy][file]" class="file_selector filedrop" multiple="multiple" onchange="addInputFiles(this);" data-max-number-of-files-message="This file cannot be uploaded because it exceeds the maximum number of files that can be attached simultaneously (10)" data-max-file-size="1024000000" data-max-file-size-message="This file cannot be uploaded because it exceeds the maximum allowed file size (977 MB)" data-max-concurrent-uploads="2" data-upload-path="/uploads.js" data-param="attachments" data-description="true" data-description-placeholder="Optional description">
+    (Maximum size: 977 MB)
+  </span>
+</span>
+
+</p>
+      </div>
+      <input type="submit" name="commit" value="Add" data-disable-with="Add">
+</form>  </div>
+</div>
+</fieldset>
+
+<p class="wiki-update-info">
+    Updated by <a class="user active" href="https://forge.ispras.ru/users/2368">Vitaly Cheptsov</a> <a title="02/20/2021 09:12 PM" href="https://forge.ispras.ru/projects/oscourse-2021-spring/activity?from=2021-02-20">12 months</a> ago
+    · <a href="https://forge.ispras.ru/projects/oscourse-2021-spring/wiki/Lab1/history">3 revisions</a>
+</p>
+
+
+
+
+
+        
+        <div style="clear:both;"></div>
+    </div>
+</div>
+<div id="footer">
+    Powered by <a href="https://www.redmine.org/">Redmine</a> © 2006-2022 Jean-Philippe Lang
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Loading...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div><div role="log" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"></div></body></html>
